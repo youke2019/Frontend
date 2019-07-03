@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,TouchableOpacity,StyleSheet} from 'react-native';
+import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import Main from './Main';
 
 var MOCKED_MAIN_DATA = [
   {
     title: "Yoke - 有课",
     postil: "——上海交通大学课程分享平台",
     posters: { thumbnail: "http://hbimg.huabanimg.com/1e48ede3e705fb1f8db05ac1b760cd6d30a307962e522-5JU1eS_fw658" },
-    user:{name,level}
+    user:{name:'zhao',level:21}
   }
 ];
 
@@ -18,15 +20,13 @@ export default class User extends Component {
        <Text style={styles.welcome}>{main.title}</Text>
        <Text style={styles.instructions}>{main.postil}</Text>
        <View>
-          <Image source = {{ uri = main.posters.thumbnail }} style = {styles.image}/>
           <View>
              <Text style={styles.instructions}>{main.user.name}</Text>
              <Text style={styles.instructions}>{main.user.level}</Text>
           </View>
-       
+
        </View>
        <View>
-          <Text>
 
 
        </View>
@@ -86,22 +86,20 @@ const styles = StyleSheet.create({
   image:{
     width:70,
     height:70,
-    resizeMode:contain,
-    blurRadius:30,
+    resizeMode:'contain',
     borderWidth: 1,
-    borderColor:'Black'
+    borderColor:'#f0f'
   },
   navbar:{
     position:'absolute',
-    buttom:0,
+    bottom:0,
     flexDirection: 'row',
     justifyContent:'space-between'
   },
   button:{
     height:40,
-    width:100,
+    width:70,
     borderRadius:20,
-    justifyContent:'center.',
     overflow:'hidden'
   }
 });

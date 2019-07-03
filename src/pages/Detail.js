@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TouchableOpacity,StyleSheet} from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+
 
 var MOCKED_MAIN_DATA = [
     {

@@ -16,6 +16,7 @@ import {
     PixelRatio
     } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import User from './User';
 
 var MOCKED_MAIN_DATA = [
    {
@@ -33,7 +34,6 @@ export default class Main extends Component {
         <Text style={styles.welcome}>{main.title}</Text>
         <Text style={styles.instructions}>{main.postil}</Text>
         <View>
-            <Image source= {{uri = main.posters.thumbnail}} style = {styles.image}/>
         </View>
         <View style={styles.navbar}>
           <TouchableOpacity
@@ -89,21 +89,20 @@ const styles = StyleSheet.create({
   },
   image:{
       width: 300,
-      hight:210,
+      height:210,
     borderWidth: 1,
-    borderColor:'Black'
+    borderColor:'#f0f'
   },
   navbar:{
     position:'absolute',
-    buttom:0,
+    bottom:0,
     flexDirection: 'row',
     justifyContent:'space-between'
     },
   button:{
     height:40,
-    width:100,
+    width:70,
     borderRadius:20,
-    justifyContent:'center.',
     overflow:'hidden'
   }
 });
