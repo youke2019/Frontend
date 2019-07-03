@@ -21,11 +21,10 @@ class HomeScreen extends React.Component {
   }
 }
 
-class SettingsScreen extends React.Component {
+class ProfileScreen extends React.Component {
   render() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Settings!</Text>
           <Login/>
         </View>
     );
@@ -34,7 +33,16 @@ class SettingsScreen extends React.Component {
 
 const TabNavigator = createBottomTabNavigator({
   Home: { screen: HomeScreen },
-  Settings: { screen: SettingsScreen },
+  Profile: {
+      screen: ProfileScreen,
+      path: 'profile'
+  },
 });
 
-export default createAppContainer(TabNavigator);
+const SimpleApp = createAppContainer(TabNavigator);
+
+const prefix = 'yoke://';
+
+const MainApp = () => <SimpleApp uriPrefix={prefix} />;
+
+export default MainApp;
