@@ -21,7 +21,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Yoke - 有课</Text>
-        <Text style={styles.instructions}>——上海交通大学课程分享平台</Text>
+        <Text style={styles.instructions}>--上海交通大学课程分享平台</Text>
         <View style={styles.navbar}>
           <TouchableOpacity
               style={styles.button}
@@ -62,7 +62,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
@@ -77,15 +77,14 @@ const styles = StyleSheet.create({
   },
   navbar:{
     position:'absolute',
-    buttom:0,
+    bottom:0,
     flexDirection: 'row',
-    justifyContent:'space-between'
+    justifyContent:'center'
     },
   button:{
     height:40,
-    width:100,
+    width:70,
     borderRadius:20,
-    justifyContent:'center.',
     overflow:'hidden'
   }
 });
