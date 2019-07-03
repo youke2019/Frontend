@@ -12,7 +12,7 @@ import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import User from './src/pages/User';
 import Main from './src/pages/Main'
-
+import Navbar from './src/component/Navbar'
 
 
 const RootStack = createStackNavigator({
