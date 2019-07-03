@@ -1,6 +1,10 @@
+#node
 node_modules
 
 # android
 android/build
 android/app/build
 android/.gradle/
+
+#idea
+.idea
