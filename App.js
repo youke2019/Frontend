@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -16,14 +16,44 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.welcome}>Yoke - 有课</Text>
+        <Text style={styles.instructions}>——上海交通大学课程分享平台</Text>
+        <View style={styles.navbar}>
+          <TouchableOpacity
+              style={styles.button}
+              onPress ={()=>{alert("主页")}}
+          >
+            <Text style = {styles.instructions}>主页</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+              style={styles.button}
+              onPress ={()=>{alert("课程库")}}
+          >
+            <Text style = {styles.instructions}>课程库</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+              style={styles.button}
+              onPress ={()=>{alert("课程表")}}
+          >
+            <Text style = {styles.instructions}>课程表</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+              style={styles.button}
+              onPress ={()=>{alert("精彩瞬间")}}
+          >
+            <Text style = {styles.instructions}>精彩瞬间</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+              style={styles.button}
+              onPress ={()=>{alert("我的")}}
+          >
+            <Text style = {styles.instructions}>我的</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -43,7 +73,19 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
     marginBottom: 5,
   },
+  navbar:{
+    position:'absolute',
+    buttom:0,
+    flexDirection: 'row',
+    justifyContent:'space-between'
+    },
+  button:{
+    height:40,
+    width:100,
+    borderRadius:20,
+    justifyContent:'center.',
+    overflow:'hidden'
+  }
 });
