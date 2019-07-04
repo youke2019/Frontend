@@ -10,8 +10,13 @@
     "axios": "^0.19.0",
     "react": "16.8.3",
     "react-native": "0.59.9",
+<<<<<<< HEAD
     "react-native-gesture-handler": "^1.3.0",
     "react-navigation": "^3.11.0"
+=======
+    "react-native-router-flux": "^4.0.6",
+    "react-native-tab-navigator": "^0.3.4"
+>>>>>>> 8e7188a37f1e484f891e2e0bb0869bfaace6df9f
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
