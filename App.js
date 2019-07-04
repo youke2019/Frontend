@@ -7,34 +7,18 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
-import Login from "./src/pages/Login"
+import {Home, Profile} from './src/pages'
+import { Provider } from 'react-redux'
+import {createStore} from 'redux'
+import {combinedReducer} from './src/redux/reducers'
 
-class HomeScreen extends React.Component {
-  render() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Home!</Text>
-        </View>
-    );
-  }
-}
-
-class ProfileScreen extends React.Component {
-  render() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Login/>
-        </View>
-    );
-  }
-}
+const store = createStore(combinedReducer)
 
 const TabNavigator = createBottomTabNavigator({
-  Home: { screen: HomeScreen },
+  Home: { screen: Home },
   Profile: {
-      screen: ProfileScreen,
+      screen: Profile,
       path: 'profile'
   },
 });
@@ -43,6 +27,10 @@ const SimpleApp = createAppContainer(TabNavigator);
 
 const prefix = 'yoke://';
 
-const MainApp = () => <SimpleApp uriPrefix={prefix} />;
+const MainApp = () => (
+    <Provider store={store}>
+        <SimpleApp uriPrefix={prefix} />
+    </Provider>
+);
 
 export default MainApp;
