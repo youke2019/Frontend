@@ -12,6 +12,7 @@ import {Home, Profile} from './src/pages'
 import { Provider } from 'react-redux'
 import {createStore} from 'redux'
 import {combinedReducer} from './src/redux/reducers'
+import Global from './src/Global'
 
 const store = createStore(combinedReducer)
 

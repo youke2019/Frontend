@@ -4,7 +4,11 @@ import axios from 'axios'
 import {updateUserInfo} from "../redux/actions";
 import {connect} from "react-redux";
 
-const mapStateToProps = state => {return {}}
+const mapStateToProps = state => {
+  return {
+    visible : state.user_info.length === 0? true:false
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -38,20 +42,20 @@ class Login extends Component {
 
     axios.get('http://10.0.2.2:8080/jaccount/profile?access_token='+access_token).then((response) => {
       this.props.updateUserInfo(response.data)
-
     }).catch((error) => {
       console.log(error)
-
     })
   }
 
   render() {
     return (
       <View>
-        <Button
-          onPress={this.click}
-          title="Login"
-        />
+        { this.props.visible ?
+            <Button
+                onPress={this.click}
+                title="Login"
+            /> : null
+        }
       </View>
     )
   }
