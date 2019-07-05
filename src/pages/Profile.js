@@ -1,6 +1,5 @@
 import React from "react";
 import {Text, View, StyleSheet} from "react-native";
-import Login from "../components/Login";
 import {Button}from 'react-native-elements'
 import {connect} from "react-redux";
 import Global from "../Global"
@@ -24,9 +23,9 @@ class Profile extends React.Component {
     logout = () => {
         storage.remove({
             key:'user'
-        }).then((data) => {
+        }).then(() => {
             this.props.clearUserInfo()
-            console.log(data)
+            this.props.navigation.navigate('Login')
         }).catch((err) => {
             console.log(err)
         })
@@ -35,7 +34,6 @@ class Profile extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Login/>
                 <Text>
                     欢迎
                 </Text>

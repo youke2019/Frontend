@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 
 const mapStateToProps = state => {
   return {
-    visible : state.user_info == null? true:false
+    visible : true
   }
 }
 
