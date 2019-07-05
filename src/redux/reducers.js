@@ -1,16 +1,28 @@
 import { combineReducers } from 'redux'
-import {UPDATE_USER_INFO,LOAD_USER_INFO} from "./actions.js"
+import {
+    UPDATE_USER_INFO,
+    LOAD_USER_INFO,
+    CLEAR_USER_INFO,
+} from "./actions.js"
+import initialState from "./state";
 
-function userInfoReducer(state=[], action) {
+import Global from '../Global'
+
+function userInfoReducer(state=initialState.user_info, action) {
     switch (action.type) {
         case UPDATE_USER_INFO:
-            global.storage.save({
+            storage.save({
                 key: 'user',
                 data: action.data
             })
-            return action.data
+            state=action.data
+            return state
         case LOAD_USER_INFO:
-            return action.data
+            state=action.data
+            return state
+        case CLEAR_USER_INFO:
+            state= null
+            return state
         default:
             return state
     }

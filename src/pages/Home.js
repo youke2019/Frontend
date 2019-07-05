@@ -25,6 +25,7 @@ class Home extends React.Component {
             autoSync: false,
             syncInBackground: false,
         }).then((data) => {
+            console.log(data)
             this.props.loadUserInfo(data)
         }).catch((err)=>{
             console.log(err)

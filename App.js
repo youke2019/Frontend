@@ -13,8 +13,9 @@ import { Provider } from 'react-redux'
 import {createStore} from 'redux'
 import {combinedReducer} from './src/redux/reducers'
 import Global from './src/Global'
+import initialState from './src/redux/state'
 
-const store = createStore(combinedReducer)
+const store = createStore(combinedReducer,initialState)
 
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: Home },
