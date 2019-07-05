@@ -2,7 +2,7 @@ import React from "react";
 import {Button, Linking, View} from "react-native"
 import {connect} from "react-redux";
 import axios from "axios";
-import {updateUserInfo} from "../redux/actions";
+import {loadUserInfo, updateUserInfo} from "../redux/actions";
 
 const mapStateToProps = state => {return{}}
 
@@ -10,6 +10,9 @@ const mapDispatchToProps = dispatch => {
     return {
         updateUserInfo: data => {
             dispatch(updateUserInfo(data))
+        },
+        loadUserInfo: data => {
+            dispatch(loadUserInfo(data))
         }
     }
 }
@@ -26,6 +29,20 @@ class Login extends React.Component {
             if (url) {
                 this.handleOpenURL({url});
             }
+        })
+    }
+
+    componentWillMount() {
+        storage.load({
+            key:'user',
+            autoSync: false,
+            syncInBackground: false,
+        }).then((data) => {
+            console.log(data)
+            this.props.loadUserInfo(data)
+            this.props.navigation.navigate('Home')
+        }).catch((err)=>{
+            console.log(err)
         })
     }
 
