@@ -1,7 +1,7 @@
 import React from "react";
 import {View} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Input, Button } from 'react-native-elements';
+import { SearchBar, Button } from 'react-native-elements';
 import {searchCourses} from "../redux/actions";
 import {connect} from "react-redux";
 import axios from "axios";
@@ -17,30 +17,39 @@ const mapDispatchToProps = dispatch => {
 }
 
 
+
 class SearchBox extends React.Component {
-    search(){
-        axios.post(baseUrl+'/courses/search',{course_name:"文学"}).then((response) => {
-            this.props.searchCourses(response.data)
-        }).catch(err => {
-            console.log(err)
-        })
+    search = () => {
+        if (this.state.search != '') {
+            axios.post(baseUrl+'/courses/search',{course_name:this.state.search}).then((response) => {
+                this.props.searchCourses(response.data)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
     }
+
+    state = {
+        search: ''
+    }
+
+    updateSearch = search => {
+        this.setState({ search });
+    };
 
     render() {
         return (
             <View>
-                <Input
+                <SearchBar
                     placeholder="请输入课程名"
-                    leftIcon={<Icon
-                        name='search'
-                        size={20}
-                        color='blue'
-                    />}
+                    onChangeText={this.updateSearch}
+                    value={this.state.search}
+                    platform='android'
                 />
                 <Button
                     title='搜索'
                     type='clear'
-                    onPress={this.search.bind(this)}
+                    onPress={this.search}
                 />
             </View>
         )
