@@ -4,21 +4,12 @@ import SearchBox from '../components/SearchBox'
 import CourseCard from '../components/CourseCard'
 
 class Course extends React.Component {
-    state = {
-        courselist : false
-    }
-
-    displayCourses(){
-        this.setState({courselist:true})
-    }
-
     render() {
         return (
             <View>
-                <SearchBox displayCourses={this.displayCourses.bind(this)}/>
+                <SearchBox/>
                 {
-                    this.state.courselist ?
-                    <CourseCard/> : null
+                    <CourseCard/>
                 }
             </View>
         )

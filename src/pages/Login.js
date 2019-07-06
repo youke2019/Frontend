@@ -54,7 +54,7 @@ class Login extends React.Component {
     handleOpenURL = ({url}) => {
         var [,access_token] = url.match(/\?access_token=(.*)/)
 
-        axios.get('http://10.0.2.2:8080/jaccount/profile?access_token='+access_token).then((response) => {
+        axios.get(baseUrl+'/jaccount/profile?access_token='+access_token).then((response) => {
             this.props.updateUserInfo(response.data)
         }).catch((error) => {
             console.log(error)
