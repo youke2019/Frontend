@@ -5,6 +5,9 @@ import { Input, Button } from 'react-native-elements';
 
 
 class SearchBox extends React.Component {
+    search(){
+        this.props.displayCourses()
+    }
     render() {
         return (
             <View>
@@ -13,12 +16,13 @@ class SearchBox extends React.Component {
                     leftIcon={<Icon
                         name='search'
                         size={20}
-                        color='orange'
+                        color='blue'
                     />}
                 />
                 <Button
                     title='搜索'
                     type='clear'
+                    onPress={this.search.bind(this)}
                 />
             </View>
         )
