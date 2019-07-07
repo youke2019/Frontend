@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Linking, View} from "react-native"
+import {Button, Linking, View, Alert} from "react-native"
 import {connect} from "react-redux";
 import axios from "axios";
 import {loadUserInfo, updateUserInfo} from "../redux/actions";
@@ -55,8 +55,18 @@ class Login extends React.Component {
         var [,access_token] = url.match(/\?access_token=(.*)/)
 
         axios.get(baseUrl+'/jaccount/profile?access_token='+access_token).then((response) => {
+            console.log(response.data)
             this.props.updateUserInfo(response.data)
+            this.props.navigation.navigate('Home')
         }).catch((error) => {
+            Alert.alert(
+                '错误',
+                '登录时发生了错误',
+                [
+                    {text: '确定', onPress: () => console.log('OK Pressed')},
+                ],
+                { cancelable: false }
+            )
             console.log(error)
         })
     }
