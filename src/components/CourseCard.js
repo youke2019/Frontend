@@ -26,7 +26,6 @@ class CourseCard extends React.Component {
                         </Card>
                     }
                     keyExtractor={(item) => item.course_id}
-
                 />
             </View>
         )
