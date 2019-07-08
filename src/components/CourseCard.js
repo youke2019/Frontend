@@ -39,7 +39,6 @@ class CourseCard extends React.Component {
                         </View>
                     }
                     keyExtractor={(item) => item.course_id}
-
                 />
             </View>
         )

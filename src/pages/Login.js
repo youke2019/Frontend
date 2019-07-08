@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => {
 
 class Login extends React.Component {
     click() {
-        Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/authorize?client_id=EHuqrWEKvazXzTErwPmCX2m1&response_type=code&redirect_uri=http://10.0.2.2:8080/jaccount/login').catch((err) => console.error("linking error",err));
+        Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/authorize?client_id=k8vX4aeVqZc0VCP1rSaG&response_type=code&redirect_uri=http://10.0.2.2:8080/jaccount/login').catch((err) => console.error("linking error",err));
     }
 
     componentDidMount() {
@@ -68,6 +68,14 @@ class Login extends React.Component {
                 { cancelable: false }
             )
             console.log(error)
+        })
+
+        axios.get('https://api.sjtu.edu.cn/v1/me/lessons?access_token='+access_token).then((response) => {
+            storage.save({
+                key: 'lessons',
+                data: response.data.entities
+            })
+            console.log(response.data)
         })
     }
 

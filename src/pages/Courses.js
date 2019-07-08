@@ -3,7 +3,7 @@ import {View} from "react-native";
 import SearchBox from '../components/SearchBox'
 import CourseCard from '../components/CourseCard'
 
-class Course extends React.Component {
+class Courses extends React.Component {
     render() {
         return (
             <View>
@@ -16,4 +16,4 @@ class Course extends React.Component {
     }
 }
 
-export default Course
+export default Courses
