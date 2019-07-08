@@ -7,8 +7,8 @@
  */
 
 import React, {Component} from 'react';
-import { createBottomTabNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
-import {Home, Profile, Course, Login} from './src/pages'
+import { createBottomTabNavigator, createAppContainer, createSwitchNavigator,createStackNavigator } from 'react-navigation';
+import {Home, Profile, Course, Login,Detail} from './src/pages'
 import { Provider } from 'react-redux'
 import {createStore} from 'redux'
 import {combinedReducer} from './src/redux/reducers'
@@ -16,10 +16,19 @@ import initialState from './src/redux/state'
 
 const store = createStore(combinedReducer,initialState)
 
+const Cour = createStackNavigator({
+    RootNavigator:{
+        screen: Course
+    },
+    Detail:{
+        screen: Detail
+    }
+})
+
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: Home },
-    Course: { screen: Course },
-    Profile: { screen: Profile },
+    Course: { screen: Cour},
+    Profile: { screen: Profile }
 });
 
 const SwitchNavigator = createSwitchNavigator({
