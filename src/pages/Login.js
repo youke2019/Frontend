@@ -20,7 +20,10 @@ const mapDispatchToProps = dispatch => {
 
 class Login extends React.Component {
     click() {
-        Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/authorize?client_id=k8vX4aeVqZc0VCP1rSaG&response_type=code&redirect_uri=http://10.0.2.2:8080/jaccount/login').catch((err) => console.error("linking error",err));
+        Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/authorize?' +
+            'client_id=k8vX4aeVqZc0VCP1rSaG' +
+            '&response_type=code' +
+            '&redirect_uri='+baseUrl+'/jaccount/login').catch((err) => console.error("linking error",err));
     }
 
     componentDidMount() {
@@ -38,7 +41,6 @@ class Login extends React.Component {
             autoSync: false,
             syncInBackground: false,
         }).then((data) => {
-            console.log(data)
             this.props.loadUserInfo(data)
             this.props.navigation.navigate('Home')
         }).catch((err)=>{
@@ -55,7 +57,6 @@ class Login extends React.Component {
         var [,access_token] = url.match(/\?access_token=(.*)/)
 
         axios.get(baseUrl+'/jaccount/profile?access_token='+access_token).then((response) => {
-            console.log(response.data)
             this.props.updateUserInfo(response.data)
             this.props.navigation.navigate('Home')
         }).catch((error) => {
