@@ -42,7 +42,6 @@ class Login extends React.Component {
             autoSync: false,
             syncInBackground: false,
         }).then((data) => {
-            console.log(data)
             this.props.loadUserInfo(data)
             this.props.navigation.navigate('Home')
         }).catch((err)=>{
@@ -59,7 +58,6 @@ class Login extends React.Component {
         var [,access_token] = url.match(/\?access_token=(.*)/)
 
         axios.get(baseUrl+'/jaccount/profile?access_token='+access_token).then((response) => {
-            console.log(response.data)
             this.props.updateUserInfo(response.data)
             this.props.navigation.navigate('Home')
         }).catch((error) => {
