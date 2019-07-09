@@ -18,9 +18,13 @@ const mapDispatchToProps = dispatch => {
 }
 
 
+
 class Login extends React.Component {
     click() {
-        Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/authorize?client_id=k8vX4aeVqZc0VCP1rSaG&response_type=code&redirect_uri=http://10.0.2.2:8080/jaccount/login').catch((err) => console.error("linking error",err));
+        Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/authorize'+
+        '?client_id=k8vX4aeVqZc0VCP1rSaG'+
+        '&response_type=code'+
+        '&redirect_uri='+baseUrl+'/jaccount/login').catch((err) => console.error("linking error",err));
     }
 
     componentDidMount() {

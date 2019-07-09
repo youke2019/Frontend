@@ -1,5 +1,5 @@
 import React from "react";
-import {View,Text,FlatList} from "react-native";
+import {View,Text,FlatList,Button} from "react-native";
 import { Card } from 'react-native-elements';
 import {connect} from "react-redux";
 import Detail from "../pages/Detail";
@@ -11,6 +11,13 @@ const mapStateToProps = state => {
 
 
 class CourseCard extends React.Component {
+    onClick = (item) =>{
+      console.log(this);
+      /* 1. Navigate to the Details route with params*/
+      this.props.navigation.navigate('Detail', {
+        course_id: item.course_id
+      })
+    }
     render() {
         return (
             <View>
@@ -26,16 +33,11 @@ class CourseCard extends React.Component {
                                 <Text>是否通识：{item.general?'是':'否'}</Text>
                             </Card>
 
-                                // This place is the button ahead to the details page
+                          {/* This place is the button ahead to the details page*/}
                             <Button
                                 title={"Go to Details"}
-                                onPress = { () =>
-                                        // 1. Navigate to the Details route with params
-                                        this.props.navigation.navigate('Detail', {
-                                          course_id: item.course_id
-                                        })
-                                      }
-                                    />
+                                onPress = {()=> this.onClick(item)}
+                            />
                         </View>
                     }
                     keyExtractor={(item) => item.course_id}
