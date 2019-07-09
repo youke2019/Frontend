@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 class Profile extends React.Component {
-    logout = () => {
+    _logout = () => {
         storage.remove({
             key:'user'
         }).then(() => {
@@ -47,7 +47,7 @@ class Profile extends React.Component {
                 </Text>
                 <Button
                     title="登出"
-                    onPress={this.logout}
+                    onPress={this._logout}
                     buttonStyle={styles.logout}
                 />
             </View>
