@@ -83,13 +83,14 @@ class Map extends React.Component {
     }
 
     render() {
+        const state = this.state;
         return (
             <View style={{ flex: 1 }}>
                 <MapView
                     style={styles.map}
                     region={{
-                        longitude: this.state.location.longitude,
-                        latitude: this.state.location.latitude,
+                        longitude: state.location.longitude,
+                        latitude: state.location.latitude,
                         longitudeDelta: 0.006,
                         latitudeDelta: 0.006,
                     }}
@@ -98,14 +99,14 @@ class Map extends React.Component {
                     }}
                 >
                     {
-                        this.state.delay ? null :
+                        state.delay ? null :
                             <Marker
                                 image="building"
-                                coordinate={this.state.location}
+                                coordinate={state.location}
                                 style={styles.marker}
                             >
                                 <View>
-                                    <Text>{this.state.building}</Text>
+                                    <Text>{state.building}</Text>
                                 </View>
                             </Marker>
                     }
@@ -113,7 +114,7 @@ class Map extends React.Component {
                 <View style={{ flex: 1}} style={styles.center}>
                     <TouchableOpacity onPress={this.buildingPick}>
                         <Text style={styles.text}>
-                            {this.state.building}
+                            {state.building}
                         </Text>
                     </TouchableOpacity>
                 </View>

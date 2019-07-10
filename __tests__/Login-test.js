@@ -1,18 +1,21 @@
 import React from 'react';
-import Profile from '../src/pages/Profile';
+
 import renderer from 'react-test-renderer';
 import {createStore} from "redux";
 import {combinedReducer} from "../src/redux/reducers";
 import initialState from "../src/redux/state";
 import {Provider} from "react-redux";
+import Login from '../src/pages/Login'
 
 const store = createStore(combinedReducer,initialState)
 
-test('renders profile page correctly', () => {
+jest.mock("../src/utils/LocalStorage.js")
+
+test('renders login page correctly', () => {
   const tree = renderer.create(
-        <Provider store={store}>
-            <Profile />
-        </Provider>
-        ).toJSON()
-    expect(tree).toMatchSnapshot()
+    <Provider store={store}>
+      <Login />
+    </Provider>
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
 });

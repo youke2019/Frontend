@@ -2,6 +2,8 @@ import React from "react";
 import {View, StyleSheet, Text, ScrollView, TouchableOpacity} from "react-native";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import Picker from 'react-native-picker'
+import { loadData } from '../utils/LocalStorage'
+import { getWeekClassTable } from '../utils/ClassLogics'
 
 
 class Classes extends React.Component {
@@ -14,11 +16,9 @@ class Classes extends React.Component {
         this.loadLessons()
     }
 
-    timePick = () => {
-        let range = [];
-        for(var i=1;i<17;i++)
-            range.push(i);
 
+    timePick = () => {
+        const range = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
         Picker.init({
             pickerTitleText:'上课周选择',
             pickerCancelBtnText:'取消',
@@ -42,64 +42,13 @@ class Classes extends React.Component {
     }
 
     loadLessons = () => {
-        storage.load({
-            key:'lessons',
-            autoSync: false,
-            syncInBackground: false,
+        loadData({
+            key:"lessons"
         }).then(data => {
-            console.log(data)
+            //console.log(data);
+            const {week} = this.state;
             this.setState({
-                classes: [[],[],[],[],[],[],[]],
-            })
-            let new_classes=[]
-            for (let lesson of data)
-                for (let item of lesson.classes)
-                    if (item.schedule.week == this.state.week)
-                        this.state.classes[item.schedule.day - 1].push({
-                            name:lesson.name,
-                            period:item.schedule.period,
-                        })
-
-            for (let weekday of this.state.classes)
-                weekday.sort((lesson1,lesson2) => lesson1.period < lesson2.period ? -1 : 1)
-
-
-            for (let weekday of this.state.classes){
-                let new_weekday = []
-                let segment = {
-                    name: null,
-                    span: 1
-                }
-                let period = 0;
-                for (let lesson of weekday){
-                    if (segment.name != lesson.name){
-                        if (lesson.period - period > 2)
-                            new_weekday.push({
-                                name:null,
-                                span:lesson.period - (period + segment.span)
-                            })
-                        period = lesson.period
-                        segment={
-                            name:lesson.name,
-                            span:1
-                        }
-                        new_weekday.push(segment)
-                    } else {
-                        segment.span++
-                    }
-                }
-
-                if (period != 16)
-                    new_weekday.push({
-                        name:null,
-                        span:17 - (period + segment.span)
-                    })
-
-                new_classes.push(new_weekday)
-            }
-
-            this.setState({
-                classes: new_classes
+                classes: getWeekClassTable(data,week)
             })
         }).catch(err => {
             console.log(err)
@@ -154,16 +103,10 @@ class Classes extends React.Component {
                             {
                                 this.state.classes.map((weekday,index) => {
                                     return (
-                                        <Col
-                                            size={2}
-                                            key={index}
-                                        >
+                                        <Col size={2} key={index} >
                                             {this.state.classes[index].map((lesson, index) => {
                                                 return (
-                                                    <Row
-                                                        size={lesson.span}
-                                                        key={index}
-                                                    >
+                                                    <Row size={lesson.span} key={index}>
                                                         {
                                                             lesson.name == null ? null :
                                                             <View style={styles.container}>

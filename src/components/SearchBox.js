@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => {
 
 class SearchBox extends React.Component {
     search = () => {
-        if (this.state.search != '') {
+        if (this.state.search !== '') {
             axios.post(baseUrl+'/courses/search',{course_name:this.state.search}).then((response) => {
                 this.props.searchCourses(response.data)
             }).catch(err => {

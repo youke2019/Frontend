@@ -6,15 +6,15 @@ import {
     SEARCH_COURSES,
 } from "./actions.js"
 import initialState from "./state";
-import axios from 'axios'
+import { saveData } from '../utils/LocalStorage'
 
 
 function userInfoReducer(state=initialState.user_info, action) {
     switch (action.type) {
         case UPDATE_USER_INFO:
-            storage.save({
-                key: 'user',
-                data: action.data
+            saveData({
+                key:"user",
+                data:action.data
             })
             state = action.data
             return state

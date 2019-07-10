@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders home page correctly 1`] = `
 <View
   style={
     Object {
@@ -13,5 +13,18 @@ exports[`renders correctly 1`] = `
   <Text>
     Home!
   </Text>
+  <Image
+    source={
+      Object {
+        "uri": "building",
+      }
+    }
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
+  />
 </View>
 `;

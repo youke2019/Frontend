@@ -32,6 +32,6 @@
     "react-test-renderer": "16.8.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native","setupFiles": ["./jest/setupfile.js"]
   }
 }

@@ -3,6 +3,8 @@ import {Button, Linking, View, Alert} from "react-native"
 import {connect} from "react-redux";
 import axios from "axios";
 import {loadUserInfo, updateUserInfo} from "../redux/actions";
+import { loadData, saveData } from '../utils/LocalStorage'
+import { EmitError, HandleError } from '../utils/ErrorAlert'
 
 const mapStateToProps = state => {return{}}
 
@@ -37,11 +39,10 @@ class Login extends React.Component {
     }
 
     componentWillMount() {
-        storage.load({
-            key:'user',
-            autoSync: false,
-            syncInBackground: false,
+        loadData({
+            key:"user"
         }).then((data) => {
+            //console.log(JSON.stringify(data))
             this.props.loadUserInfo(data)
             this.props.navigation.navigate('Home')
         }).catch((err)=>{
@@ -50,10 +51,10 @@ class Login extends React.Component {
     }
 
     handleOpenURL = ({url}) => {
-        var [,access_token] = url.match(/\?access_token=(.*)/)
+        let [,access_token] = url.match(/\?access_token=(.*)/)
 
         axios.get('https://api.sjtu.edu.cn/v1/me/lessons?access_token='+access_token).then((response) => {
-            storage.save({
+            saveData({
                 key: 'lessons',
                 data: response.data.entities
             }).then(() => {
@@ -61,31 +62,15 @@ class Login extends React.Component {
                     console.log(response)
                     this.props.updateUserInfo(response.data)
                     this.props.navigation.navigate('Home')
-                }).catch((error) => {
-                    Alert.alert(
-                        '错误',
-                        '登录时发生了错误',
-                        [
-                            {text: '确定', onPress: () => console.log('OK Pressed')},
-                        ],
-                        { cancelable: false }
-                    )
+                })}).catch(error => {
                     console.log(error)
+                    EmitError({ error_msg:"获取用户信息发生了错误" })
+                }).catch(error => {
+                    console.log(error)
+                    EmitError({ error_msg:"获取用户信息发生错误" })
                 })
-            }).catch(err => {
-                Alert.alert(
-                    '错误',
-                    '登录时发生了错误',
-                    [
-                        {text: '确定', onPress: () => console.log('OK Pressed')},
-                    ],
-                    { cancelable: false }
-                )
-                console.log(err)
-            })
+            console.log(response.data)
         })
-
-
         Linking.removeEventListener('url', this.handleOpenURL);
     }
 

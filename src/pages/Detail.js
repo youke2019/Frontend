@@ -1,80 +1,46 @@
 import React from "react";
 import {View, Text, FlatList, Alert,StyleSheet} from "react-native";
 import axios from "axios";
+import { EmitError, HandleError } from '../utils/ErrorAlert'
 
-class Title extends React.Component{
-    render(){
-        return(
-            <View style = {styles.Title}>
-                <Text> {this.props.title} </Text>
-                <Text> {this.props.content}</Text>
-                 {/*父子组件间传值*/}
-            </View>
-        )
-    }
-}
+export const Title = (props) =>(
+  <View style = {styles.Title}>
+    <Text> {props.title} </Text>
+    <Text> {props.content}</Text>
+    {/*父子组件间传值*/}
+  </View>
+)
 
-class Time extends React.Component{
-    render(){
-        return(
-            <View style = {styles.Title}>
-                <Text> 上课时间 </Text>
-                <Text> {this.props.bw} 至 {this.props.ew} 周 {this.props.eo}周 周{this.props.date} 第 {this.props.bs}至{this.props.es} 节</Text>
-               {/*父子组件间传值*/}
-            </View>
-        )
-    }
+
+const Time = (props) =>(
+  <View style = {styles.Title}>
+    <Text> 上课时间 :</Text>
+    <Text> {props.bw} 至 {props.ew} 周 {props.eo}周 周{props.date} 第 {props.bs}至{props.es} 节</Text>
+    {/*父子组件间传值*/}
+  </View>
+)
+const dateMap =["","一","二","三","四","五","六","日"];
+const weekMap ={
+  o: "单周",
+  e: "双周",
+  b: "全周"
 }
 class CourseInfo extends React.Component{
-    changeDate = (data) =>{
-        let res = "";
-        switch (data){
-            case 1 :
-             res = "一";
-             break;
-            case 2 :
-             res = "二";
-             break;
-            case 3 :
-             res = "三";
-             break;
-            case 4 :
-             res = "四";
-             break;
-            case 5 :
-             res = "五";
-             break;
-            case 6 :
-             res = "六";
-             break;
-            default:
-             res = "日";
-        }
-        return res;
-    }
-
-    changeWeek = (data) =>{
-            let res = "";
-           if( data === "o")  res = "单周";
-           if( data === "e") res = "双周";
-           if( data === "b") res = "单双周";
-            return res;
-        }
 
     render(){
-      console.log(this)
+        const {course} = this.props;
         return(
         <View style = { styles.container}>
-            <Title title = {"课程"} content = { this.props.course.course_name}/>
+            <Title title = {"课程"} content = { course.course_name}/>
             <View style ={styles.box} >
-                <Title title ={ "课程号"} content = {this.props.course.course_id}/>
-                <Title title ={"学分" } content = {this.props.course.course_credits}/>
-                <Title title = {"是否为通识"} content ={this.props.course.general? "是":"否"}/>
-                <Title title = {"通识类型"} content = {this.props.course.general_type}/>
+                <Title title ={ "课程号"} content = {course.course_id}/>
+                <Title title ={"学分" } content = {course.course_credits}/>
+                <Title title = {"是否为通识"} content ={course.general? "是":"否"}/>
+                <Title title = {"通识类型"} content = {course.general_type}/>
                 <Title title = {"选课备注"} content = {""}/>
                 <Text> 教学班信息</Text>
                 <FlatList
-                     data={this.props.course.classes}
+                     data={course.classes}
                      keyExtractor={(item) => item.course_id}
                      renderItem={({item}) =>
                          <View>
@@ -85,7 +51,7 @@ class CourseInfo extends React.Component{
                                            <View>
                                                <Title title={"上课地点"} content={item.courseroom}/>
                                                <Text>上课时间</Text>
-                                               <Time bw = {item.begin_week} ew = {item.end_week} eo = {this.changeWeek(item.oddOrEven)} date = {this.changeDate(item.week)} bs = {item.begin_sec} es = {item.end_sec}/>
+                                               <Time bw = {item.begin_week} ew = {item.end_week} eo = {dateMap[item.odd_or_even]} date = {dateMap[item.week]} bs = {item.begin_sec} es = {item.end_sec}/>
                                            </View>
                                        }
                                        keyExtractor={(item) => item.class_sec_id}
@@ -154,22 +120,13 @@ class Detail extends React.Component {
           params:params
         }).then((response) => {
             this.setCourse(response.data)
-        }).catch((error) => {
-            Alert.alert(
-                '错误',
-                '获取课程信息时发生了错误',
-                [
-                    {text: '确定', onPress: () => console.log('OK Pressed')},
-                ],
-                { cancelable: false }
-            )
+        }).catch(error => {
             console.log(error)
+            EmitError({ error_msg:"获取课程信息时发生了错误" })
         })
     }
 
     render() {
-        //const otherParam = navigation.getParam('otherParam', 'some default value');
-        //下方存疑
         return (
             <View>
                 <CourseInfo course ={this.state.courseInfo} />

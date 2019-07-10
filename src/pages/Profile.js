@@ -31,19 +31,20 @@ class Profile extends React.Component {
     }
 
     render() {
+      const {user} = this.props;
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text>
                     欢迎
                 </Text>
                 <Text>
-                    {this.props.user == null? null:this.props.user.name}
+                    {user == null? null:user.name}
                 </Text>
                 <Text>
-                    {this.props.user == null? null:this.props.user.department}
+                    {this.props.user == null? null:user.department}
                 </Text>
                 <Text>
-                    {this.props.user == null? null:this.props.user.major}
+                    {user == null? null:user.major}
                 </Text>
                 <Button
                     title="登出"
