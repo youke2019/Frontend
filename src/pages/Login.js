@@ -49,36 +49,44 @@ class Login extends React.Component {
         })
     }
 
-    componentWillUnmount() {
-        Linking.removeEventListener('url', this.handleOpenURL);
-    }
-
-
     handleOpenURL = ({url}) => {
         var [,access_token] = url.match(/\?access_token=(.*)/)
-
-        axios.get(baseUrl+'/jaccount/profile?access_token='+access_token).then((response) => {
-            this.props.updateUserInfo(response.data)
-            this.props.navigation.navigate('Home')
-        }).catch((error) => {
-            Alert.alert(
-                '错误',
-                '登录时发生了错误',
-                [
-                    {text: '确定', onPress: () => console.log('OK Pressed')},
-                ],
-                { cancelable: false }
-            )
-            console.log(error)
-        })
 
         axios.get('https://api.sjtu.edu.cn/v1/me/lessons?access_token='+access_token).then((response) => {
             storage.save({
                 key: 'lessons',
                 data: response.data.entities
+            }).then(() => {
+                axios.get(baseUrl+'/jaccount/profile?access_token='+access_token).then((response) => {
+                    console.log(response)
+                    this.props.updateUserInfo(response.data)
+                    this.props.navigation.navigate('Home')
+                }).catch((error) => {
+                    Alert.alert(
+                        '错误',
+                        '登录时发生了错误',
+                        [
+                            {text: '确定', onPress: () => console.log('OK Pressed')},
+                        ],
+                        { cancelable: false }
+                    )
+                    console.log(error)
+                })
+            }).catch(err => {
+                Alert.alert(
+                    '错误',
+                    '登录时发生了错误',
+                    [
+                        {text: '确定', onPress: () => console.log('OK Pressed')},
+                    ],
+                    { cancelable: false }
+                )
+                console.log(err)
             })
-            console.log(response.data)
         })
+
+
+        Linking.removeEventListener('url', this.handleOpenURL);
     }
 
     render() {
