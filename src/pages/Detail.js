@@ -8,7 +8,7 @@ class Title extends React.Component{
             <View style = {styles.Title}>
                 <Text> {this.props.title} </Text>
                 <Text> {this.props.content}</Text>
-                //父子组件间传值
+                 {/*父子组件间传值*/}
             </View>
         )
     }
@@ -20,7 +20,7 @@ class Time extends React.Component{
             <View style = {styles.Title}>
                 <Text> 上课时间 </Text>
                 <Text> {this.props.bw} 至 {this.props.ew} 周 {this.props.eo}周 周{this.props.date} 第 {this.props.bs}至{this.props.es} 节</Text>
-                //父子组件间传值
+               {/*父子组件间传值*/}
             </View>
         )
     }
@@ -62,8 +62,9 @@ class CourseInfo extends React.Component{
         }
 
     render(){
+      console.log(this)
         return(
-        <View>
+        <View style = { styles.container}>
             <Title title = {"课程"} content = { this.props.course.course_name}/>
             <View style ={styles.box} >
                 <Title title ={ "课程号"} content = {this.props.course.course_id}/>
@@ -74,6 +75,7 @@ class CourseInfo extends React.Component{
                 <Text> 教学班信息</Text>
                 <FlatList
                      data={this.props.course.classes}
+                     keyExtractor={(item) => item.course_id}
                      renderItem={({item}) =>
                          <View>
                              <Title title={"教学班"} content={item.classname}/>
@@ -88,10 +90,8 @@ class CourseInfo extends React.Component{
                                        }
                                        keyExtractor={(item) => item.class_sec_id}
                              />
-
-                             keyExtractor={(item) => item.course_id}
-                             />
-                         </View>}
+                         </View>
+                     }
                 />
             </View>
         </View>
@@ -146,12 +146,14 @@ class Detail extends React.Component {
 
     //what's beneath is the function that will execute once the component is created
     componentWillMount() {
-        let param = {
+        const courseId = this.props.navigation.state.params.course_id;
+        let params = {
             course_id: courseId
         }
-        axios.post(baseUrl + 'courses/specific', param).then((response) => {
-            console.log(response.data)
-            this.props.setCourse(response.data)
+        axios.get(baseUrl + '/courses/specific', {
+          params:params
+        }).then((response) => {
+            this.setCourse(response.data)
         }).catch((error) => {
             Alert.alert(
                 '错误',
@@ -166,8 +168,6 @@ class Detail extends React.Component {
     }
 
     render() {
-        const { navigation } = this.props;
-        const courseId = navigation.state.params.course_id;
         //const otherParam = navigation.getParam('otherParam', 'some default value');
         //下方存疑
         return (
@@ -184,23 +184,19 @@ export default Detail
 const styles = StyleSheet.create({
   Title: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   box:{
     borderStyle: 'dashed',
     borderWidth : 1
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    top : 50
   },
   instructions: {
-    textAlign: 'center',
-    marginBottom: 5,
+    top : 50
   },
   button:{
     height:40,

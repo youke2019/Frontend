@@ -9,7 +9,8 @@ class Courses extends React.Component {
             <View>
                 <SearchBox/>
                 {
-                    <CourseCard/>
+                    <CourseCard navigation = {this.props.navigation}
+                    />
                 }
             </View>
         )
