@@ -13,6 +13,7 @@ const mapStateToProps = state => {
 class CourseList extends React.Component {
     onClick = (item) =>{
       /* 1. Navigate to the Details route with params*/
+      console.log(item);
       this.props.navigation.navigate('Detail', {
         course_id: item.course_id
       })
@@ -34,7 +35,7 @@ class CourseList extends React.Component {
                             <Button title={"Go to Details"} onPress = {()=> this.onClick(item)}/>
                         </View>
                     }
-                    keyExtractor={(item) => item.course_id}
+                    keyExtractor={(item) => item.course_id.toString()}
                 />
             </View>
         )

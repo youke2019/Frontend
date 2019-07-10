@@ -29,10 +29,11 @@ class CourseInfo extends React.Component{
 
     render(){
         const {course} = this.props;
+        console.log(course)
         return(
         <View style = { styles.container}>
             <Title title = {"课程"} content = { course.course_name}/>
-            <View style ={styles.box} >
+            <View style ={styles.box}>
                 <Title title ={ "课程号"} content = {course.course_id}/>
                 <Title title ={"学分" } content = {course.course_credits}/>
                 <Title title = {"是否为通识"} content ={course.general? "是":"否"}/>
@@ -41,7 +42,7 @@ class CourseInfo extends React.Component{
                 <Text> 教学班信息</Text>
                 <FlatList
                      data={course.classes}
-                     keyExtractor={(item) => item.course_id}
+                     keyExtractor={(item) => item.classname.toString()}
                      renderItem={({item}) =>
                          <View>
                              <Title title={"教学班"} content={item.classname}/>
@@ -54,7 +55,7 @@ class CourseInfo extends React.Component{
                                                <Time bw = {item.begin_week} ew = {item.end_week} eo = {dateMap[item.odd_or_even]} date = {dateMap[item.week]} bs = {item.begin_sec} es = {item.end_sec}/>
                                            </View>
                                        }
-                                       keyExtractor={(item) => item.class_sec_id}
+                                       keyExtractor={(item) => item.class_sec_id.toString()}
                              />
                          </View>
                      }
@@ -112,10 +113,7 @@ class Detail extends React.Component {
 
     //what's beneath is the function that will execute once the component is created
     componentWillMount() {
-        const courseId = this.props.navigation.state.params.course_id;
-        let params = {
-            course_id: courseId
-        }
+        const params = this.props.navigation.state.params;
         axios.get(baseUrl + '/courses/specific', {
           params:params
         }).then((response) => {

@@ -2,11 +2,13 @@ import React from "react";
 import {Button, Linking, View, Alert} from "react-native"
 import {connect} from "react-redux";
 import axios from "axios";
-import {loadUserInfo, updateUserInfo} from "../redux/actions";
+import { loadUserInfo, setLogin, unsetLogin, updateUserInfo } from '../redux/actions'
 import { loadData, saveData } from '../utils/LocalStorage'
 import { EmitError, HandleError } from '../utils/ErrorAlert'
 
-const mapStateToProps = state => {return{}}
+const mapStateToProps = state => {return{
+    ready:state.login_ready,
+}}
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -15,6 +17,12 @@ const mapDispatchToProps = dispatch => {
         },
         loadUserInfo: data => {
             dispatch(loadUserInfo(data))
+        },
+        readyToLogin:()=>{
+            dispatch(setLogin())
+        },
+        doneLogin:()=>{
+            dispatch(unsetLogin())
         }
     }
 }
@@ -22,7 +30,8 @@ const mapDispatchToProps = dispatch => {
 
 
 class Login extends React.Component {
-    click() {
+    click = () => {
+        this.props.readyToLogin();
         Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/authorize'+
         '?client_id=k8vX4aeVqZc0VCP1rSaG'+
         '&response_type=code'+
@@ -30,9 +39,11 @@ class Login extends React.Component {
     }
 
     componentDidMount() {
-        Linking.addEventListener('url',this.handleOpenURL);
+        // Linking.addEventListener('url',this.handleOpenURL);
+
         Linking.getInitialURL().then((url) => {
-            if (url) {
+            console.log(this.props.ready)
+            if (url && this.props.ready) {
                 this.handleOpenURL({url});
             }
         })
@@ -71,7 +82,9 @@ class Login extends React.Component {
                 })
             console.log(response.data)
         })
-        Linking.removeEventListener('url', this.handleOpenURL);
+        console.log("remove")
+        this.props.doneLogin();
+        // Linking.removeEventListener('url', this.handleOpenURL);
     }
 
     render() {
