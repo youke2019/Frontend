@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, FlatList, Alert,StyleSheet} from "react-native";
+import {View, Text, FlatList, Alert,StyleSheet,ScrollView} from "react-native";
 import axios from "axios";
 import { EmitError, HandleError } from '../utils/ErrorAlert'
 
@@ -31,37 +31,39 @@ class CourseInfo extends React.Component{
         const {course} = this.props;
         console.log(course)
         return(
-        <View style = { styles.container}>
-            <Title title = {"课程"} content = { course.course_name}/>
-            <View style ={styles.box}>
-                <Title title ={ "课程号"} content = {course.course_id}/>
-                <Title title ={"学分" } content = {course.course_credits}/>
-                <Title title = {"是否为通识"} content ={course.general? "是":"否"}/>
-                <Title title = {"通识类型"} content = {course.general_type}/>
-                <Title title = {"选课备注"} content = {""}/>
-                <Text> 教学班信息</Text>
-                <FlatList
-                     data={course.classes}
-                     keyExtractor={(item) => item.classname.toString()}
-                     renderItem={({item}) =>
-                         <View>
-                             <Title title={"教学班"} content={item.classname}/>
-                             <Title title={"任课老师"} content={item.teacher_name}/>
-                             <FlatList data={item.classSegments}
-                                       renderItem={({item}) =>
-                                           <View>
-                                               <Title title={"上课地点"} content={item.courseroom}/>
-                                               <Text>上课时间</Text>
-                                               <Time bw = {item.begin_week} ew = {item.end_week} eo = {dateMap[item.odd_or_even]} date = {dateMap[item.week]} bs = {item.begin_sec} es = {item.end_sec}/>
-                                           </View>
-                                       }
-                                       keyExtractor={(item) => item.class_sec_id.toString()}
-                             />
-                         </View>
-                     }
-                />
+            <View style = { styles.container}>
+
+                <Title title = {"课程"} content = { course.course_name}/>
+                <View style ={styles.box}>
+                    <Title title ={ "课程号"} content = {course.course_id}/>
+                    <Title title ={"学分" } content = {course.course_credits}/>
+                    <Title title = {"是否为通识"} content ={course.general? "是":"否"}/>
+                    <Title title = {"通识类型"} content = {course.general_type}/>
+                    <Title title = {"选课备注"} content = {""}/>
+                    <Text> 教学班信息</Text>
+                    <FlatList
+                        data={course.classes}
+                        keyExtractor={(item) => item.classname.toString()}
+                        renderItem={({item}) =>
+                            <View style={{height:200}}>
+                                <Title title={"教学班"} content={item.classname}/>
+                                <Title title={"任课老师"} content={item.teacher_name}/>
+                                <FlatList data={item.classSegments}
+                                          renderItem={({item}) =>
+                                              <View>
+                                                  <Title title={"上课地点"} content={item.courseroom}/>
+                                                  <Text>上课时间</Text>
+                                                  <Time bw = {item.begin_week} ew = {item.end_week} eo = {dateMap[item.odd_or_even]} date = {dateMap[item.week]} bs = {item.begin_sec} es = {item.end_sec}/>
+                                              </View>
+                                          }
+                                          keyExtractor={(item) => item.class_sec_id.toString()}
+                                />
+                            </View>
+                        }
+                    />
+                </View>
+
             </View>
-        </View>
         )
     }
 }
@@ -138,25 +140,16 @@ export default Detail
 
 const styles = StyleSheet.create({
   Title: {
-    flex: 1,
     backgroundColor: '#F5FCFF',
   },
   box:{
     borderStyle: 'dashed',
-    borderWidth : 1
+    borderWidth : 1,
   },
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    top : 50
+    top : 50,
+    bottom: 50,
   },
-  instructions: {
-    top : 50
-  },
-  button:{
-    height:40,
-    width:70,
-    borderRadius:20,
-    overflow:'hidden'
-  }
 });

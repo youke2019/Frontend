@@ -16,7 +16,7 @@ import initialState from './src/redux/state'
 
 const store = createStore(combinedReducer,initialState)
 
-const Cour = createStackNavigator({
+const CourseNavigator = createStackNavigator({
     RootNavigator:{
         screen: Course
     },
@@ -27,7 +27,7 @@ const Cour = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: Home },
-    Course: { screen: Cour},
+    Course: CourseNavigator,
     Classes: { screen: Classes },
     Map: { screen: Map},
     Profile: { screen: Profile },
@@ -37,6 +37,16 @@ const SwitchNavigator = createSwitchNavigator({
     Login: { screen: Login },
     App: TabNavigator
 })
+
+CourseNavigator.navigationOptions = ({ navigation }) => {
+    let tabBarVisible = true
+    if (navigation.state.index > 0) {
+        tabBarVisible = false
+    }
+    return {
+        tabBarVisible,
+    }
+}
 
 const SimpleApp = createAppContainer(SwitchNavigator);
 
