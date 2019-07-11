@@ -21,7 +21,8 @@ const CourseNavigator = createStackNavigator({
         screen: Course
     },
     Detail:{
-        screen: Detail
+        screen: Detail,
+
     }
 })
 

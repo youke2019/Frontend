@@ -103,7 +103,7 @@ class Detail extends React.Component {
     }
 
     static navigationOptions = ({navigation}) => ({
-        title : 'details for course ${navigation.state.params.course_id}'
+        title : '课程详情',
     })
     //标题
 

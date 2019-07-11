@@ -1,5 +1,6 @@
 import React from "react";
-import {Button, Linking, View, Alert} from "react-native"
+import { Linking, View, ImageBackground, StatusBar, StyleSheet} from "react-native"
+import {Button} from 'react-native-elements'
 import {connect} from "react-redux";
 import axios from "axios";
 import { loadUserInfo, setLogin, unsetLogin, updateUserInfo } from '../redux/actions'
@@ -30,6 +31,10 @@ const mapDispatchToProps = dispatch => {
 
 
 class Login extends React.Component {
+    static navigationOptions = {
+        header: null,  //隐藏顶部导航栏
+    };
+
     click = () => {
         this.props.readyToLogin();
         Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/authorize'+
@@ -89,15 +94,36 @@ class Login extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Button
-                    onPress={this.click}
-                    title="Login"
-                />
-            </View>
+            <ImageBackground
+                style={{flex:1}}
+                source={require('../../public/images/login.jpg')}
+            >
+                <StatusBar hidden={true} />
+                <View style={{ flex: 1}}/>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <Button
+                        buttonStyle = {styles.button}
+                        onPress={this.click}
+                        title="登录"
+                        titleStyle={styles.text}
+                    />
+                </View>
+            </ImageBackground>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    button: {
+        backgroundColor: 'orange',
+        width: 150,
+    },
+    text:{
+        fontFamily: '字魂70号-灵悦黑体',
+        fontSize: 25,
+        lineHeight: 25
+    }
+})
 
 export default connect(
     mapStateToProps,
