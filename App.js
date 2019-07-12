@@ -11,7 +11,6 @@ import {
     createAppContainer,
     createSwitchNavigator,
     createStackNavigator,
-    createDrawerNavigator
 } from 'react-navigation';
 import {
     Home,
@@ -21,7 +20,6 @@ import {
     Detail,
     Classes,
     Map,
-    Drawer
 } from './src/pages'
 import { Provider } from 'react-redux'
 import {createStore} from 'redux'
@@ -30,15 +28,11 @@ import initialState from './src/redux/state'
 
 const store = createStore(combinedReducer,initialState)
 
-const DrawerNavigator = createDrawerNavigator({
+
+const CourseNavigator = createStackNavigator({
     Search: {
         screen: Course
     },
-    Drawer: {screen: Drawer}
-})
-
-const CourseNavigator = createStackNavigator({
-    RootNavigator: DrawerNavigator,
     Detail:{
         screen: Detail,
 

@@ -5,7 +5,7 @@ import LoginPage from './Login.js'
 import ClassesPage from './Classes.js'
 import DetailPage from './Detail.js'
 import MapPage from './Map.js'
-import DrawerPage from './Drawer.js'
+import DrawerPage from '../components/Drawer.js'
 
 export const Home = HomePage
 export const Profile = ProfilePage
