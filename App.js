@@ -25,6 +25,7 @@ import { Provider } from 'react-redux'
 import {createStore} from 'redux'
 import {combinedReducer} from './src/redux/reducers'
 import initialState from './src/redux/state'
+import ProfileSetting from './src/pages/ProfileSetting'
 
 const store = createStore(combinedReducer,initialState)
 
@@ -39,12 +40,17 @@ const CourseNavigator = createStackNavigator({
     }
 })
 
+
+const ProfileNavigator = createStackNavigator({
+    Profile : {screen: Profile},
+    ProfileSetting :{ screen: ProfileSetting},
+})
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: Home },
     Course: CourseNavigator,
     Classes: { screen: Classes },
     Map: { screen: Map},
-    Profile: { screen: Profile },
+    Profile: { screen: ProfileNavigator },
 });
 
 const SwitchNavigator = createSwitchNavigator({

@@ -29,7 +29,9 @@ class Profile extends React.Component {
             console.log(err)
         })
     }
-
+    gotoProfileSetting = () =>{
+      this.props.navigation.navigate("ProfileSetting");
+    }
     render() {
       const {user} = this.props;
         return (
@@ -37,7 +39,10 @@ class Profile extends React.Component {
                 <Text>
                     欢迎
                 </Text>
-                <Text>
+              <Text>
+                {user == null ? null : user.nickname}
+              </Text>
+              <Text>
                     {user == null? null:user.name}
                 </Text>
                 <Text>
@@ -47,10 +52,17 @@ class Profile extends React.Component {
                     {user == null? null:user.major}
                 </Text>
                 <Button
+                  title={"编辑资料"}
+                  onPress={this.gotoProfileSetting}
+                  type={"outline"}
+                  buttonStyle={styles.link}
+                />
+                <Button
                     title="登出"
                     onPress={this._logout}
                     buttonStyle={styles.logout}
                 />
+
             </View>
         );
     }
@@ -59,7 +71,10 @@ class Profile extends React.Component {
 const styles = StyleSheet.create({
     logout: {
         backgroundColor: 'crimson'
-    }
+    },
+    link: {
+      borderColor: "#ffff00"
+  }
 })
 
 export default connect(
