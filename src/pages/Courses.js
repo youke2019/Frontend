@@ -20,7 +20,10 @@ const mapDispatchToProps = dispatch => {
 class Courses extends React.Component {
     state = {
         filterVisible:false,
-        filterList: {},
+        filterList: {
+            学分:[],
+            通识类型:[],
+        },
     }
 
     filterNotEmpty = () => {
@@ -36,11 +39,20 @@ class Courses extends React.Component {
 
             let data = {
                 course_name:keyword,
-                course_credits:[]
+                course_credits:[],
+                general_types:[],
             }
             for (let item of this.state.filterList['学分'])
                 data.course_credits.push(item)
-
+            //后端缺陷
+            if (data.course_credits.length == 0)
+                delete data.course_credits
+            for (let item of this.state.filterList['通识类型'])
+                data.general_types.push(item)
+            //后端缺陷
+            if (data.general_types.length == 0)
+                delete data.general_types
+            console.log(data)
             axios.post(baseUrl+'/courses/search',data).then((response) => {
                 this.props.searchCourses(response.data)
             }).catch(err => {
