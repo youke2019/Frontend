@@ -1,14 +1,26 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Yoke
  *
  * @format
  * @flow
  */
 
 import React, {Component} from 'react';
-import { createBottomTabNavigator, createAppContainer, createSwitchNavigator,createStackNavigator } from 'react-navigation';
-import {Home, Profile, Course, Login, Detail, Classes, Map} from './src/pages'
+import {
+    createBottomTabNavigator,
+    createAppContainer,
+    createSwitchNavigator,
+    createStackNavigator,
+} from 'react-navigation';
+import {
+    Home,
+    Profile,
+    Course,
+    Login,
+    Detail,
+    Classes,
+    Map,
+} from './src/pages'
 import { Provider } from 'react-redux'
 import {createStore} from 'redux'
 import {combinedReducer} from './src/redux/reducers'
@@ -17,12 +29,14 @@ import ProfileSetting from './src/pages/ProfileSetting'
 
 const store = createStore(combinedReducer,initialState)
 
-const Cour = createStackNavigator({
-    RootNavigator:{
+
+const CourseNavigator = createStackNavigator({
+    Search: {
         screen: Course
     },
     Detail:{
-        screen: Detail
+        screen: Detail,
+
     }
 })
 
@@ -33,7 +47,7 @@ const ProfileNavigator = createStackNavigator({
 })
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: Home },
-    Course: { screen: Cour},
+    Course: CourseNavigator,
     Classes: { screen: Classes },
     Map: { screen: Map},
     Profile: { screen: ProfileNavigator },
@@ -43,6 +57,16 @@ const SwitchNavigator = createSwitchNavigator({
     Login: { screen: Login },
     App: TabNavigator
 })
+
+CourseNavigator.navigationOptions = ({ navigation }) => {
+    let tabBarVisible = true
+    if (navigation.state.index > 0) {
+        tabBarVisible = false
+    }
+    return {
+        tabBarVisible,
+    }
+}
 
 const SimpleApp = createAppContainer(SwitchNavigator);
 
