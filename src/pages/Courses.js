@@ -23,6 +23,7 @@ class Courses extends React.Component {
         filterList: {
             学分:[],
             通识类型:[],
+            上课时间:[],
         },
     }
 
@@ -41,18 +42,25 @@ class Courses extends React.Component {
                 course_name:keyword,
                 course_credits:[],
                 general_types:[],
+                weekdays:[],
             }
             for (let item of this.state.filterList['学分'])
                 data.course_credits.push(item)
-            //后端缺陷
             if (data.course_credits.length == 0)
                 delete data.course_credits
+
             for (let item of this.state.filterList['通识类型'])
                 data.general_types.push(item)
-            //后端缺陷
             if (data.general_types.length == 0)
                 delete data.general_types
+
+            for (let item of this.state.filterList['上课时间'])
+                data.weekdays.push(item)
+            if (data.weekdays.length == 0)
+                delete data.weekdays
+
             console.log(data)
+
             axios.post(baseUrl+'/courses/search',data).then((response) => {
                 this.props.searchCourses(response.data)
             }).catch(err => {

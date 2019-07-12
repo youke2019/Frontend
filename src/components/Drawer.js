@@ -17,9 +17,18 @@ class Drawer extends React.Component {
             ],
             general:[
                 {name:'人文学科',value:'人文学科'},
-                {name:'社会学科',value:'社会学科'},
-                {name:'自然学科',value:'自然学科'},
+                {name:'社会科学',value:'社会科学'},
+                {name:'自然科学',value:'自然科学'},
                 {name:'工程科学与技术',value:'工程科学与技术'},
+            ],
+            time:[
+                {name:'周一',value:1},
+                {name:'周二',value:2},
+                {name:'周三',value:3},
+                {name:'周四',value:4},
+                {name:'周五',value:5},
+                {name:'周六',value:6},
+                {name:'周日',value:7},
             ]
         }
     }
@@ -50,6 +59,11 @@ class Drawer extends React.Component {
                     <FilterItem
                         title="通识类型"
                         list={list.general}
+                        updateFilter={(filter) => this.updateFilter(filter)}
+                    />
+                    <FilterItem
+                        title="上课时间"
+                        list={list.time}
                         updateFilter={(filter) => this.updateFilter(filter)}
                     />
                 </View>
