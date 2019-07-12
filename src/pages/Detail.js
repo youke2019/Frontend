@@ -25,7 +25,7 @@ const weekMap ={
   e: "双周",
   b: "全周"
 }
-class CourseInfo extends React.Component{ //todo: redo this page.
+class CourseDetail extends React.Component{ //todo: redo this page.
 
     render(){
         const {course} = this.props;
@@ -38,7 +38,7 @@ class CourseInfo extends React.Component{ //todo: redo this page.
                 <Title title ={"学分" } content = {course.course_credits}/>
                 <Title title = {"是否为通识"} content ={course.general? "是":"否"}/>
                 <Title title = {"通识类型"} content = {course.general_type}/>
-                <Title title = {"选课备注"} content = {""}/>
+                <Title title = {"选课备注"} content = {course.course_note}/>
                 <Text> 教学班信息</Text>
                 <FlatList
                      data={course.classes}
@@ -127,7 +127,7 @@ class Detail extends React.Component {
     render() {
         return (
             <View>
-                <CourseInfo course ={this.state.courseInfo} />
+                <CourseDetail course ={this.state.courseInfo} />
             </View>
         )
     }
