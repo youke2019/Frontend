@@ -1,5 +1,13 @@
 import React from "react";
-import { Linking, View, ImageBackground, StatusBar, StyleSheet} from "react-native"
+import {
+    Linking,
+    View,
+    ImageBackground,
+    StatusBar,
+    StyleSheet,
+    Text,
+} from "react-native"
+import Loading from '../components/Loading'
 import {Button} from 'react-native-elements'
 import {connect} from "react-redux";
 import axios from "axios";
@@ -31,21 +39,15 @@ const mapDispatchToProps = dispatch => {
 
 
 class Login extends React.Component {
+    state = {
+        visible: false,
+    }
+
     static navigationOptions = {
         header: null,  //隐藏顶部导航栏
     };
 
-    click = () => {
-        this.props.readyToLogin();
-        Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/authorize'+
-        '?client_id=k8vX4aeVqZc0VCP1rSaG'+
-        '&response_type=code'+
-        '&redirect_uri='+baseUrl+'/jaccount/login').catch((err) => console.error("linking error",err));
-    }
-
     componentDidMount() {
-        // Linking.addEventListener('url',this.handleOpenURL);
-
         Linking.getInitialURL().then((url) => {
             console.log(this.props.ready)
             if (url && this.props.ready) {
@@ -58,7 +60,6 @@ class Login extends React.Component {
         loadData({
             key:"user"
         }).then((data) => {
-            //console.log(JSON.stringify(data))
             this.props.loadUserInfo(data)
             this.props.navigation.navigate('Home')
         }).catch((err)=>{
@@ -66,7 +67,18 @@ class Login extends React.Component {
         })
     }
 
+    click = () => {
+        this.props.readyToLogin();
+        Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/authorize'+
+            '?client_id=k8vX4aeVqZc0VCP1rSaG'+
+            '&response_type=code'+
+            '&redirect_uri='+baseUrl+'/jaccount/login').catch((err) => console.error("linking error",err));
+    }
+
     handleOpenURL = ({url}) => {
+        this.setState({
+            visible: true
+        })
         let [,access_token] = url.match(/\?access_token=(.*)/)
 
         axios.get('https://api.sjtu.edu.cn/v1/me/lessons?access_token='+access_token).then((response) => {
@@ -89,34 +101,46 @@ class Login extends React.Component {
         })
         console.log("remove")
         this.props.doneLogin();
-        // Linking.removeEventListener('url', this.handleOpenURL);
     }
 
     render() {
         return (
             <ImageBackground
                 style={{flex:1}}
-                source={require('../../public/images/login.jpg')}
+                source={require('../../public/images/bg.png')}
             >
                 <StatusBar hidden={true} />
-                <View style={{ flex: 1}}/>
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <View style={styles.container}>
+                    <Text style={styles.title}>有课</Text>
+                </View>
+                <View style={styles.container}>
                     <Button
                         buttonStyle = {styles.button}
                         onPress={this.click}
-                        title="登录"
+                        title="用Jaccount登录"
                         titleStyle={styles.text}
                     />
                 </View>
+                <Loading visible={this.state.visible} />
             </ImageBackground>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    title:{
+        fontFamily: '字魂17号-萌趣果冻体',
+        fontSize: 90,
+        color: '#FFFEEE'
+    },
     button: {
         backgroundColor: 'orange',
-        width: 150,
+        width: 210,
     },
     text:{
         fontFamily: '字魂70号-灵悦黑体',

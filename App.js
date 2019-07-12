@@ -1,14 +1,28 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Yoke
  *
  * @format
  * @flow
  */
 
 import React, {Component} from 'react';
-import { createBottomTabNavigator, createAppContainer, createSwitchNavigator,createStackNavigator } from 'react-navigation';
-import {Home, Profile, Course, Login, Detail, Classes, Map} from './src/pages'
+import {
+    createBottomTabNavigator,
+    createAppContainer,
+    createSwitchNavigator,
+    createStackNavigator,
+    createDrawerNavigator
+} from 'react-navigation';
+import {
+    Home,
+    Profile,
+    Course,
+    Login,
+    Detail,
+    Classes,
+    Map,
+    Drawer
+} from './src/pages'
 import { Provider } from 'react-redux'
 import {createStore} from 'redux'
 import {combinedReducer} from './src/redux/reducers'
@@ -16,10 +30,15 @@ import initialState from './src/redux/state'
 
 const store = createStore(combinedReducer,initialState)
 
-const CourseNavigator = createStackNavigator({
-    RootNavigator:{
+const DrawerNavigator = createDrawerNavigator({
+    Search: {
         screen: Course
     },
+    Drawer: {screen: Drawer}
+})
+
+const CourseNavigator = createStackNavigator({
+    RootNavigator: DrawerNavigator,
     Detail:{
         screen: Detail,
 
