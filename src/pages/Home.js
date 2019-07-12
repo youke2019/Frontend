@@ -6,7 +6,7 @@ class Home extends React.Component {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text>Home!</Text>
-                <Image source={{uri: 'building'}} style={{width: 40, height: 40}} />
+                <Image source={{uri: 'editing'}} style={{width: 40, height: 40}} />
             </View>
         );
     }

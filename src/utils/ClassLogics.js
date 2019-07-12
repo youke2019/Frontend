@@ -1,5 +1,5 @@
 export function getWeekClassTable (data,week) {
-  //console.log(data);
+  //console.log(JSON.stringify(data));
   let classTable = [[],[],[],[],[],[],[]];
   for (let lesson of data)
     for (let item of lesson.classes)
@@ -41,5 +41,6 @@ export function getWeekClassTable (data,week) {
       })
     new_classTable.push(new_weekday);
   }
+  console.log(JSON.stringify( new_classTable));
   return new_classTable;
 }

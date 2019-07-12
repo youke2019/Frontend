@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import axios from "axios";
 import { loadUserInfo, setLogin, unsetLogin, updateUserInfo } from '../redux/actions'
 import { loadData, saveData } from '../utils/LocalStorage'
-import { EmitError, HandleError } from '../utils/ErrorAlert'
+import { EmitError } from '../utils/ErrorAlert'
 
 const mapStateToProps = state => {return{
     ready:state.login_ready,

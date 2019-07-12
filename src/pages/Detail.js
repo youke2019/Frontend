@@ -25,7 +25,7 @@ const weekMap ={
   e: "双周",
   b: "全周"
 }
-class CourseInfo extends React.Component{
+class CourseInfo extends React.Component{ //todo: redo this page.
 
     render(){
         const {course} = this.props;
@@ -101,7 +101,7 @@ class Detail extends React.Component {
     }
 
     static navigationOptions = ({navigation}) => ({
-        title : 'details for course ${navigation.state.params.course_id}'
+        title : '课程详情'
     })
     //标题
 
