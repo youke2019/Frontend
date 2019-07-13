@@ -23,5 +23,6 @@ test('test function updateFilter()', () => {
     wrapper.find({title:'通识类型'}).props().updateFilter()
     wrapper.find({title:'上课时间'}).props().updateFilter()
     expect(updateFilter).toHaveBeenCalledTimes(3)
+
 });
 
