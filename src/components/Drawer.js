@@ -1,9 +1,6 @@
 import React from "react";
-import {
-    Text,
-    View
-} from "react-native";
-import {Overlay, Button} from 'react-native-elements'
+import { View } from "react-native";
+import {Overlay} from 'react-native-elements'
 import FilterItem from './FilterItem'
 
 class Drawer extends React.Component {

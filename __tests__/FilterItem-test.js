@@ -4,13 +4,12 @@ import FilterItem from '../src/components/FilterItem';
 import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16'
 import {shallow, mount, render, configure} from 'enzyme'
-import Home from "../src/pages/Home";
 
 configure({adapter: new Adapter()})
 
-function updateFilter(filter){
+const updateFilter = jest.fn((filter) => {
 
-}
+})
 
 const list = {
     credits:[
@@ -49,8 +48,7 @@ test('test function changeSelectState()', () => {
     />)
 
     const button = { name: '1', value: '1', selected: true }
-    console.log(wrapper.state().list)
-    console.log(wrapper.find({title:'1'}).props().onPress())
-    console.log(wrapper.state().list)
+    wrapper.find({title:'1'}).props().onPress()
     expect(wrapper.state().list).toContainEqual(button)
+    expect(updateFilter).toHaveBeenCalled()
 });
