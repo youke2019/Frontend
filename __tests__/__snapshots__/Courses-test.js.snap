@@ -2,6 +2,46 @@
 
 exports[`renders course page correctly 1`] = `
 <View>
+  <View
+    accessibilityRole="button"
+    accessibilityStates={Array []}
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#007AFF",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        筛选
+      </Text>
+    </View>
+  </View>
   <View>
     <View
       style={
@@ -1849,5 +1889,1179 @@ exports[`renders course page correctly 1`] = `
       </View>
     </RCTScrollView>
   </View>
+  <Modal
+    hardwareAccelerated={false}
+    onRequestClose={[Function]}
+    theme={
+      Object {
+        "colors": Object {
+          "disabled": "hsl(208, 8%, 90%)",
+          "divider": "#bcbbc1",
+          "error": "#ff190c",
+          "grey0": "#393e42",
+          "grey1": "#43484d",
+          "grey2": "#5e6977",
+          "grey3": "#86939e",
+          "grey4": "#bdc6cf",
+          "grey5": "#e1e8ee",
+          "greyOutline": "#bbb",
+          "platform": Object {
+            "android": Object {
+              "error": "#f44336",
+              "primary": "#2196f3",
+              "secondary": "#9C27B0",
+              "success": "#4caf50",
+              "warning": "#ffeb3b",
+            },
+            "ios": Object {
+              "error": "#ff3b30",
+              "primary": "#007aff",
+              "secondary": "#5856d6",
+              "success": "#4cd964",
+              "warning": "#ffcc00",
+            },
+          },
+          "primary": "#2089dc",
+          "searchBg": "#303337",
+          "secondary": "#8F0CE8",
+          "success": "#52c41a",
+          "warning": "#faad14",
+        },
+      }
+    }
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(0, 0, 0, .4)",
+          "height": "100%",
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "top": 0,
+          "width": "100%",
+        }
+      }
+      testID="RNE__Overlay__backdrop"
+    />
+    <View
+      pointerEvents="box-none"
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderRadius": 3,
+            "height": 1154,
+            "padding": 10,
+            "shadowColor": "rgba(0, 0, 0, .3)",
+            "shadowOffset": Object {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowRadius": 4,
+            "width": 670,
+          }
+        }
+      >
+        <View>
+          <View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "flex": 8,
+                  }
+                }
+              >
+                学分
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "flex": 1,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "arrow_up_outline",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        1
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        2
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        3
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        4
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "flex": 8,
+                  }
+                }
+              >
+                通识类型
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "flex": 1,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "arrow_up_outline",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        人文学科
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        社会科学
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        自然科学
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        工程科学与技术
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "flex": 8,
+                  }
+                }
+              >
+                上课时间
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "flex": 1,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "arrow_up_outline",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        周一
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        周二
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        周三
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        周四
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        周五
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        周六
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "padding": 6,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 3,
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#F8F8FF",
+                          "borderColor": "#2089dc",
+                          "borderRadius": 3,
+                          "borderWidth": 0,
+                          "flexDirection": "row",
+                          "justifyContent": "center",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "black",
+                            "fontSize": 15,
+                            "paddingBottom": 1,
+                            "paddingTop": 2,
+                            "textAlign": "center",
+                          }
+                        }
+                      >
+                        周日
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
 </View>
 `;

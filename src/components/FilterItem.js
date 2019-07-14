@@ -39,7 +39,7 @@ class FilterItem extends React.Component {
         filter[this.props.title] = []
         for (let item of this.state.list)
             if (item.selected == true)
-                filter[this.props.title].push(item.name)
+                filter[this.props.title].push(item.value)
 
         this.props.updateFilter(filter)
     }
@@ -65,7 +65,10 @@ class FilterItem extends React.Component {
                     fold &&
                     <View  style={styles.button_container}>
                         {list.map((item) =>
-                            <View style={styles.button_wrap}>
+                            <View
+                                key={item.name}
+                                style={styles.button_wrap}
+                            >
                                 <Button
                                     title={item.name}
                                     raised={item.selected? true:false}
