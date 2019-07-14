@@ -1,5 +1,6 @@
 import React from "react";
-import {View, Button} from "react-native";
+import {StyleSheet, View, Image} from "react-native";
+import {Button} from "react-native-elements"
 import Drawer from '../components/Drawer'
 import SearchBox from '../components/SearchBox'
 import CourseList from '../components/CourseList'
@@ -91,13 +92,26 @@ class Courses extends React.Component {
     render() {
         return (
             <View>
-                <Button
-                    onPress={this.showFilter}
-                    title="筛选"
-                />
-                <SearchBox
-                    onPress={(keyword) => this.search(keyword)}
-                />
+                <View style={styles.container}>
+                    <View style={{flex:1}}>
+                        <Button
+                            icon={<Image
+                                style={styles.filter}
+                                source={{uri:'filter'}}
+                            />}
+                            containerStyle={styles.button}
+                            titleStyle={styles.text}
+                            onPress={this.showFilter}
+                            type="clear"
+                            title="筛选"
+                        />
+                    </View>
+                    <View style={{flex:5}}>
+                        <SearchBox
+                            onPress={(keyword) => this.search(keyword)}
+                        />
+                    </View>
+                </View>
                 <CourseList navigation = {this.props.navigation}/>
                 <Drawer
                     visible={this.state.filterVisible}
@@ -108,6 +122,32 @@ class Courses extends React.Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: 'yellow',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    button_container:{
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    filter_container:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    filter:{
+        height: 15,
+        width: 15,
+    },
+    text:{
+        color: 'black',
+        fontSize: 14,
+    },
+})
 
 export default connect(
     mapStateToProps,
