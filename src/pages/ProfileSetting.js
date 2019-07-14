@@ -49,6 +49,13 @@ class ProfileSetting extends React.Component {
       })
     })
   }
+  closeNickname = () =>{
+    this.setState({
+      visible: Object.assign({},this.state.visible,{
+        nickname:false,
+      })
+    })
+  }
   updateNickname =(event)=>{
     const new_user_info = this.state.user_info;
     new_user_info.nickname = event.nativeEvent.text;
@@ -60,10 +67,8 @@ class ProfileSetting extends React.Component {
       if (response.data.success) {
         this.setState({
           user_info: new_user_info,
-          visible: Object.assign({},this.state.visible,{
-            nickname:false,
-          })
-        })
+        });
+        this.closeNickname();
       }else{
         if(response.data.error_msg === "Duplicate Nickname"){
           EmitError({error_msg: "名字重复了哦!"})
@@ -84,11 +89,14 @@ class ProfileSetting extends React.Component {
         />
         {
           visible.nickname &&
-            <Overlay isVisible height={100}>
+            <Overlay
+              isVisible
+              height={100}
+              onBackdropPress={this.closeNickname}
+            >
               <Input
                 label={"取个昵称"}
                 placeholder='叫什么呢'
-                onBackdropPress={this.closeNickname}
                 autoFocus = {true}
                 onSubmitEditing = {this.updateNickname}
               />
