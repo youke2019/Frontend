@@ -60,7 +60,7 @@ class SearchBox extends React.Component {
 
 const styles = StyleSheet.create({
     container:{
-        height:100,
+        height:80,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -95,6 +95,8 @@ const styles = StyleSheet.create({
     button_text:{
         color: 'black',
         fontSize: 15,
+        fontFamily: '字魂70号-灵悦黑体',
+        lineHeight: 20,
     }
 })
 

@@ -45,8 +45,8 @@ class CourseList extends React.Component {
                                         style={styles.detail}
                                         onPress = {()=> this.onClick(item)}
                                     >
-                                        <View style={{flex:4,alignItems:'flex-end'}}>
-                                            <Text style={{fontSize: 12}}>详情查看</Text>
+                                        <View style={styles.detail_text_container}>
+                                            <Text style={styles.detail_text}>详情查看</Text>
                                         </View>
                                         <View style={{flex:1}}>
                                             <Image
@@ -67,14 +67,14 @@ class CourseList extends React.Component {
                                             />
                                             <Text>课程编号：{item.course_id}</Text>
                                         </View>
-                                        <View style={{flex:1, flexDirection: 'row', alignItems: 'flex-start'}}>
+                                        <View style={styles.course_info}>
                                             <Image
                                                 style={styles.icon}
                                                 source={{uri:'course_credit'}}
                                             />
                                             <Text>学分：{item.course_credits}</Text>
                                         </View>
-                                        <View style={{flex:1, flexDirection: 'row', alignItems: 'flex-start'}}>
+                                        <View style={styles.course_info}>
                                             <Image
                                                 style={styles.icon}
                                                 source={{uri:'general'}}
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     container:{
         justifyContent: 'center',
         alignItems: 'center',
+        paddingBottom: 100,
     },
     card_container:{
         width:330,
@@ -112,21 +113,29 @@ const styles = StyleSheet.create({
     header:{
         flex: 1,
         flexDirection: 'row',
-        paddingVertical: 20,
+        paddingVertical: 12,
         justifyContent: 'space-between',
         alignItems: 'center',
     },
     title:{
         flex:3,
-        fontSize: 16,
+        fontSize: 18,
         paddingHorizontal:10,
-        fontWeight: '400',
         color: 'black',
+        fontFamily: '字魂95号-手刻宋',
     },
     detail:{
         flex:1,
         flexDirection: 'row',
         justifyContent: 'flex-end',
+    },
+    detail_text_container:{
+        flex:4,
+        justifyContent: 'center',
+        alignItems:'flex-end'
+    },
+    detail_text:{
+        fontSize: 12,
     },
     detail_enter_arrow:{
         width:17,
@@ -139,7 +148,7 @@ const styles = StyleSheet.create({
     content:{
         flex: 3,
         flexDirection: 'row',
-        padding:20,
+        padding:12,
         justifyContent: 'flex-start',
         alignItems: 'center',
     },
@@ -150,8 +159,8 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     icon:{
-        width:20,
-        height:20,
+        width:24,
+        height:24,
     },
 })
 

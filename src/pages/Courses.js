@@ -1,5 +1,11 @@
 import React from "react";
-import {StyleSheet, View, Image} from "react-native";
+import {
+    StyleSheet,
+    View,
+    Image,
+    ImageBackground,
+    ScrollView,
+} from "react-native";
 import {Button} from "react-native-elements"
 import Drawer from '../components/Drawer'
 import SearchBox from '../components/SearchBox'
@@ -91,7 +97,11 @@ class Courses extends React.Component {
 
     render() {
         return (
-            <View>
+            <ImageBackground
+                style={{flex:1}}
+                imageStyle={{resizeMode: 'cover'}}
+                source={{uri:'course_background'}}
+            >
                 <View style={styles.container}>
                     <View style={{flex:1}}>
                         <Button
@@ -118,14 +128,13 @@ class Courses extends React.Component {
                     onBackdropPress = {this.onBackdropPress}
                     updateFilter={(filter) => this.updateFilter(filter)}
                 />
-            </View>
+            </ImageBackground>
         )
     }
 }
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: 'yellow',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
