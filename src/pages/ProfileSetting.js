@@ -4,6 +4,7 @@ import axios from  'axios'
 import { connect } from 'react-redux'
 import { Input, ListItem, Overlay } from 'react-native-elements'
 import { EmitError } from '../utils/ErrorAlert'
+import { loadUserInfo, updateUserInfo } from '../redux/actions'
 
 const mapStateToProps = state => {return{
   user_info: state.user_info,
@@ -11,7 +12,9 @@ const mapStateToProps = state => {return{
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    updateUserInfo: data => {
+      dispatch(updateUserInfo(data))
+    },
   }
 }
 class ProfileSetting extends React.Component {
@@ -68,6 +71,7 @@ class ProfileSetting extends React.Component {
         this.setState({
           user_info: new_user_info,
         });
+        this.props.updateUserInfo(new_user_info);
         this.closeNickname();
       }else{
         if(response.data.error_msg === "Duplicate Nickname"){

@@ -33,6 +33,7 @@ class Profile extends React.Component {
       this.props.navigation.navigate("ProfileSetting");
     }
     render() {
+      console.log(this.props);
       const {user} = this.props;
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -46,7 +47,7 @@ class Profile extends React.Component {
                     {user == null? null:user.name}
                 </Text>
                 <Text>
-                    {this.props.user == null? null:user.department}
+                    {user == null? null:user.department}
                 </Text>
                 <Text>
                     {user == null? null:user.major}

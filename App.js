@@ -30,20 +30,22 @@ import ProfileSetting from './src/pages/ProfileSetting'
 const store = createStore(combinedReducer,initialState)
 
 
+
 const CourseNavigator = createStackNavigator({
     Search: {
         screen: Course
     },
     Detail:{
         screen: Detail,
-
     }
 })
 
 
 const ProfileNavigator = createStackNavigator({
     Profile : {screen: Profile},
-    ProfileSetting :{ screen: ProfileSetting},
+    ProfileSetting :{
+        screen: ProfileSetting,
+    },
 })
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: Home },

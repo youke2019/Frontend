@@ -1,7 +1,10 @@
 import React from "react";
-import {View, Text, FlatList, Alert,StyleSheet,ScrollView} from "react-native";
+import { View, Text, FlatList, Alert, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import axios from "axios";
 import { EmitError, HandleError } from '../utils/ErrorAlert'
+import { ShadowedTitle } from '../components/ShadowedTitle'
+import { Image } from 'react-native-elements'
+import { UnshadowedTitle } from '../components/UnshadowedTitle'
 
 export const Title = (props) =>(
   <View style = {styles.Title}>
@@ -31,9 +34,34 @@ class CourseDetail extends React.Component{ //todo: redo this page.
         const {course} = this.props;
         console.log(course)
         return(
-            <View style = { styles.container}>
-
-                <Title title = {"课程"} content = { course.course_name}/>
+            <View style = {styles.container}>
+              <View style = {styles.title_container}>
+                <View >
+                  <Image source={{uri:'course_name'}} style={{width: 40, height: 40}}/>
+                </View>
+                <ShadowedTitle text={course.course_name} style = {styles.course_name}/>
+              </View>
+              <View style={styles.main_part}>
+                <View style = {styles.main_pic}>
+                   <Image source={{uri:'building'}} style ={{height:100,width:100}}/>
+                </View>
+                <View style = {styles.main_info}>
+                  <UnshadowedTitle uri={'teacher'} title ={"上课教师"} content={"老师"}/>
+                  <UnshadowedTitle uri={'clock'} title ={"上课时间"} content={"周二下午2-4"}/>
+                  <UnshadowedTitle uri={'location'} title ={"上课地点"} content={"东上院102"}/>
+                  <UnshadowedTitle uri={'school'} title ={"开设学院"} content={"设计"}/>
+                  <UnshadowedTitle uri={'course_id'} title ={"课号       "} content={course.course_id}/>
+                  <UnshadowedTitle uri={'credit'} title ={"学分       "} content={course.course_credits}/>
+                </View>
+              </View>
+              <View style ={styles.course_notes}>
+                <Text style = {styles.notes_title}>
+                  选课备注
+                </Text>
+                <Text >
+                  {"这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可"}
+                </Text>
+              </View>
                 <View style ={styles.box}>
                     <Title title ={ "课程号"} content = {course.course_id}/>
                     <Title title ={"学分" } content = {course.course_credits}/>
@@ -139,17 +167,49 @@ export default Detail
 
 
 const styles = StyleSheet.create({
-  Title: {
-    backgroundColor: '#F5FCFF',
+  notes_title:{
+    marginLeft:5,
+    marginTop: 5,
+    fontSize: 15,
+    fontWeight:'bold',
+    color: 'grey',
+  },
+  course_notes:{
+    marginLeft:40,
+    marginRight:20,
+    marginTop: 10,
+  },
+  main_part:{
+    marginTop:30,
+    flexDirection:"row",
+    display:'flex',
+  },
+  main_pic:{
+    backgroundColor: "grey",
+    flex:1,
+  },
+  main_info:{
+    flex:1,
+  },
+  course_name: {
+    flex:5
+  },
+  title_container:{
+    marginTop:20,
+    marginLeft:20,
+    flexDirection: 'row',
+    display:'flex'
   },
   box:{
     borderStyle: 'dashed',
     borderWidth : 1,
   },
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    top : 50,
-    bottom: 50,
+    alignItems: 'flex-start',
+    display:'flex',
+    flexDirection: 'column',
   },
+  course_name_img:{
+    flex:1
+  }
 });
