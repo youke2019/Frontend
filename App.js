@@ -33,11 +33,12 @@ const store = createStore(combinedReducer,initialState)
 
 const CourseNavigator = createStackNavigator({
     Search: {
-        screen: Course
+        screen: Course,
+        navigationOptions:{
+            header:null
+        }
     },
-    Detail:{
-        screen: Detail,
-    }
+    Detail:{ screen: Detail }
 })
 
 
