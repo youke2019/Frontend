@@ -31,6 +31,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.8.0",
+    "jsdom": "^15.1.1",
     "metro-react-native-babel-preset": "^0.54.1",
     "react-test-renderer": "16.8.3"
   },
@@ -38,6 +39,7 @@
     "preset": "react-native",
     "setupFiles": [
       "./jest/setupfile.js"
-    ]
+    ],
+    "testEnvironment": "jsdom"
   }
 }

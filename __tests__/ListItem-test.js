@@ -2,10 +2,9 @@ import React from 'react'
 import ListItem from '../src/components/ListItem'
 import Adapter from 'enzyme-adapter-react-16'
 import {shallow,configure} from 'enzyme'
+import renderer from 'react-test-renderer';
 
 configure({adapter: new Adapter()})
-
-import renderer from 'react-test-renderer';
 
 test('render an empty ListItem', () => {
     const tree = renderer.create(<ListItem />).toJSON();

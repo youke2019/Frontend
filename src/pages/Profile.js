@@ -36,9 +36,11 @@ class Profile extends React.Component {
             console.log(err)
         })
     }
+
     gotoProfileSetting = () =>{
         this.props.navigation.navigate("ProfileSetting");
     }
+
     render() {
         const {user} = this.props;
 
