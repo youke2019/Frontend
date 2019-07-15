@@ -20,7 +20,6 @@ const mapStateToProps = state => {
 
 class CourseList extends React.Component {
     onClick = (item) => {
-      console.log(item);
       this.props.navigation.navigate('Detail', {
         course_id: item.course_id
       })
@@ -42,7 +41,7 @@ class CourseList extends React.Component {
                                     <Text style={styles.title}>{item.course_name}</Text>
                                     <TouchableOpacity
                                         style={styles.detail}
-                                        onPress = {()=> this.onClick(item)}
+                                        onPress = {() => this.onClick(item)}
                                     >
                                         <View style={styles.detail_text_container}>
                                             <Text style={styles.detail_text}>详情查看</Text>

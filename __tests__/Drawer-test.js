@@ -16,6 +16,13 @@ test('renders Drawer correctly', () => {
     expect(tree).toMatchSnapshot();
 });
 
+test('test anonymous function onPress', () => {
+    let wrapper = shallow(<Drawer updateFilter={updateFilter}/>)
+
+    wrapper.props().onBackdropPress()
+    expect.anything()
+});
+
 test('test function updateFilter()', () => {
     let wrapper = shallow(<Drawer updateFilter={updateFilter}/>)
 
@@ -23,6 +30,5 @@ test('test function updateFilter()', () => {
     wrapper.find({title:'通识类型'}).props().updateFilter()
     wrapper.find({title:'上课时间'}).props().updateFilter()
     expect(updateFilter).toHaveBeenCalledTimes(3)
-
 });
 

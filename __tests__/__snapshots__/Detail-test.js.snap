@@ -5,110 +5,9 @@ exports[`renders detail page correctly 1`] = `
   <View
     style={
       Object {
-        "flex": 1,
-        "flexDirection": "row",
-        "height": 40,
-        "justifyContent": "center",
-        "marginLeft": 20,
-        "marginTop": 25,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "flex": 0.7,
-          "height": 50,
-          "opacity": 1,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "uri": "navigate-return",
-          }
-        }
-        style={
-          Object {
-            "height": 25,
-            "width": 25,
-          }
-        }
-      />
-    </View>
-    <View
-      style={
-        Object {
-          "flex": 5,
-          "flexDirection": "row",
-          "justifyContent": "center",
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "flex": 1,
-          }
-        }
-        theme={
-          Object {
-            "colors": Object {
-              "disabled": "hsl(208, 8%, 90%)",
-              "divider": "#bcbbc1",
-              "error": "#ff190c",
-              "grey0": "#393e42",
-              "grey1": "#43484d",
-              "grey2": "#5e6977",
-              "grey3": "#86939e",
-              "grey4": "#bdc6cf",
-              "grey5": "#e1e8ee",
-              "greyOutline": "#bbb",
-              "platform": Object {
-                "android": Object {
-                  "error": "#f44336",
-                  "primary": "#2196f3",
-                  "secondary": "#9C27B0",
-                  "success": "#4caf50",
-                  "warning": "#ffeb3b",
-                },
-                "ios": Object {
-                  "error": "#ff3b30",
-                  "primary": "#007aff",
-                  "secondary": "#5856d6",
-                  "success": "#4cd964",
-                  "warning": "#ffcc00",
-                },
-              },
-              "primary": "#2089dc",
-              "searchBg": "#303337",
-              "secondary": "#8F0CE8",
-              "success": "#52c41a",
-              "warning": "#faad14",
-            },
-          }
-        }
-      >
-         课程
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
         "alignItems": "flex-start",
         "display": "flex",
         "flexDirection": "column",
-        "marginTop": 30,
       }
     }
   >
@@ -117,106 +16,12 @@ exports[`renders detail page correctly 1`] = `
         Object {
           "display": "flex",
           "flexDirection": "row",
-          "height": 25,
-          "justifyContent": "flex-start",
-          "marginBottom": 15,
           "marginLeft": 20,
-          "marginTop": 15,
+          "marginTop": 20,
         }
       }
     >
-      <View
-        style={
-          Object {
-            "backgroundColor": "transparent",
-            "position": "relative",
-          }
-        }
-      >
-        <Image
-          onLoadEnd={[Function]}
-          source={
-            Object {
-              "uri": "course_name",
-            }
-          }
-          style={
-            Object {
-              "height": 25,
-              "width": 25,
-            }
-          }
-          theme={
-            Object {
-              "colors": Object {
-                "disabled": "hsl(208, 8%, 90%)",
-                "divider": "#bcbbc1",
-                "error": "#ff190c",
-                "grey0": "#393e42",
-                "grey1": "#43484d",
-                "grey2": "#5e6977",
-                "grey3": "#86939e",
-                "grey4": "#bdc6cf",
-                "grey5": "#e1e8ee",
-                "greyOutline": "#bbb",
-                "platform": Object {
-                  "android": Object {
-                    "error": "#f44336",
-                    "primary": "#2196f3",
-                    "secondary": "#9C27B0",
-                    "success": "#4caf50",
-                    "warning": "#ffeb3b",
-                  },
-                  "ios": Object {
-                    "error": "#ff3b30",
-                    "primary": "#007aff",
-                    "secondary": "#5856d6",
-                    "success": "#4cd964",
-                    "warning": "#ffcc00",
-                  },
-                },
-                "primary": "#2089dc",
-                "searchBg": "#303337",
-                "secondary": "#8F0CE8",
-                "success": "#52c41a",
-                "warning": "#faad14",
-              },
-            }
-          }
-        />
-        <View
-          style={
-            Object {
-              "bottom": 0,
-              "left": 0,
-              "opacity": 1,
-              "position": "absolute",
-              "right": 0,
-              "top": 0,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#bdbdbd",
-                "height": 25,
-                "justifyContent": "center",
-                "width": 25,
-              }
-            }
-            testID="RNE__Image__placeholder"
-          />
-        </View>
-      </View>
-      <View
-        style={
-          Object {
-            "height": 25,
-          }
-        }
-      >
+      <View>
         <View
           style={
             Object {
@@ -229,15 +34,12 @@ exports[`renders detail page correctly 1`] = `
             onLoadEnd={[Function]}
             source={
               Object {
-                "uri": "yellow_line",
+                "uri": "course_name",
               }
             }
             style={
               Object {
-                "height": 10,
-                "left": 8,
-                "position": "absolute",
-                "top": 12,
+                "height": 40,
                 "width": 40,
               }
             }
@@ -296,11 +98,8 @@ exports[`renders detail page correctly 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#bdbdbd",
-                  "height": 10,
+                  "height": 40,
                   "justifyContent": "center",
-                  "left": 8,
-                  "position": "absolute",
-                  "top": 12,
                   "width": 40,
                 }
               }
@@ -308,11 +107,19 @@ exports[`renders detail page correctly 1`] = `
             />
           </View>
         </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 35,
+          }
+        }
+      >
         <Text
           style={
             Object {
-              "fontSize": 18,
-              "fontWeight": "bold",
+              "fontSize": 20,
+              "fontWeight": "100",
               "marginLeft": 10,
               "textAlign": "left",
             }
@@ -357,6 +164,97 @@ exports[`renders detail page correctly 1`] = `
         >
           
         </Text>
+        <View
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "position": "relative",
+            }
+          }
+        >
+          <Image
+            onLoadEnd={[Function]}
+            source={
+              Object {
+                "uri": "yellow_line",
+              }
+            }
+            style={
+              Object {
+                "bottom": 0,
+                "height": 25,
+                "left": 0,
+                "position": "absolute",
+                "width": "auto",
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "opacity": 1,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#bdbdbd",
+                  "bottom": 0,
+                  "height": 25,
+                  "justifyContent": "center",
+                  "left": 0,
+                  "position": "absolute",
+                  "width": "auto",
+                }
+              }
+              testID="RNE__Image__placeholder"
+            />
+          </View>
+        </View>
       </View>
     </View>
     <View
@@ -364,109 +262,108 @@ exports[`renders detail page correctly 1`] = `
         Object {
           "display": "flex",
           "flexDirection": "row",
-          "marginTop": 10,
+          "marginTop": 30,
         }
       }
     >
       <View
         style={
           Object {
-            "backgroundColor": "transparent",
-            "position": "relative",
+            "backgroundColor": "grey",
+            "flex": 1,
           }
         }
       >
-        <Image
-          onLoadEnd={[Function]}
-          source={
-            Object {
-              "uri": "cover_3",
-            }
-          }
-          style={
-            Object {
-              "flex": 1,
-              "marginLeft": 10,
-              "marginRight": 5,
-              "minHeight": 100,
-              "resizeMode": "cover",
-              "width": 180,
-            }
-          }
-          theme={
-            Object {
-              "colors": Object {
-                "disabled": "hsl(208, 8%, 90%)",
-                "divider": "#bcbbc1",
-                "error": "#ff190c",
-                "grey0": "#393e42",
-                "grey1": "#43484d",
-                "grey2": "#5e6977",
-                "grey3": "#86939e",
-                "grey4": "#bdc6cf",
-                "grey5": "#e1e8ee",
-                "greyOutline": "#bbb",
-                "platform": Object {
-                  "android": Object {
-                    "error": "#f44336",
-                    "primary": "#2196f3",
-                    "secondary": "#9C27B0",
-                    "success": "#4caf50",
-                    "warning": "#ffeb3b",
-                  },
-                  "ios": Object {
-                    "error": "#ff3b30",
-                    "primary": "#007aff",
-                    "secondary": "#5856d6",
-                    "success": "#4cd964",
-                    "warning": "#ffcc00",
-                  },
-                },
-                "primary": "#2089dc",
-                "searchBg": "#303337",
-                "secondary": "#8F0CE8",
-                "success": "#52c41a",
-                "warning": "#faad14",
-              },
-            }
-          }
-        />
         <View
           style={
             Object {
-              "bottom": 0,
-              "left": 0,
-              "opacity": 1,
-              "position": "absolute",
-              "right": 0,
-              "top": 0,
+              "backgroundColor": "transparent",
+              "position": "relative",
             }
           }
         >
+          <Image
+            onLoadEnd={[Function]}
+            source={
+              Object {
+                "uri": "building",
+              }
+            }
+            style={
+              Object {
+                "height": 100,
+                "width": 100,
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
+              }
+            }
+          />
           <View
             style={
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#bdbdbd",
-                "flex": 1,
-                "justifyContent": "center",
-                "marginLeft": 10,
-                "marginRight": 5,
-                "minHeight": 100,
-                "resizeMode": "cover",
-                "width": 180,
+                "bottom": 0,
+                "left": 0,
+                "opacity": 1,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
               }
             }
-            testID="RNE__Image__placeholder"
-          />
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#bdbdbd",
+                  "height": 100,
+                  "justifyContent": "center",
+                  "width": 100,
+                }
+              }
+              testID="RNE__Image__placeholder"
+            />
+          </View>
         </View>
       </View>
       <View
         style={
           Object {
             "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "space-between",
           }
         }
       >
@@ -474,9 +371,8 @@ exports[`renders detail page correctly 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "display": "flex",
               "flexDirection": "row",
-              "flexWrap": "wrap",
-              "marginTop": 5,
             }
           }
         >
@@ -569,7 +465,7 @@ exports[`renders detail page correctly 1`] = `
             style={
               Object {
                 "fontSize": 14,
-                "fontWeight": "bold",
+                "fontWeight": "100",
                 "marginLeft": 10,
                 "textAlign": "left",
               }
@@ -612,15 +508,13 @@ exports[`renders detail page correctly 1`] = `
               }
             }
           >
-            上课教师:
+            上课教师: 
           </Text>
           <Text
-            numberOfLines={3}
             style={
               Object {
                 "fontSize": 14,
                 "fontWeight": "normal",
-                "lineHeight": 20,
                 "marginLeft": 10,
                 "textAlign": "left",
               }
@@ -663,16 +557,401 @@ exports[`renders detail page correctly 1`] = `
               }
             }
           >
-            
+            老师
           </Text>
         </View>
         <View
           style={
             Object {
               "alignItems": "center",
+              "display": "flex",
               "flexDirection": "row",
-              "flexWrap": "wrap",
-              "marginTop": 5,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "position": "relative",
+              }
+            }
+          >
+            <Image
+              onLoadEnd={[Function]}
+              source={
+                Object {
+                  "uri": "clock",
+                }
+              }
+              style={
+                Object {
+                  "height": 14,
+                  "width": 14,
+                }
+              }
+              theme={
+                Object {
+                  "colors": Object {
+                    "disabled": "hsl(208, 8%, 90%)",
+                    "divider": "#bcbbc1",
+                    "error": "#ff190c",
+                    "grey0": "#393e42",
+                    "grey1": "#43484d",
+                    "grey2": "#5e6977",
+                    "grey3": "#86939e",
+                    "grey4": "#bdc6cf",
+                    "grey5": "#e1e8ee",
+                    "greyOutline": "#bbb",
+                    "platform": Object {
+                      "android": Object {
+                        "error": "#f44336",
+                        "primary": "#2196f3",
+                        "secondary": "#9C27B0",
+                        "success": "#4caf50",
+                        "warning": "#ffeb3b",
+                      },
+                      "ios": Object {
+                        "error": "#ff3b30",
+                        "primary": "#007aff",
+                        "secondary": "#5856d6",
+                        "success": "#4cd964",
+                        "warning": "#ffcc00",
+                      },
+                    },
+                    "primary": "#2089dc",
+                    "searchBg": "#303337",
+                    "secondary": "#8F0CE8",
+                    "success": "#52c41a",
+                    "warning": "#faad14",
+                  },
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#bdbdbd",
+                    "height": 14,
+                    "justifyContent": "center",
+                    "width": 14,
+                  }
+                }
+                testID="RNE__Image__placeholder"
+              />
+            </View>
+          </View>
+          <Text
+            style={
+              Object {
+                "fontSize": 14,
+                "fontWeight": "100",
+                "marginLeft": 10,
+                "textAlign": "left",
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
+              }
+            }
+          >
+            上课时间: 
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 14,
+                "fontWeight": "normal",
+                "marginLeft": 10,
+                "textAlign": "left",
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
+              }
+            }
+          >
+            周二下午2-4
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "position": "relative",
+              }
+            }
+          >
+            <Image
+              onLoadEnd={[Function]}
+              source={
+                Object {
+                  "uri": "location",
+                }
+              }
+              style={
+                Object {
+                  "height": 14,
+                  "width": 14,
+                }
+              }
+              theme={
+                Object {
+                  "colors": Object {
+                    "disabled": "hsl(208, 8%, 90%)",
+                    "divider": "#bcbbc1",
+                    "error": "#ff190c",
+                    "grey0": "#393e42",
+                    "grey1": "#43484d",
+                    "grey2": "#5e6977",
+                    "grey3": "#86939e",
+                    "grey4": "#bdc6cf",
+                    "grey5": "#e1e8ee",
+                    "greyOutline": "#bbb",
+                    "platform": Object {
+                      "android": Object {
+                        "error": "#f44336",
+                        "primary": "#2196f3",
+                        "secondary": "#9C27B0",
+                        "success": "#4caf50",
+                        "warning": "#ffeb3b",
+                      },
+                      "ios": Object {
+                        "error": "#ff3b30",
+                        "primary": "#007aff",
+                        "secondary": "#5856d6",
+                        "success": "#4cd964",
+                        "warning": "#ffcc00",
+                      },
+                    },
+                    "primary": "#2089dc",
+                    "searchBg": "#303337",
+                    "secondary": "#8F0CE8",
+                    "success": "#52c41a",
+                    "warning": "#faad14",
+                  },
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#bdbdbd",
+                    "height": 14,
+                    "justifyContent": "center",
+                    "width": 14,
+                  }
+                }
+                testID="RNE__Image__placeholder"
+              />
+            </View>
+          </View>
+          <Text
+            style={
+              Object {
+                "fontSize": 14,
+                "fontWeight": "100",
+                "marginLeft": 10,
+                "textAlign": "left",
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
+              }
+            }
+          >
+            上课地点: 
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 14,
+                "fontWeight": "normal",
+                "marginLeft": 10,
+                "textAlign": "left",
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
+              }
+            }
+          >
+            东上院102
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "row",
             }
           }
         >
@@ -765,7 +1044,7 @@ exports[`renders detail page correctly 1`] = `
             style={
               Object {
                 "fontSize": 14,
-                "fontWeight": "bold",
+                "fontWeight": "100",
                 "marginLeft": 10,
                 "textAlign": "left",
               }
@@ -808,15 +1087,13 @@ exports[`renders detail page correctly 1`] = `
               }
             }
           >
-            开设学院:
+            开设学院: 
           </Text>
           <Text
-            numberOfLines={3}
             style={
               Object {
                 "fontSize": 14,
                 "fontWeight": "normal",
-                "lineHeight": 20,
                 "marginLeft": 10,
                 "textAlign": "left",
               }
@@ -859,16 +1136,15 @@ exports[`renders detail page correctly 1`] = `
               }
             }
           >
-            
+            设计
           </Text>
         </View>
         <View
           style={
             Object {
               "alignItems": "center",
+              "display": "flex",
               "flexDirection": "row",
-              "flexWrap": "wrap",
-              "marginTop": 5,
             }
           }
         >
@@ -961,7 +1237,7 @@ exports[`renders detail page correctly 1`] = `
             style={
               Object {
                 "fontSize": 14,
-                "fontWeight": "bold",
+                "fontWeight": "100",
                 "marginLeft": 10,
                 "textAlign": "left",
               }
@@ -1004,15 +1280,13 @@ exports[`renders detail page correctly 1`] = `
               }
             }
           >
-            课号:
+            课号       : 
           </Text>
           <Text
-            numberOfLines={3}
             style={
               Object {
                 "fontSize": 14,
                 "fontWeight": "normal",
-                "lineHeight": 20,
                 "marginLeft": 10,
                 "textAlign": "left",
               }
@@ -1062,9 +1336,8 @@ exports[`renders detail page correctly 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "display": "flex",
               "flexDirection": "row",
-              "flexWrap": "wrap",
-              "marginTop": 5,
             }
           }
         >
@@ -1157,7 +1430,7 @@ exports[`renders detail page correctly 1`] = `
             style={
               Object {
                 "fontSize": 14,
-                "fontWeight": "bold",
+                "fontWeight": "100",
                 "marginLeft": 10,
                 "textAlign": "left",
               }
@@ -1200,15 +1473,13 @@ exports[`renders detail page correctly 1`] = `
               }
             }
           >
-            学分:
+            学分       : 
           </Text>
           <Text
-            numberOfLines={3}
             style={
               Object {
                 "fontSize": 14,
                 "fontWeight": "normal",
-                "lineHeight": 20,
                 "marginLeft": 10,
                 "textAlign": "left",
               }
@@ -1254,202 +1525,6 @@ exports[`renders detail page correctly 1`] = `
             
           </Text>
         </View>
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "flexWrap": "wrap",
-              "marginTop": 5,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "backgroundColor": "transparent",
-                "position": "relative",
-              }
-            }
-          >
-            <Image
-              onLoadEnd={[Function]}
-              source={
-                Object {
-                  "uri": "student",
-                }
-              }
-              style={
-                Object {
-                  "height": 14,
-                  "width": 14,
-                }
-              }
-              theme={
-                Object {
-                  "colors": Object {
-                    "disabled": "hsl(208, 8%, 90%)",
-                    "divider": "#bcbbc1",
-                    "error": "#ff190c",
-                    "grey0": "#393e42",
-                    "grey1": "#43484d",
-                    "grey2": "#5e6977",
-                    "grey3": "#86939e",
-                    "grey4": "#bdc6cf",
-                    "grey5": "#e1e8ee",
-                    "greyOutline": "#bbb",
-                    "platform": Object {
-                      "android": Object {
-                        "error": "#f44336",
-                        "primary": "#2196f3",
-                        "secondary": "#9C27B0",
-                        "success": "#4caf50",
-                        "warning": "#ffeb3b",
-                      },
-                      "ios": Object {
-                        "error": "#ff3b30",
-                        "primary": "#007aff",
-                        "secondary": "#5856d6",
-                        "success": "#4cd964",
-                        "warning": "#ffcc00",
-                      },
-                    },
-                    "primary": "#2089dc",
-                    "searchBg": "#303337",
-                    "secondary": "#8F0CE8",
-                    "success": "#52c41a",
-                    "warning": "#faad14",
-                  },
-                }
-              }
-            />
-            <View
-              style={
-                Object {
-                  "bottom": 0,
-                  "left": 0,
-                  "opacity": 1,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
-                }
-              }
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#bdbdbd",
-                    "height": 14,
-                    "justifyContent": "center",
-                    "width": 14,
-                  }
-                }
-                testID="RNE__Image__placeholder"
-              />
-            </View>
-          </View>
-          <Text
-            style={
-              Object {
-                "fontSize": 14,
-                "fontWeight": "bold",
-                "marginLeft": 10,
-                "textAlign": "left",
-              }
-            }
-            theme={
-              Object {
-                "colors": Object {
-                  "disabled": "hsl(208, 8%, 90%)",
-                  "divider": "#bcbbc1",
-                  "error": "#ff190c",
-                  "grey0": "#393e42",
-                  "grey1": "#43484d",
-                  "grey2": "#5e6977",
-                  "grey3": "#86939e",
-                  "grey4": "#bdc6cf",
-                  "grey5": "#e1e8ee",
-                  "greyOutline": "#bbb",
-                  "platform": Object {
-                    "android": Object {
-                      "error": "#f44336",
-                      "primary": "#2196f3",
-                      "secondary": "#9C27B0",
-                      "success": "#4caf50",
-                      "warning": "#ffeb3b",
-                    },
-                    "ios": Object {
-                      "error": "#ff3b30",
-                      "primary": "#007aff",
-                      "secondary": "#5856d6",
-                      "success": "#4cd964",
-                      "warning": "#ffcc00",
-                    },
-                  },
-                  "primary": "#2089dc",
-                  "searchBg": "#303337",
-                  "secondary": "#8F0CE8",
-                  "success": "#52c41a",
-                  "warning": "#faad14",
-                },
-              }
-            }
-          >
-            教学班数:
-          </Text>
-          <Text
-            numberOfLines={3}
-            style={
-              Object {
-                "fontSize": 14,
-                "fontWeight": "normal",
-                "lineHeight": 20,
-                "marginLeft": 10,
-                "textAlign": "left",
-              }
-            }
-            theme={
-              Object {
-                "colors": Object {
-                  "disabled": "hsl(208, 8%, 90%)",
-                  "divider": "#bcbbc1",
-                  "error": "#ff190c",
-                  "grey0": "#393e42",
-                  "grey1": "#43484d",
-                  "grey2": "#5e6977",
-                  "grey3": "#86939e",
-                  "grey4": "#bdc6cf",
-                  "grey5": "#e1e8ee",
-                  "greyOutline": "#bbb",
-                  "platform": Object {
-                    "android": Object {
-                      "error": "#f44336",
-                      "primary": "#2196f3",
-                      "secondary": "#9C27B0",
-                      "success": "#4caf50",
-                      "warning": "#ffeb3b",
-                    },
-                    "ios": Object {
-                      "error": "#ff3b30",
-                      "primary": "#007aff",
-                      "secondary": "#5856d6",
-                      "success": "#4cd964",
-                      "warning": "#ffcc00",
-                    },
-                  },
-                  "primary": "#2089dc",
-                  "searchBg": "#303337",
-                  "secondary": "#8F0CE8",
-                  "success": "#52c41a",
-                  "warning": "#faad14",
-                },
-              }
-            }
-          >
-            0
-          </Text>
-        </View>
       </View>
     </View>
     <View
@@ -1472,553 +1547,101 @@ exports[`renders detail page correctly 1`] = `
           }
         }
       >
-        课程概要
+        选课备注
       </Text>
       <Text>
-        暂无概要呢
+        这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可
       </Text>
     </View>
-    <Modal
-      hardwareAccelerated={false}
-      onRequestClose={[Function]}
-      theme={
-        Object {
-          "colors": Object {
-            "disabled": "hsl(208, 8%, 90%)",
-            "divider": "#bcbbc1",
-            "error": "#ff190c",
-            "grey0": "#393e42",
-            "grey1": "#43484d",
-            "grey2": "#5e6977",
-            "grey3": "#86939e",
-            "grey4": "#bdc6cf",
-            "grey5": "#e1e8ee",
-            "greyOutline": "#bbb",
-            "platform": Object {
-              "android": Object {
-                "error": "#f44336",
-                "primary": "#2196f3",
-                "secondary": "#9C27B0",
-                "success": "#4caf50",
-                "warning": "#ffeb3b",
-              },
-              "ios": Object {
-                "error": "#ff3b30",
-                "primary": "#007aff",
-                "secondary": "#5856d6",
-                "success": "#4cd964",
-                "warning": "#ffcc00",
-              },
-            },
-            "primary": "#2089dc",
-            "searchBg": "#303337",
-            "secondary": "#8F0CE8",
-            "success": "#52c41a",
-            "warning": "#faad14",
-          },
-        }
-      }
-      transparent={true}
-      visible={false}
-    >
-      <View
-        accessible={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "rgba(0, 0, 0, .4)",
-            "height": "100%",
-            "justifyContent": "center",
-            "left": 0,
-            "position": "absolute",
-            "top": 0,
-            "width": "100%",
-          }
-        }
-        testID="RNE__Overlay__backdrop"
-      />
-      <View
-        pointerEvents="box-none"
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "white",
-              "borderRadius": 3,
-              "height": 1154,
-              "padding": 10,
-              "shadowColor": "rgba(0, 0, 0, .3)",
-              "shadowOffset": Object {
-                "height": 1,
-                "width": 0,
-              },
-              "shadowRadius": 4,
-              "width": 670,
-            }
-          }
-        >
-          <View>
-            <RCTScrollView
-              data={Array []}
-              disableVirtualization={false}
-              getItem={[Function]}
-              getItemCount={[Function]}
-              horizontal={false}
-              initialNumToRender={10}
-              keyExtractor={[Function]}
-              maxToRenderPerBatch={10}
-              numColumns={1}
-              onContentSizeChange={[Function]}
-              onEndReachedThreshold={2}
-              onLayout={[Function]}
-              onMomentumScrollEnd={[Function]}
-              onScroll={[Function]}
-              onScrollBeginDrag={[Function]}
-              onScrollEndDrag={[Function]}
-              removeClippedSubviews={false}
-              renderItem={[Function]}
-              scrollEventThrottle={50}
-              stickyHeaderIndices={Array []}
-              updateCellsBatchingPeriod={50}
-              viewabilityConfigCallbackPairs={Array []}
-              windowSize={21}
-            >
-              <View />
-            </RCTScrollView>
-          </View>
-        </View>
-      </View>
-    </Modal>
-  </View>
-  <View
-    style={Object {}}
-  >
     <View
       style={
         Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "flexWrap": "wrap",
+          "borderStyle": "dashed",
+          "borderWidth": 1,
         }
       }
     >
-      <View
-        style={
-          Object {
-            "display": "flex",
-            "flexDirection": "row",
-            "height": 25,
-            "justifyContent": "flex-start",
-            "marginBottom": 15,
-            "marginLeft": 20,
-            "marginTop": 15,
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "position": "relative",
-            }
-          }
-        >
-          <Image
-            onLoadEnd={[Function]}
-            source={
-              Object {
-                "uri": "comment",
-              }
-            }
-            style={
-              Object {
-                "height": 25,
-                "width": 25,
-              }
-            }
-            theme={
-              Object {
-                "colors": Object {
-                  "disabled": "hsl(208, 8%, 90%)",
-                  "divider": "#bcbbc1",
-                  "error": "#ff190c",
-                  "grey0": "#393e42",
-                  "grey1": "#43484d",
-                  "grey2": "#5e6977",
-                  "grey3": "#86939e",
-                  "grey4": "#bdc6cf",
-                  "grey5": "#e1e8ee",
-                  "greyOutline": "#bbb",
-                  "platform": Object {
-                    "android": Object {
-                      "error": "#f44336",
-                      "primary": "#2196f3",
-                      "secondary": "#9C27B0",
-                      "success": "#4caf50",
-                      "warning": "#ffeb3b",
-                    },
-                    "ios": Object {
-                      "error": "#ff3b30",
-                      "primary": "#007aff",
-                      "secondary": "#5856d6",
-                      "success": "#4cd964",
-                      "warning": "#ffcc00",
-                    },
-                  },
-                  "primary": "#2089dc",
-                  "searchBg": "#303337",
-                  "secondary": "#8F0CE8",
-                  "success": "#52c41a",
-                  "warning": "#faad14",
-                },
-              }
-            }
-          />
-          <View
-            style={
-              Object {
-                "bottom": 0,
-                "left": 0,
-                "opacity": 1,
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#bdbdbd",
-                  "height": 25,
-                  "justifyContent": "center",
-                  "width": 25,
-                }
-              }
-              testID="RNE__Image__placeholder"
-            />
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "height": 25,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "backgroundColor": "transparent",
-                "position": "relative",
-              }
-            }
-          >
-            <Image
-              onLoadEnd={[Function]}
-              source={
-                Object {
-                  "uri": "yellow_line",
-                }
-              }
-              style={
-                Object {
-                  "height": 10,
-                  "left": 8,
-                  "position": "absolute",
-                  "top": 12,
-                  "width": 40,
-                }
-              }
-              theme={
-                Object {
-                  "colors": Object {
-                    "disabled": "hsl(208, 8%, 90%)",
-                    "divider": "#bcbbc1",
-                    "error": "#ff190c",
-                    "grey0": "#393e42",
-                    "grey1": "#43484d",
-                    "grey2": "#5e6977",
-                    "grey3": "#86939e",
-                    "grey4": "#bdc6cf",
-                    "grey5": "#e1e8ee",
-                    "greyOutline": "#bbb",
-                    "platform": Object {
-                      "android": Object {
-                        "error": "#f44336",
-                        "primary": "#2196f3",
-                        "secondary": "#9C27B0",
-                        "success": "#4caf50",
-                        "warning": "#ffeb3b",
-                      },
-                      "ios": Object {
-                        "error": "#ff3b30",
-                        "primary": "#007aff",
-                        "secondary": "#5856d6",
-                        "success": "#4cd964",
-                        "warning": "#ffcc00",
-                      },
-                    },
-                    "primary": "#2089dc",
-                    "searchBg": "#303337",
-                    "secondary": "#8F0CE8",
-                    "success": "#52c41a",
-                    "warning": "#faad14",
-                  },
-                }
-              }
-            />
-            <View
-              style={
-                Object {
-                  "bottom": 0,
-                  "left": 0,
-                  "opacity": 1,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
-                }
-              }
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#bdbdbd",
-                    "height": 10,
-                    "justifyContent": "center",
-                    "left": 8,
-                    "position": "absolute",
-                    "top": 12,
-                    "width": 40,
-                  }
-                }
-                testID="RNE__Image__placeholder"
-              />
-            </View>
-          </View>
-          <Text
-            style={
-              Object {
-                "fontSize": 18,
-                "fontWeight": "bold",
-                "marginLeft": 10,
-                "textAlign": "left",
-              }
-            }
-            theme={
-              Object {
-                "colors": Object {
-                  "disabled": "hsl(208, 8%, 90%)",
-                  "divider": "#bcbbc1",
-                  "error": "#ff190c",
-                  "grey0": "#393e42",
-                  "grey1": "#43484d",
-                  "grey2": "#5e6977",
-                  "grey3": "#86939e",
-                  "grey4": "#bdc6cf",
-                  "grey5": "#e1e8ee",
-                  "greyOutline": "#bbb",
-                  "platform": Object {
-                    "android": Object {
-                      "error": "#f44336",
-                      "primary": "#2196f3",
-                      "secondary": "#9C27B0",
-                      "success": "#4caf50",
-                      "warning": "#ffeb3b",
-                    },
-                    "ios": Object {
-                      "error": "#ff3b30",
-                      "primary": "#007aff",
-                      "secondary": "#5856d6",
-                      "success": "#4cd964",
-                      "warning": "#ffcc00",
-                    },
-                  },
-                  "primary": "#2089dc",
-                  "searchBg": "#303337",
-                  "secondary": "#8F0CE8",
-                  "success": "#52c41a",
-                  "warning": "#faad14",
-                },
-              }
-            }
-          >
-            评论
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityIgnoresInvertColors={true}
-        style={
-          Object {
-            "marginLeft": 8,
-          }
-        }
-      >
-        <Image
-          source={
-            Object {
-              "uri": "tag",
-            }
-          }
-          style={
-            Array [
-              Object {
-                "bottom": 0,
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-              },
-              Object {
-                "height": undefined,
-                "width": undefined,
-              },
-              Object {
-                "resizeMode": "stretch",
-              },
-            ]
-          }
-        />
+      <View>
         <Text>
            
-          水课
+          课程号
+           
         </Text>
-      </View>
-      <View
-        accessibilityIgnoresInvertColors={true}
-        style={
-          Object {
-            "marginLeft": 8,
-          }
-        }
-      >
-        <Image
-          source={
-            Object {
-              "uri": "tag",
-            }
-          }
-          style={
-            Array [
-              Object {
-                "bottom": 0,
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-              },
-              Object {
-                "height": undefined,
-                "width": undefined,
-              },
-              Object {
-                "resizeMode": "stretch",
-              },
-            ]
-          }
-        />
         <Text>
            
-          给分很高
         </Text>
       </View>
-      <View
-        accessibilityIgnoresInvertColors={true}
-        style={
-          Object {
-            "marginLeft": 8,
-          }
-        }
-      >
-        <Image
-          source={
-            Object {
-              "uri": "tag",
-            }
-          }
-          style={
-            Array [
-              Object {
-                "bottom": 0,
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-              },
-              Object {
-                "height": undefined,
-                "width": undefined,
-              },
-              Object {
-                "resizeMode": "stretch",
-              },
-            ]
-          }
-        />
+      <View>
         <Text>
            
-          老师很吵
+          学分
+           
         </Text>
-      </View>
-      <View
-        accessibilityIgnoresInvertColors={true}
-        style={
-          Object {
-            "marginLeft": 8,
-          }
-        }
-      >
-        <Image
-          source={
-            Object {
-              "uri": "tag",
-            }
-          }
-          style={
-            Array [
-              Object {
-                "bottom": 0,
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-              },
-              Object {
-                "height": undefined,
-                "width": undefined,
-              },
-              Object {
-                "resizeMode": "stretch",
-              },
-            ]
-          }
-        />
         <Text>
            
-          fnu#&2G
         </Text>
       </View>
-    </View>
-    <View>
+      <View>
+        <Text>
+           
+          是否为通识
+           
+        </Text>
+        <Text>
+           
+          否
+        </Text>
+      </View>
+      <View>
+        <Text>
+           
+          通识类型
+           
+        </Text>
+        <Text>
+           
+        </Text>
+      </View>
+      <View>
+        <Text>
+           
+          选课备注
+           
+        </Text>
+        <Text>
+           
+          
+        </Text>
+      </View>
       <Text>
-        我觉得很猴啊.
+         教学班信息
       </Text>
+      <RCTScrollView
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View />
+      </RCTScrollView>
     </View>
   </View>
 </View>

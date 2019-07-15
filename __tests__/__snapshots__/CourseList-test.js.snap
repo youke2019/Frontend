@@ -1,0 +1,3827 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render an empty CourseList 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "paddingBottom": 100,
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "course_credits": 3,
+          "course_deptname": "设计学院",
+          "course_hours": 48,
+          "course_id": "GA312",
+          "course_name": "花卉学",
+          "general": false,
+          "general_type": "",
+        },
+        Object {
+          "course_credits": 2,
+          "course_deptname": "设计学院",
+          "course_hours": 32,
+          "course_id": "GA407",
+          "course_name": "花卉应用学",
+          "general": false,
+          "general_type": "",
+        },
+        Object {
+          "course_credits": 3,
+          "course_deptname": "媒体与传播学院",
+          "course_hours": 48,
+          "course_id": "PA302",
+          "course_name": "花卉与草虫禽鸟",
+          "general": false,
+          "general_type": "",
+        },
+        Object {
+          "course_credits": 1,
+          "course_deptname": "设计学院",
+          "course_hours": 16,
+          "course_id": "PL004",
+          "course_name": "插花艺术",
+          "general": false,
+          "general_type": "",
+        },
+        Object {
+          "course_credits": 2,
+          "course_deptname": "农业与生物学院",
+          "course_hours": 32,
+          "course_id": "PL021",
+          "course_name": "花卉艺术",
+          "general": false,
+          "general_type": "",
+        },
+        Object {
+          "course_credits": 2,
+          "course_deptname": "设计学院",
+          "course_hours": 32,
+          "course_id": "PL902",
+          "course_name": "国花、市花与文化",
+          "general": true,
+          "general_type": "人文学科",
+        },
+        Object {
+          "course_credits": 2,
+          "course_deptname": "设计学院",
+          "course_hours": 32,
+          "course_id": "SP079",
+          "course_name": "国花、市花鉴赏",
+          "general": false,
+          "general_type": "",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                花卉学
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    GA312
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    3
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                花卉应用学
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    GA407
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    2
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                花卉与草虫禽鸟
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    PA302
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    3
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                插花艺术
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    PL004
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    1
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                花卉艺术
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    PL021
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    2
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                国花、市花与文化
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    PL902
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    2
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    是
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                国花、市花鉴赏
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    SP079
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    2
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`render normal CourseList 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "paddingBottom": 100,
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "course_credits": 3,
+          "course_deptname": "设计学院",
+          "course_hours": 48,
+          "course_id": "GA312",
+          "course_name": "花卉学",
+          "general": false,
+          "general_type": "",
+        },
+        Object {
+          "course_credits": 2,
+          "course_deptname": "设计学院",
+          "course_hours": 32,
+          "course_id": "GA407",
+          "course_name": "花卉应用学",
+          "general": false,
+          "general_type": "",
+        },
+        Object {
+          "course_credits": 3,
+          "course_deptname": "媒体与传播学院",
+          "course_hours": 48,
+          "course_id": "PA302",
+          "course_name": "花卉与草虫禽鸟",
+          "general": false,
+          "general_type": "",
+        },
+        Object {
+          "course_credits": 1,
+          "course_deptname": "设计学院",
+          "course_hours": 16,
+          "course_id": "PL004",
+          "course_name": "插花艺术",
+          "general": false,
+          "general_type": "",
+        },
+        Object {
+          "course_credits": 2,
+          "course_deptname": "农业与生物学院",
+          "course_hours": 32,
+          "course_id": "PL021",
+          "course_name": "花卉艺术",
+          "general": false,
+          "general_type": "",
+        },
+        Object {
+          "course_credits": 2,
+          "course_deptname": "设计学院",
+          "course_hours": 32,
+          "course_id": "PL902",
+          "course_name": "国花、市花与文化",
+          "general": true,
+          "general_type": "人文学科",
+        },
+        Object {
+          "course_credits": 2,
+          "course_deptname": "设计学院",
+          "course_hours": 32,
+          "course_id": "SP079",
+          "course_name": "国花、市花鉴赏",
+          "general": false,
+          "general_type": "",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                花卉学
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    GA312
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    3
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                花卉应用学
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    GA407
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    2
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                花卉与草虫禽鸟
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    PA302
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    3
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                插花艺术
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    PL004
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    1
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                花卉艺术
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    PL021
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    2
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                国花、市花与文化
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    PL902
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    2
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    是
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 200,
+              "justifyContent": "center",
+              "padding": 60,
+              "width": 330,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "course_card",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "height": 200,
+                  "width": 330,
+                },
+                Object {
+                  "resizeMode": "stretch",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "height": 160,
+                "width": 300,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "paddingVertical": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "flex": 3,
+                    "fontFamily": "字魂95号-手刻宋",
+                    "fontSize": 18,
+                    "paddingHorizontal": 10,
+                  }
+                }
+              >
+                国花、市花鉴赏
+              </Text>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "flex-end",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 12,
+                      }
+                    }
+                  >
+                    详情查看
+                  </Text>
+                </View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "right_arrow",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 17,
+                      "width": 17,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#DCDCDC",
+                  "height": 1,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 3,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 12,
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "uri": "course",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 80,
+                      "width": 80,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "justifyContent": "space-evenly",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_id_search",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    课程编号：
+                    SP079
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "course_credit",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    学分：
+                    2
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingLeft": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "general",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 24,
+                        "width": 24,
+                      }
+                    }
+                  />
+                  <Text>
+                    是否通识：
+                    否
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

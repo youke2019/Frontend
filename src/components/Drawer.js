@@ -37,7 +37,7 @@ class Drawer extends React.Component {
     render() {
         const {
             visible = false,
-            onBackdropPress=()=>{},
+            onBackdropPress=() => {},
         } = this.props
 
         const {list} = this.state
