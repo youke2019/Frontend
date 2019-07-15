@@ -1,5 +1,5 @@
 import React from "react";
-import {Image, Text, View} from "react-native";
+import {Image, StatusBar, Text, View} from "react-native";
 
 class Home extends React.Component {
     render() {

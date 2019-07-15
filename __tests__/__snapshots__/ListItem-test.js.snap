@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render ListItem with data 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "paddingBottom": 8,
+      "paddingHorizontal": 10,
+      "paddingTop": 20,
+      "paddingVertical": 10,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "nop",
+        }
+      }
+      style={
+        Object {
+          "height": 22,
+          "width": 22,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "fontSize": 16,
+          "paddingHorizontal": 8,
+        }
+      }
+    >
+      课程
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "opacity": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "right_arrow",
+        }
+      }
+      style={
+        Object {
+          "height": 20,
+          "width": 20,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`render an empty ListItem 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "paddingBottom": 8,
+      "paddingHorizontal": 10,
+      "paddingTop": 20,
+      "paddingVertical": 10,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "",
+        }
+      }
+      style={
+        Object {
+          "height": 22,
+          "width": 22,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "fontSize": 16,
+          "paddingHorizontal": 8,
+        }
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "opacity": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "right_arrow",
+        }
+      }
+      style={
+        Object {
+          "height": 20,
+          "width": 20,
+        }
+      }
+    />
+  </View>
+</View>
+`;

@@ -8,7 +8,7 @@ import {
     StyleSheet,
     TouchableOpacity,
 } from "react-native";
-import { Divider} from 'react-native-elements';
+import {Divider} from 'react-native-elements';
 import {connect} from "react-redux";
 import Detail from "../pages/Detail";
 
@@ -19,15 +19,14 @@ const mapStateToProps = state => {
 }
 
 class CourseList extends React.Component {
-    onClick = (item) =>{
-      /* 1. Navigate to the Details route with params*/
+    onClick = (item) => {
       console.log(item);
       this.props.navigation.navigate('Detail', {
         course_id: item.course_id
       })
     }
+
     render() {
-      //console.log(JSON.stringify(this.props.course_list))
         return (
             <View style={styles.container}>
                 <FlatList
@@ -48,22 +47,25 @@ class CourseList extends React.Component {
                                         <View style={styles.detail_text_container}>
                                             <Text style={styles.detail_text}>详情查看</Text>
                                         </View>
-                                        <View style={{flex:1}}>
-                                            <Image
-                                                style={styles.detail_enter_arrow}
-                                                source={{uri:'detail_enter_arrow'}}
-                                            />
-                                        </View>
+                                        <Image
+                                            style={styles.detail_enter_arrow}
+                                            source={{uri:'right_arrow'}}
+                                        />
                                     </TouchableOpacity>
                                 </View>
                                 <Divider style={styles.divider} />
                                 <View style={styles.content}>
-                                    <View style={{flex:1}}/>
-                                    <View style={{flex:3, justifyContent: 'space-evenly'}}>
+                                    <View>
+                                        <Image
+                                            style={styles.course_image}
+                                            source={{uri:'course'}}
+                                        />
+                                    </View>
+                                    <View style={{ justifyContent: 'space-evenly'}}>
                                         <View style={styles.course_info}>
                                             <Image
                                                 style={styles.icon}
-                                                source={{uri:'course_id'}}
+                                                source={{uri:'course_id_search'}}
                                             />
                                             <Text>课程编号：{item.course_id}</Text>
                                         </View>
@@ -128,9 +130,9 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection: 'row',
         justifyContent: 'flex-end',
+        alignItems: 'center',
     },
     detail_text_container:{
-        flex:4,
         justifyContent: 'center',
         alignItems:'flex-end'
     },
@@ -152,9 +154,14 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
     },
+    course_image:{
+        width:80,
+        height:80,
+    },
     course_info:{
         flex:1,
         flexDirection: 'row',
+        paddingLeft: 10,
         alignItems: 'center',
         justifyContent: 'flex-start',
     },

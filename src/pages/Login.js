@@ -109,7 +109,6 @@ class Login extends React.Component {
                 style={{flex:1}}
                 source={require('../../public/images/bg.png')}
             >
-                <StatusBar hidden={true} />
                 <View style={styles.container}>
                     <Text style={styles.title}>有课</Text>
                 </View>

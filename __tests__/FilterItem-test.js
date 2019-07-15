@@ -3,7 +3,7 @@ import FilterItem from '../src/components/FilterItem';
 
 import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16'
-import {shallow, mount, render, configure} from 'enzyme'
+import {shallow,configure} from 'enzyme'
 
 configure({adapter: new Adapter()})
 
