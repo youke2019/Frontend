@@ -4,29 +4,41 @@ import { StyleSheet,View } from 'react-native'
 
 export const ShadowedTitle = (props) =>{
   return (
-    <View style = {styles.container}>
-      <Text style={styles.titleText}>
-        {props.text}
-      </Text>
-      <Image source = {{uri:"yellow_line"}} style ={styles.background}/>
+    <View style = {styles.title_container}>
+      <Image source={{uri:props.uri}} style={{height:25,width:25,}}/>
+      <View style = {styles.container}>
+        <Image source = {{uri:"yellow_line"}} style ={styles.background}/>
+        <Text style={styles.titleText}>
+          {props.text}
+        </Text>
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  title_container:{
+    height:25,
+    marginTop:15,
+    marginBottom:15,
+    marginLeft:20,
+    justifyContent:'flex-start',
+    flexDirection: 'row',
+    display:'flex',
+  },
   container:{
-    height: 35,
+    height: 25,
   },
   background:{
-    width:'auto',
-    height:25,
+    width: 40,
+    height: 10,
     position: 'absolute',
-    left: 0,
-    bottom: 0,
+    left: 8,
+    top: 12,
   },
   titleText:{
-    fontSize:20,
-    fontWeight: '100',
+    fontSize:18,
+    fontWeight: 'bold',
     textAlign: 'left',
     marginLeft:10,
   }

@@ -7,9 +7,11 @@ export const UnshadowedTitle = (props) =>{
     <View style = {styles.container}>
       <Image source = {{uri: props.uri}} style ={styles.background}/>
       <Text style={styles.titleText}>
-        {props.title + ": "}
+        {props.title + ":"}
       </Text>
-      <Text style={styles.contentText}>
+      <Text
+        numberOfLines={3}
+        style={styles.contentText}>
         {props.content}
       </Text>
     </View>
@@ -18,9 +20,10 @@ export const UnshadowedTitle = (props) =>{
 
 const styles = StyleSheet.create({
   container:{
-    display:'flex',
+    marginTop:5,
     flexDirection:'row',
     alignItems:'center',
+    flexWrap:'wrap',
   },
   background:{
     height:14,
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
   },
   titleText:{
     fontSize:14,
-    fontWeight: '100',
+    fontWeight: 'bold',
     textAlign: 'left',
     marginLeft:10,
   },
@@ -37,5 +40,6 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     textAlign: 'left',
     marginLeft:10,
+    lineHeight:20,
   }
 })

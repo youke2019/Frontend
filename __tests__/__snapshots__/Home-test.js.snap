@@ -16,7 +16,7 @@ exports[`renders home page correctly 1`] = `
   <Image
     source={
       Object {
-        "uri": "editing",
+        "uri": "search",
       }
     }
     style={
