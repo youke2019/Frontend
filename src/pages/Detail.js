@@ -5,6 +5,9 @@ import { EmitError, HandleError } from '../utils/ErrorAlert'
 import { ShadowedTitle } from '../components/ShadowedTitle'
 import { Image } from 'react-native-elements'
 import { UnshadowedTitle } from '../components/UnshadowedTitle'
+import StackNavBar from '../components/StackNavBar'
+import CourseDetail from '../components/CourseDetail'
+import CommentAbstract from '../components/CommentAbstract'
 
 export const Title = (props) =>(
   <View style = {styles.Title}>
@@ -13,8 +16,6 @@ export const Title = (props) =>(
     {/*父子组件间传值*/}
   </View>
 )
-
-
 const Time = (props) =>(
   <View style = {styles.Title}>
     <Text> 上课时间 :</Text>
@@ -28,73 +29,7 @@ const weekMap ={
   e: "双周",
   b: "全周"
 }
-class CourseDetail extends React.Component{ //todo: redo this page.
 
-    render(){
-        const {course} = this.props;
-        console.log(course)
-        return(
-            <View style = {styles.container}>
-              <View style = {styles.title_container}>
-                <View >
-                  <Image source={{uri:'course_name'}} style={{width: 40, height: 40}}/>
-                </View>
-                <ShadowedTitle text={course.course_name} style = {styles.course_name}/>
-              </View>
-              <View style={styles.main_part}>
-                <View style = {styles.main_pic}>
-                   <Image source={{uri:'building'}} style ={{height:100,width:100}}/>
-                </View>
-                <View style = {styles.main_info}>
-                  <UnshadowedTitle uri={'teacher'} title ={"上课教师"} content={"老师"}/>
-                  <UnshadowedTitle uri={'clock'} title ={"上课时间"} content={"周二下午2-4"}/>
-                  <UnshadowedTitle uri={'location'} title ={"上课地点"} content={"东上院102"}/>
-                  <UnshadowedTitle uri={'school'} title ={"开设学院"} content={"设计"}/>
-                  <UnshadowedTitle uri={'course_id'} title ={"课号       "} content={course.course_id}/>
-                  <UnshadowedTitle uri={'credit'} title ={"学分       "} content={course.course_credits}/>
-                </View>
-              </View>
-              <View style ={styles.course_notes}>
-                <Text style = {styles.notes_title}>
-                  选课备注
-                </Text>
-                <Text >
-                  {"这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可这是一门好课毫克好好可"}
-                </Text>
-              </View>
-                <View style ={styles.box}>
-                    <Title title ={ "课程号"} content = {course.course_id}/>
-                    <Title title ={"学分" } content = {course.course_credits}/>
-                    <Title title = {"是否为通识"} content ={course.general? "是":"否"}/>
-                    <Title title = {"通识类型"} content = {course.general_type}/>
-                    <Title title = {"选课备注"} content = {""}/>
-                    <Text> 教学班信息</Text>
-                    <FlatList
-                        data={course.classes}
-                        keyExtractor={(item) => item.classname.toString()}
-                        renderItem={({item}) =>
-                            <View style={{height:200}}>
-                                <Title title={"教学班"} content={item.classname}/>
-                                <Title title={"任课老师"} content={item.teacher_name}/>
-                                <FlatList data={item.classSegments}
-                                          renderItem={({item}) =>
-                                              <View>
-                                                  <Title title={"上课地点"} content={item.courseroom}/>
-                                                  <Text>上课时间</Text>
-                                                  <Time bw = {item.begin_week} ew = {item.end_week} eo = {dateMap[item.odd_or_even]} date = {dateMap[item.week]} bs = {item.begin_sec} es = {item.end_sec}/>
-                                              </View>
-                                          }
-                                          keyExtractor={(item) => item.class_sec_id.toString()}
-                                />
-                            </View>
-                        }
-                    />
-                </View>
-
-            </View>
-        )
-    }
-}
 /*
 Class CommentTitle extends React.Component{
     render(){
@@ -131,7 +66,7 @@ class Detail extends React.Component {
     }
 
     static navigationOptions = ({navigation}) => ({
-        title : '课程详情'
+        header:null,
     })
     //标题
 
@@ -156,15 +91,22 @@ class Detail extends React.Component {
 
     render() {
         return (
-            <View>
-                <CourseDetail course ={this.state.courseInfo} />
-            </View>
+            <ScrollView>
+                <StackNavBar
+                  navigation={this.props.navigation}
+                />
+                <CourseDetail
+                  course ={this.state.courseInfo}
+                />
+                <CommentAbstract
+                  course_id = {this.state.courseInfo.course_id}
+                />
+            </ScrollView>
         )
     }
 }
 
 export default Detail
-
 
 const styles = StyleSheet.create({
   notes_title:{
@@ -185,7 +127,8 @@ const styles = StyleSheet.create({
     display:'flex',
   },
   main_pic:{
-    backgroundColor: "grey",
+    marginLeft:10,
+    backgroundColor: "yellow",
     flex:1,
   },
   main_info:{
@@ -195,16 +138,19 @@ const styles = StyleSheet.create({
     flex:5
   },
   title_container:{
+    height:25,
     marginTop:20,
     marginLeft:20,
+    justifyContent:'flex-start',
     flexDirection: 'row',
-    display:'flex'
+    display:'flex',
   },
   box:{
     borderStyle: 'dashed',
     borderWidth : 1,
   },
   container: {
+    marginTop:30,
     alignItems: 'flex-start',
     display:'flex',
     flexDirection: 'column',
