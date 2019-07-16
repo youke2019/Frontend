@@ -5,8 +5,9 @@ import {
     TextInput,
     Image,
     ImageBackground,
+    Text,
+    TouchableOpacity,
 } from "react-native";
-import {  Button } from 'react-native-elements';
 
 class SearchBox extends React.Component {
     state = {
@@ -19,23 +20,30 @@ class SearchBox extends React.Component {
 
     render() {
         const {
-            onPress = () => {}
+            onPress = () => {},
+            iconImage = '',
+            inputImage = 'search_text',
+            buttonTitle = '',
+            containerStyle={},
+            buttonStyle = {},
         } = this.props
 
         return (
-            <View style={styles.container}>
+            <View
+                style={[styles.container,containerStyle]}
+            >
                 <View
                     style={styles.search_container}
                 >
                     <ImageBackground
                         style={styles.search_container_background}
                         imageStyle={{resizeMode: 'stretch'}}
-                        source={{uri:'search_text'}}
+                        source={{uri:inputImage}}
                     >
                         <View style={styles.search_image_container}>
                             <Image
                                 style={styles.search_image}
-                                source={{uri: 'search'}}
+                                source={{uri: iconImage}}
                             />
                         </View>
                         <TextInput
@@ -46,12 +54,12 @@ class SearchBox extends React.Component {
                     </ImageBackground>
                 </View>
                 <View style={styles.button_container}>
-                    <Button
-                        title='搜索'
-                        titleStyle={styles.button_text}
-                        type='clear'
+                    <TouchableOpacity
                         onPress={() => onPress(this.state.keyword)}
-                    />
+                        style={[styles.button,buttonStyle]}
+                    >
+                        <Text style={styles.button_text}>{buttonTitle}</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         )
@@ -91,11 +99,16 @@ const styles = StyleSheet.create({
     },
     button_container:{
         flex: 2,
+        padding: 10,
+    },
+    button:{
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     button_text:{
         color: 'black',
         fontSize: 15,
-        fontFamily: '字魂70号-灵悦黑体',
+        fontFamily: '字魂95号-手刻宋',
         lineHeight: 20,
     }
 })

@@ -6,6 +6,7 @@ import ClassesPage from './Classes.js'
 import DetailPage from './Detail.js'
 import MapPage from './Map.js'
 import DrawerPage from '../components/Drawer.js'
+import EvaluationsPage from './Evaluations'
 
 export const Home = HomePage
 export const Profile = ProfilePage
@@ -15,3 +16,4 @@ export const Detail = DetailPage
 export const Classes = ClassesPage
 export const Map = MapPage
 export const Drawer = DrawerPage
+export const Evaluations = EvaluationsPage

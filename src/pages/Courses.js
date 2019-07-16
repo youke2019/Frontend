@@ -116,6 +116,8 @@ class Courses extends React.Component {
                     <View style={{flex:5}}>
                         <SearchBox
                             onPress={(keyword) => this.search(keyword)}
+                            iconImage = 'search'
+                            buttonTitle = '搜索'
                         />
                     </View>
                 </View>
