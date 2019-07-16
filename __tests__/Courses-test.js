@@ -6,6 +6,7 @@ import { combinedReducer } from '../src/redux/reducers'
 import { Provider } from 'react-redux'
 import Adapter from 'enzyme-adapter-react-16'
 import {shallow,mount,configure} from 'enzyme'
+import axios from 'axios'
 
 configure({adapter: new Adapter()})
 
@@ -25,3 +26,42 @@ test('renders course page correctly', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
 });
+
+describe('functionality', () => {
+    let wrapper = shallow(<Courses store={store}/>).dive().dive()
+
+    it('filterVisible functions', () => {
+
+        console.log(wrapper.instance())
+        wrapper.instance().showFilter()
+        expect(wrapper.state('filterVisible')).toBe(true)
+        wrapper.instance().onBackdropPress()
+        expect(wrapper.state('filterVisible')).toBe(false)
+    })
+
+    it('filterList functions', () => {
+        expect(wrapper.instance().filterNotEmpty()).toBe(false)
+        wrapper.instance().updateFilter({
+            学分:['1','2']
+        })
+        console.log(wrapper.state('filterList')['学分'])
+        expect(wrapper.state('filterList')['学分']).toStrictEqual(['1','2'])
+        expect(wrapper.instance().filterNotEmpty()).toBe(true)
+    })
+
+    it('search function', (done) => {
+        jest.mock('axios')
+        global.baseUrl = 'baseUrl'
+        wrapper.instance().search('花')
+        const promise = new Promise(
+            function (resolve, reject)
+            {resolve('success')})
+        axios.post()
+            .then(data=>{
+                console.log(wrapper.props())
+                done()
+            })
+            .catch(data=>{done()})
+
+    })
+})

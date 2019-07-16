@@ -4,7 +4,6 @@ import {
     View,
     Image,
     ImageBackground,
-    StatusBar,
 } from "react-native";
 import {Button} from "react-native-elements"
 import Drawer from '../components/Drawer'
@@ -65,8 +64,6 @@ class Courses extends React.Component {
                 data.weekdays.push(item)
             if (data.weekdays.length == 0)
                 delete data.weekdays
-
-            console.log(data)
 
             axios.post(baseUrl+'/courses/search',data).then((response) => {
                 this.props.searchCourses(response.data)
