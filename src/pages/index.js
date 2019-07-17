@@ -7,7 +7,9 @@ import DetailPage from './Detail.js'
 import MapPage from './Map.js'
 import DrawerPage from '../components/Drawer.js'
 import EvaluationsPage from './Evaluations'
+import CommentPage from './Comment'
 
+export const Comment = CommentPage
 export const Home = HomePage
 export const Profile = ProfilePage
 export const Course = CoursesPage

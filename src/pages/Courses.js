@@ -134,6 +134,7 @@ class Courses extends React.Component {
 
 const styles = StyleSheet.create({
     container:{
+        paddingTop:15,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',

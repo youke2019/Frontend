@@ -3,11 +3,12 @@ import { View, Text, FlatList, Alert, StyleSheet, ScrollView, TouchableOpacity }
 import axios from "axios";
 import { EmitError, HandleError } from '../utils/ErrorAlert'
 import { ShadowedTitle } from '../components/ShadowedTitle'
-import { Image } from 'react-native-elements'
+import { Image, Overlay } from 'react-native-elements'
 import { UnshadowedTitle } from '../components/UnshadowedTitle'
 import StackNavBar from '../components/StackNavBar'
 import CourseDetail from '../components/CourseDetail'
 import CommentAbstract from '../components/CommentAbstract'
+import QAAbstract from '../components/QAAbstract'
 
 export const Title = (props) =>(
   <View style = {styles.Title}>
@@ -60,29 +61,20 @@ Class EvaluateTitle extends React.Component{
     }
 }
 */
+
 class Detail extends React.Component {
     state = {
         courseInfo :"",
     }
 
-    static navigationOptions = ({navigation}) => ({
-        header:null,
-    })
-    //标题
-
-    setCourse = (data) =>{
-        this.setState({
-            courseInfo:data
-        })
-    }
-
-    //what's beneath is the function that will execute once the component is created
     componentWillMount() {
         const params = this.props.navigation.state.params;
         axios.get(baseUrl + '/courses/specific', {
           params:params
         }).then((response) => {
-            this.setCourse(response.data)
+          this.setState({
+            courseInfo:response.data
+          })
         }).catch(error => {
             console.log(error)
             EmitError({ error_msg:"获取课程信息时发生了错误" })
@@ -91,7 +83,7 @@ class Detail extends React.Component {
 
     render() {
         return (
-            <ScrollView>
+            <ScrollView style={styles.base_container}>
                 <StackNavBar
                   navigation={this.props.navigation}
                 />
@@ -99,8 +91,11 @@ class Detail extends React.Component {
                   course ={this.state.courseInfo}
                 />
                 <CommentAbstract
-                  course_id = {this.state.courseInfo.course_id}
+                  navigation={this.props.navigation}
+                  course_id={this.state.courseInfo.course_id}
                 />
+                <QAAbstract
+                /> 
             </ScrollView>
         )
     }
@@ -109,6 +104,9 @@ class Detail extends React.Component {
 export default Detail
 
 const styles = StyleSheet.create({
+  base_container:{
+    paddingTop:15,
+  },
   notes_title:{
     marginLeft:5,
     marginTop: 5,

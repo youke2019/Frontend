@@ -5,7 +5,7 @@ import { StyleSheet,View } from 'react-native'
 export const ShadowedTitle = (props) =>{
   return (
     <View style = {styles.title_container}>
-      <Image source={{uri:props.uri}} style={{height:25,width:25,}}/>
+      <Image source={{uri:props.uri}} style={{height:30,width:30,resizeMode: 'contain'}}/>
       <View style = {styles.container}>
         <Image source = {{uri:"yellow_line"}} style ={styles.background}/>
         <Text style={styles.titleText}>
@@ -18,7 +18,6 @@ export const ShadowedTitle = (props) =>{
 
 const styles = StyleSheet.create({
   title_container:{
-    height:25,
     marginTop:15,
     marginBottom:15,
     marginLeft:20,

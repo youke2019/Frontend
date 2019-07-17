@@ -155,7 +155,6 @@ const styles = StyleSheet.create({
   main_part:{
     marginTop:10,
     flexDirection:"row",
-    display:'flex',
   },
   main_info:{
     flex:1,
@@ -166,9 +165,8 @@ const styles = StyleSheet.create({
     flex:5
   },
   container: {
-    marginTop:30,
+    marginTop:10,
     alignItems: 'flex-start',
-    display:'flex',
     flexDirection: 'column',
   },
   course_name_img:{

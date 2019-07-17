@@ -13,6 +13,7 @@ import {
     createStackNavigator,
 } from 'react-navigation';
 import {
+    Comment,
     Home,
     Profile,
     Course,
@@ -27,7 +28,7 @@ import {createStore} from 'redux'
 import {combinedReducer} from './src/redux/reducers'
 import initialState from './src/redux/state'
 import ProfileSetting from './src/pages/ProfileSetting'
-import {StatusBar} from "react-native";
+import {StatusBar,View} from "react-native";
 
 const store = createStore(combinedReducer,initialState)
 
@@ -36,11 +37,16 @@ const store = createStore(combinedReducer,initialState)
 const CourseNavigator = createStackNavigator({
     Search: {
         screen: Course,
-        navigationOptions:{
-            header:null
-        }
-    },
-    Detail:{ screen: Detail }
+        navigationOptions:{ header:null }
+        },
+    Detail:{
+        screen: Detail,
+        navigationOptions:{ header:null }
+        },
+    Comment:{
+        screen:Comment,
+        navigationOptions:{ header:null }
+        },
 })
 
 

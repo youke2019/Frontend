@@ -17,7 +17,7 @@ export default class StackNavBar extends Component{
     return(
       <View style = {styles.container}>
         <TouchableOpacity
-          style={{flex:0.7,height:50,}}
+          style={{flex:0.7,height:20}}
           activeOpacity={0.3}
           onPress={this.goBack}>
           <Image
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   container:{
     marginLeft:20,
     marginTop:25,
-    height:40,
+    height:20,
     flex:1,
     flexDirection:"row",
     justifyContent:"center",
