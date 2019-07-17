@@ -11,7 +11,59 @@ import QuestionCard from '../components/QuestionCard'
 
 class Evaluations extends React.Component {
     state={
-        questions:[]
+        questions:[
+            {
+                question: '老师上课点名多吗',
+                praise_point: 20,
+                praised: false,
+                answers: [
+                    {
+                        content: '点的不多',
+                        praise_point: 2,
+                        praised: false,
+                    },
+                    {
+                        content: '一学期一两次左右啊啊啊啊啊啊啊啊啊啊啊啊啊',
+                        praise_point: 10,
+                        praised: true,
+                    }
+                ]
+            },
+            {
+                question: '老师给分高吗',
+                praise_point: 22,
+                praised: false,
+                answers: [
+                    {
+                        content: '给分很高',
+                        praise_point: 3,
+                        praised: false,
+                    },
+                    {
+                        content: '均分90+',
+                        praise_point: 20,
+                        praised: true,
+                    }
+                ]
+            },
+            {
+                question: '老师上课有趣吗',
+                praise_point: 10,
+                praised: true,
+                answers: [
+                    {
+                        content: '蛮无聊的',
+                        praise_point: 6,
+                        praised: false,
+                    },
+                    {
+                        content: '上课经常想睡觉',
+                        praise_point: 6,
+                        praised: false,
+                    }
+                ]
+            }
+        ]
     }
 
     render() {
@@ -49,10 +101,14 @@ class Evaluations extends React.Component {
                     </View>
                 </ImageBackground>
                 <View style={styles.questions_container}>
-                    <QuestionCard/>
-                    <QuestionCard/>
-                    <QuestionCard/>
-                    <QuestionCard/>
+                    {
+                        this.state.questions.map((item,index) =>
+                            <QuestionCard
+                                QandA = {item}
+                                key={index}
+                            />
+                        )
+                    }
                 </View>
             </ScrollView>
         );
@@ -123,7 +179,7 @@ const styles = StyleSheet.create({
         lineHeight: 20,
     },
     questions_container:{
-        paddingHorizontal:30,
+        paddingHorizontal:25,
     },
 })
 
