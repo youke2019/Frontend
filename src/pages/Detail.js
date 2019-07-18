@@ -9,6 +9,8 @@ import StackNavBar from '../components/StackNavBar'
 import CourseDetail from '../components/CourseDetail'
 import CommentAbstract from '../components/CommentAbstract'
 import QAAbstract from '../components/QAAbstract'
+import { connect } from 'react-redux'
+import EvaluationAbstract from '../components/EvaluationAbstract'
 
 export const Title = (props) =>(
   <View style = {styles.Title}>
@@ -24,12 +26,7 @@ const Time = (props) =>(
     {/*父子组件间传值*/}
   </View>
 )
-const dateMap =["","一","二","三","四","五","六","日"];
-const weekMap ={
-  o: "单周",
-  e: "双周",
-  b: "全周"
-}
+
 
 /*
 Class CommentTitle extends React.Component{
@@ -80,7 +77,24 @@ class Detail extends React.Component {
             EmitError({ error_msg:"获取课程信息时发生了错误" })
         })
     }
-
+    onGotoCommentPage=()=>{
+      this.props.navigation.navigate("Comment",{
+        course_info:this.state.courseInfo,
+        user_info:this.props.user_info,
+      });
+    }
+    onGotoQuestionPage=()=>{
+      console.log("nav")
+      this.props.navigation.navigate("Questions",{
+        course_info:this.state.courseInfo,
+      });
+    }
+    onGotoEvaluationPage=()=>{
+      console.log("nav")
+    this.props.navigation.navigate("Evaluations",{
+      course_info:this.state.courseInfo,
+    });
+  }
     render() {
         return (
             <ScrollView
@@ -95,17 +109,27 @@ class Detail extends React.Component {
                 />
                 <CommentAbstract
                   navigation={this.props.navigation}
+                  onGotoCommentPage={this.onGotoCommentPage}
                   course_id={this.state.courseInfo.course_id}
                 />
                 <QAAbstract
-                /> 
+                  navigation={this.props.navigation}
+                  onGotoQuestionPage={this.onGotoQuestionPage}
+                />
+                <EvaluationAbstract
+                  onGotoEvaluationPage={this.onGotoEvaluationPage}
+                />
             </ScrollView>
         )
     }
 }
 
-export default Detail
-
+const mapStateToProps = (state) =>({
+  user_info:state.user_info,
+})
+export default  connect(
+  mapStateToProps,
+)(Detail)
 const styles = StyleSheet.create({
   base_container:{
     paddingTop:15,

@@ -10,6 +10,7 @@ import {
 import { connect } from 'react-redux'
 import axios from 'axios'
 import ReplyBox from './ReplyBox'
+
 const mapStateToProps = (state) =>({
   user_info:state.user_info,
 })
@@ -40,8 +41,6 @@ const mapStateToProps = (state) =>({
     if(!this.state.liked)   action = "praise"
     else  action = "unpraise"
     const {user_info,comment_info} = this.props
-    console.log(user_info.id)
-    console.log(comment_info.course_comment_id)
     axios({
       method:'get',
       url: baseUrl + "/courses/comments/" + action,
@@ -50,8 +49,6 @@ const mapStateToProps = (state) =>({
         course_comment_id:comment_info.course_comment_id,
       }
     }).then((response)=>{
-      console.log(action)
-      console.log(response);
       this.setState({
         liked : !this.state.liked,
       })
@@ -165,6 +162,7 @@ const styles = StyleSheet.create({
   },
   user_id:{
     fontWeight:'bold',
+    width:100,
   },
   comment_body:{
     paddingVertical:20

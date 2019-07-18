@@ -48,6 +48,14 @@ const CourseNavigator = createStackNavigator({
         screen:Comment,
         navigationOptions:{ header:null }
         },
+    Questions:{
+        screen:Questions,
+        navigationOptions:{ header:null }
+    },
+    Evaluations:{
+        screen:Evaluations,
+        navigationOptions: {header:null}
+    }
 })
 
 

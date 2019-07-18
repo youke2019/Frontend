@@ -11,8 +11,6 @@ import {
 import axios from 'axios';
 import { ShadowedTitle } from './ShadowedTitle'
 import CommentItem from './CommentItem'
-import { Button } from 'react-native-elements'
-import ReplyBox from './ReplyBox'
 
 const Tag = (props) =>{
   return(
@@ -26,12 +24,12 @@ const Tag = (props) =>{
   )
 }
 
-export class CommentAbstractTitle extends React.Component{
+class QAAbstractTitle extends React.Component{
     render () {
-      const {tags = ["水课","给分很高","老师很吵","fnu#&2G"]} = this.props;
+      const {tags = ["高分课程","值得一选"]} = this.props;
       return(
         <View style = {styles.header_container}>
-          <ShadowedTitle text={"评论"}  uri ={"comment"}/>
+          <ShadowedTitle text={"评测"}  uri ={"wenda"}/>
           {
             tags.map((tag,index) =>
               <Tag text = {tag} key={index} style = {styles.tag_text}/>)
@@ -40,49 +38,32 @@ export class CommentAbstractTitle extends React.Component{
       )
     }
 }
-export default class CommentAbstract extends React.Component{
-    state ={
-      comments: [],
-    }
-  componentWillReceiveProps (nextProps, nextContext) {
-    this.getCommentData(nextProps);
+export default class EvaluationAbstract extends React.Component{
+  state ={
+    comments: [],
   }
-  getCommentData=(props)=>{
-    axios({
-      method: 'get',
-      url: baseUrl + "/courses/comments/find",
-      params:{
-        course_id:props.course_id,
-      }
-    }).then(response=>{
-      this.setState({
-        comments: response.data
-      })
-    }).catch(err=>{
-      console.log("error:" + err);
-    });
+  componentDidMount () {
   }
   render() {
-    const firstComm = this.state.comments.length === 0 ? null : this.state.comments[0];
 
     return(
       <View style = {styles.container}>
-        <CommentAbstractTitle/>
+        <QAAbstractTitle/>
         <View style = {styles.first_comm}>
-          <CommentItem comment_info={firstComm} />
+          <Text > EV</Text>
         </View>
+
         <View style = {styles.button_container}>
           <TouchableOpacity
-            onPress={this.props.onGotoCommentPage}
+            onPress={this.props.onGotoEvaluationPage}
             style = {styles.button_touchable}
             activeOpacity={0.3}
           >
             <Text
               style={styles.button_text}
-            >全部评论</Text>
+            >更多评测</Text>
           </TouchableOpacity>
         </View>
-        {/* <ReplyBox />*/}
       </View>
     )
   }
