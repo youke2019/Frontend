@@ -83,7 +83,10 @@ class Detail extends React.Component {
 
     render() {
         return (
-            <ScrollView style={styles.base_container}>
+            <ScrollView
+              style={styles.base_container}
+              keyboardShouldPersistTaps={'handled'}
+            >
                 <StackNavBar
                   navigation={this.props.navigation}
                 />
