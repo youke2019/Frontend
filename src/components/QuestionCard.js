@@ -8,11 +8,19 @@ import {
     TouchableOpacity
 } from "react-native";
 import axios from 'axios'
+import ReplyBox from "./ReplyBox";
 
 
 class QuestionCard extends React.Component {
     state = {
-        QandA: this.props.QandA
+        QandA: this.props.QandA,
+        answer_visible: false,
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.setState({
+            QandA: nextProps.QandA
+        })
     }
 
     useful = () => {
@@ -81,8 +89,34 @@ class QuestionCard extends React.Component {
         }
     }
 
+    displayInput = () => {
+        this.setState({
+            answer_visible: true
+        })
+    }
+
+    hideInput = () => {
+        this.setState({
+            answer_visible: false
+        })
+    }
+
+    answer = (data) => {
+        axios.post(baseUrl+'/courses/answers/add',{
+            question_id: this.state.QandA.question_id,
+            user_id: '01231',
+            answer_content: data
+        }).then(() => {
+            this.hideInput()
+            this.props.onAnswer()
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
     render(){
         const {
+            answer_visible = false,
             QandA = {
                 courseAnswerList: []
             }
@@ -94,6 +128,11 @@ class QuestionCard extends React.Component {
                 imageStyle={{resizeMode: 'stretch'}}
                 source={{uri:'course_card'}}
             >
+                <ReplyBox
+                    onBackdropPress={this.hideInput}
+                    onReplyDone={(data) => this.answer(data)}
+                    visible={this.state.answer_visible}
+                />
                 <View style={styles.content_container}>
                     <View style={styles.question_container}>
                         <View style={styles.question_mark}>
@@ -151,7 +190,9 @@ class QuestionCard extends React.Component {
                         }
                     </View>
                     <View style={styles.to_answer_container}>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={this.displayInput}
+                        >
                             <ImageBackground
                                 style={styles.to_answer_button}
                                 imageStyle={{resizeMode: 'stretch'}}
@@ -178,7 +219,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     content_container:{
-        paddingLeft: 27,
+        paddingLeft: 30,
         paddingVertical: 30,
         alignItems: 'flex-start',
     },
@@ -220,11 +261,11 @@ const styles = StyleSheet.create({
         height: 20,
     },
     answers_container:{
-        paddingVertical: 8,
+        paddingVertical: 6,
     },
     answer_container:{
         flexDirection: 'row',
-        paddingVertical: 8,
+        paddingVertical: 10,
         paddingLeft: 8,
         width: 260,
         alignItems: 'center',

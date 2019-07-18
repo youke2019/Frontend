@@ -3,8 +3,6 @@ import {
     Text,
     View,
     StyleSheet,
-    Image,
-    StatusBar,
 } from "react-native";
 import {Avatar, Button, Divider} from 'react-native-elements'
 import {connect} from "react-redux";
@@ -47,14 +45,6 @@ class Profile extends React.Component {
         return (
             <View style={styles.container}>
                 <View>
-                    <View style={styles.hearder_image_container}>
-                        <Image
-                            style={styles.header_image}
-                            overflow='visible'
-                            resizeMode='cover'
-                            source={{uri:'profile'}}
-                        />
-                    </View>
                     <View style={styles.info_container}>
                         <Avatar
                             size="large"
@@ -100,18 +90,10 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         paddingTop: 25,
     },
-    hearder_image_container:{
-        width: '100%',
-        height: 120,
-    },
-    header_image:{
-        opacity: 0.2,
-        width: 'auto',
-        height: 150,
-    },
     info_container:{
         flexDirection: 'row',
-        paddingTop: 10,
+        paddingTop: 40,
+        paddingLeft: 20,
     },
     info:{
         paddingLeft: 20,

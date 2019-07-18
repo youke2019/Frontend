@@ -6,16 +6,49 @@ import {
     ImageBackground,
     Image,
     ScrollView,
+    TouchableOpacity,
 } from "react-native";
 import axios from 'axios'
 import QuestionCard from '../components/QuestionCard'
+import ReplyBox from '../components/ReplyBox'
 
 class Questions extends React.Component {
     state={
-        questions:[]
+        questions:[],
+        question_visible: false,
     }
 
     componentWillMount() {
+        this.flush()
+    }
+
+    comeUpQuestion = (data) => {
+        axios.post(baseUrl+'/courses/questions/add',{
+            course_id: this.state.questions[0].course_id,
+            user_id: '01231',
+            question_content: data
+        }).then((res) => {
+            console.log(res)
+            this.hideInput()
+            this.flush()
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+    displayInput = () => {
+        this.setState({
+            question_visible: true
+        })
+    }
+
+    hideInput = () => {
+        this.setState({
+            question_visible: false
+        })
+    }
+
+    flush = () => {
         axios.get(baseUrl+'/courses/questions/find',{
             params:{
                 course_id:'66974',
@@ -34,6 +67,11 @@ class Questions extends React.Component {
     render() {
         return (
             <ScrollView style={styles.container}>
+                <ReplyBox
+                    onBackdropPress={this.hideInput}
+                    onReplyDone={(data)=>this.comeUpQuestion(data)}
+                    visible={this.state.question_visible}
+                />
                 <ImageBackground
                     style={styles.header_container}
                     imageStyle={{resizeMode:'stretch'}}
@@ -51,17 +89,21 @@ class Questions extends React.Component {
                     </View>
                     <View style={styles.option_container}>
                         <View style={styles.new_question_container}>
-                            <ImageBackground
-                                imageStyle={{resizeMode:'stretch'}}
-                                style={styles.new_question}
-                                source={{uri:'black_rectangle'}}
+                            <TouchableOpacity
+                                onPress={this.displayInput}
                             >
-                                <Image
-                                    style={styles.new_question_icon}
-                                    source={{uri:'new_question'}}
-                                />
-                                <Text style={styles.new_question_text}>新的问题</Text>
-                            </ImageBackground>
+                                <ImageBackground
+                                    imageStyle={{resizeMode:'stretch'}}
+                                    style={styles.new_question}
+                                    source={{uri:'black_rectangle'}}
+                                >
+                                    <Image
+                                        style={styles.new_question_icon}
+                                        source={{uri:'new_question'}}
+                                    />
+                                    <Text style={styles.new_question_text}>新的问题</Text>
+                                </ImageBackground>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </ImageBackground>
@@ -69,6 +111,7 @@ class Questions extends React.Component {
                     {
                         this.state.questions.map((item,index) =>
                             <QuestionCard
+                                onAnswer={this.flush}
                                 QandA = {item}
                                 key={index}
                             />
