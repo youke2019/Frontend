@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
         padding:5,
     },
     logout: {
-        backgroundColor: '#FFD900'
+        backgroundColor: '#FDAF26'
     },
 })
 

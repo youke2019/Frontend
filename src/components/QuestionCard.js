@@ -7,6 +7,8 @@ import {
     Image,
     TouchableOpacity
 } from "react-native";
+import axios from 'axios'
+
 
 class QuestionCard extends React.Component {
     state = {
@@ -15,34 +17,66 @@ class QuestionCard extends React.Component {
 
     useful = () => {
         let tmp_QandA = this.state.QandA
-        if (this.state.QandA.praised){
-            tmp_QandA.praise_point--
-            tmp_QandA.praised = false
+        if (this.state.QandA.current_user_praise){
+            tmp_QandA.question_praise_point--
+            tmp_QandA.current_user_praise = false
             this.setState({
                 QandA: tmp_QandA
             })
+            axios.get(baseUrl+'/courses/questions/unpraise',{
+                params:{
+                    user_id: '01231',
+                    question_id: tmp_QandA.question_id
+                }
+            }).catch(err=>{
+                console.log(err)
+            })
         } else {
-            tmp_QandA.praise_point++
-            tmp_QandA.praised = true
+            tmp_QandA.question_praise_point++
+            tmp_QandA.current_user_praise = true
             this.setState({
                 QandA: tmp_QandA
+            })
+            axios.get(baseUrl+'/courses/questions/praise',{
+                params:{
+                    user_id: '01231',
+                    question_id: tmp_QandA.question_id
+                }
+            }).catch(err=>{
+                console.log(err)
             })
         }
     }
 
     praise = (index) => {
         let tmp_QandA = this.state.QandA
-        if (this.state.QandA.answers[index].praised){
-            tmp_QandA.answers[index].praise_point--
-            tmp_QandA.answers[index].praised = false
+        if (this.state.QandA.courseAnswerList[index].current_user_praise){
+            tmp_QandA.courseAnswerList[index].answer_praise_point--
+            tmp_QandA.courseAnswerList[index].current_user_praise = false
             this.setState({
                 QandA: tmp_QandA
             })
+            axios.get(baseUrl+'/courses/answers/unpraise',{
+                params:{
+                    user_id: '01231',
+                    answer_id: tmp_QandA.courseAnswerList[index].answer_id,
+                }
+            }).catch(err=>{
+                console.log(err)
+            })
         } else {
-            tmp_QandA.answers[index].praise_point++
-            tmp_QandA.answers[index].praised = true
+            tmp_QandA.courseAnswerList[index].answer_praise_point++
+            tmp_QandA.courseAnswerList[index].current_user_praise = true
             this.setState({
                 QandA: tmp_QandA
+            })
+            axios.get(baseUrl+'/courses/answers/praise',{
+                params:{
+                    user_id: '01231',
+                    answer_id: tmp_QandA.courseAnswerList[index].answer_id,
+                }
+            }).catch(err=>{
+                console.log(err)
             })
         }
     }
@@ -50,21 +84,7 @@ class QuestionCard extends React.Component {
     render(){
         const {
             QandA = {
-                question: '老师上课点名多吗',
-                praise_point: 20,
-                praised: false,
-                answers: [
-                    {
-                        content: '点的不多',
-                        praise_point: 2,
-                        praised: false,
-                    },
-                    {
-                        content: '一学期一两次左右啊啊啊啊啊啊啊啊啊啊啊啊啊',
-                        praise_point: 10,
-                        praised: true,
-                    }
-                ]
+                courseAnswerList: []
             }
         } = this.state
 
@@ -84,7 +104,7 @@ class QuestionCard extends React.Component {
                             />
                         </View>
                         <Text style={styles.question_text}>
-                            {QandA.question}
+                            {QandA.question_content}
                         </Text>
                         <TouchableOpacity
                             style={styles.bulb_container}
@@ -92,15 +112,15 @@ class QuestionCard extends React.Component {
                         >
                             <Image
                                 resizeMode='stretch'
-                                style={[styles.bulb,QandA.praised? styles.selected:styles.unselected]}
+                                style={[styles.bulb,QandA.current_user_praise? styles.selected:styles.unselected]}
                                 source={{uri:'bulb'}}
                             />
-                            <Text style={styles.praise_point}>有用({QandA.praise_point})</Text>
+                            <Text style={styles.praise_point}>有用({QandA.question_praise_point})</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.answers_container}>
                         {
-                            QandA.answers.map((item, index) =>
+                            QandA.courseAnswerList.map((item, index) =>
                                 <View
                                     style={styles.answer_container}
                                     key={index}
@@ -113,7 +133,7 @@ class QuestionCard extends React.Component {
                                         />
                                     </View>
                                     <Text style={styles.answer_text}>
-                                        {item.content}
+                                        {item.answer_content}
                                     </Text>
                                     <TouchableOpacity
                                         style={styles.praise_container}
@@ -121,10 +141,10 @@ class QuestionCard extends React.Component {
                                     >
                                         <Image
                                             resizeMode='stretch'
-                                            style={[styles.praise,item.praised? styles.selected:styles.unselected]}
+                                            style={[styles.praise,item.current_user_praise? styles.selected:styles.unselected]}
                                             source={{uri:'dianzan'}}
                                         />
-                                        <Text style={styles.praise_point}>{item.praise_point}</Text>
+                                        <Text style={styles.praise_point}>{item.answer_praise_point}</Text>
                                     </TouchableOpacity>
                                 </View>
                             )
@@ -184,7 +204,8 @@ const styles = StyleSheet.create({
     question_text:{
         flex:5,
         fontWeight: '500',
-        fontSize: 14
+        fontSize: 14,
+        paddingHorizontal: 5,
     },
     bulb_container:{
         flex:2,
