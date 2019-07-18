@@ -20,7 +20,8 @@ import {
     Detail,
     Classes,
     Map,
-    Evaluations
+    Questions,
+    Evaluations,
 } from './src/pages'
 import { Provider } from 'react-redux'
 import {createStore} from 'redux'
@@ -60,7 +61,8 @@ const TabNavigator = createBottomTabNavigator({
     Course: CourseNavigator,
     Classes: { screen: Classes },
     Map: { screen: Map},
-    Evaluations: {screen: Evaluations},
+    Questions: {screen: Questions},
+    Evaluations: {screen:Evaluations},
     Profile: { screen: ProfileNavigator },
 });
 

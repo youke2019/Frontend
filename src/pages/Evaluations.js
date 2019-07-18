@@ -1,186 +1,99 @@
 import React from "react";
 import {
-    StyleSheet,
+    Image,
     Text,
     View,
-    ImageBackground,
-    Image,
-    ScrollView,
-} from "react-native";
-import QuestionCard from '../components/QuestionCard'
+    ImageBackground, StyleSheet, TouchableOpacity,
+
+} from "react-native"
+import EvaluationCard from '../components/EvaluationCard'
+import Carousel from 'react-native-snap-carousel'
 
 class Evaluations extends React.Component {
     state={
-        questions:[
-            {
-                question: '老师上课点名多吗',
-                praise_point: 20,
-                praised: false,
-                answers: [
-                    {
-                        content: '点的不多',
-                        praise_point: 2,
-                        praised: false,
-                    },
-                    {
-                        content: '一学期一两次左右啊啊啊啊啊啊啊啊啊啊啊啊啊',
-                        praise_point: 10,
-                        praised: true,
-                    }
-                ]
-            },
-            {
-                question: '老师给分高吗',
-                praise_point: 22,
-                praised: false,
-                answers: [
-                    {
-                        content: '给分很高',
-                        praise_point: 3,
-                        praised: false,
-                    },
-                    {
-                        content: '均分90+',
-                        praise_point: 20,
-                        praised: true,
-                    }
-                ]
-            },
-            {
-                question: '老师上课有趣吗',
-                praise_point: 10,
-                praised: true,
-                answers: [
-                    {
-                        content: '蛮无聊的',
-                        praise_point: 6,
-                        praised: false,
-                    },
-                    {
-                        content: '上课经常想睡觉',
-                        praise_point: 6,
-                        praised: false,
-                    }
-                ]
-            }
-        ]
+        entries:[{item:'a'},
+            {item:'b'},{item:'c'},{item:'d'},{item:'e'}]
     }
 
-    render() {
+    _renderItem ({item, index}) {
         return (
-            <ScrollView style={styles.container}>
-                <ImageBackground
-                    style={styles.header_container}
-                    imageStyle={{resizeMode:'stretch'}}
-                    source={{uri:'questions_bg'}}
-                >
-                    <View style={styles.title_container}>
-                        <Text style={styles.title}>解疑</Text>
-                        <View style={styles.subtitle_container}>
-                            <Image
-                                style={styles.subtitle_icon}
-                                source={{uri:'qanda'}}
-                            />
-                            <Text style={styles.subtitle}>Q&A</Text>
-                        </View>
-                    </View>
-                    <View style={styles.option_container}>
-                        <View style={styles.new_question_container}>
-                            <ImageBackground
-                                imageStyle={{resizeMode:'stretch'}}
-                                style={styles.new_question}
-                                source={{uri:'black_rectangle'}}
-                            >
-                                <Image
-                                    style={styles.new_question_icon}
-                                    source={{uri:'new_question'}}
-                                />
-                                <Text style={styles.new_question_text}>新的问题</Text>
-                            </ImageBackground>
-                        </View>
-                    </View>
-                </ImageBackground>
-                <View style={styles.questions_container}>
-                    {
-                        this.state.questions.map((item,index) =>
-                            <QuestionCard
-                                QandA = {item}
-                                key={index}
-                            />
-                        )
-                    }
+            <EvaluationCard/>
+        );
+    }
+
+    render () {
+        return (
+            <View
+                style={styles.container}
+            >
+                <View style={styles.header}>
+                    <Text style={styles.title}>课程评测</Text>
                 </View>
-            </ScrollView>
+                <View style={styles.slider}>
+                    <Carousel
+                        ref={(c) => { this._carousel = c; }}
+                        data={this.state.entries}
+                        renderItem={this._renderItem}
+                        sliderWidth={360}
+                        itemWidth={300}
+                        layout={'tinder'}
+                        firstItem={this.state.entries.length}
+                        layoutCardOffset={12}
+                    />
+                </View>
+                <TouchableOpacity
+                    style={styles.plus_container}
+                >
+                    <ImageBackground
+                        style={styles.plus_button}
+                        imageStyle={{resizeMode: 'stretch'}}
+                        source={{uri:'button_orange'}}
+                    >
+                        <Text style={styles.plus_text}>发布我的评测</Text>
+                    </ImageBackground>
+                </TouchableOpacity>
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
-        backgroundColor: '#F5F5F5',
+        backgroundColor:'#FDD32A'
     },
-    header_container:{
-        flexDirection: 'row',
-        height:200,
-    },
-    title_container:{
-        flex:1,
-        paddingLeft: 12,
-        paddingTop: 40,
-        justifyContent: 'flex-start',
+    header:{
+        height: 150,
+        justifyContent: 'center',
         alignItems: 'center',
     },
     title:{
         color: '#000000',
-        fontSize: 50,
+        fontSize: 40,
         fontFamily: '字魂95号-手刻宋'
     },
-    subtitle_container:{
-        flexDirection: 'row',
+    slider:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 380,
+    },
+    plus_container:{
         justifyContent: 'center',
         alignItems: 'center',
     },
-    subtitle_icon:{
-        width: 30,
-        height: 30,
-    },
-    subtitle:{
-        padding: 8,
-        color: '#000000',
-        fontSize: 12,
-    },
-    option_container:{
-        flex:2,
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-    },
-    new_question_container:{
-        paddingBottom: 56,
-    },
-    new_question:{
-        flexDirection: 'row',
-        width: 120,
+    plus_button:{
+        width: 180,
         height: 40,
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    new_question_icon:{
-        width: 24,
-        height: 24,
-    },
-    new_question_text:{
-        paddingTop: 3,
-        paddingHorizontal: 3,
-        color: '#FFFFFF',
-        letterSpacing: 3,
-        fontSize: 15,
+    plus_text:{
+        paddingHorizontal: 5,
+        fontSize: 16,
+        letterSpacing: 1,
         fontFamily: '字魂95号-手刻宋',
-        lineHeight: 20,
-    },
-    questions_container:{
-        paddingHorizontal:25,
-    },
+    }
 })
 
 export default Evaluations
