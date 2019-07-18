@@ -1,3 +1,5 @@
+import { loadData } from './LocalStorage'
+
 export function getWeekClassTable (data,week) {
   //console.log(JSON.stringify(data));
   let classTable = [[],[],[],[],[],[],[]];
@@ -43,4 +45,32 @@ export function getWeekClassTable (data,week) {
   }
   console.log(JSON.stringify( new_classTable));
   return new_classTable;
+}
+/*
+* given the time = {
+*   week,
+*   weekday,
+*   hour,
+*   minute,
+* },schedule: raw schedule from storage
+* return name of next class.
+* */
+export const nextClass = (time,schedule)=>{
+  let res = null;
+  const weekClasstable = getWeekClassTable(schedule,time.week);
+  let current = time.hour - 8 + ((time.hour % 2 === 0) && time.minute > 20) + ((time.hour % 2 === 1) && time.minute > 10)*2;
+  console.log(current)
+  weekClasstable[time.weekday].forEach((span) =>{
+    console.log(span.name + " " + span.span + " " + current);
+    if(res != null) return ;
+    if(span.name === null){
+      current -= span.span;
+      return ;
+    }
+    if(current >= span.span)
+      current -= span.span;
+    else if(current < span.span)
+      res = span.name;
+  })
+  return res;
 }

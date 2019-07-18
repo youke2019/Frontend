@@ -36,18 +36,25 @@ const mapStateToProps = (state) =>({
     })
   }
   onPressLike = () =>{
+    let action ="";
+    if(!this.state.liked)   action = "praise"
+    else  action = "unpraise"
     const {user_info,comment_info} = this.props
     console.log(user_info.id)
     console.log(comment_info.course_comment_id)
     axios({
       method:'get',
-      url: baseUrl + "/courses/comments/praise",
+      url: baseUrl + "/courses/comments/" + action,
       params:{
         user_id:user_info.id,
         course_comment_id:comment_info.course_comment_id,
       }
     }).then((response)=>{
+      console.log(action)
       console.log(response);
+      this.setState({
+        liked : !this.state.liked,
+      })
     }).catch((err)=>{
       console.log(err);
     })
@@ -100,9 +107,10 @@ const mapStateToProps = (state) =>({
                 <TouchableOpacity
                   onPress={this.onPressLike}
                   style = {styles.button_like}
-                  activeOpacity={0.3}>
-                  <Image source={{uri:'dianzan'}} style={{width:14,height:14,resizeMode: 'contain'}}/>
-                  <Text style={{fontSize: 12,fontWeight:'100'}}>{comment_info.course_comment_praise_point}</Text>
+                  activeOpacity={0.3}
+                >
+                  <Image source={{uri:'dianzan'}} style={ this.state.liked ?   {width:14,height:14,resizeMode: 'contain',tintColor:'orange'}: {width:14,height:14,resizeMode: 'contain'}}/>
+                  <Text style={{fontSize: 12,fontWeight:'100'}}>{comment_info.course_comment_praise_point + this.state.liked}</Text>
                 </TouchableOpacity>
               </View>
             </View>

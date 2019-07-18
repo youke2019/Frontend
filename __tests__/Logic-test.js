@@ -10,3 +10,7 @@ test('parse class table from local data ', () => {
   expect(weekClassTable.length).toEqual(7);
   expect(weekClassTable).toEqual(monday)
 });
+
+test('given time and schedule, calc next class name',()=>{
+
+})
