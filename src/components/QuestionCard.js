@@ -123,10 +123,8 @@ class QuestionCard extends React.Component {
         } = this.state
 
         return (
-            <ImageBackground
+            <View
                 style={styles.container}
-                imageStyle={{resizeMode: 'stretch'}}
-                source={{uri:'course_card'}}
             >
                 <ReplyBox
                     onBackdropPress={this.hideInput}
@@ -207,7 +205,7 @@ class QuestionCard extends React.Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </ImageBackground>
+            </View>
         )
     }
 }
@@ -217,11 +215,15 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent: 'center',
         alignItems: 'flex-start',
+        paddingVertical: 30,
     },
     content_container:{
         paddingLeft: 30,
         paddingVertical: 30,
         alignItems: 'flex-start',
+        borderRadius: 20,
+        elevation: 4,
+        backgroundColor: '#FFFFFF',
     },
     question_container:{
         flexDirection: 'row',
