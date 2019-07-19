@@ -16,11 +16,22 @@ const mapStateToProps = (state) =>({
 })
 
  class CommentItem extends React.Component {
-  state ={
-    reply_visible: false,
-    liked:false,
+   constructor (props){
+     super(props)
+     const liked = props.comment_info !== null ? props.comment_info.current_user_praise : false;
+    this.state = {
+      reply_visible: false,
+      liked: liked,
+    }
+   }
+  componentWillReceiveProps (nextProps, nextContext) {
+    const liked = nextProps.comment_info !== null ? nextProps.comment_info.current_user_praise : false;
+    this.setState({
+      liked:liked,
+    })
   }
-  onPressComment = ()=>{
+
+   onPressComment = ()=>{
     this.setState({
       reply_visible:true,
     })
@@ -29,7 +40,6 @@ const mapStateToProps = (state) =>({
     this.setState({
       reply_visible:false,
     })
-    console.log("comment"+msg)
   }
   closeComment =()=>{
     this.setState({
@@ -49,9 +59,8 @@ const mapStateToProps = (state) =>({
         course_comment_id:comment_info.course_comment_id,
       }
     }).then((response)=>{
-      this.setState({
-        liked : !this.state.liked,
-      })
+      console.log(response)
+      this.props.refresh();
     }).catch((err)=>{
       console.log(err);
     })
@@ -61,7 +70,6 @@ const mapStateToProps = (state) =>({
       comment_info =null,
     } = this.props;
     const {reply_visible} = this.state;
-    console.log(comment_info)
     return (
       <View>
       {
@@ -107,7 +115,7 @@ const mapStateToProps = (state) =>({
                   activeOpacity={0.3}
                 >
                   <Image source={{uri:'dianzan'}} style={ this.state.liked ?   {width:14,height:14,resizeMode: 'contain',tintColor:'orange'}: {width:14,height:14,resizeMode: 'contain'}}/>
-                  <Text style={{fontSize: 12,fontWeight:'100'}}>{comment_info.course_comment_praise_point + this.state.liked}</Text>
+                  <Text style={{fontSize: 12,fontWeight:'100'}}>{comment_info.course_comment_praise_point }</Text>
                 </TouchableOpacity>
               </View>
             </View>
