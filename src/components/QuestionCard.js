@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
     },
     content_container:{
         paddingLeft: 30,
-        paddingVertical: 30,
+        paddingVertical: 10,
         alignItems: 'flex-start',
         borderRadius: 20,
         elevation: 4,
