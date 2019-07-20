@@ -10,7 +10,9 @@ import QuestionsPage from './Questions'
 import EvaluationsPage from './Evaluations'
 import CommentPage from './Comment'
 import HighlightPage from './Highlight'
+import NewHighlightPage from './NewHighlight'
 
+export const NewHighlight = NewHighlightPage
 export const Highlight = HighlightPage
 export const Comment = CommentPage
 export const Home = HomePage

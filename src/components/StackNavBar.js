@@ -34,11 +34,11 @@ export default class StackNavBar extends Component{
 }
 const styles = StyleSheet.create({
   container:{
-    marginLeft:20,
-    marginTop:25,
-    flex:1,
-    flexDirection:"row",
-    justifyContent:"center",
+    marginTop:35,
+    height:40,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems:'center',
   },
   backImage:{
     width:25,

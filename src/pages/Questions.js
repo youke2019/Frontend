@@ -73,7 +73,10 @@ class Questions extends React.Component {
 
     render() {
         return (
-            <ScrollView style={styles.container}>
+            <ScrollView
+              style={styles.container}
+              keyboardShouldPersistTaps={'handled'}
+            >
                 <ReplyBox
                     onBackdropPress={this.hideInput}
                     onReplyDone={(data)=>this.comeUpQuestion(data)}
