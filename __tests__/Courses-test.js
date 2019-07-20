@@ -6,7 +6,6 @@ import { combinedReducer } from '../src/redux/reducers'
 import { Provider } from 'react-redux'
 import Adapter from 'enzyme-adapter-react-16'
 import {shallow,mount,configure} from 'enzyme'
-import axios from 'axios'
 
 configure({adapter: new Adapter()})
 
@@ -56,7 +55,7 @@ describe('functionality', () => {
         const promise = new Promise(
             function (resolve, reject)
             {resolve('success')})
-        axios.post()
+        promise
             .then(data=>{
                 console.log(wrapper.props())
                 done()

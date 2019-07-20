@@ -11,6 +11,13 @@ import {
 import axios from 'axios'
 import QuestionCard from '../components/QuestionCard'
 import ReplyBox from '../components/ReplyBox'
+import {connect} from "react-redux";
+
+const mapStateToProps = state => {
+    return {
+        user: state.user_info
+    }
+}
 
 class Questions extends React.Component {
     state={
@@ -24,8 +31,8 @@ class Questions extends React.Component {
 
     comeUpQuestion = (data) => {
         axios.post(baseUrl+'/courses/questions/add',{
-            course_id: this.state.questions[0].course_id,
-            user_id: '01231',
+            course_id: this.props.navigation.state.params.course_info.course_id,
+            user_id: this.props.user.id,
             question_content: data
         }).then((res) => {
             console.log(res)
@@ -51,8 +58,8 @@ class Questions extends React.Component {
     flush = () => {
         axios.get(baseUrl+'/courses/questions/find',{
             params:{
-                course_id:'66974',
-                user_id:'01231',
+                course_id: this.props.navigation.state.params.course_info.course_id,
+                user_id: '01231',
             }
         }).then(res=>{
             console.log(res.data)
@@ -114,6 +121,7 @@ class Questions extends React.Component {
                                 onAnswer={this.flush}
                                 QandA = {item}
                                 key={index}
+                                userId={this.props.user.id}
                             />
                         )
                     }
@@ -191,4 +199,6 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Questions
+export default connect(
+    mapStateToProps,
+)(Questions)

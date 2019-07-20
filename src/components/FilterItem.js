@@ -57,7 +57,7 @@ class FilterItem extends React.Component {
                         onPress={this.changeFoldState}>
                         <Image
                             style={styles.arrow}
-                            source={{uri: fold? 'arrow_up_outline' : 'arrow_down_outline' }}
+                            source={{uri: fold? 'arrow_up' : 'arrow_down' }}
                         />
                     </TouchableOpacity>
                 </View>

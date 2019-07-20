@@ -1,45 +1,65 @@
 import React from "react";
 import {
-    Image,
     Text,
     View,
-    ImageBackground, StyleSheet, TouchableOpacity,
-
+    ImageBackground,
+    StyleSheet,
+    TouchableOpacity,
+    ScrollView,
 } from "react-native"
 import EvaluationCard from '../components/EvaluationCard'
 import Carousel from 'react-native-snap-carousel'
+import axios from "axios";
 
 class Evaluations extends React.Component {
     state={
-        entries:[{item:'a'},
-            {item:'b'},{item:'c'},{item:'d'},{item:'e'}]
+        evaluations: [],
+        cardScrollEnable : true,
     }
 
-    _renderItem ({item, index}) {
+    componentWillMount() {
+        axios.get(baseUrl+'/courses/evaluates/find',{
+            params:{
+                course_id: '11004'
+            }
+        }).then(res=>{
+            this.setState({
+                evaluations: res.data
+            })
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+    changeCardScroll = () => {
+        this.setState({
+            cardScrollEnable: !this.state.cardScrollEnable,
+        })
+    }
+
+
+    _renderItem = ({item,index}) => {
         return (
-            <EvaluationCard/>
-        );
+            <EvaluationCard
+                key={item}
+                evaluation={item}
+                onDetail={() => {this.changeCardScroll()}}
+            />
+        )
     }
 
     render () {
+        const {
+            evaluations,
+            cardScrollEnable,
+        } = this.state
+
         return (
-            <View
+            <ScrollView
                 style={styles.container}
             >
                 <View style={styles.header}>
                     <Text style={styles.title}>课程评测</Text>
-                </View>
-                <View style={styles.slider}>
-                    <Carousel
-                        ref={(c) => { this._carousel = c; }}
-                        data={this.state.entries}
-                        renderItem={this._renderItem}
-                        sliderWidth={360}
-                        itemWidth={300}
-                        layout={'tinder'}
-                        firstItem={this.state.entries.length}
-                        layoutCardOffset={12}
-                    />
                 </View>
                 <TouchableOpacity
                     style={styles.plus_container}
@@ -52,7 +72,22 @@ class Evaluations extends React.Component {
                         <Text style={styles.plus_text}>发布我的评测</Text>
                     </ImageBackground>
                 </TouchableOpacity>
-            </View>
+                <View
+                    style={styles.slider}
+                >
+                    <Carousel
+                        ref={(c) => { this._carousel = c; }}
+                        data={evaluations}
+                        renderItem={this._renderItem}
+                        sliderWidth={360}
+                        itemWidth={300}
+                        layout={'tinder'}
+                        firstItem={evaluations.length}
+                        layoutCardOffset={12}
+                        scrollEnabled={cardScrollEnable}
+                    />
+                </View>
+            </ScrollView>
         );
     }
 }
@@ -63,7 +98,8 @@ const styles = StyleSheet.create({
         backgroundColor:'#FDD32A'
     },
     header:{
-        height: 150,
+        paddingTop: 20,
+        height: 120,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -73,9 +109,8 @@ const styles = StyleSheet.create({
         fontFamily: '字魂95号-手刻宋'
     },
     slider:{
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 380,
+        flex:1,
+        paddingVertical: 20,
     },
     plus_container:{
         justifyContent: 'center',

@@ -1,20 +1,28 @@
 const axios = jest.genMockFromModule('axios');
 
 let mockFiles = Object.create(null);
-function post(data) {
+function post(url,data) {
     const promise = new Promise(function (resolve, reject) {
-        if (true) {
-            resolve(data);
+        if (
+            data.answer_content == 'error'
+        ) {
+            reject("error")
         } else {
-            reject(error);
+            resolve(data)
         }
     })
     return promise
 }
 
 function get(data) {
-    const promise = new Promise()
-    return promise.resolve(data)
+    const promise = new Promise(function (resolve, reject) {
+        if (false) {
+            resolve(data);
+        } else {
+            reject("error");
+        }
+    })
+    return promise
 }
 
 axios.post = post;
