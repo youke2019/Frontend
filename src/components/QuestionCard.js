@@ -33,7 +33,7 @@ class QuestionCard extends React.Component {
             })
             axios.get(baseUrl+'/courses/questions/unpraise',{
                 params:{
-                    user_id: '01231',
+                    user_id: this.props.userId,
                     question_id: tmp_QandA.question_id
                 }
             }).catch(err=>{
@@ -47,7 +47,7 @@ class QuestionCard extends React.Component {
             })
             axios.get(baseUrl+'/courses/questions/praise',{
                 params:{
-                    user_id: '01231',
+                    user_id: this.props.userId,
                     question_id: tmp_QandA.question_id
                 }
             }).catch(err=>{
@@ -57,6 +57,7 @@ class QuestionCard extends React.Component {
     }
 
     praise = (index) => {
+        console.log(index)
         let tmp_QandA = this.state.QandA
         if (this.state.QandA.courseAnswerList[index].current_user_praise){
             tmp_QandA.courseAnswerList[index].answer_praise_point--
@@ -66,7 +67,7 @@ class QuestionCard extends React.Component {
             })
             axios.get(baseUrl+'/courses/answers/unpraise',{
                 params:{
-                    user_id: '01231',
+                    user_id: this.props.userId,
                     answer_id: tmp_QandA.courseAnswerList[index].answer_id,
                 }
             }).catch(err=>{
@@ -80,7 +81,7 @@ class QuestionCard extends React.Component {
             })
             axios.get(baseUrl+'/courses/answers/praise',{
                 params:{
-                    user_id: '01231',
+                    user_id: this.props.userId,
                     answer_id: tmp_QandA.courseAnswerList[index].answer_id,
                 }
             }).catch(err=>{
@@ -104,7 +105,7 @@ class QuestionCard extends React.Component {
     answer = (data) => {
         axios.post(baseUrl+'/courses/answers/add',{
             question_id: this.state.QandA.question_id,
-            user_id: '01231',
+            user_id: this.props.userId,
             answer_content: data
         }).then(() => {
             this.hideInput()
@@ -128,7 +129,7 @@ class QuestionCard extends React.Component {
             >
                 <ReplyBox
                     onBackdropPress={this.hideInput}
-                    onReplyDone={(data) => this.answer(data)}
+                    onReplyDone={this.answer}
                     visible={this.state.answer_visible}
                 />
                 <View style={styles.content_container}>
@@ -175,6 +176,7 @@ class QuestionCard extends React.Component {
                                     <TouchableOpacity
                                         style={styles.praise_container}
                                         onPress={() => this.praise(index)}
+                                        key={index}
                                     >
                                         <Image
                                             resizeMode='stretch'

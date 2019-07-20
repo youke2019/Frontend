@@ -41,7 +41,7 @@ class Evaluations extends React.Component {
     _renderItem = ({item,index}) => {
         return (
             <EvaluationCard
-                key={index}
+                key={item}
                 evaluation={item}
                 onDetail={() => {this.changeCardScroll()}}
             />

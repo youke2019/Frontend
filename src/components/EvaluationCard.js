@@ -9,7 +9,7 @@ import {
 import {Avatar} from "react-native-elements"
 import Rating from './Rating'
 
-class QuestionCard extends React.Component {
+class EvaluationCard extends React.Component {
     state = {
         showDetail: false,
         detail: [],
@@ -64,10 +64,10 @@ class QuestionCard extends React.Component {
                         <View style={styles.star_icon_container}>
                             <Text style={styles.star_text}>评分:</Text>
                             <Rating
-                                rate={8.2}
+                                rate={evaluation.credit_point/10}
                             />
                         </View>
-                        <Text style={styles.star_number}>8.0</Text>
+                        <Text style={styles.star_number}>{evaluation.credit_point/10}</Text>
                     </View>
                     {
                         showDetail &&
@@ -79,7 +79,7 @@ class QuestionCard extends React.Component {
                                             <Text style={styles.detail_title}>{item.title}</Text>
                                         </View>
                                         <View style={styles.detail_content_container}>
-                                            <Text style={styles.detail_content}>{item.content}</Text>
+                                            <Text style={styles.detail_content}>{item.content}老师人美讲课也耐心，能学到很多乐理知识，强推。老师人美讲课也耐心，能学到很多乐理知识，强推。</Text>
                                         </View>
                                     </View>
                                 )
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     star:{
-        height: 30,
+        height: 60,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -159,11 +159,19 @@ const styles = StyleSheet.create({
     details:{
     },
     detail:{
+        padding: 15,
+        flex:1,
     },
     detail_title_container:{},
-    detail_title:{},
-    detail_text_container:{},
-    detail_text:{},
+    detail_title:{
+        fontSize: 15,
+        fontWeight: '500'
+    },
+    detail_content_container:{
+        padding: 8,
+    },
+    detail_content:{
+    },
     bottom:{
         height: 30,
         flexDirection: 'row',
@@ -188,4 +196,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default QuestionCard
+export default EvaluationCard
