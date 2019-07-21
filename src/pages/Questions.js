@@ -35,7 +35,6 @@ class Questions extends React.Component {
             user_id: this.props.user.id,
             question_content: data
         }).then((res) => {
-            console.log(res)
             this.hideInput()
             this.flush()
         }).catch(err => {
@@ -62,7 +61,6 @@ class Questions extends React.Component {
                 user_id: this.props.user.id,
             }
         }).then(res=>{
-            console.log(res.data)
             this.setState({
                 questions: res.data
             })
@@ -79,7 +77,7 @@ class Questions extends React.Component {
             >
                 <ReplyBox
                     onBackdropPress={this.hideInput}
-                    onReplyDone={(data)=>this.comeUpQuestion(data)}
+                    onReplyDone={this.comeUpQuestion}
                     visible={this.state.question_visible}
                 />
                 <ImageBackground

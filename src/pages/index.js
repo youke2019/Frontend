@@ -9,12 +9,9 @@ import DrawerPage from '../components/Drawer.js'
 import QuestionsPage from './Questions'
 import EvaluationsPage from './Evaluations'
 import CommentPage from './Comment'
-<<<<<<< HEAD
 import PostEvaluationPage from './PostEvaluation'
-=======
 import HighlightPage from './Highlight'
 import NewHighlightPage from './NewHighlight'
->>>>>>> ff09071959138101326d0a43486244cd297b002d
 
 export const NewHighlight = NewHighlightPage
 export const Highlight = HighlightPage
