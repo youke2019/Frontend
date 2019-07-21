@@ -59,7 +59,7 @@ class Questions extends React.Component {
         axios.get(baseUrl+'/courses/questions/find',{
             params:{
                 course_id: this.props.navigation.state.params.course_info.course_id,
-                user_id: '01231',
+                user_id: this.props.user.id,
             }
         }).then(res=>{
             console.log(res.data)

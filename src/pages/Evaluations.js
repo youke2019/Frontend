@@ -37,6 +37,10 @@ class Evaluations extends React.Component {
         })
     }
 
+    postEvaluation = () => {
+        this.props.navigation.navigate("PostEvaluation")
+    }
+
 
     _renderItem = ({item,index}) => {
         return (
@@ -63,6 +67,7 @@ class Evaluations extends React.Component {
                 </View>
                 <TouchableOpacity
                     style={styles.plus_container}
+                    onPress={this.postEvaluation}
                 >
                     <ImageBackground
                         style={styles.plus_button}

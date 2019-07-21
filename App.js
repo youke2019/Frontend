@@ -23,6 +23,7 @@ import {
     Map,
     Questions,
     Evaluations,
+    PostEvaluation
 } from './src/pages'
 import { Provider } from 'react-redux'
 import {createStore} from 'redux'
@@ -33,7 +34,15 @@ import {StatusBar,View} from "react-native";
 
 const store = createStore(combinedReducer,initialState)
 
-
+const EvaluationsNavigator = createStackNavigator({
+    Evaluations:{
+        screen:Evaluations,
+        navigationOptions: {header:null}
+    },
+    PostEvaluation:{
+        screen:PostEvaluation,
+    }
+})
 
 const CourseNavigator = createStackNavigator({
     Search: {
@@ -70,13 +79,13 @@ const ProfileNavigator = createStackNavigator({
         screen: ProfileSetting,
     },
 })
+
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: Home },
     Course: CourseNavigator,
     Classes: { screen: Classes },
     Map: { screen: Map},
-    Questions: {screen: Questions},
-    Evaluations: {screen:Evaluations},
+    Evaluations: EvaluationsNavigator,
     Profile: { screen: ProfileNavigator },
 });
 

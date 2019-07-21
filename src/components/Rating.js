@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Image,
+    ImageBackground,
     StyleSheet,
     TouchableWithoutFeedback,
     View
@@ -30,14 +30,18 @@ class Rating extends React.Component {
 
     updateStar = (index) => {
         if(this.state.selected){
-            if ((index+1)*2 == this.state.rate)
+            if ((index+1)*2 == this.state.rate){
                 this.setState({
                     rate: 0
                 })
-            else
+                this.props.onUpdate(0)
+            }
+            else{
                 this.setState({
                     rate: (index+1)*2
                 })
+                this.props.onUpdate((index+1)*2)
+            }
         }
     }
 
@@ -54,11 +58,10 @@ class Rating extends React.Component {
                             onPress={() => this.updateStar(index)}
                             key={index}
                         >
-                            <View
-                                style={styles.star_container}
-                            >
-                                <Image
+                            <View style={styles.star_container}>
+                                <ImageBackground
                                     style={styles.star}
+                                    imageStyle={{resizeMode: 'cover'}}
                                     source={{uri:  this.isFull(rate, index) ? item.full:item.empty}}
                                 />
                             </View>
@@ -78,11 +81,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     star_container:{
-        paddingHorizontal: 2,
+        paddingHorizontal: 5,
     },
     star:{
-        width: 24,
-        height: 24
+        height:25,
+        width: 25,
     }
 })
 
