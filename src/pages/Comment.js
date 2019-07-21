@@ -4,7 +4,8 @@ import {
   FlatList,
   StyleSheet,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } from 'react-native'
 import StackNavBar from '../components/StackNavBar'
 import CommentItem from '../components/CommentItem'
@@ -26,14 +27,16 @@ export default class Comment extends React.Component {
     this.getCommentData()
   }
   getCommentData = () => {
-    console.log(this.state)
+    const params = {
+      course_id: this.state.course_info.course_id,
+      user_id: this.state.user_info.id,
+    }
     axios({
       method: 'get',
       url: baseUrl + '/courses/comments/find',
-      params: {
-        course_id: this.state.course_info.course_id,
-      }
+      params: params
     }).then(response => {
+      console.log("repsonse")
       console.log(response.data)
       this.setState({
         comments: response.data
@@ -50,7 +53,6 @@ export default class Comment extends React.Component {
       user_id:this.state.user_info.id,
       course_comment_content:msg,
     }
-    console.log(data)
     axios({
       method:"post",
       url:baseUrl+"/courses/comments/add",
@@ -75,6 +77,10 @@ export default class Comment extends React.Component {
     const { comments,reply_visible } = this.state
     return (
       <View style={styles.container}>
+        <ScrollView
+          style={{height:'100%'}}
+          keyboardShouldPersistTaps={'handled'}
+        >
         <ReplyBox
           visible={reply_visible}
           onReplyDone={this.onCommentDone}
@@ -101,13 +107,14 @@ export default class Comment extends React.Component {
             data={comments}
             renderItem={({ item, index }) =>
               <View>
-                <CommentItem comment_info={item} key={index}/>
+                <CommentItem comment_info={item} key={index} refresh={this.getCommentData} />
                 <View style={styles.divider}/>
               </View>
             }
             keyExtactor={(item) => item.comment_id}
           />
         </View>
+        </ScrollView>
       </View>
     )
   }
@@ -130,7 +137,7 @@ const styles = StyleSheet.create({
   new_header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   new_button: {
     backgroundColor: '#200948',

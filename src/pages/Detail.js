@@ -28,37 +28,6 @@ const Time = (props) =>(
 )
 
 
-/*
-Class CommentTitle extends React.Component{
-    render(){
-        return(
-            <View style = {styles.Title}>
-                <Text> 评论 <Text>
-                <Text> {this.props.tag}</Text>
-            </View>
-        )
-    }
-}
-Class QuestionTitle extends React.Component{
-    render(){
-        return(
-            <View style = {styles.Title}>
-                <Text> 问答区 <Text>
-            </View>
-        )
-    }
-}
-Class EvaluateTitle extends React.Component{
-    render(){
-        return(
-            <View style = {styles.Title}>
-                <Text> 评测 <Text>
-            </View>
-        )
-    }
-}
-*/
-
 class Detail extends React.Component {
     state = {
         courseInfo :"",
@@ -111,6 +80,7 @@ class Detail extends React.Component {
                   navigation={this.props.navigation}
                   onGotoCommentPage={this.onGotoCommentPage}
                   course_id={this.state.courseInfo.course_id}
+                  user_info={this.props.user_info}
                 />
                 <QAAbstract
                   navigation={this.props.navigation}

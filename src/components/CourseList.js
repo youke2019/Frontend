@@ -72,6 +72,7 @@ class CourseList extends React.Component {
                                             <Image
                                                 style={styles.icon}
                                                 source={{uri:'course_credit'}}
+                                                source={{uri:'course_credit'}}
                                             />
                                             <Text>学分：{item.course_credits}</Text>
                                         </View>
