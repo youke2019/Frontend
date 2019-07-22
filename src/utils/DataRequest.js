@@ -46,6 +46,17 @@ export const commentHighlight = (user_id,video_id,content) =>{
     }
   })
 }
+export const sendHighlightImg = (file)=>{
+  let formData = new FormData();
+  formData.append("file",file);
+  console.log(JSON.stringify(formData))
+  return axios({
+    url : baseUrl + "/courses/moments/upload",
+    method:'POST',
+    withCredential:true,
+    data:formData,
+  })
+}
 export const getUserById = (id)=>{
   return axios({
     method:'get',

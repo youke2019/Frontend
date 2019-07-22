@@ -2,8 +2,8 @@ import { View, TextInput, Image, Text, StyleSheet, TouchableOpacity, Alert } fro
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Divider } from 'react-native-elements'
-import ImagePicker from 'react-native-image-picker'
-import { sendNewHighlight } from '../utils/DataRequest'
+import ImagePicker from 'react-native-image-crop-picker'
+import { sendHighlightImg, sendNewHighlight } from '../utils/DataRequest'
 
 class StackNavBar extends Component {
   static propTypes = {
@@ -59,7 +59,7 @@ const navStyles = StyleSheet.create({
 })
 
 const megas = {
-  maxPicNumber: 3
+  maxPicNumber: 1
 }
 const options = {
   title: '选择图片添加',
@@ -72,48 +72,48 @@ const options = {
 export default class NewHighlight extends Component {
   state = {
     content: '',
-    avatarSources: []
+    avatarSources: [],
   }
   send = () => {
-    if (this.state.content === '') return
-    sendNewHighlight({
-      user_id: this.props.navigation.state.params.user_id,
-      post_text: this.state.content
-    }).then(response => {
-      console.log(response)
-      this.props.navigation.state.params.callBack();
-      this.props.navigation.goBack()
-    }).catch(err => console.log(err))
-    console.log('send')
+    if (this.state.content === '') return;
+    let urls =[]
+    this.state.avatarSources.map(source=>{
+      sendHighlightImg(source).then(response => {
+        urls.push(response.data)
+        if(urls.length === this.state.avatarSources.length){
+          sendNewHighlight({
+            user_id: this.props.navigation.state.params.user_id,
+            post_text: this.state.content,
+            image_url: urls[0],
+            video_type:'i',
+          }).then(response => {
+            console.log(response)
+            this.props.navigation.state.params.callBack()
+            this.props.navigation.goBack()
+            console.log('send')
+          }).catch(err => console.log(err))
+        }
+      }).catch(err => console.log(err))
+    })
+
   }
   uploadPic = () => {
     console.log('upload')
-    /*ImagePicker.launchCamera(options, (response) => {*/
-    ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response)
-
-      if (response.didCancel) {
-        console.log('User cancelled image picker')
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error)
-      } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton)
-      } else {
-        /*const source = { uri: 'data:image/jpeg;base64,' + response.data }*/
-        const source = { uri: response.uri }
-        let newSources = this.state.avatarSources
-        if (this.state.avatarSources.length > megas.maxPicNumber) {
-          Alert.alert('错误', '最多添加' + megas.maxPicNumber + '张图片,请筛选.')
-          return
-        }
-        newSources.push(source)
-        console.log('newSources:')
-        console.log(newSources)
-        this.setState({
-          avatarSources: newSources
-        })
+    ImagePicker.openPicker({
+      width: 300,
+      height: 400,
+    }).then(image => {
+      const file = {
+        uri: image.path,
+        type: 'multipart/form-data',
+        name: 'image.jpg'
       }
-    })
+      let oldSources = this.state.avatarSources;
+      oldSources.push(file);
+      this.setState({
+        avatarSources:oldSources,
+      })
+    }).catch(err => console.log(err))
   }
   deleteImg = (index) => {
     Alert.alert(
@@ -172,6 +172,7 @@ export default class NewHighlight extends Component {
                     onLongPress={() => {
                       this.deleteImg(index)
                     }}
+                    key={index}
                     style={styles.img_button}>
                     <Image source={{ uri: source.uri }} style={styles.user_img}/>
                   </TouchableOpacity>

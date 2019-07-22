@@ -25,17 +25,17 @@ class HighlightCard extends React.Component {
   constructor (props) {
     super(props)
     this.state = ({
-      reply_visible:false,
-      liked:props.data.current_user_praise,
-      likeOrigin:props.data.current_user_praise,
+      reply_visible: false,
+      liked: props.data.current_user_praise,
+      likeOrigin: props.data.current_user_praise
     })
   }
 
   componentWillReceiveProps (nextProps, nextContext) {
-    const isLike = nextProps.data.current_user_praise;
+    const isLike = nextProps.data.current_user_praise
     this.setState({
       liked: isLike,
-      likeOrigin: isLike,
+      likeOrigin: isLike
     })
   }
 
@@ -50,11 +50,11 @@ class HighlightCard extends React.Component {
     })
     this.sendComment(msg)
   }
-  sendComment=(msg)=>{
-    commentHighlight(this.props.user_id,this.props.data.video_id,msg)
-      .then(response=>{
+  sendComment = (msg) => {
+    commentHighlight(this.props.user_id, this.props.data.video_id, msg)
+      .then(response => {
         console.log(response)
-        this.props.refresh();
+        this.props.refresh()
       })
       .catch(err => console.log(err))
   }
@@ -66,71 +66,52 @@ class HighlightCard extends React.Component {
   onPressLike = () => {
     console.log(this.props.user_id)
     console.log(this.props.data.video_id)
-    if(this.state.liked){
-      unPraiseHighlight(this.props.user_id,this.props.data.video_id)
-        .then(response=> {
+    if (this.state.liked) {
+      unPraiseHighlight(this.props.user_id, this.props.data.video_id)
+        .then(response => {
           /*this.props.refresh();*/
           console.log(response)
         })
         .catch(err => console.log(err))
-    }else{
-      praiseHighlight(this.props.user_id,this.props.data.video_id)
-        .then(response=>{
+    } else {
+      praiseHighlight(this.props.user_id, this.props.data.video_id)
+        .then(response => {
           console.log(response)
           /*this.props.refresh();*/
         })
         .catch(err => console.log(err))
     }
     this.setState({
-      liked:!this.state.liked,
+      liked: !this.state.liked
     })
   }
 
   render () {
     const {
-      data,
-    } = this.props;
+      data
+    } = this.props
     const {
       liked,
       likeOrigin,
       reply_visible
     } = this.state
     const likeNum = data.courseMomentPraiseList.length
-    const images = [{
-      url: '',
-      props: {
-        source: { uri: 'highlight_pic_1' }
-      }
-    }, {
-      url: '',
-      props: {
-        source: { uri: 'highlight_pic_1' }
-      }
-    }, {
-      url: '',
-      props: {
-        source: { uri: 'highlight_pic_1' }
-      }
-    }]
+
     return (
       <View style={styles.card_container}>
         <ReplyBox
           onBackdropPress={this.closeComment}
-          onReplyDone ={this.onReplyDone}
+          onReplyDone={this.onReplyDone}
           visible={reply_visible}
         />
-        <Modal visible={false} transparent={true}>
-          <ImageViewer
-            imageUrls={images}
-          /></Modal>
         <UserAvatarImg
           style={styles.avatar}
           img_style={styles.avatar_img}
-          user_id = {data.user_id}
+          user_id={data.user_id}
         />
         <View style={styles.main_part}>
           <View style={styles.main_header}>
-            <UserIdText style={styles.user_id} user_id = {data.user_id} />
+            <UserIdText style={styles.user_id} user_id={data.user_id}/>
             <Text> {data.post_time} </Text>
           </View>
           <View style={styles.main_body}>
@@ -142,9 +123,14 @@ class HighlightCard extends React.Component {
               <Text
                 style={styles.main_text_style}>{data.post_text}</Text>
             </ReadMore>
-            <TouchableOpacity>
-            <Image source={{ uri: 'highlight_pic_1' }} style={{ width: 100, height: 200 }}/>
-            </TouchableOpacity>
+            {
+              data.video_type === 'n' || data.image_url === "" ? null :
+                data.video_type === 'i'  ?
+                  <TouchableOpacity>
+                    <Image source={{ uri: data.image_url }} style={{ width: 100, height: 200 }}/>
+                  </TouchableOpacity>
+                  : <View/>
+            }
           </View>
           <View style={styles.main_bottom}>
             <TouchableOpacity
@@ -152,23 +138,26 @@ class HighlightCard extends React.Component {
               onPress={this.onPressComment}
             >
               <Image source={{ uri: 'comment_yellow' }} style={{ width: 30, height: 30, marginRight: 5 }}/>
-              <Text>100</Text>
+              <Text>评论</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ flexDirection: 'row', alignItems: 'center' }}
               onPress={this.onPressLike}
             >
               <Image source={{ uri: 'like_yellow' }} style={{ width: 30, height: 30, marginRight: 5 }}/>
-              <Text style={liked ? {color:'orange',fontSize:15} :{fontSize:15}}>{likeNum + liked - likeOrigin}</Text>
+              <Text style={liked ? {
+                color: 'orange',
+                fontSize: 15
+              } : { fontSize: 15 }}>{likeNum + liked - likeOrigin}</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.comment_area}>
             {
-              data.courseMomentCommentList.map((item,index)=>{
+              data.courseMomentCommentList.map((item, index) => {
                 return item.isbanned ? null : (
-                  <View style={styles.comment_item} key ={index}>
-                    <UserIdText user_id = {item.user_id} style={styles.comment_user_id}/>
-                    <Text style={styles.comment_text}>{": "+item.video_comment_content}</Text>
+                  <View style={styles.comment_item} key={index}>
+                    <UserIdText user_id={item.user_id} style={styles.comment_user_id}/>
+                    <Text style={styles.comment_text}>{': ' + item.video_comment_content}</Text>
                   </View>)
               })
             }
@@ -226,26 +215,26 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     marginHorizontal: 10,
-    paddingTop: 15,
+    paddingTop: 15
   },
   main_header: {
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
   user_id: {
-    fontSize:15,
+    fontSize: 15,
     fontWeight: 'bold',
-    width: 120,
+    width: 120
   },
   main_body: {
-    paddingVertical: 5,
+    paddingVertical: 5
   },
   main_text_style: {
     lineHeight: 20,
-    fontSize:18,
+    fontSize: 18,
     fontWeight: '100',
-    letterSpacing:1,
-    color:"black"
+    letterSpacing: 1,
+    color: 'black'
   },
   main_bottom: {
     paddingVertical: 10,
@@ -271,19 +260,17 @@ const styles = StyleSheet.create({
     width: 'auto',
     height: 20
   },
-  comment_area:{
-
+  comment_area: {},
+  comment_item: {
+    flexDirection: 'row'
   },
-  comment_item:{
-    flexDirection:'row',
+  comment_user_id: {
+    fontSize: 14,
+    fontWeight: '200'
   },
-  comment_user_id:{
-    fontSize:14,
-    fontWeight: '200',
-  },
-  comment_text:{
-    fontSize:14,
-    lineHeight: 18,
+  comment_text: {
+    fontSize: 14,
+    lineHeight: 18
   }
 })
 

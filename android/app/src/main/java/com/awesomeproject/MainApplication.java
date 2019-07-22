@@ -3,6 +3,7 @@ package com.awesomeproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.imagepicker.ImagePickerPackage;
 import cn.qiuxiang.react.amap3d.AMap3DPackage;
 import com.beefe.picker.PickerViewPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new PickerPackage(),
             new ImagePickerPackage(),
             new AMap3DPackage(),
             new PickerViewPackage(),
