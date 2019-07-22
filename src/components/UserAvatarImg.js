@@ -19,7 +19,7 @@ export class UserAvatarImg extends React.Component {
   }
 
   render () {
-    const source = this.state.url != null? { uri: this.state.url } : {uri:"default_avatar_"+Math.floor(Math.random()*4)}
+    const source = this.state.url != null? { uri: this.state.url } : {uri:"default_avatar_1"}
     return (
       <TouchableOpacity
         style={this.props.style}>

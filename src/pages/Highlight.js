@@ -6,14 +6,13 @@ import HighlightCard from '../components/HighlightCard'
 import { getAllHighlight } from '../utils/DataRequest'
 
 class Highlight extends React.Component {
-
   state = {
     highlights:[],
   }
   newHighlight = ()=>{
     this.props.navigation.navigate('NewHighlight',{
       user_id: this.props.user_info.id,
-      callBack: ()=>{ this.getData()}
+      callBack: this.refresh,
     })
   }
   componentDidMount () {
@@ -63,7 +62,6 @@ class Highlight extends React.Component {
               </View>
             )
           }
-
         </ScrollView>
       </View>
     )

@@ -68,17 +68,11 @@ class HighlightCard extends React.Component {
     console.log(this.props.data.video_id)
     if (this.state.liked) {
       unPraiseHighlight(this.props.user_id, this.props.data.video_id)
-        .then(response => {
-          /*this.props.refresh();*/
-          console.log(response)
-        })
+        .then(response => {console.log(response)})
         .catch(err => console.log(err))
     } else {
       praiseHighlight(this.props.user_id, this.props.data.video_id)
-        .then(response => {
-          console.log(response)
-          /*this.props.refresh();*/
-        })
+        .then(response => {console.log(response)})
         .catch(err => console.log(err))
     }
     this.setState({
@@ -96,7 +90,6 @@ class HighlightCard extends React.Component {
       reply_visible
     } = this.state
     const likeNum = data.courseMomentPraiseList.length
-
     return (
       <View style={styles.card_container}>
         <ReplyBox
@@ -166,7 +159,6 @@ class HighlightCard extends React.Component {
       </View>
     )
   }
-
   _renderTruncatedFooter = (handlePress) => {
     return (
       <Text style={{ color: 'grey', fontWeight: 'bold', marginTop: 5 }} onPress={handlePress}>
@@ -174,7 +166,6 @@ class HighlightCard extends React.Component {
       </Text>
     )
   }
-
   _renderRevealedFooter = (handlePress) => {
     return (
       <Text style={{ color: 'grey', fontWeight: 'bold', marginTop: 5 }} onPress={handlePress}>
@@ -182,7 +173,6 @@ class HighlightCard extends React.Component {
       </Text>
     )
   }
-
   _handleTextReady = () => {
     // ...
   }

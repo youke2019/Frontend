@@ -21,15 +21,25 @@ const navigationMock = {
 }
 jest.mock("../src/utils/DataRequest.js")
 
-test('renders detail page correctly', () => {
+test('renders detail page correctly', (done) => {
 
     const tree = renderer.create(
       <Provider store ={store}>
         <Detail navigation = {navigationMock} />
       </Provider>
       ).toJSON();
-    expect(tree).toMatchSnapshot();
+    const tree_err = renderer.create(
+      <Provider store ={store}>
+          <Detail navigation = {navigationMock} />
+      </Provider>
+    ).toJSON();
+    setTimeout(()=>{
+        expect(tree).toMatchSnapshot();
+        expect(tree_err).toMatchSnapshot();
+        done();
+    },2000)
 });
+
 describe("<Detail/> component",()=>{
     const wrapper = shallow(
         <Detail store = {store} navigation = {navigationMock} />

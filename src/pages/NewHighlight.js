@@ -61,14 +61,6 @@ const navStyles = StyleSheet.create({
 const megas = {
   maxPicNumber: 1
 }
-const options = {
-  title: '选择图片添加',
-  customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
-  storageOptions: {
-    skipBackup: true,
-    path: 'images'
-  }
-}
 export default class NewHighlight extends Component {
   state = {
     content: '',
@@ -98,11 +90,13 @@ export default class NewHighlight extends Component {
 
   }
   uploadPic = () => {
-    console.log('upload')
     ImagePicker.openPicker({
       width: 300,
       height: 400,
-    }).then(image => {
+    }).then(this.saveUploadImg)
+      .catch(err => console.log(err))
+  }
+  saveUploadImg = (image)=>{
       const file = {
         uri: image.path,
         type: 'multipart/form-data',
@@ -113,7 +107,6 @@ export default class NewHighlight extends Component {
       this.setState({
         avatarSources:oldSources,
       })
-    }).catch(err => console.log(err))
   }
   deleteImg = (index) => {
     Alert.alert(
