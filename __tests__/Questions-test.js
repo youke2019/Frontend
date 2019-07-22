@@ -1,79 +1,142 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {shallow, mount, render, configure} from 'enzyme'
+import { createStore } from 'redux'
+import { combinedReducer } from '../src/redux/reducers'
+import { Provider } from 'react-redux'
 import Questions from '../src/pages/Questions'
 import Adapter from "enzyme-adapter-react-16/build"
 
-
 configure({adapter: new Adapter()})
 
-const questions = {
-    "question_id": 17,
-    "user_id": "01231",
-    "course_id": "66974",
-    "question_content": "老师好看吗",
-    "question_time": "2019-07-18 20:44:34",
-    "question_isbanned": false,
-    "question_praise_point": 2,
-    "courseAnswerList": [
-        {
-            "answer_id": 33,
-            "question_id": 17,
-            "user_id": "1A7A1F80-59D0-4E8C-B4C6-AAAFFC606120",
-            "answer_content": "杜鹃老师很好看",
-            "answer_time": "2019-07-18 22:20:42",
-            "answer_isbanned": false,
-            "answer_praise_point": 0,
-            "current_user_praise": false,
-            "courseAnswerPraiseList": []
-        },
-        {
-            "answer_id": 37,
-            "question_id": 17,
-            "user_id": "01231",
-            "answer_content": "没用的问题",
-            "answer_time": "2019-07-19 11:06:35",
-            "answer_isbanned": false,
-            "answer_praise_point": 0,
-            "current_user_praise": false,
-            "courseAnswerPraiseList": []
-        },
-        {
-            "answer_id": 38,
-            "question_id": 17,
-            "user_id": "01231",
-            "answer_content": "楼上说啥呢",
-            "answer_time": "2019-07-19 13:22:44",
-            "answer_isbanned": false,
-            "answer_praise_point": 0,
-            "current_user_praise": false,
-            "courseAnswerPraiseList": []
-        }
-    ],
-    "courseQuestionPraiseList": [
-        {
-            "question_praise_id": 1757,
-            "question_id": 17,
-            "user_id": "1A7A1F80-59D0-4E8C-B4C6-AAAFFC606120"
-        },
-        {
-            "question_praise_id": 1758,
-            "question_id": 17,
-            "user_id": "01231"
-        }
-    ],
-    "current_user_praise": false
+const testInitialState = {
+    user_info: {
+        id: 'testLzw'
+    },
+    course_list: null
 }
+
+const store = createStore(combinedReducer,testInitialState)
 
 jest.mock('axios')
 global.baseUrl = 'baseUrl'
 
 describe('functions', () => {
-    let wrapper = shallow(<Questions/>)
+    let wrapper = shallow(
+            <Questions
+                store={store}
+                navigation={{
+                    state:{
+                        params:{
+                            course_info:{
+                                course_id: '123'
+                            }
+                        }
+                    }
+                }}
+            />
+    )
+
+    wrapper = wrapper.dive().dive()
+
+    it('normal flush()', (done) => {
+        const promise = new Promise(
+            function (resolve, reject)
+            {resolve('success')})
+        promise
+            .then(data=>{
+                expect(wrapper.state('questions')).toHaveLength(1)
+                done()
+            })
+            .catch(err=>{console.log(err)})
+    })
+
+
+    it('hideInput()', () => {
+        wrapper.setState({
+            question_visible: true
+        })
+        wrapper.instance().hideInput()
+        expect(wrapper.state('question_visible')).toBe(false)
+    })
+
+    it('displayInput()', () => {
+        wrapper.setState({
+            question_visible: false
+        })
+        wrapper.instance().displayInput()
+        expect(wrapper.state('question_visible')).toBe(true)
+    })
+
+    it('comeUpQuestion() normal', (done) => {
+        wrapper.setState({
+            question_visible: true
+        })
+        wrapper.instance().comeUpQuestion()
+
+        const promise = new Promise(
+            function (resolve, reject)
+            {resolve('success')})
+        promise
+            .then(data=>{
+                expect(wrapper.state('question_visible')).toBe(false)
+                done()
+            })
+            .catch(err=>{console.log(err)})
+    })
+
+    it('comeUpQuestion() abnormal', (done) => {
+        wrapper.setState({
+            question_visible: true
+        })
+        wrapper.instance().comeUpQuestion('error')
+
+        const promise = new Promise(
+            function (resolve, reject)
+            {resolve('success')})
+        promise
+            .then(data=>{
+                expect(wrapper.state('question_visible')).toBe(true)
+                done()
+            })
+            .catch(err=>{console.log(err)})
+    })
+
+    it('flush() error', (done) => {
+        global.baseUrl = 'error'
+        wrapper.setState({
+            questions: []
+        })
+        wrapper.instance().flush()
+        expect(wrapper.state('questions')).toHaveLength(0)
+
+        const promise = new Promise(
+            function (resolve, reject)
+            {resolve('success')})
+        promise
+            .then(data=>{
+                global.baseUrl = 'baseUrl'
+                done()
+            })
+            .catch(err=>{console.log(err)})
+    })
 })
 
 test('renders QuestionCard page correctly', () => {
     const tree = renderer.create(
-        <Questions/>).toJSON();
+        <Provider store={store}>
+            <Questions
+                navigation={{
+                    state:{
+                        params:{
+                            course_info:{
+                                course_id: '123'
+                            }
+                        }
+                    }
+                }}
+            />
+        </Provider>
+    ).toJSON();
     expect(tree).toMatchSnapshot();
 });

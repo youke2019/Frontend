@@ -9,6 +9,7 @@ import DrawerPage from '../components/Drawer.js'
 import QuestionsPage from './Questions'
 import EvaluationsPage from './Evaluations'
 import CommentPage from './Comment'
+import NewEvaluationPage from './NewEvaluation'
 import HighlightPage from './Highlight'
 import NewHighlightPage from './NewHighlight'
 
@@ -25,3 +26,4 @@ export const Map = MapPage
 export const Drawer = DrawerPage
 export const Questions = QuestionsPage
 export const Evaluations = EvaluationsPage
+export const NewEvaluation = NewEvaluationPage

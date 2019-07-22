@@ -49,7 +49,6 @@ class Login extends React.Component {
 
     componentDidMount() {
         Linking.getInitialURL().then((url) => {
-            console.log(this.props.ready)
             if (url && this.props.ready) {
                 this.handleOpenURL({url});
             }
@@ -87,7 +86,6 @@ class Login extends React.Component {
                 data: response.data.entities
             }).then(() => {
                 axios.get(baseUrl+'/jaccount/profile?access_token='+access_token).then((response) => {
-                    console.log(response)
                     this.props.updateUserInfo(response.data)
                     this.props.navigation.navigate('Home')
                 })}).catch(error => {
@@ -97,9 +95,7 @@ class Login extends React.Component {
                     console.log(error)
                     EmitError({ error_msg:"获取用户信息发生错误" })
                 })
-            console.log(response.data)
         })
-        console.log("remove")
         this.props.doneLogin();
     }
 

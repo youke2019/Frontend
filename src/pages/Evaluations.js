@@ -9,7 +9,15 @@ import {
 } from "react-native"
 import EvaluationCard from '../components/EvaluationCard'
 import Carousel from 'react-native-snap-carousel'
-import axios from "axios";
+import axios from "axios"
+import {connect} from "react-redux"
+import StackNavBar from "../components/StackNavBar"
+
+const mapStateToProps = state => {
+    return {
+        user: state.user_info
+    }
+}
 
 class Evaluations extends React.Component {
     state={
@@ -18,9 +26,18 @@ class Evaluations extends React.Component {
     }
 
     componentWillMount() {
+        this.props.navigation.addListener(
+            'willFocus',
+            () => {this.getEvaluations()}
+        )
+
+        this.getEvaluations()
+    }
+
+    getEvaluations = () => {
         axios.get(baseUrl+'/courses/evaluates/find',{
             params:{
-                course_id: '11004'
+                course_id: this.props.navigation.state.params.course_info.course_id,
             }
         }).then(res=>{
             this.setState({
@@ -37,13 +54,19 @@ class Evaluations extends React.Component {
         })
     }
 
+    postEvaluation = () => {
+        this.props.navigation.navigate("NewEvaluation", {
+            course_info: this.props.navigation.state.params.course_info,
+            user_id: this.props.user.id
+        })
+    }
+
 
     _renderItem = ({item,index}) => {
         return (
             <EvaluationCard
-                key={item}
                 evaluation={item}
-                onDetail={() => {this.changeCardScroll()}}
+                onDetail={this.changeCardScroll}
             />
         )
     }
@@ -58,11 +81,15 @@ class Evaluations extends React.Component {
             <ScrollView
                 style={styles.container}
             >
+                <StackNavBar
+                    navigation={this.props.navigation}
+                />
                 <View style={styles.header}>
                     <Text style={styles.title}>课程评测</Text>
                 </View>
                 <TouchableOpacity
                     style={styles.plus_container}
+                    onPress={this.postEvaluation}
                 >
                     <ImageBackground
                         style={styles.plus_button}
@@ -73,19 +100,25 @@ class Evaluations extends React.Component {
                     </ImageBackground>
                 </TouchableOpacity>
                 <View
-                    style={styles.slider}
+                    style={styles.slider_container}
                 >
-                    <Carousel
-                        ref={(c) => { this._carousel = c; }}
-                        data={evaluations}
-                        renderItem={this._renderItem}
-                        sliderWidth={360}
-                        itemWidth={300}
-                        layout={'tinder'}
-                        firstItem={evaluations.length}
-                        layoutCardOffset={12}
-                        scrollEnabled={cardScrollEnable}
-                    />
+                    {
+                        evaluations.length?
+                            <Carousel
+                                ref={(c) => { this._carousel = c; }}
+                                data={evaluations}
+                                renderItem={this._renderItem}
+                                sliderWidth={350}
+                                itemWidth={300}
+                                layout={'stack'}
+                                firstItem={evaluations.length-1}
+                                layoutCardOffset={10}
+                                scrollEnabled={cardScrollEnable}
+                                contentContainerCustomStyle={styles.slider}
+                            />
+                            :
+                            null
+                    }
                 </View>
             </ScrollView>
         );
@@ -95,11 +128,10 @@ class Evaluations extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'#FDD32A'
+        backgroundColor:'#FDD32A',
     },
     header:{
-        paddingTop: 20,
-        height: 120,
+        height: 90,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -108,9 +140,12 @@ const styles = StyleSheet.create({
         fontSize: 40,
         fontFamily: '字魂95号-手刻宋'
     },
+    slider_container:{
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     slider:{
-        flex:1,
-        paddingVertical: 20,
+        padding: 30,
     },
     plus_container:{
         justifyContent: 'center',
@@ -131,4 +166,6 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Evaluations
+export default connect(
+    mapStateToProps,
+)(Evaluations)

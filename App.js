@@ -24,16 +24,17 @@ import {
   Questions,
   Evaluations,
   Highlight,
-  NewHighlight
+  NewHighlight,
+  NewEvaluation
 } from './src/pages'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { combinedReducer } from './src/redux/reducers'
 import initialState from './src/redux/state'
 import ProfileSetting from './src/pages/ProfileSetting'
-import { StatusBar, View } from 'react-native'
+import {StatusBar,View} from "react-native";
 
-const store = createStore(combinedReducer, initialState)
+const store = createStore(combinedReducer,initialState)
 
 const CourseNavigator = createStackNavigator({
   Search: {
@@ -52,9 +53,13 @@ const CourseNavigator = createStackNavigator({
     screen: Questions,
     navigationOptions: { header: null }
   },
-  Evaluations: {
-    screen: Evaluations,
-    navigationOptions: { header: null }
+  Evaluations:{
+    screen:Evaluations,
+    navigationOptions: {header:null}
+  },
+  NewEvaluation:{
+    screen:NewEvaluation,
+    navigationOptions: {header:null}
   }
 })
 const HighlightNavigator = createStackNavigator({
@@ -82,7 +87,9 @@ const ProfileNavigator = createStackNavigator({
     screen: ProfileSetting,
   }
 })
+
 const TabNavigator = createBottomTabNavigator({
+
   Home: { screen: Home },
   Course: CourseNavigator,
   Classes: { screen: Classes },
