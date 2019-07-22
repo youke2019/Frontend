@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import {Avatar} from "react-native-elements"
 import Rating from './Rating'
+import {UserIdText} from '../components/UserIdText'
 
 class EvaluationCard extends React.Component {
     state = {
@@ -18,7 +19,7 @@ class EvaluationCard extends React.Component {
     componentWillMount() {
         let detail = []
         for (let item in this.props.evaluation)
-            if (item != 'course_id' && item != 'user_id' && item != 'credit_point')
+            if (item != 'course_id' && item != 'user_id' && item != 'credit_point' && item != '课程简述')
                 detail.push({
                     title: item,
                     content: this.props.evaluation[item]
@@ -58,28 +59,31 @@ class EvaluationCard extends React.Component {
                     >
                     </Image>
                     <View style={styles.outline}>
-                        <Text>老师人美讲课也耐心，能学到很多乐理知识，强推。老师人美讲课也耐心，能学到很多乐理知识，强推。</Text>
+                        <Text>{evaluation.课程简述}</Text>
                     </View>
                     <View style={styles.star}>
                         <View style={styles.star_icon_container}>
                             <Text style={styles.star_text}>评分:</Text>
                             <Rating
-                                rate={evaluation.credit_point/10}
+                                rate={evaluation.credit_point}
                             />
                         </View>
-                        <Text style={styles.star_number}>{evaluation.credit_point/10}</Text>
+                        <Text style={styles.star_number}>{evaluation.credit_point}</Text>
                     </View>
                     {
                         showDetail &&
                         <View style={styles.details}>
                             {
                                 detail.map((item,index) =>
-                                    <View style={styles.detail}>
+                                    <View
+                                        style={styles.detail}
+                                        key={index}
+                                    >
                                         <View style={styles.detail_title_container}>
                                             <Text style={styles.detail_title}>{item.title}</Text>
                                         </View>
                                         <View style={styles.detail_content_container}>
-                                            <Text style={styles.detail_content}>{item.content}老师人美讲课也耐心，能学到很多乐理知识，强推。老师人美讲课也耐心，能学到很多乐理知识，强推。</Text>
+                                            <Text style={styles.detail_content}>{item.content}</Text>
                                         </View>
                                     </View>
                                 )
@@ -93,7 +97,10 @@ class EvaluationCard extends React.Component {
                                 rounded
                                 source={{uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'}}
                             />
-                            <Text style={styles.user_name}>五柳寄书</Text>
+                            <UserIdText
+                                style={styles.user_name}
+                                user_id={evaluation.user_id}
+                            />
                         </View>
                         <TouchableOpacity
                             onPress={this.switchDetailState}
@@ -131,7 +138,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     outline:{
-        height: 100,
+        height: 80,
         paddingHorizontal: 10,
         paddingTop: 15,
         justifyContent: 'center',

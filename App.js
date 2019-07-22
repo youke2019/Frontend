@@ -36,16 +36,6 @@ import {StatusBar,View} from "react-native";
 
 const store = createStore(combinedReducer,initialState)
 
-const EvaluationsNavigator = createStackNavigator({
-    Evaluations:{
-        screen:Evaluations,
-        navigationOptions: {header:null}
-    },
-    PostEvaluation:{
-        screen:PostEvaluation,
-    }
-})
-
 const CourseNavigator = createStackNavigator({
   Search: {
     screen: Course,
@@ -63,7 +53,14 @@ const CourseNavigator = createStackNavigator({
     screen: Questions,
     navigationOptions: { header: null }
   },
-  Evaluations: EvaluationsNavigator
+  Evaluations:{
+    screen:Evaluations,
+    navigationOptions: {header:null}
+  },
+  PostEvaluation:{
+    screen:PostEvaluation,
+    navigationOptions: {header:null}
+  }
 })
 const HighlightNavigator = createStackNavigator({
   Highlight: {

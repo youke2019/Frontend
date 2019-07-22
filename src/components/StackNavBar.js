@@ -9,7 +9,7 @@ export default class StackNavBar extends Component{
     navigation: PropTypes.object.isRequired,
   }
   goBack = ()=>{
-    console.log("goback");
+    console.log(this.props.navigation)
     this.props.navigation.goBack();
   }
   render () {
@@ -34,7 +34,8 @@ export default class StackNavBar extends Component{
 }
 const styles = StyleSheet.create({
   container:{
-    marginTop:35,
+    paddingTop:30,
+    marginLeft: 10,
     height:40,
     flexDirection: 'row',
     justifyContent: 'center',

@@ -12,6 +12,7 @@ import axios from 'axios'
 import QuestionCard from '../components/QuestionCard'
 import ReplyBox from '../components/ReplyBox'
 import {connect} from "react-redux";
+import StackNavBar from "../components/StackNavBar";
 
 const mapStateToProps = state => {
     return {
@@ -85,6 +86,9 @@ class Questions extends React.Component {
                     imageStyle={{resizeMode:'stretch'}}
                     source={{uri:'questions_bg'}}
                 >
+                    <StackNavBar
+                        navigation={this.props.navigation}
+                    />
                     <View style={styles.title_container}>
                         <Text style={styles.title}>解疑</Text>
                         <View style={styles.subtitle_container}>
@@ -138,15 +142,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5F5F5',
     },
     header_container:{
-        flexDirection: 'row',
-        height:200,
+        height:210,
     },
     title_container:{
         flex:1,
-        paddingLeft: 12,
-        paddingTop: 40,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
+        paddingTop: 20,
+        paddingHorizontal: 20,
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     title:{
         color: '#000000',
@@ -155,25 +158,26 @@ const styles = StyleSheet.create({
     },
     subtitle_container:{
         flexDirection: 'row',
-        justifyContent: 'center',
         alignItems: 'center',
+        paddingLeft: 10,
     },
     subtitle_icon:{
         width: 30,
         height: 30,
     },
     subtitle:{
-        padding: 8,
+        padding: 3,
         color: '#000000',
         fontSize: 12,
     },
     option_container:{
+        paddingRight: 30,
         flex:2,
-        justifyContent: 'flex-end',
-        alignItems: 'center',
+        justifyContent: 'center',
+        alignItems: 'flex-end',
     },
     new_question_container:{
-        paddingBottom: 56,
+        paddingBottom: 60,
     },
     new_question:{
         flexDirection: 'row',
