@@ -126,8 +126,8 @@ class HighlightCard extends React.Component {
             {
               data.video_type === 'n' || data.image_url === "" ? null :
                 data.video_type === 'i'  ?
-                  <TouchableOpacity>
-                    <Image source={{ uri: data.image_url }} style={{ width: 100, height: 200 }}/>
+                  <TouchableOpacity style={{width:"100%",height:'auto'}}>
+                    <Image source={{ uri: data.image_url }} style={{ width: 250, height: 100,resizeMode: 'contain',borderRadius: 10,overflow:'hidden' }}/>
                   </TouchableOpacity>
                   : <View/>
             }
@@ -260,7 +260,10 @@ const styles = StyleSheet.create({
     width: 'auto',
     height: 20
   },
-  comment_area: {},
+  comment_area: {
+    backgroundColor:'whitesmoke',
+    borderRadius:5,
+  },
   comment_item: {
     flexDirection: 'row'
   },
@@ -270,7 +273,8 @@ const styles = StyleSheet.create({
   },
   comment_text: {
     fontSize: 14,
-    lineHeight: 18
+    lineHeight: 18,
+    width:"79%",
   }
 })
 

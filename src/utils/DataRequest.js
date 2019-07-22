@@ -66,3 +66,19 @@ export const getUserById = (id)=>{
     }
   })
 }
+export const getCourseById = (params) =>{
+  return axios({
+    method:'get',
+    params:params,
+    url:baseUrl + '/courses/specific',
+  })
+}
+module.exports = {
+  sendHighlightImg:sendHighlightImg,
+  getAllHighlight:getAllHighlight,
+  getCourseById:getCourseById,
+  getUserById:getUserById,
+  sendNewHighlight:sendNewHighlight,
+  praiseHighlight:praiseHighlight,
+  unPraiseHighlight:unPraiseHighlight,
+}

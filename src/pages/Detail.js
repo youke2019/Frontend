@@ -11,41 +11,22 @@ import CommentAbstract from '../components/CommentAbstract'
 import QAAbstract from '../components/QAAbstract'
 import { connect } from 'react-redux'
 import EvaluationAbstract from '../components/EvaluationAbstract'
-
-export const Title = (props) =>(
-  <View style = {styles.Title}>
-    <Text> {props.title} </Text>
-    <Text> {props.content}</Text>
-    {/*父子组件间传值*/}
-  </View>
-)
-const Time = (props) =>(
-  <View style = {styles.Title}>
-    <Text> 上课时间 :</Text>
-    <Text> {props.bw} 至 {props.ew} 周 {props.eo}周 周{props.date} 第 {props.bs}至{props.es} 节</Text>
-    {/*父子组件间传值*/}
-  </View>
-)
-
+import { getCourseById } from '../utils/DataRequest'
 
 class Detail extends React.Component {
     state = {
         courseInfo :"",
     }
-
     componentWillMount() {
         const params = this.props.navigation.state.params;
-        axios.get(baseUrl + '/courses/specific', {
-          params:params
-        }).then((response) => {
+        getCourseById(params)
+          .then((response) => {
           this.setState({
             courseInfo:response.data
           })
         }).catch(error => {
-            console.log(error)
             EmitError({ error_msg:"获取课程信息时发生了错误" })
-        })
-    }
+        })}
     onGotoCommentPage=()=>{
       this.props.navigation.navigate("Comment",{
         course_info:this.state.courseInfo,

@@ -10,6 +10,7 @@ import {
 import { connect } from 'react-redux'
 import axios from 'axios'
 import ReplyBox from './ReplyBox'
+import { UserIdText } from './UserIdText'
 
 const mapStateToProps = (state) =>({
   user_info:state.user_info,
@@ -90,11 +91,11 @@ const mapStateToProps = (state) =>({
             >
             <View style = {styles.container}>
             <View style ={styles.avatar} >
-              <Image source = {{uri:"default_avatar_"+Math.floor(Math.random()*4)}} style={styles.avatar_img} />
+              <Image source = {{uri:"default_avatar_1"}} style={styles.avatar_img} />
             </View>
             <View style ={styles.comment}>
               <View style={styles.comment_header}>
-                <Text style = {styles.user_id}>{comment_info.user_id}</Text>
+                <UserIdText style = {styles.user_id} user_id={comment_info.user_id}/>
                 <Text>{comment_info.course_comment_time}</Text>
               </View>
               <View>

@@ -76,7 +76,7 @@ export default class CourseDetail extends React.Component{
       <View style = {styles.container}>
         <ShadowedTitle text={course.course_name} uri = {"course_name"}style = {styles.course_name}/>
         <View style={styles.main_part}>
-          <Image source={{uri:'cover_' + Math.floor(Math.random() * 4) }} style ={{marginLeft:10,marginRight: 5,flex:1,width:180,minHeight:100, resizeMode:'cover'}}/>
+          <Image source={{uri:'cover_1' }} style ={{marginLeft:10,marginRight: 5,flex:1,width:180,minHeight:100, resizeMode:'cover'}}/>
           <View style = {styles.main_info}>
             <UnshadowedTitle uri={'teacher'} title ={"上课教师"} content={teachers}/>
             <UnshadowedTitle uri={'school'} title ={"开设学院"} content={course.course_deptname}/>

@@ -14,6 +14,7 @@ function post(url,data) {
     return promise
 }
 
+
 function get(data) {
     const promise = new Promise(function (resolve, reject) {
         if (false) {
