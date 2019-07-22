@@ -25,7 +25,7 @@ import {
   Evaluations,
   Highlight,
   NewHighlight,
-  PostEvaluation
+  NewEvaluation
 } from './src/pages'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -57,8 +57,8 @@ const CourseNavigator = createStackNavigator({
     screen:Evaluations,
     navigationOptions: {header:null}
   },
-  PostEvaluation:{
-    screen:PostEvaluation,
+  NewEvaluation:{
+    screen:NewEvaluation,
     navigationOptions: {header:null}
   }
 })

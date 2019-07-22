@@ -37,7 +37,7 @@ exports[`renders FilterItem correctly 1`] = `
       <Image
         source={
           Object {
-            "uri": "arrow_up_outline",
+            "uri": "arrow_up",
           }
         }
         style={

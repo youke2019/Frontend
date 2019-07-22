@@ -4,14 +4,15 @@ import {
     View,
     TextInput,
     StyleSheet,
-    ScrollView, ImageBackground, TouchableOpacity,
+    ScrollView,
+    TouchableOpacity,
 } from "react-native";
 import Rating from '../components/Rating'
-import Toast from 'react-native-root-toast'
 import axios from 'axios'
+import Toast from 'react-native-easy-toast'
 import StackNavBar from "../components/StackNavBar";
 
-class PostEvaluation extends React.Component {
+class NewEvaluation extends React.Component {
     state = {
         post: {
             credit_point: null,
@@ -29,21 +30,13 @@ class PostEvaluation extends React.Component {
 
     postEvaluation = () => {
         if (this.state.post.credit_point == null || this.state.post.课程简述 == null){
-            Toast.show('请至少打分并填写课程简述', {
-                duration: Toast.durations.LONG,
-                position: Toast.positions.BOTTOM,
-                shadow: true,
-                animation: true,
-                hideOnPress: true,
-                delay: 0,
-            })
+            this.refs.toast.show('请至少打分并填写课程简述')
         } else {
             let data={
                 user_id: this.props.navigation.state.params.user_id,
                 course_id: this.props.navigation.state.params.course_info.course_id
             }
             data = Object.assign({}, data, this.state.post)
-            console.log(data)
             axios.post(baseUrl+'/courses/evaluates/add', data).then(()=>{
                 this.props.navigation.navigate("Evaluations")
             }).catch(err=>{
@@ -56,10 +49,12 @@ class PostEvaluation extends React.Component {
     render() {
         return (
             <ScrollView style={{ flex: 1}}>
+                <Toast ref="toast"/>
                 <StackNavBar
                     navigation={this.props.navigation}
                 />
-                <View style={{padding:40}}>
+                <View style={styles.star_container}>
+                    <Text style={styles.star_text}>请对课程进行评分</Text>
                     <Rating
                         selected={true}
                         onUpdate={(rating) => this.setData('credit_point',rating)}
@@ -69,7 +64,7 @@ class PostEvaluation extends React.Component {
                     <Text style={{color: 'black'}}>课程简述</Text>
                     <View style={styles.input_container}>
                         <TextInput
-                            placeholder={"输入内容"}
+                            placeholder={"输入课程简述"}
                             multiline={true}
                             style={styles.input}
                             onChangeText={(text) => this.setData('课程简述',text)}
@@ -80,7 +75,7 @@ class PostEvaluation extends React.Component {
                     <Text style={{color: 'black'}}>考核形式</Text>
                     <View style={styles.input_container}>
                         <TextInput
-                            placeholder={"输入内容"}
+                            placeholder={"输入考核形式"}
                             multiline={true}
                             style={styles.input}
                             onChangeText={(text) => this.setData('考核形式',text)}
@@ -91,7 +86,7 @@ class PostEvaluation extends React.Component {
                     <Text style={{color: 'black'}}>上课自由程度</Text>
                     <View style={styles.input_container}>
                         <TextInput
-                            placeholder={"输入内容"}
+                            placeholder={"输入上课自由程度"}
                             multiline={true}
                             style={styles.input}
                             onChangeText={(text) => this.setData('上课自由程度',text)}
@@ -102,7 +97,7 @@ class PostEvaluation extends React.Component {
                     <Text style={{color: 'black'}}>课程个人体验</Text>
                     <View style={styles.input_container}>
                         <TextInput
-                            placeholder={"输入内容"}
+                            placeholder={"输入课程个人体验"}
                             multiline={true}
                             style={styles.input}
                             onChangeText={(text) => this.setData('课程个人体验',text)}
@@ -123,6 +118,12 @@ class PostEvaluation extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    star_container:{
+        padding: 36,
+    },
+    star_text:{
+        padding: 10,
+    },
     card_container:{
         paddingHorizontal: 20,
         paddingVertical: 30,
@@ -147,4 +148,4 @@ const styles = StyleSheet.create({
     post_text:{}
 })
 
-export default PostEvaluation
+export default NewEvaluation

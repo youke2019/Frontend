@@ -11,7 +11,7 @@ import EvaluationCard from '../components/EvaluationCard'
 import Carousel from 'react-native-snap-carousel'
 import axios from "axios"
 import {connect} from "react-redux"
-import StackNavBar from "../components/StackNavBar";
+import StackNavBar from "../components/StackNavBar"
 
 const mapStateToProps = state => {
     return {
@@ -55,7 +55,7 @@ class Evaluations extends React.Component {
     }
 
     postEvaluation = () => {
-        this.props.navigation.navigate("PostEvaluation", {
+        this.props.navigation.navigate("NewEvaluation", {
             course_info: this.props.navigation.state.params.course_info,
             user_id: this.props.user.id
         })
@@ -66,7 +66,7 @@ class Evaluations extends React.Component {
         return (
             <EvaluationCard
                 evaluation={item}
-                onDetail={() => {this.changeCardScroll()}}
+                onDetail={this.changeCardScroll}
             />
         )
     }

@@ -15,33 +15,9 @@ exports[`renders profile page correctly 1`] = `
     <View
       style={
         Object {
-          "height": 120,
-          "width": "100%",
-        }
-      }
-    >
-      <Image
-        overflow="visible"
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "profile",
-          }
-        }
-        style={
-          Object {
-            "height": 150,
-            "opacity": 0.2,
-            "width": "auto",
-          }
-        }
-      />
-    </View>
-    <View
-      style={
-        Object {
           "flexDirection": "row",
-          "paddingTop": 10,
+          "paddingLeft": 20,
+          "paddingTop": 40,
         }
       }
     >
@@ -407,7 +383,7 @@ exports[`renders profile page correctly 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "backgroundColor": "#FFD900",
+            "backgroundColor": "#FDAF26",
             "borderColor": "#2089dc",
             "borderRadius": 3,
             "borderWidth": 0,

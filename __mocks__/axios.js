@@ -1,11 +1,11 @@
 const axios = jest.genMockFromModule('axios');
 
-let mockFiles = Object.create(null);
 function post(url,data) {
     const promise = new Promise(function (resolve, reject) {
         if (
             data.answer_content == 'error'
             || data.question_content == 'error'
+            || data.credit_point == -1
         ) {
             reject("error")
         } else {
@@ -16,7 +16,6 @@ function post(url,data) {
 }
 
 function get(url,data) {
-    console.log(url)
     const promise = new Promise(function (resolve, reject) {
         if (url == 'baseUrl/courses/questions/find') {
             resolve({
@@ -78,6 +77,30 @@ function get(url,data) {
                     "current_user_praise": false
                 }]
             });
+        } else if (url == 'baseUrl/courses/evaluates/find' && data.params.course_id == 'test'){
+            resolve({
+                data: [
+                        {
+                            "evaluate_id": 5,
+                            "evaluate_time": "2019-07-22 14:21:34",
+                            "user_id": "1A7A1F80-59D0-4E8C-B4C6-AAAFFC606120",
+                            "course_id": "LI901",
+                            "evaluate_content": {
+                                "course_id": "LI901",
+                                "课程简述": "又水分又高",
+                                "credit_point": 10,
+                                "上课自由程度": "基本不管 坐后排随便你干嘛",
+                                "课程个人体验": "课是挺水的 但是没什么好玩的地方",
+                                "evaluate_id": 5,
+                                "user_id": "1A7A1F80-59D0-4E8C-B4C6-AAAFFC606120",
+                                "考核形式": "5分钟个人pre+1000字论文"
+                            },
+                            "evaluate_praise_point": 0,
+                            "current_user_praise": false,
+                            "courseEvaluationPraiseList": []
+                        },
+                ]
+            })
         } else {
             reject("error");
         }

@@ -40,6 +40,7 @@ exports[`renders course page correctly 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "center",
+        "paddingTop": 15,
       }
     }
   >
@@ -125,12 +126,15 @@ exports[`renders course page correctly 1`] = `
     >
       <View
         style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": 80,
-            "justifyContent": "center",
-          }
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "height": 80,
+              "justifyContent": "center",
+            },
+            Object {},
+          ]
         }
       >
         <View
@@ -220,62 +224,39 @@ exports[`renders course page correctly 1`] = `
           style={
             Object {
               "flex": 2,
+              "padding": 10,
             }
           }
         >
           <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "borderRadius": 3,
+                "alignItems": "center",
+                "justifyContent": "center",
+                "opacity": 1,
               }
             }
           >
-            <View
-              accessible={true}
-              isTVSelectable={true}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
+            <Text
               style={
                 Object {
-                  "opacity": 1,
+                  "color": "black",
+                  "fontFamily": "字魂95号-手刻宋",
+                  "fontSize": 15,
+                  "lineHeight": 20,
                 }
               }
             >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderColor": "#2089dc",
-                    "borderRadius": 3,
-                    "borderWidth": 0,
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "padding": 8,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "black",
-                      "fontFamily": "字魂70号-灵悦黑体",
-                      "fontSize": 15,
-                      "lineHeight": 20,
-                      "paddingBottom": 1,
-                      "paddingTop": 2,
-                      "textAlign": "center",
-                    }
-                  }
-                >
-                  搜索
-                </Text>
-              </View>
-            </View>
+              搜索
+            </Text>
           </View>
         </View>
       </View>
@@ -3137,7 +3118,7 @@ exports[`renders course page correctly 1`] = `
                 <Image
                   source={
                     Object {
-                      "uri": "arrow_up_outline",
+                      "uri": "arrow_up",
                     }
                   }
                   style={
@@ -3436,7 +3417,7 @@ exports[`renders course page correctly 1`] = `
                 <Image
                   source={
                     Object {
-                      "uri": "arrow_up_outline",
+                      "uri": "arrow_up",
                     }
                   }
                   style={
@@ -3735,7 +3716,7 @@ exports[`renders course page correctly 1`] = `
                 <Image
                   source={
                     Object {
-                      "uri": "arrow_up_outline",
+                      "uri": "arrow_up",
                     }
                   }
                   style={

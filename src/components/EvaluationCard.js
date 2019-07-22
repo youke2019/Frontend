@@ -18,13 +18,12 @@ class EvaluationCard extends React.Component {
 
     componentWillMount() {
         let detail = []
-        for (let item in this.props.evaluation)
-            if (item != 'course_id' && item != 'user_id' && item != 'credit_point' && item != '课程简述')
+        for (let item in this.props.evaluation.evaluate_content)
+            if (item != 'course_id' && item != 'user_id' && item != 'credit_point' && item != '课程简述' && item != 'evaluate_id')
                 detail.push({
                     title: item,
-                    content: this.props.evaluation[item]
+                    content: this.props.evaluation.evaluate_content[item]
                 })
-
         this.setState({
             detail: detail
         })
@@ -59,16 +58,16 @@ class EvaluationCard extends React.Component {
                     >
                     </Image>
                     <View style={styles.outline}>
-                        <Text>{evaluation.课程简述}</Text>
+                        <Text>{evaluation.evaluate_content.课程简述}</Text>
                     </View>
                     <View style={styles.star}>
                         <View style={styles.star_icon_container}>
                             <Text style={styles.star_text}>评分:</Text>
                             <Rating
-                                rate={evaluation.credit_point}
+                                rate={evaluation.evaluate_content.credit_point}
                             />
                         </View>
-                        <Text style={styles.star_number}>{evaluation.credit_point}</Text>
+                        <Text style={styles.star_number}>{evaluation.evaluate_content.credit_point}</Text>
                     </View>
                     {
                         showDetail &&

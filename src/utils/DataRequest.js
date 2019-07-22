@@ -46,12 +46,11 @@ export const commentHighlight = (user_id,video_id,content) =>{
     }
   })
 }
+
 export const getUserById = (id)=>{
-  return axios({
-    method:'get',
-    url:baseUrl+"/users/specific",
-    params:{
-      id:id,
-    }
-  })
+  return axios.get(baseUrl+"/users/specific",{
+        params:{
+          id:id,
+        }
+      })
 }
