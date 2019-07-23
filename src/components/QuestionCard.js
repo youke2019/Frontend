@@ -122,6 +122,7 @@ class QuestionCard extends React.Component {
                 courseAnswerList: []
             }
         } = this.state
+        console.log(QandA)
 
         return (
             <View

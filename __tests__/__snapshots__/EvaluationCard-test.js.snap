@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders QuestionCard page correctly 1`] = `
+exports[`renders EvaluationCard page correctly 1`] = `
 <View
   style={
     Object {

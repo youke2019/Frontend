@@ -29,7 +29,7 @@ const evaluation = {
 const onDetail = jest.fn(() => {})
 jest.mock('axios')
 global.baseUrl = 'baseUrl'
-
+jest.mock("../src/utils/DataRequest.js")
 describe('functions', () => {
     let wrapper = shallow(
         <EvaluationCard
@@ -48,7 +48,7 @@ describe('functions', () => {
     })
 })
 
-test('renders QuestionCard page correctly', () => {
+test('renders EvaluationCard page correctly', () => {
     const tree = renderer.create(
         <EvaluationCard
             evaluation={evaluation}

@@ -56,7 +56,7 @@ export default class QAAbstract extends React.Component {
     axios.get(baseUrl + '/courses/questions/find', {
       params: {
         course_id: this.props.course_id,
-        user_id: this.props.id,
+        user_id: this.props.user_id,
       }
     }).then(res => {
       console.log(res.data)
@@ -80,6 +80,7 @@ export default class QAAbstract extends React.Component {
             <QuestionCard
               onAnswer={this.flush}
               QandA={firstQuest}
+              userId={this.props.user_id}
             />:
               <ImageBackground
               source={{uri:'more_button'}}
