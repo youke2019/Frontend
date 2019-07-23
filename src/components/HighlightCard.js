@@ -119,8 +119,8 @@ class HighlightCard extends React.Component {
             {
               data.video_type === 'n' || data.image_url === "" ? null :
                 data.video_type === 'i'  ?
-                  <TouchableOpacity style={{width:"100%",height:'auto'}}>
-                    <Image source={{ uri: data.image_url }} style={{ width: 250, height: 100,resizeMode: 'contain',borderRadius: 10,overflow:'hidden' }}/>
+                  <TouchableOpacity style={{width:"100%",height:'auto',flexDirection:'row',justifyContent:'flex-start'}}>
+                    <Image source={{ uri: data.image_url }} style={{ width: 150, height: 250,resizeMode: 'contain',borderRadius: 10,overflow:'hidden' }}/>
                   </TouchableOpacity>
                   : <View/>
             }
@@ -220,6 +220,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5
   },
   main_text_style: {
+    paddingVertical:5,
     lineHeight: 20,
     fontSize: 18,
     fontWeight: '100',
