@@ -59,9 +59,9 @@ export default class Comment extends React.Component {
       data:data,
     }).then((response)=>{
       console.log(response)
+      this.closeComment();
+      this.getCommentData();
     }).catch(err => console.log(err))
-    this.closeComment();
-    this.getCommentData();
   }
   closeComment = ()=>{
     this.setState({
@@ -106,8 +106,8 @@ export default class Comment extends React.Component {
           <FlatList
             data={comments}
             renderItem={({ item, index }) =>
-              <View>
-                <CommentItem comment_info={item} key={index} refresh={this.getCommentData} />
+              <View key={index}>
+                <CommentItem comment_info={item} refresh={this.getCommentData} />
                 <View style={styles.divider}/>
               </View>
             }

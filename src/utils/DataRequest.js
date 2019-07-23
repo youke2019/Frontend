@@ -81,4 +81,5 @@ module.exports = {
   sendNewHighlight:sendNewHighlight,
   praiseHighlight:praiseHighlight,
   unPraiseHighlight:unPraiseHighlight,
+  commentHighlight:commentHighlight
 }

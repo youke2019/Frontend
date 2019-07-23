@@ -48,12 +48,15 @@ export default class QAAbstract extends React.Component {
   componentDidMount () {
     this.flush()
   }
+  componentWillReceiveProps (nextProps, nextContext) {
+    this.flush()
+  }
 
   flush = () => {
     axios.get(baseUrl + '/courses/questions/find', {
       params: {
-        course_id: '66974',
-        user_id: '01231'
+        course_id: this.props.course_id,
+        user_id: this.props.id,
       }
     }).then(res => {
       console.log(res.data)
@@ -67,15 +70,17 @@ export default class QAAbstract extends React.Component {
 
   render () {
     const firstQuest = this.state.questions.length > 0 ? this.state.questions[0] : null
+
     return (
       <View style={styles.container}>
         <QAAbstractTitle/>
         <View style={styles.first_comm}>
-          {/*firstQuest === null ?
+          {
+            firstQuest != null ?
             <QuestionCard
               onAnswer={this.flush}
               QandA={firstQuest}
-            />:*/}{
+            />:
               <ImageBackground
               source={{uri:'more_button'}}
               style ={{width:340,height:100,flexDirection:'column',alignItems:'center',justifyContent:'center'}}

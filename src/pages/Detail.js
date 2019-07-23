@@ -18,6 +18,10 @@ class Detail extends React.Component {
         courseInfo :"",
     }
     componentWillMount() {
+      this.props.navigation.addListener(
+        'willFocus',
+        () => {this.refresh()}
+      )
         const params = this.props.navigation.state.params;
         getCourseById(params)
           .then((response) => {
@@ -26,7 +30,19 @@ class Detail extends React.Component {
           })
         }).catch(error => {
             EmitError({ error_msg:"获取课程信息时发生了错误" })
-        })}
+        })
+    }
+    refresh =()=>{
+      const params = this.props.navigation.state.params;
+      getCourseById(params)
+        .then((response) => {
+          this.setState({
+            courseInfo:response.data
+          })
+        }).catch(error => {
+        EmitError({ error_msg:"获取课程信息时发生了错误" })
+      })
+    }
     onGotoCommentPage=()=>{
       this.props.navigation.navigate("Comment",{
         course_info:this.state.courseInfo,
@@ -34,17 +50,17 @@ class Detail extends React.Component {
       });
     }
     onGotoQuestionPage=()=>{
-      console.log("nav")
       this.props.navigation.navigate("Questions",{
         course_info:this.state.courseInfo,
+        user_info:this.props.user_info,
       });
     }
     onGotoEvaluationPage=()=>{
-      console.log("nav")
     this.props.navigation.navigate("Evaluations",{
       course_info:this.state.courseInfo,
     });
   }
+
     render() {
         return (
             <ScrollView
@@ -66,6 +82,8 @@ class Detail extends React.Component {
                 <QAAbstract
                   navigation={this.props.navigation}
                   onGotoQuestionPage={this.onGotoQuestionPage}
+                  course_id={this.state.courseInfo.course_id}
+                  user_id={this.props.user_info.id}
                 />
                 <EvaluationAbstract
                   onGotoEvaluationPage={this.onGotoEvaluationPage}
