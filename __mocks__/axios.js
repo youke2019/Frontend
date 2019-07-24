@@ -16,6 +16,8 @@ function post(url,data) {
 }
 
 function get(url,data) {
+    console.log(url)
+    console.log(data)
     const promise = new Promise(function (resolve, reject) {
         if (url == 'baseUrl/courses/questions/find') {
             resolve({
@@ -100,6 +102,10 @@ function get(url,data) {
                             "courseEvaluationPraiseList": []
                         },
                 ]
+            })
+        } else if (url == 'baseUrl/time/week'){
+            resolve({
+                data: 16
             })
         } else {
             reject("error");

@@ -3,7 +3,6 @@ import {
     Linking,
     View,
     ImageBackground,
-    StatusBar,
     StyleSheet,
     Text,
 } from "react-native"

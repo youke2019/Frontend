@@ -1,8 +1,8 @@
 import { loadData } from './LocalStorage'
 
 export function getWeekClassTable (data,week) {
-  //console.log(JSON.stringify(data));
   let classTable = [[],[],[],[],[],[],[]];
+
   for (let lesson of data)
     for (let item of lesson.classes)
       if (item.schedule.week === week)
@@ -10,7 +10,10 @@ export function getWeekClassTable (data,week) {
           name:lesson.name,
           period:item.schedule.period,
         })
-  let new_classTable = [];
+
+  let new_classTable = []
+  let hash=0
+  let hashTable=[]
   for (let weekday of classTable){
     weekday.sort((lesson1,lesson2) => lesson1.period < lesson2.period ? -1 : 1)
     let new_weekday = []
@@ -19,6 +22,7 @@ export function getWeekClassTable (data,week) {
       span: 1
     }
     let period = 0;
+
     for (let lesson of weekday){
       if (segment.name !== lesson.name){
         if (lesson.period - period > 2)
@@ -27,9 +31,22 @@ export function getWeekClassTable (data,week) {
             span:lesson.period - (period + segment.span)
           })
         period = lesson.period
+
+        let hash=-1
+        for (let i=0;i<hashTable.length;i++)
+          if (hashTable[i] == lesson.name){
+            hash=i
+            break
+          }
+        if (hash==-1){
+          hashTable.push(lesson.name)
+          hash=hashTable.length-1
+        }
+
         segment={
           name:lesson.name,
-          span:1
+          span:1,
+          hash:hash%5,
         }
         new_weekday.push(segment)
       } else {
@@ -45,6 +62,7 @@ export function getWeekClassTable (data,week) {
   }
   return new_classTable;
 }
+
 /*
 * given the time = {
 *   week,

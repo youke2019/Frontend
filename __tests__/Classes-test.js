@@ -1,23 +1,27 @@
 import Classes from '../src/pages/Classes'
 import renderer from 'react-test-renderer'
-import { Provider } from 'react-redux'
 import React from 'react'
-import { createStore } from 'redux'
-import { combinedReducer } from '../src/redux/reducers'
-import initialState from '../src/redux/state'
-//import Global from '../src/Global'
-const store = createStore(combinedReducer,initialState)
+import {shallow, mount, render, configure} from 'enzyme'
+import Adapter from "enzyme-adapter-react-16/build"
 
+configure({adapter: new Adapter()})
+
+jest.mock('axios')
 jest.mock("../src/utils/LocalStorage.js")
+global.baseUrl = 'baseUrl'
 
-test('renders classes page correctly', () => {
+test('renders classes page correctly', (done) => {
   const tree = renderer.create(
-    <Provider store={store}>
       <Classes />
-    </Provider>
   ).toJSON()
-  expect(tree).toMatchSnapshot();
- // setTimeout(()=> {
-  //  done();
-  //},1000);
+
+    const promise = new Promise(
+        function (resolve, reject)
+        {resolve('success')})
+    promise
+        .then(data=>{
+            expect(tree).toMatchSnapshot();
+            done()
+        })
+        .catch(err=>{console.log(err)})
 });
