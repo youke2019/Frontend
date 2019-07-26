@@ -12,6 +12,7 @@ import QAAbstract from '../components/QAAbstract'
 import { connect } from 'react-redux'
 import EvaluationAbstract from '../components/EvaluationAbstract'
 import { getCourseById } from '../utils/DataRequest'
+import { addToSortlist, clearSortlist, removeFromSortlist, updateSortlist } from '../redux/actions'
 
 class Detail extends React.Component {
     state = {
@@ -44,7 +45,7 @@ class Detail extends React.Component {
       })
     }
     onGotoCommentPage=()=>{
-      this.props.navigation.navigate("Comment",{
+      this.props.navigation.navigate("Comments",{
         course_info:this.state.courseInfo,
         user_info:this.props.user_info,
       });
@@ -96,12 +97,14 @@ class Detail extends React.Component {
 const mapStateToProps = (state) =>({
   user_info:state.user_info,
 })
-export default  connect(
+
+export default connect(
   mapStateToProps,
 )(Detail)
 const styles = StyleSheet.create({
   base_container:{
     paddingTop:15,
+    paddingBottom:50,
   },
   notes_title:{
     marginLeft:5,

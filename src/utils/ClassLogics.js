@@ -55,13 +55,13 @@ export function getWeekClassTable (data,week) {
 * return name of next class.
 * */
 export const nextClass = (time,schedule)=>{
-  let res = null;
-  const weekClasstable = getWeekClassTable(schedule,time.week);
-  let current = time.hour - 8 + ((time.hour % 2 === 0) && time.minute > 20) + ((time.hour % 2 === 1) && time.minute > 10)*2;
-  weekClasstable[time.weekday].forEach((span) =>{
-    //console.log(span.name + " " + span.span + " " + current);
-    if(res != null) return ;
-    if(span.name === null){
+        let res = null;
+        const weekClasstable = getWeekClassTable(schedule,time.week);
+        let current = time.hour - 8 + ((time.hour % 2 === 0) && time.minute > 20) + ((time.hour % 2 === 1) && time.minute > 10)*2;
+        weekClasstable[time.weekday].forEach((span) =>{
+          //console.log(span.name + " " + span.span + " " + current);
+          if(res != null) return ;
+          if(span.name === null){
       current -= span.span;
       return ;
     }

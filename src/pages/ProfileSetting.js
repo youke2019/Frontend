@@ -4,7 +4,7 @@ import axios from  'axios'
 import { connect } from 'react-redux'
 import { Input, ListItem, Overlay } from 'react-native-elements'
 import { EmitError } from '../utils/ErrorAlert'
-import { loadUserInfo, updateUserInfo } from '../redux/actions'
+import {  updateUserInfo } from '../redux/actions'
 
 const mapStateToProps = state => {return{
   user_info: state.user_info,

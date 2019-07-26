@@ -13,7 +13,7 @@ import {
   createStackNavigator
 } from 'react-navigation'
 import {
-  Comment,
+  Comments,
   Home,
   Profile,
   Course,
@@ -25,7 +25,7 @@ import {
   Evaluations,
   Highlight,
   NewHighlight,
-  NewEvaluation
+  NewEvaluation, Sorting
 } from './src/pages'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -45,8 +45,8 @@ const CourseNavigator = createStackNavigator({
     screen: Detail,
     navigationOptions: { header: null }
   },
-  Comment: {
-    screen: Comment,
+  Comments: {
+    screen: Comments,
     navigationOptions: { header: null }
   },
   Questions: {
@@ -95,7 +95,8 @@ const TabNavigator = createBottomTabNavigator({
   Classes: { screen: Classes },
   Map: { screen: Map },
   Highlight: { screen: HighlightNavigator },
-  Profile: { screen: ProfileNavigator }
+  Profile: { screen: ProfileNavigator },
+  Sorting:{ screen: Sorting }
 })
 
 const SwitchNavigator = createSwitchNavigator({

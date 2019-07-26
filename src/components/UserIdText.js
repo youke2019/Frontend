@@ -15,7 +15,9 @@ export class UserIdText extends React.Component{
       console.log(err)
     })
   }
-
+  componentWillUnmount () {
+    this.setState = (state, callback) => {};
+  }
   render(){
     return <Text style={this.props.style}> {this.state.nickname}</Text>
   }

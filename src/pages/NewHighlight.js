@@ -68,42 +68,63 @@ export default class NewHighlight extends Component {
   }
   send = () => {
     if (this.state.content === '') return;
-    let urls =[]
-    this.state.avatarSources.map(source=>{
-      sendHighlightImg(source).then(response => {
-        urls.push(response.data)
-        if(urls.length === this.state.avatarSources.length){
-          sendNewHighlight({
-            user_id: this.props.navigation.state.params.user_id,
-            post_text: this.state.content,
-            image_url: urls[0],
-            video_type:'i',
-          }).then(response => {
-            console.log(response)
-            this.props.navigation.state.params.callBack()
-            this.props.navigation.goBack()
-            console.log('send')
-          }).catch(err => console.log(err))
-        }
+    let urls = []
+    if (this.state.avatarSources.length > 0) {
+      this.state.avatarSources.map(source => {
+        sendHighlightImg(source).then(response => {
+          urls.push(response.data)
+          if (urls.length === this.state.avatarSources.length) {
+            const isImage = source.isImage;
+            console.log(isImage,"isImage");
+            console.log(urls[0]);
+            sendNewHighlight({
+              user_id: this.props.navigation.state.params.user_id,
+              post_text: this.state.content,
+              image_url: isImage ? urls[0] :"",
+              video_url: isImage ? "" : urls[0],
+              video_type: isImage ? 'i':'v',
+            }).then(response => {
+              console.log(response)
+              this.props.navigation.state.params.callBack()
+              this.props.navigation.goBack()
+              console.log('send image')
+            }).catch(err => console.log(err))
+          }
+        }).catch(err => console.log(err))
+      })
+    }else {
+      sendNewHighlight({
+        user_id: this.props.navigation.state.params.user_id,
+        post_text: this.state.content,
+        image_url: urls[0],
+        video_type: 'n',
+      }).then(response => {
+        console.log(response)
+        this.props.navigation.state.params.callBack()
+        this.props.navigation.goBack()
+        console.log('send')
       }).catch(err => console.log(err))
-    })
-
+    }
   }
   uploadPic = () => {
     ImagePicker.openPicker({
-      width: 300,
-      height: 400,
-    }).then(this.saveUploadImg)
+      mediaType:'any',
+    }).then(this.saveUploadFile)
       .catch(err => console.log(err))
   }
-  saveUploadImg = (image)=>{
-      const file = {
-        uri: image.path,
+  saveUploadFile = (file)=>{
+    console.log(file);
+    const imageTypes = ["image/gif", "image/x-png", "image/pjpeg", "image/jpeg", "image/bmp"]
+    const isImage = imageTypes.some(item => item === file.mime)
+      const file_info = {
+        mime:file.mime,
+        uri: file.path,
         type: 'multipart/form-data',
-        name: 'image.jpg'
-      }
+        name: isImage ? "image.jpg" : "video.mp4",
+        isImage:isImage,
+      } // add Login if have time: video/image cause conflict
       let oldSources = this.state.avatarSources;
-      oldSources.push(file);
+      oldSources.push(file_info);
       this.setState({
         avatarSources:oldSources,
       })
@@ -111,7 +132,7 @@ export default class NewHighlight extends Component {
   deleteImg = (index) => {
     Alert.alert(
       '提示',
-      '是否删去图片?',
+      '是否删去?',
       [{
         text: '取消',
         onPress: () => {},
@@ -137,7 +158,7 @@ export default class NewHighlight extends Component {
   }
 
   render () {
-    console.log(this.state)
+
     return (
       <View style={styles.base_container}>
         <StackNavBar

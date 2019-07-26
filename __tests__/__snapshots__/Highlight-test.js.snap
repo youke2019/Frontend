@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders highlight page correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderTopColor": "whitesmoke",
+      "borderTopWidth": 35,
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "whitesmoke",
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "flex-end",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "planet",
+          }
+        }
+        style={
+          Object {
+            "height": 35,
+            "marginRight": 10,
+            "width": 35,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "#000000",
+            "fontFamily": "字魂95号-手刻宋",
+            "fontSize": 25,
+          }
+        }
+      >
+        精彩瞬间
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "marginLeft": 80,
+          "marginRight": 20,
+          "opacity": 1,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "picture_yellow",
+          }
+        }
+        style={
+          Object {
+            "height": 35,
+            "width": 35,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "black",
+        "height": 0.5,
+      }
+    }
+  />
+  <RCTScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders highlight page correctly 2`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderTopColor": "whitesmoke",
+      "borderTopWidth": 35,
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "whitesmoke",
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "flex-end",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "planet",
+          }
+        }
+        style={
+          Object {
+            "height": 35,
+            "marginRight": 10,
+            "width": 35,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "#000000",
+            "fontFamily": "字魂95号-手刻宋",
+            "fontSize": 25,
+          }
+        }
+      >
+        精彩瞬间
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "marginLeft": 80,
+          "marginRight": 20,
+          "opacity": 1,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "picture_yellow",
+          }
+        }
+        style={
+          Object {
+            "height": 35,
+            "width": 35,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "black",
+        "height": 0.5,
+      }
+    }
+  />
+  <RCTScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;

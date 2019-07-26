@@ -1,8 +1,16 @@
 import React from "react";
 import {Image, StatusBar, Text, View} from "react-native";
+import {  loadSortlist, } from '../redux/actions'
+import { connect } from 'react-redux'
+import { loadData } from '../utils/LocalStorage'
 
 class Home extends React.Component {
-    render() {
+    componentDidMount () {
+      loadData({ key:'sortlist', })
+        .then(sortlist=>{this.props.loadSortlist(sortlist)})
+        .catch(err=>console.log(err))
+    }
+  render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text>Home!</Text>
@@ -11,5 +19,21 @@ class Home extends React.Component {
         );
     }
 }
+const mapStateToProps = state => {
+  return {
+    sortlist:state.sortlist,
+  }
+}
 
-export default Home
+const mapDispatchToProps = dispatch => {
+  return {
+    loadSortlist: (data)=>{
+      dispatch(loadSortlist(data))
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home)

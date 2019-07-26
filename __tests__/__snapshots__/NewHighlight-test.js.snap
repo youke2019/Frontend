@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders newHighlight Page correctly 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 40,
+        "justifyContent": "space-between",
+        "marginTop": 35,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flex": 0.7,
+          "height": 20,
+          "opacity": 1,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "navigate-return",
+          }
+        }
+        style={
+          Object {
+            "height": 25,
+            "marginLeft": 20,
+            "width": 25,
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginRight": 20,
+          "opacity": 1,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "paperplane",
+          }
+        }
+        style={
+          Object {
+            "height": 30,
+            "width": 30,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "textAlignVertical": "center",
+          }
+        }
+      >
+        发表 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "whitesmoke",
+        "height": 5,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "column",
+        "justifyContent": "flex-start",
+        "paddingHorizontal": 15,
+        "paddingTop": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "minHeight": 200,
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoFocus={true}
+        maxLength={200}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="今天的课如何..."
+        rejectResponderTermination={true}
+        style={
+          Object {
+            "fontSize": 20,
+            "lineHeight": 30,
+          }
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "justifyContent": "flex-start",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "whitesmoke",
+            "flexDirection": "column",
+            "height": 120,
+            "justifyContent": "center",
+            "marginHorizontal": 5,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": "30%",
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "uri": "camera_yellow",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "width": 35,
+            }
+          }
+        />
+        <Text
+          style={
+            Object {
+              "color": "grey",
+              "fontSize": 18,
+              "letterSpacing": 1,
+              "paddingTop": 10,
+            }
+          }
+        >
+           照片 / 视频
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

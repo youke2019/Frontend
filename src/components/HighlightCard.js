@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import Video from 'react-native-video'
 import ReplyBox from './ReplyBox'
 import ReadMore from 'react-native-read-more'
 import ImageViewer from 'react-native-image-zoom-viewer'
@@ -26,11 +27,11 @@ class HighlightCard extends React.Component {
     super(props)
     this.state = ({
       reply_visible: false,
+      image_visible: false,
       liked: props.data.current_user_praise,
       likeOrigin: props.data.current_user_praise
     })
   }
-
   componentWillReceiveProps (nextProps, nextContext) {
     const isLike = nextProps.data.current_user_praise
     this.setState({
@@ -38,7 +39,6 @@ class HighlightCard extends React.Component {
       likeOrigin: isLike
     })
   }
-
   onPressComment = () => {
     this.setState({
       reply_visible: true
@@ -79,16 +79,33 @@ class HighlightCard extends React.Component {
       liked: !this.state.liked
     })
   }
+  openImgViewer = () => {
+    this.setState({
+      image_visible: true
+    })
+  }
+  closeImgViewer = () => {
+    this.setState({
+      image_visible: false
+    })
+  }
+  videoError = (err) => {
+    console.log(err)
+  }
+  onBuffer = () => {
+
+  }
+  openVideo = () => {
+    this.player.presentFullscreenPlayer()
+  }
 
   render () {
-    const {
-      data
-    } = this.props
-    const {
-      liked,
-      likeOrigin,
-      reply_visible
-    } = this.state
+    const { data } = this.props
+    const { liked, likeOrigin, reply_visible, image_visible } = this.state
+    const images = [{
+      url: data.image_url,
+      props: {}
+    }]
     const likeNum = data.courseMomentPraiseList.length
     return (
       <View style={styles.card_container}>
@@ -97,6 +114,20 @@ class HighlightCard extends React.Component {
           onReplyDone={this.onReplyDone}
           visible={reply_visible}
         />
+        <Modal
+          visible={image_visible}
+          presentationStyle={'overFullscreen'}
+          animation_type={'fade'}
+        ><ImageViewer
+          imageUrls={images}
+          onSwipeDown={this.closeImgViewer}
+          onClick={this.closeImgViewer}
+          onCancel={this.closeImgViewer}
+          saveToLocalByLongPress={false}
+          swipeDownThreshold={100}
+          enableSwipeDown
+        />
+        </Modal>
         <UserAvatarImg
           style={styles.avatar}
           img_style={styles.avatar_img}
@@ -113,16 +144,42 @@ class HighlightCard extends React.Component {
               renderTruncatedFooter={this._renderTruncatedFooter}
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}>
-              <Text
-                style={styles.main_text_style}>{data.post_text}</Text>
+              <Text style={styles.main_text_style}>{data.post_text}</Text>
             </ReadMore>
-            {
-              data.video_type === 'n' || data.image_url === "" ? null :
-                data.video_type === 'i'  ?
-                  <TouchableOpacity style={{width:"100%",height:'auto',flexDirection:'row',justifyContent:'flex-start'}}>
-                    <Image source={{ uri: data.image_url }} style={{ width: 150, height: 250,resizeMode: 'contain',borderRadius: 10,overflow:'hidden' }}/>
+            { /* reason for warning here, not available url will cause warning, because height can not be measured*/
+              data.video_type === 'i' && data.image_url !== '' ?
+                <View style={{ width: '100%', height: 'auto', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                  <TouchableOpacity
+                    onPress={this.openImgViewer}
+                  >
+                    <Image source={{ uri: data.image_url }} style={{
+                      width: 150,
+                      height: 250,
+                      resizeMode: 'cover',
+                      borderRadius: 10,
+                      overflow: 'hidden'
+                    }}/>
                   </TouchableOpacity>
-                  : <View/>
+                </View>
+                :
+               data.video_type === 'v' && data.video_url !== '' ?
+                  <View style={{ width: '100%', height: 'auto', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                    <TouchableOpacity
+                      onPress={this.openVideo}
+                    >
+                      <Video
+                        source={{ uri: data.video_url }}
+                        ref={(ref) => {
+                          console.log(ref)
+                          this.player = ref
+                        }}
+                        onBuffer={this.onBuffer}
+                        onError={this.videoError}
+                        style={styles.backgroundVideo}
+                      />
+                    </TouchableOpacity>
+                  </View> : null
+
             }
           </View>
           <View style={styles.main_bottom}>
@@ -159,6 +216,7 @@ class HighlightCard extends React.Component {
       </View>
     )
   }
+
   _renderTruncatedFooter = (handlePress) => {
     return (
       <Text style={{ color: 'grey', fontWeight: 'bold', marginTop: 5 }} onPress={handlePress}>
@@ -220,7 +278,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5
   },
   main_text_style: {
-    paddingVertical:5,
+    paddingVertical: 5,
     lineHeight: 20,
     fontSize: 18,
     fontWeight: '100',
@@ -252,8 +310,8 @@ const styles = StyleSheet.create({
     height: 20
   },
   comment_area: {
-    backgroundColor:'whitesmoke',
-    borderRadius:5,
+    backgroundColor: 'whitesmoke',
+    borderRadius: 5
   },
   comment_item: {
     flexDirection: 'row'
@@ -265,7 +323,13 @@ const styles = StyleSheet.create({
   comment_text: {
     fontSize: 14,
     lineHeight: 18,
-    width:"79%",
+    width: '79%'
+  },
+  backgroundVideo: {
+    width: 200,
+    height: 200,
+    left:0,
+    borderRadius:10,
   }
 })
 

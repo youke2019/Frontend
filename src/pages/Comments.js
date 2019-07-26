@@ -12,31 +12,32 @@ import CommentItem from '../components/CommentItem'
 import axios from 'axios'
 import { CommentAbstractTitle } from '../components/CommentAbstract'
 import { ParallaxImage } from 'react-native-snap-carousel'
-import { Image } from 'react-native-elements'
+import { Divider, Image } from 'react-native-elements'
 import ReplyBox from '../components/ReplyBox'
 
-export default class Comment extends React.Component {
+export default class Comments extends React.Component {
   state = {
     course_info: this.props.navigation.state.params.course_info,
     user_info: this.props.navigation.state.params.user_info,
     comments: [],
-    reply_visible:false,
+    reply_visible: false
   }
 
   componentWillMount () {
     this.getCommentData()
   }
+
   getCommentData = () => {
     const params = {
       course_id: this.state.course_info.course_id,
-      user_id: this.state.user_info.id,
+      user_id: this.state.user_info.id
     }
     axios({
       method: 'get',
       url: baseUrl + '/courses/comments/find',
       params: params
     }).then(response => {
-      console.log("repsonse")
+      console.log('repsonse')
       console.log(response.data)
       this.setState({
         comments: response.data
@@ -45,75 +46,72 @@ export default class Comment extends React.Component {
       console.log(err)
     })
   }
-  onCommentDone = (msg) =>{
-    console.log(msg);
+  onCommentDone = (msg) => {
+    console.log(msg)
     console.log(this.state)
     const data = {
-      course_id:this.state.course_info.course_id,
-      user_id:this.state.user_info.id,
-      course_comment_content:msg,
+      course_id: this.state.course_info.course_id,
+      user_id: this.state.user_info.id,
+      course_comment_content: msg
     }
     axios({
-      method:"post",
-      url:baseUrl+"/courses/comments/add",
-      data:data,
-    }).then((response)=>{
+      method: 'post',
+      url: baseUrl + '/courses/comments/add',
+      data: data
+    }).then((response) => {
       console.log(response)
-      this.closeComment();
-      this.getCommentData();
+      this.closeComment()
+      this.getCommentData()
     }).catch(err => console.log(err))
   }
-  closeComment = ()=>{
+  closeComment = () => {
     this.setState({
-      reply_visible:false,
+      reply_visible: false
     })
   }
-  openComment = () =>{
+  openComment = () => {
     this.setState({
-      reply_visible:true,
+      reply_visible: true
     })
   }
+
   render () {
-    const { comments,reply_visible } = this.state
+    const { comments, reply_visible } = this.state
     return (
       <View style={styles.container}>
         <ScrollView
-          style={{height:'100%'}}
+          style={{ height: '100%' }}
           keyboardShouldPersistTaps={'handled'}
         >
-        <ReplyBox
-          visible={reply_visible}
-          onReplyDone={this.onCommentDone}
-          onBackdropPress={this.closeComment}
-        />
-        <StackNavBar
-          navigation={this.props.navigation}
-        />
-        <View style={styles.title}>
-          <CommentAbstractTitle/>
-        </View>
-        <View style={styles.new_header}>
-          <TouchableOpacity
-            onPress={this.openComment}
-          >
-            <View style={styles.new_button}>
-              <Image source={{ uri: 'discuss' }} style={styles.new_button_img}/>
-              <Text style={styles.new_question_text}>我有话说</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.comment_list}>
-          <FlatList
-            data={comments}
-            renderItem={({ item, index }) =>
-              <View key={index}>
-                <CommentItem comment_info={item} refresh={this.getCommentData} />
-                <View style={styles.divider}/>
-              </View>
-            }
-            keyExtactor={(item) => item.comment_id}
+          <ReplyBox
+            visible={reply_visible}
+            onReplyDone={this.onCommentDone}
+            onBackdropPress={this.closeComment}
           />
-        </View>
+          <StackNavBar
+            navigation={this.props.navigation}
+          />
+          <View style={styles.title}>
+            <CommentAbstractTitle/>
+          </View>
+          <View style={styles.new_header}>
+            <TouchableOpacity
+              onPress={this.openComment}
+            >
+              <View style={styles.new_button}>
+                <Image source={{ uri: 'discuss' }} style={styles.new_button_img}/>
+                <Text style={styles.new_question_text}>我有话说</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.comment_list}>
+            {
+              comments.map((item, index) =>(<View>
+                <CommentItem comment_info={item} refresh={this.getCommentData} key={index}/>
+                <View style={styles.divider}/>
+              </View>))
+            }
+          </View>
         </ScrollView>
       </View>
     )
@@ -125,11 +123,12 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   divider: {
-    marginVertical: 3
+    marginVertical: 4
   },
   comment_list: {
-    paddingTop: 0,
-    marginLeft: 30
+    paddingTop: 20,
+    marginHorizontal: 20,
+    paddingHorizontal: 10
   },
   title: {
     marginTop: 25
@@ -137,7 +136,7 @@ const styles = StyleSheet.create({
   new_header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   new_button: {
     backgroundColor: '#200948',

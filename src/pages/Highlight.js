@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StatusBar, Text, View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
+import { Image, FlatList, Text, View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { Divider } from 'react-native-elements'
 import HighlightCard from '../components/HighlightCard'
@@ -7,32 +7,47 @@ import { getAllHighlight } from '../utils/DataRequest'
 
 class Highlight extends React.Component {
   state = {
-    highlights:[],
+    highlights: [],
+    is_refreshing:false,
   }
-  newHighlight = ()=>{
-    this.props.navigation.navigate('NewHighlight',{
+  newHighlight = () => {
+    this.props.navigation.navigate('NewHighlight', {
       user_id: this.props.user_info.id,
-      callBack: this.refresh,
+      callBack: this.refresh
     })
   }
+
   componentDidMount () {
-    this.getData();
+    this.getData()
   }
-  refresh=()=>{
-    this.getData();
+
+  refresh = () => {
+    this.getData()
   }
-  getData =() =>{
-    console.log("refresh");
+  getData = () => {
+    console.log('refresh')
+    this.setState({
+      is_refreshing: true
+    })
     getAllHighlight(this.props.user_info.id)
-      .then((response)=>{
+      .then((response) => {
         console.log(response)
         this.setState({
           highlights: response.data,
+          is_refreshing: false
         })
-      }).catch(err=>console.log(err))
+      })
+      .catch(err => {
+        this.setState({
+          is_refreshing: false
+        })
+        console.log(err)
+      })
   }
+
   render () {
-    const {highlights} = this.state;
+    const { highlights, is_refreshing } = this.state
+    console.log(highlights)
     return (
       <View style={styles.base_container}>
         <View style={styles.header}>
@@ -50,19 +65,20 @@ class Highlight extends React.Component {
           </TouchableOpacity>
         </View>
         <Divider style={{ backgroundColor: 'black' }}/>
-        <ScrollView
-          style={{ height: '100%', width:"100%" }}
+        <FlatList
+          style={{ height: '100%', width: '100%' }}
           keyboardShouldPersistTaps={'handled'}
-        >
-          {
-            highlights.map((item,index)=>
-              <View style={{ flexDirection: 'column' }} key={index}>
-                  <HighlightCard data={item} user_id = {this.props.user_info.id} refresh={this.refresh}/>
-                  <Divider style={{ height: 5, backgroundColor: "whitesmoke" }}/>
-              </View>
-            )
+          refreshing={is_refreshing}
+          onRefresh={this.refresh}
+          data={highlights}
+          renderItem={({ item }) =>
+            <View style={{ flexDirection: 'column' }}>
+              <HighlightCard data={item} user_id={this.props.user_info.id} refresh={this.refresh}/>
+              <Divider style={{ height: 5, backgroundColor: 'whitesmoke' }}/>
+            </View>
           }
-        </ScrollView>
+          keyExtractor={(item) => item.video_id.toString()}
+        />
       </View>
     )
   }
