@@ -6,6 +6,7 @@
  */
 
 import React, { Component } from 'react'
+import {Image, StyleSheet} from 'react-native'
 import {
   createBottomTabNavigator,
   createAppContainer,
@@ -62,6 +63,22 @@ const CourseNavigator = createStackNavigator({
     navigationOptions: {header:null}
   }
 })
+
+const ClassesNavigator = createStackNavigator({
+  Classes: {
+    screen: Classes,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Map: {
+    screen: Map,
+    navigationOptions: {
+      header: null
+    }
+  },
+})
+
 const HighlightNavigator = createStackNavigator({
   Highlight: {
     screen: Highlight,
@@ -76,6 +93,7 @@ const HighlightNavigator = createStackNavigator({
     }
   }
 })
+
 const ProfileNavigator = createStackNavigator({
   Profile: {
     screen: Profile,
@@ -88,15 +106,79 @@ const ProfileNavigator = createStackNavigator({
   }
 })
 
-const TabNavigator = createBottomTabNavigator({
-
-  Home: { screen: Home },
-  Course: CourseNavigator,
-  Classes: { screen: Classes },
-  Map: { screen: Map },
-  Highlight: { screen: HighlightNavigator },
-  Profile: { screen: ProfileNavigator }
-})
+const TabNavigator = createBottomTabNavigator(
+    {
+      Home: {
+        screen: Home,
+        navigationOptions: {
+          tabBarLabel: '首页',
+          tabBarIcon: ({focused}) => {
+            if (focused)
+              return (<Image style={styles.tabBarIcon} source={{uri:'tab_home_focus'}} resizeMode='stretch'/>)
+            return (<Image style={styles.tabBarIcon} source={{uri:'tab_home'}} resizeMode='stretch'/>)
+          }
+        },
+      },
+      Course: {
+        screen: CourseNavigator,
+        navigationOptions: {
+          tabBarLabel: '课程库',
+          tabBarIcon: ({focused}) => {
+            if (focused)
+              return (<Image style={styles.tabBarIcon} source={{uri:'tab_courses_focus'}} resizeMode='stretch'/>)
+            return (<Image style={styles.tabBarIcon} source={{uri:'tab_courses'}} resizeMode='stretch'/>)
+          }
+        },
+      },
+      Classes: {
+        screen: ClassesNavigator,
+        navigationOptions: {
+          tabBarLabel: '课程表',
+          tabBarIcon: ({focused}) => {
+            if (focused)
+              return (<Image style={styles.carryIcon} source={{uri:'tab_classes_focus'}} resizeMode='stretch'/>)
+            return (<Image style={styles.carryIcon} source={{uri:'tab_classes'}} resizeMode='stretch'/>)
+          }
+        },
+      },
+      Highlight: {
+        screen: HighlightNavigator,
+        navigationOptions: {
+            tabBarLabel: '精彩瞬间',
+          tabBarIcon: ({focused}) => {
+            if (focused)
+              return (<Image style={styles.tabBarIcon} source={{uri:'tab_highlights_focus'}} resizeMode='stretch'/>)
+            return (<Image style={styles.tabBarIcon} source={{uri:'tab_highlights'}} resizeMode='stretch'/>)
+          }
+        },
+      },
+      Profile: {
+        screen: ProfileNavigator,
+        navigationOptions: {
+          tabBarLabel: '我',
+          tabBarIcon: ({focused}) => {
+            if (focused)
+              return (<Image style={styles.tabBarIcon} source={{uri:'tab_profile_focus'}} resizeMode='stretch' />)
+            return (<Image style={styles.tabBarIcon} source={{uri:'tab_profile'}} resizeMode='stretch'/>)
+          }
+        },
+      },
+    },
+    {
+      tabBarOptions:{
+        showIcon: true,
+        style: {
+          backgroundColor: '#FFFFFF',
+          height: 50
+        },
+        labelStyle: {
+          fontSize: 12,
+          marginTop: 20,
+          color: '#000000'
+        },
+      }
+    }
+)
 
 const SwitchNavigator = createSwitchNavigator({
   Login: { screen: Login },
@@ -136,5 +218,16 @@ const MainApp = () => (
     <SimpleApp uriPrefix={prefix}/>
   </Provider>
 )
+
+const styles = StyleSheet.create({
+  tabBarIcon:{
+    width:20,
+    height:20,
+  },
+  carryIcon:{
+    width:50,
+    height:50,
+  }
+})
 
 export default MainApp

@@ -86,6 +86,10 @@ class Classes extends React.Component {
         })
     }
 
+    switchScreen = () => {
+        this.props.navigation.navigate('Map')
+    }
+
     render() {
         const {
             monDate,
@@ -100,7 +104,10 @@ class Classes extends React.Component {
             <View style={styles.container}>
                 <View style={styles.header_container}>
                     <View style={styles.switch_container}>
-                        <TouchableOpacity style={[styles.switch,styles.center]}>
+                        <TouchableOpacity
+                            style={[styles.switch,styles.center]}
+                            onPress={this.switchScreen}
+                        >
                             <Image
                                 style={styles.switch_icon}
                                 source={{uri:'switch_icon'}}
@@ -246,7 +253,7 @@ class Classes extends React.Component {
 const styles = StyleSheet.create({
     container:{
         paddingTop: 20,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#FFFFF6',
         flex:1,
     },
     header_container:{
