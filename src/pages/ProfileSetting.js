@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { Input, ListItem, Overlay } from 'react-native-elements'
 import { EmitError } from '../utils/ErrorAlert'
 import {  updateUserInfo } from '../redux/actions'
+import StackNavBar from "../components/StackNavBar";
 
 const mapStateToProps = state => {return{
   user_info: state.user_info,
@@ -17,7 +18,20 @@ const mapDispatchToProps = dispatch => {
     },
   }
 }
+
 class ProfileSetting extends React.Component {
+  static navigationOptions =  ({ navigation }) => ({
+    header: () => {
+      console.log(this)
+      return (
+      <StackNavBar
+          navigation={navigation}
+          title={'个人信息'}
+      />
+      )
+    }
+  })
+
   constructor (props){
     super(props);
     this.state = {
