@@ -34,6 +34,7 @@ import { combinedReducer } from './src/redux/reducers'
 import initialState from './src/redux/state'
 import ProfileSetting from './src/pages/ProfileSetting'
 import {StatusBar,View} from "react-native";
+import StackNavBar from "./src/components/StackNavBar";
 
 const store = createStore(combinedReducer,initialState)
 
@@ -95,16 +96,16 @@ const HighlightNavigator = createStackNavigator({
 })
 
 const ProfileNavigator = createStackNavigator({
-  Profile: {
-    screen: Profile,
-    navigationOptions: {
-      header: null
-    }
-  },
-  ProfileSetting: {
-    screen: ProfileSetting,
-  }
-})
+      Profile: {
+        screen: Profile,
+        navigationOptions: {
+          header: null
+        }
+      },
+      ProfileSetting: {
+        screen: ProfileSetting,
+      }
+    })
 
 const TabNavigator = createBottomTabNavigator(
     {
@@ -136,8 +137,8 @@ const TabNavigator = createBottomTabNavigator(
           tabBarLabel: '课程表',
           tabBarIcon: ({focused}) => {
             if (focused)
-              return (<Image style={styles.carryIcon} source={{uri:'tab_classes_focus'}} resizeMode='stretch'/>)
-            return (<Image style={styles.carryIcon} source={{uri:'tab_classes'}} resizeMode='stretch'/>)
+              return (<Image style={styles.carryIcon} source={{uri:'tab_classes'}} resizeMode='stretch'/>)
+            return (<Image style={styles.carryIcon} source={{uri:'tab_classes'}} resizeMode='cover'/>)
           }
         },
       },
@@ -174,7 +175,6 @@ const TabNavigator = createBottomTabNavigator(
         },
         labelStyle: {
           fontSize: 12,
-          marginTop: 20,
           color: '#000000'
         },
       }
@@ -195,6 +195,7 @@ HighlightNavigator.navigationOptions = ({ navigation }) => {
     tabBarVisible
   }
 }
+
 CourseNavigator.navigationOptions = ({ navigation }) => {
   let tabBarVisible = true
   if (navigation.state.index > 0) {
@@ -226,6 +227,7 @@ const styles = StyleSheet.create({
     height:20,
   },
   carryIcon:{
+    marginBottom: 15,
     width:50,
     height:50,
   }

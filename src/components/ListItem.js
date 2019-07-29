@@ -6,6 +6,7 @@ import {
     Image,
     TouchableOpacity
 } from "react-native";
+import {Divider} from "react-native-elements";
 
 class ListItem extends React.Component {
     render(){
@@ -16,23 +17,29 @@ class ListItem extends React.Component {
         } = this.props
 
         return (
-            <View style={styles.container}>
-                <View style={styles.text_container}>
-                    <Image
-                        style={styles.text_image}
-                        source={{uri:image}}
-                    />
-                    <Text style={styles.text}>{text}</Text>
-                </View>
+            <View>
                 <TouchableOpacity
-                    style={styles.arrow_container}
+                    style={styles.container}
                     onPress={onPress}
                 >
-                    <Image
-                        source={{uri:'right_arrow'}}
-                        style={styles.arrow_image}
-                    />
+                    <View style={styles.text_container}>
+                        <Image
+                            style={styles.text_image}
+                            source={{uri:image}}
+                            resizeMode='contain'
+                        />
+                        <Text style={styles.text}>{text}</Text>
+                    </View>
+                    <View
+                        style={styles.arrow_container}
+                    >
+                        <Image
+                            source={{uri:'right_arrow'}}
+                            style={styles.arrow_image}
+                        />
+                    </View>
                 </TouchableOpacity>
+                <Divider style={styles.divider} />
             </View>
         )
     }
@@ -55,12 +62,13 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
     },
     text_image:{
-        width:22,
-        height:22,
+        width:21,
+        height:21,
     },
     text:{
-        paddingHorizontal:8,
-        fontSize: 16,
+        paddingHorizontal:20,
+        fontSize: 17,
+        color: '#000000'
     },
     arrow_container:{
         alignItems: 'center',
@@ -71,7 +79,8 @@ const styles = StyleSheet.create({
         height:20,
     },
     divider:{
-        height:1
+        height:1,
+        backgroundColor: '#F5F5F5',
     },
 })
 

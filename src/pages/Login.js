@@ -85,6 +85,7 @@ class Login extends React.Component {
                 data: response.data.entities
             }).then(() => {
                 axios.get(baseUrl+'/jaccount/profile?access_token='+access_token).then((response) => {
+                    console.log(response.data)
                     this.props.updateUserInfo(response.data)
                     this.props.navigation.navigate('Home')
                 })}).catch(error => {
