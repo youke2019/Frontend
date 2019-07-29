@@ -28,7 +28,8 @@ import {
   NewHighlight,
   NewEvaluation,
   Sorting,
-  Edit
+  Edit,
+  Setting
 } from './src/pages'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -98,19 +99,18 @@ const HighlightNavigator = createStackNavigator({
 })
 
 const ProfileNavigator = createStackNavigator({
-      Profile: {
-        screen: Profile,
-        navigationOptions: {
-          header: null
-        }
-      },
-      ProfileSetting: {
-        screen: ProfileSetting,
-      },
-      Edit: {
-        screen: Edit
-      }
-    })
+  Profile: {
+    screen: Profile,
+    navigationOptions: {
+      header: null
+    }
+  },
+  ProfileSetting: {
+    screen: ProfileSetting,
+  },
+  Edit: { screen: Edit },
+  Setting: { screen: Setting },
+})
 
 const TabNavigator = createBottomTabNavigator(
     {

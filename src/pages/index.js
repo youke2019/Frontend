@@ -14,6 +14,7 @@ import HighlightPage from './Highlight'
 import NewHighlightPage from './NewHighlight'
 import SortingPage from './Sorting'
 import EditPage from './Edit'
+import SettingPage from './Setting'
 
 export const NewHighlight = NewHighlightPage
 export const Highlight = HighlightPage
@@ -31,3 +32,4 @@ export const Evaluations = EvaluationsPage
 export const NewEvaluation = NewEvaluationPage
 export const Sorting = SortingPage
 export const Edit = EditPage
+export const Setting = SettingPage

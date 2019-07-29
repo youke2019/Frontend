@@ -10,7 +10,8 @@ class Home extends React.Component {
         .then(sortlist=>{this.props.loadSortlist(sortlist)})
         .catch(err=>console.log(err))
     }
-  render() {
+
+    render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text>Home!</Text>
@@ -19,6 +20,7 @@ class Home extends React.Component {
         );
     }
 }
+
 const mapStateToProps = state => {
   return {
     sortlist:state.sortlist,

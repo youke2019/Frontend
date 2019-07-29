@@ -6,9 +6,8 @@ import {
     Image,
     TouchableOpacity
 } from "react-native";
-import {Avatar, Button, Divider} from 'react-native-elements'
+import {Avatar} from 'react-native-elements'
 import {connect} from "react-redux";
-import {clearUserInfo} from "../redux/actions";
 import ListItem from "../components/ListItem";
 
 const mapStateToProps = state => {
@@ -17,26 +16,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        clearUserInfo: () => {
-            dispatch(clearUserInfo())
-        }
-    }
-}
-
 class Profile extends React.Component {
-    logout = () => {
-        storage.remove({
-            key:'user'
-        }).then(() => {
-            this.props.navigation.navigate('Login')
-            this.props.clearUserInfo()
-        }).catch((err) => {
-            console.log(err)
-        })
-    }
-
     gotoProfileSetting = () =>{
         this.props.navigation.navigate("ProfileSetting");
     }
@@ -55,7 +35,7 @@ class Profile extends React.Component {
                             <Avatar
                                 size="medium"
                                 rounded
-                                source={{uri: 'default_avatar_2'}}
+                                source={{uri: user.avatar_url}}
                             />
                             <View>
                                 <View style={styles.info}>
@@ -80,6 +60,7 @@ class Profile extends React.Component {
                         <ListItem
                             text='设置'
                             image='setting'
+                            onPress={() => {this.props.navigation.navigate('Setting')}}
                         />
                         <ListItem
                             text='反馈投诉'
@@ -95,12 +76,6 @@ class Profile extends React.Component {
                         />
                     </View>
                 </View>
-                <Button
-                    title="登出"
-                    onPress={this.logout}
-                    buttonStyle={styles.logout}
-                    containerStyle={styles.logout_container}
-                />
             </View>
         );
     }
@@ -150,16 +125,8 @@ const styles = StyleSheet.create({
         paddingTop:20,
         flexDirection: 'column',
     },
-    logout_container:{
-        paddingHorizontal:20,
-        paddingBottom: 20,
-    },
-    logout: {
-        backgroundColor: '#FDAF26'
-    },
 })
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
 )(Profile)

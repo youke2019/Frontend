@@ -62,7 +62,9 @@ class ProfileSetting extends React.Component {
 
   pressNickname =()=>{
     this.props.navigation.navigate('Edit',{
-      onComfirm:this.updateNickname
+      onComfirm:this.updateNickname,
+      hint: '昵称是用户在互动场景下的称谓',
+      user: this.props.user_info
     })
   }
 
@@ -124,7 +126,7 @@ class ProfileSetting extends React.Component {
             rightAvatar={<Avatar
                 size="medium"
                 rounded
-                source={{uri: 'default_avatar_2'}}
+                source={{uri: user_info.avatar_url}}
             />}
             rightIcon={<Image
                 source={{uri:'right_arrow'}}

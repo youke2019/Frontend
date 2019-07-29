@@ -14,7 +14,7 @@ class Edit extends React.Component {
     })
 
     state = {
-        text: null
+        text: this.props.navigation.state.params.user.nickname
     }
 
     onChangeText = (text) => {
@@ -30,9 +30,12 @@ class Edit extends React.Component {
 
     render() {
         const {
-            hint='暂时测试阿萨封闭哈大半个 i 沙登伯格 i 吧发吧额本菲卡比较法 i',
             navigation
         } = this.props
+
+        const {
+            text
+        } = this.state
         return (
             <View style={styles.container}>
                 <StackNavBar
@@ -46,10 +49,11 @@ class Edit extends React.Component {
                         style={styles.input}
                         multiline={true}
                         onChangeText={this.onChangeText}
+                        value={text}
                     />
                     <Divider style={styles.divider}/>
                 </View>
-                <Text style={styles.hint}>{hint}</Text>
+                <Text style={styles.hint}>{navigation.state.params.hint}</Text>
             </View>
         );
     }

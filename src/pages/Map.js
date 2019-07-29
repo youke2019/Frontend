@@ -18,8 +18,6 @@ import {
 } from "../utils/ClassLogics";
 import SegmentCard from "../components/SegmentCard";
 
-// const range = ['东上院','东中院1号楼','东中院2号楼','东中院3号楼','东中院4号楼','东下院','上院','中院','下院','包图','逸夫楼','工程馆']
-
 const locations = {
     上院:{
         longitude: 121.430988,
@@ -77,7 +75,7 @@ const locations = {
 
 class Map extends React.Component {
     state = {
-        location: locations.上院,
+        location: locations.未知,
         delay: true,
         schedule: [],
         week: -1,
@@ -99,7 +97,7 @@ class Map extends React.Component {
 
     scheduleProcess = (data,week) => {
         let date = new Date()
-        let schedule = getWeekClassTable(data,16)[0]
+        let schedule = getWeekClassTable(data,week)[0]
         let scheduleProcessed = []
         let timePeriod = 0
         for (let segment of schedule) {
