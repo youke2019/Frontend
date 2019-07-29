@@ -26,7 +26,9 @@ import {
   Evaluations,
   Highlight,
   NewHighlight,
-  NewEvaluation, Sorting
+  NewEvaluation,
+  Sorting,
+  Edit
 } from './src/pages'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -104,6 +106,9 @@ const ProfileNavigator = createStackNavigator({
       },
       ProfileSetting: {
         screen: ProfileSetting,
+      },
+      Edit: {
+        screen: Edit
       }
     })
 

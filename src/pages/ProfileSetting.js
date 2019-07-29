@@ -6,8 +6,12 @@ import {Avatar, Icon, Input, ListItem, Overlay} from 'react-native-elements'
 import { EmitError } from '../utils/ErrorAlert'
 import {  updateUserInfo } from '../redux/actions'
 import StackNavBar from "../components/StackNavBar";
+import ImagePicker from "react-native-image-crop-picker"
+import {sendAvatarImg, sendHighlightImg} from "../utils/DataRequest";
 
-const mapStateToProps = state => {return{
+
+const mapStateToProps = state => {
+  return{
   user_info: state.user_info,
 }}
 
@@ -22,7 +26,6 @@ const mapDispatchToProps = dispatch => {
 class ProfileSetting extends React.Component {
   static navigationOptions =  ({ navigation }) => ({
     header: () => {
-      console.log(this)
       return (
       <StackNavBar
           navigation={navigation}
@@ -35,12 +38,10 @@ class ProfileSetting extends React.Component {
   constructor (props){
     super(props);
     this.state = {
-      user_info: this.props.user_info,
-      visible: {
-        nickname: false,
-      }
+      user_info: props.user_info,
     };
   }
+
   requestForProfile = ()=>{
     const {user_info} = this.state;
     return axios({
@@ -60,43 +61,60 @@ class ProfileSetting extends React.Component {
   }
 
   pressNickname =()=>{
-    this.setState({
-      visible: Object.assign({},this.state.visible,{
-        nickname:true,
-      })
+    this.props.navigation.navigate('Edit',{
+      onComfirm:this.updateNickname
     })
   }
-  closeNickname = () =>{
-    this.setState({
-      visible: Object.assign({},this.state.visible,{
-        nickname:false,
-      })
-    })
-  }
-  updateNickname =(event)=>{
-    const new_user_info = this.state.user_info;
-    new_user_info.nickname = event.nativeEvent.text;
+
+  updateNickname = (text) => {
+    let new_user_info = this.state.user_info;
+    new_user_info.nickname = text;
     axios({
       method: 'post',
       url: baseUrl + "/users/update",
       data: new_user_info
     }).then((response)=> {
       if (response.data.success) {
-        this.setState({
-          user_info: new_user_info,
-        });
         this.props.updateUserInfo(new_user_info);
-        this.closeNickname();
       }else{
         if(response.data.error_msg === "Duplicate Nickname"){
           EmitError({error_msg: "名字重复了哦!"})
         }else console.log(response.data.error_msg);
       }
-    })
+    }).catch(err=>console.log(err))
   }
+
+  modifyAvatar = () => {
+    ImagePicker.openPicker({
+      cropping: true
+    }).then((raw_file) => {
+      const file = {
+        uri: raw_file.path,
+        type: 'multipart/form-data',
+        name: "image.jpg",
+      }
+      sendHighlightImg(file).then(response =>{
+        let new_user_info = this.state.user_info
+        new_user_info.avatar_url = response.data
+        console.log(new_user_info)
+
+        axios({
+          method: 'post',
+          url: baseUrl + "/users/update",
+          data: new_user_info
+        }).then((response)=> {
+          console.log(response)
+          if (response.data.success)
+            this.props.updateUserInfo(new_user_info)
+        }).catch(err=>console.log(err))
+        console.log(response.data)
+      }).catch(err=>console.log(err))
+
+    }).catch(err => console.log(err))
+  }
+
   render() {
-    console.log(this.state)
-    const {user_info,visible} = this.state;
+    const {user_info} = this.props;
     if (user_info.nickname === null ) user_info.nickname = "new user1234";
     return (
       <View style={styles.container}>
@@ -112,6 +130,7 @@ class ProfileSetting extends React.Component {
                 source={{uri:'right_arrow'}}
                 style={styles.arrow_image}
             />}
+            onPress={this.modifyAvatar}
         />
         <ListItem
           title = "昵称"
@@ -142,21 +161,6 @@ class ProfileSetting extends React.Component {
             bottomDivider={true}
             rightSubtitleStyle={styles.right_text}
         />
-        {
-          visible.nickname &&
-            <Overlay
-              isVisible
-              height={100}
-              onBackdropPress={this.closeNickname}
-            >
-              <Input
-                label={"取个昵称"}
-                placeholder='叫什么呢'
-                autoFocus = {true}
-                onSubmitEditing = {this.updateNickname}
-              />
-            </Overlay>
-        }
       </View>
     );
   }

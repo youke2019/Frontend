@@ -57,6 +57,19 @@ export const sendHighlightImg = (file)=>{
     data:formData,
   })
 }
+
+export const sendAvatarImg = (file)=>{
+  let formData = new FormData();
+  formData.append("file",file);
+  console.log(JSON.stringify(formData))
+  return axios({
+    url : baseUrl + "/users/avatar/upload",
+    method:'POST',
+    withCredential:true,
+    data:formData,
+  })
+}
+
 export const getUserById = (id)=>{
   return axios({
     method:'get',
@@ -85,6 +98,7 @@ export const sendCommentReply = (course_comment_id,user_id,course_comment_reply_
     }
   })
 }
+
 module.exports = {
   sendHighlightImg:sendHighlightImg,
   getAllHighlight:getAllHighlight,
@@ -95,4 +109,5 @@ module.exports = {
   unPraiseHighlight:unPraiseHighlight,
   commentHighlight:commentHighlight,
   sendCommentReply:sendCommentReply,
+  sendAvatarImg:sendAvatarImg,
 }

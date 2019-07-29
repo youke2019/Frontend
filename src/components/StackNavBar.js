@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
-import { Text } from 'react-native-elements'
+import {Divider, Text} from 'react-native-elements'
 import PropTypes from 'prop-types'
 
 
@@ -9,14 +9,20 @@ export default class StackNavBar extends Component{
     navigation: PropTypes.object.isRequired,
   }
   goBack = ()=>{
-    console.log(this.props.navigation)
     this.props.navigation.goBack();
   }
+
+  onPress = () => {
+    this.props.onPress()
+  }
+
   render () {
     const {
       backIconUri = "navigate_return",
-      title = '课程'
+      title = '课程',
+      buttonText=null
     } = this.props;
+
     return(
       <View style = {styles.container}>
         <TouchableOpacity
@@ -32,6 +38,15 @@ export default class StackNavBar extends Component{
         <View style = {styles.subNav}>
           <Text style={styles.title}>{title}</Text>
         </View>
+        {
+          buttonText != null &&
+          <TouchableOpacity
+              style={styles.button}
+              onPress={this.onPress}
+          >
+            <Text>保存</Text>
+          </TouchableOpacity>
+        }
       </View>
     );
   }
@@ -65,5 +80,14 @@ const styles = StyleSheet.create({
   title:{
     fontSize: 15,
     color: '#000000'
+  },
+  button:{
+    width: 56,
+    height: 32,
+    marginRight: 10,
+    backgroundColor: '#FDAF26',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems:'center',
   }
 })
