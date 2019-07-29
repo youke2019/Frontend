@@ -68,13 +68,13 @@ function sortlistReducer (state = initialState.sortlist, action) {
       })
         return state.concat([action.data])
     case REMOVE_FROM_SORTLIST:
-      saveData({
-        key:'sortlist',
-        data:state.concat([action.data])
-      })
       state.forEach(item=>{
         if(item.course_id !== action.data.course_id)
          newlist.push(item);
+      })
+      saveData({
+        key:'sortlist',
+        data:newlist
       })
       return newlist;
     case CLEAR_SORTLIST:
@@ -82,16 +82,16 @@ function sortlistReducer (state = initialState.sortlist, action) {
     case LOAD_SORTLIST:
       return action.data;
     case UPDATE_SORTLIST:
-      saveData({
-        key:'sortlist',
-        data:state.concat([action.data])
-      })
       state.forEach(item=>{
         if(item.course_id !== action.data.course_id)
           newlist.push(item);
         else
           newlist.push(action.data)
       })
+      saveData({
+      key:'sortlist',
+      data: newlist
+    })
       return newlist;
     default:
       return state

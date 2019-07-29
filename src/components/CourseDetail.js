@@ -9,7 +9,6 @@ import { connect } from 'react-redux'
 const ClassItem = (props) =>{
   const {class_info } = props;
   const extra_teacher = class_info.teachers.split(';').length > 1;
-
   return(
     <View style = {styles.class_item}>
       <UnshadowedTitle uri={'teacher'} title ={"上课教师"} content={class_info.teacher_name}/>
@@ -17,7 +16,7 @@ const ClassItem = (props) =>{
       <UnshadowedTitle uri={'clock'} title ={"学期"} content={class_info.classname}/>
       <UnshadowedTitle uri={'location'} title={"教室"} content={class_info.classSegments[0].classroom}/>
       <UnshadowedTitle uri={'student'} title ={"选课人数"} content={class_info.course_participants}/>
-      <UnshadowedTitle uri={'teacher'} title ={"备注"} content={class_info.class_note}/>
+      {class_info.class_note ==="" ? null: <UnshadowedTitle uri={'teacher'} title ={"备注"} content={class_info.class_note}/>}
     </View>
   );
 }
@@ -74,6 +73,7 @@ class CourseDetail extends React.Component{
   }
   onCollect = ()=>{
     const {course,sortlist} = this.props
+    if(course === null) return ;
     if(sortlist.some((item)=> item.course_id === course.course_id)){
       this.props.removeFromSortlist(course)
     }else {

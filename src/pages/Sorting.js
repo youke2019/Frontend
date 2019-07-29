@@ -18,7 +18,7 @@ const CourseItem = (props) => {
         delayLongPress={500}
         activeOpacity={0.7}
       >
-        <View style={course_styles.course_card}>
+        <View style={ course_info.isCompulsory ? [course_styles.course_card,course_styles.course_card_compulsory] : course_styles.course_card}>
           <Text> {course_info.course_name}</Text>
           <Text> {course_info.course_id}</Text>
         </View>
@@ -40,14 +40,11 @@ const CourseItem = (props) => {
                   text: '删除',
                   onPress: () => {props.onUpdate(course_info, class_info.classname, 'delete')}
                 }]
-                const deleteNum = course_info.deleteNum ? course_info.deleteNum : 0
-                console.log(deleteNum)
-                const hasPadding = index !== (course_info.classes.length - deleteNum - 1)
-                console.log(hasPadding)
+                const hasPadding = true
                 return (
-                  <View style={{ width: '100%', paddingHorizontal: 20 }}>
-                    <Swipeout right={swipeoutBtns} left={swipeoutBtns} backgroundColor={'default'} key={index}
-                              style={{ width: '100%' }} autoClose>
+                  <View style={{ width: '100%', paddingHorizontal: 20 }} key={index}>
+                    <Swipeout right={swipeoutBtns} left={swipeoutBtns} backgroundColor={'default'}
+                      style={{ width: '100%' }} autoClose>
                       <View style={course_styles.class_item}>
                         <UnshadowedTitle uri={'teacher'} title={'上课教师'} content={class_info.teacher_name}/>
                         {extra_teacher && <UnshadowedTitle uri={'teacher'} title={'合上教师'} content={class_info.teachers}/>}
@@ -85,6 +82,9 @@ const course_styles = StyleSheet.create({
     elevation: 4,
     backgroundColor: '#FFFFFF'
   },
+  course_card_compulsory:{
+    backgroundColor: '#FDD32A'
+  },
   classes_card: {
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -107,6 +107,27 @@ const course_styles = StyleSheet.create({
 })
 
 class Sorting extends React.Component {
+  setCompulsory = (course_info) => {
+    const isCompulsory = course_info.isCompulsory === true;
+    const informText = isCompulsory ? "取消必选?" : "设为必选?"
+    Alert.alert(
+      '提示',
+      informText,
+      [{
+        text: '取消',
+        onPress: () => {},
+        style: 'cancel'
+      }, {
+        text: '确定',
+        onPress: () => {
+          let new_course_info = course_info;
+          new_course_info.isCompulsory = !isCompulsory;
+          this.props.updateSortlist(new_course_info);
+        }
+      }],
+      { cancelable: true }
+    )
+  }
 
   removeFromSortlist = (course_info) => {
     Alert.alert(
@@ -137,6 +158,7 @@ class Sorting extends React.Component {
       })
       if (new_course_info.deleteNum > 0) new_course_info.deleteNum++
       else new_course_info.deleteNum = 1
+      console.log(new_course_info)
       if (new_course_info.deleteNum === new_course_info.classes.length) {
         this.props.removeFromSortlist(new_course_info)
         return
@@ -160,7 +182,7 @@ class Sorting extends React.Component {
             return <CourseItem
               course_info={item}
               key={index}
-              onLongPress={this.removeFromSortlist}
+              onLongPress={this.setCompulsory}
               onUpdate={this.updateSortlist}
             />
           }}
