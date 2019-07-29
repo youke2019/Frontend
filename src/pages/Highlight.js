@@ -16,7 +16,6 @@ class Highlight extends React.Component {
       callBack: this.refresh
     })
   }
-
   componentDidMount () {
     this.getData()
   }

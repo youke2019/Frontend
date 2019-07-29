@@ -92,10 +92,8 @@ class HighlightCard extends React.Component {
   videoError = (err) => {
     console.log(err)
   }
-  onBuffer = () => {
-  }
   openVideo = () => {
-    this.player.presentFullscreenPlayer()
+
   }
 
   render () {
@@ -168,13 +166,9 @@ class HighlightCard extends React.Component {
                     >
                       <Video
                         source={{ uri: data.video_url }}
-                        ref={(ref) => {
-                          console.log(ref)
-                          this.player = ref
-                        }}
+                        ref={(ref) => {this.player = ref}}
                         paused={true}
                         muted={true}
-                        onBuffer={this.onBuffer}
                         onError={this.videoError}
                         style={styles.backgroundVideo}
                       />
