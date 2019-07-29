@@ -76,11 +76,14 @@ const styles = StyleSheet.create({
     color:"#ff812e",
     textAlign: 'center',
   },
-  button_touchable:{
-    borderRadius:20,
-    paddingHorizontal:50,
-    paddingVertical:5,
-    backgroundColor:'#200948'
+
+  button_touchable: {
+    borderRadius: 20,
+    paddingHorizontal: 55,
+    paddingVertical: 5,
+    borderWidth:0.5,
+    borderColor:'orange',
+    backgroundColor: 'white'
   },
   button_container:{
     marginTop:10,
@@ -102,7 +105,7 @@ const styles = StyleSheet.create({
   container:{
     borderTopWidth:15,
     borderTopColor:'whitesmoke',
-    marginBottom:10,
+    marginBottom:50,
   }
 
 })

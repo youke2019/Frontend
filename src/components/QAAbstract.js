@@ -59,7 +59,6 @@ export default class QAAbstract extends React.Component {
         user_id: this.props.user_id,
       }
     }).then(res => {
-      console.log(res.data)
       this.setState({
         questions: res.data
       })
@@ -108,7 +107,7 @@ export default class QAAbstract extends React.Component {
 }
 const styles = StyleSheet.create({
   first_comm: {
-    marginLeft: 20
+    marginHorizontal: 20,
   },
   button_text: {
     color: '#ff812e',
@@ -116,9 +115,11 @@ const styles = StyleSheet.create({
   },
   button_touchable: {
     borderRadius: 20,
-    paddingHorizontal: 50,
+    paddingHorizontal: 55,
     paddingVertical: 5,
-    backgroundColor: '#200948'
+    borderWidth:0.5,
+    borderColor:'orange',
+    backgroundColor: 'white'
   },
   button_container: {
     marginTop: 10,

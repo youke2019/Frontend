@@ -8,14 +8,15 @@ import MapPage from './Map.js'
 import DrawerPage from '../components/Drawer.js'
 import QuestionsPage from './Questions'
 import EvaluationsPage from './Evaluations'
-import CommentPage from './Comment'
+import CommentsPage from './Comments'
 import NewEvaluationPage from './NewEvaluation'
 import HighlightPage from './Highlight'
 import NewHighlightPage from './NewHighlight'
+import SortingPage from './Sorting'
 
 export const NewHighlight = NewHighlightPage
 export const Highlight = HighlightPage
-export const Comment = CommentPage
+export const Comments = CommentsPage
 export const Home = HomePage
 export const Profile = ProfilePage
 export const Course = CoursesPage
@@ -27,3 +28,4 @@ export const Drawer = DrawerPage
 export const Questions = QuestionsPage
 export const Evaluations = EvaluationsPage
 export const NewEvaluation = NewEvaluationPage
+export const Sorting = SortingPage;

@@ -3,11 +3,12 @@ import { StyleSheet, Text, View,Button,FlatList ,TouchableOpacity} from 'react-n
 import { Image, Overlay } from 'react-native-elements'
 import { ShadowedTitle } from './ShadowedTitle'
 import { UnshadowedTitle } from './UnshadowedTitle'
+import { addToSortlist, removeFromSortlist } from '../redux/actions'
+import { connect } from 'react-redux'
 
 const ClassItem = (props) =>{
   const {class_info } = props;
   const extra_teacher = class_info.teachers.split(';').length > 1;
-
   return(
     <View style = {styles.class_item}>
       <UnshadowedTitle uri={'teacher'} title ={"上课教师"} content={class_info.teacher_name}/>
@@ -15,7 +16,7 @@ const ClassItem = (props) =>{
       <UnshadowedTitle uri={'clock'} title ={"学期"} content={class_info.classname}/>
       <UnshadowedTitle uri={'location'} title={"教室"} content={class_info.classSegments[0].classroom}/>
       <UnshadowedTitle uri={'student'} title ={"选课人数"} content={class_info.course_participants}/>
-      <UnshadowedTitle uri={'teacher'} title ={"备注"} content={class_info.class_note}/>
+      {class_info.class_note ==="" ? null: <UnshadowedTitle uri={'teacher'} title ={"备注"} content={class_info.class_note}/>}
     </View>
   );
 }
@@ -44,13 +45,23 @@ const ClassesDetail = (props) =>{
     </Overlay>
   );
 }
+const mapStateToProps = (state) =>({
+  sortlist:state.sortlist,
+})
 
-export default class CourseDetail extends React.Component{
+const mapDispatchToProps = dispatch =>({
+    addToSortlist: (newItem)=>{
+      dispatch(addToSortlist(newItem))
+    },
+    removeFromSortlist:(newItem)=> {
+      dispatch(removeFromSortlist(newItem))
+    }
+})
+class CourseDetail extends React.Component{
   state = {
     classesDetailVisible:false,
   }
   openClassesDetail = ()=>{
-    console.log("open")
     this.setState({
       classesDetailVisible:true,
     })
@@ -60,8 +71,18 @@ export default class CourseDetail extends React.Component{
       classesDetailVisible:false,
     })
   }
+  onCollect = ()=>{
+    const {course,sortlist} = this.props
+    if(course === null) return ;
+    if(sortlist.some((item)=> item.course_id === course.course_id)){
+      this.props.removeFromSortlist(course)
+    }else {
+      this.props.addToSortlist(course)
+    }
+  }
   render(){
-    const {course} = this.props;
+    const {course,sortlist} = this.props;
+    const collected = sortlist.some((item)=> item.course_id === course.course_id) ? "collected" : "collect"
     let teachers = "";
     if(course.classes != null){
       course.classes.forEach((classItem)=>{
@@ -71,10 +92,16 @@ export default class CourseDetail extends React.Component{
       });
       teachers = teachers.substring(0,teachers.length -1);
     }
-    console.log(course)
     return(
       <View style = {styles.container}>
-        <ShadowedTitle text={course.course_name} uri = {"course_name"}style = {styles.course_name}/>
+        <View style={styles.title_row}>
+         <ShadowedTitle text={course.course_name} uri = {"course_name"} style = {styles.course_name}/>
+          <TouchableOpacity
+            onPress = {this.onCollect}
+          >
+            <Image source={{uri:collected}} style={{marginRight:20,width:22,height:22}}/>
+          </TouchableOpacity>
+        </View>
         <View style={styles.main_part}>
           <Image source={{uri:'cover_1' }} style ={{marginLeft:10,marginRight: 5,flex:1,width:180,minHeight:100, resizeMode:'cover'}}/>
           <View style = {styles.main_info}>
@@ -141,18 +168,18 @@ const styles = StyleSheet.create({
     bottom:0,
   },
   notes_title:{
-    marginLeft:5,
     marginTop: 5,
     fontSize: 15,
     fontWeight:'bold',
     color: 'grey',
   },
   course_notes:{
-    marginLeft:40,
-    marginRight:20,
+    marginLeft:30,
+    marginRight:30,
     marginTop: 10,
   },
   main_part:{
+    marginHorizontal:15,
     marginTop:10,
     flexDirection:"row",
   },
@@ -171,5 +198,15 @@ const styles = StyleSheet.create({
   },
   course_name_img:{
     flex:1
+  },
+  title_row:{
+    width:"100%",
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center'
   }
 });
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CourseDetail)

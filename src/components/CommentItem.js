@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import ReplyBox from './ReplyBox'
 import { UserIdText } from './UserIdText'
+import { sendCommentReply } from '../utils/DataRequest'
 
 const mapStateToProps = (state) =>({
   user_info:state.user_info,
@@ -38,6 +39,10 @@ const mapStateToProps = (state) =>({
     })
   }
   onReplyDone = (msg)=>{
+    sendCommentReply(this.props.comment_info.course_comment_id,this.props.user_info.id,msg)
+      .then(response=>{
+        this.props.refresh();
+      }).catch(err=>console.log(err))
     this.setState({
       reply_visible:false,
     })
@@ -60,7 +65,6 @@ const mapStateToProps = (state) =>({
         course_comment_id:comment_info.course_comment_id,
       }
     }).then((response)=>{
-      console.log(response)
       this.props.refresh();
     }).catch((err)=>{
       console.log(err);
@@ -70,6 +74,7 @@ const mapStateToProps = (state) =>({
     const {
       comment_info =null,
     } = this.props;
+
     const {reply_visible} = this.state;
     return (
       <View>
@@ -84,10 +89,8 @@ const mapStateToProps = (state) =>({
             </ImageBackground>
           </View>)
           :
-          (<ImageBackground
+          (<View
               style={styles.card_container}
-              imageStyle={{resizeMode: 'stretch'}}
-              source={{uri:'course_card'}}
             >
             <View style = {styles.container}>
             <View style ={styles.avatar} >
@@ -119,8 +122,19 @@ const mapStateToProps = (state) =>({
                   <Text style={{fontSize: 12,fontWeight:'100'}}>{comment_info.course_comment_praise_point }</Text>
                 </TouchableOpacity>
               </View>
+              <View style={styles.reply_area}>
+                {
+                  comment_info.courseCommentReplyList.map((item, index) => {
+                    return item.isbanned ? null : (
+                      <View style={styles.reply_item} key={index}>
+                        <UserIdText user_id={item.user_id} style={styles.reply_user_id}/>
+                        <Text style={styles.reply_text}>{': ' + item.course_comment_reply_content}</Text>
+                      </View>)
+                  })
+                }
+              </View>
             </View>
-            </View></ImageBackground>)
+            </View></View>)
       }
       <ReplyBox
         visible = {reply_visible}
@@ -132,12 +146,21 @@ const mapStateToProps = (state) =>({
   }
 }
 const styles = StyleSheet.create({
-  card_container:{
+  /*card_container:{
     width:340,
-    height:200,
     paddingHorizontal:20,
+    paddingVertical:30,
     justifyContent: 'center',
     alignItems: 'center',
+  },*/
+
+  card_container:{
+    paddingHorizontal:20,
+    paddingVertical: 10,
+    alignItems: 'flex-start',
+    borderRadius: 20,
+    elevation: 4,
+    backgroundColor: '#FFFFFF',
   },
   container:{
     flexDirection:'row',
@@ -168,6 +191,7 @@ const styles = StyleSheet.create({
   comment_header:{
     flexDirection:'row',
     justifyContent: "space-between",
+    paddingTop:12,
   },
   user_id:{
     fontWeight:'bold',
@@ -197,6 +221,23 @@ const styles = StyleSheet.create({
     alignItems:'center',
     width:'auto',
     height:20,
+  },
+
+  reply_area: {
+    backgroundColor:'whitesmoke',
+    borderRadius:5,
+  },
+  reply_item: {
+    flexDirection: 'row'
+  },
+  reply_user_id: {
+    fontSize: 14,
+    fontWeight: '200'
+  },
+  reply_text: {
+    fontSize: 14,
+    lineHeight: 18,
+    width:"79%",
   }
 });
 

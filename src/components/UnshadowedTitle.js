@@ -5,10 +5,11 @@ import { StyleSheet,View } from 'react-native'
 export const UnshadowedTitle = (props) =>{
   return (
     <View style = {styles.container}>
+      <View style={{flexDirection:'row', alignItems:"center"}}>
       <Image source = {{uri: props.uri}} style ={styles.background}/>
       <Text style={styles.titleText}>
         {props.title + ":"}
-      </Text>
+      </Text></View>
       <Text
         numberOfLines={3}
         style={styles.contentText}>
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   container:{
     marginTop:5,
     flexDirection:'row',
-    alignItems:'center',
+    alignItems:'flex-start',
     flexWrap:'wrap',
   },
   background:{

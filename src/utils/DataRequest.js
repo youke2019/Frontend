@@ -73,6 +73,18 @@ export const getCourseById = (params) =>{
     url:baseUrl + '/courses/specific',
   })
 }
+
+export const sendCommentReply = (course_comment_id,user_id,course_comment_reply_content)=>{
+  return axios({
+    method:'post',
+    url:baseUrl + "/courses/comments/reply",
+    data:{
+      course_comment_id:course_comment_id,
+      course_comment_reply_content:course_comment_reply_content,
+      user_id:user_id,
+    }
+  })
+}
 module.exports = {
   sendHighlightImg:sendHighlightImg,
   getAllHighlight:getAllHighlight,
@@ -81,5 +93,6 @@ module.exports = {
   sendNewHighlight:sendNewHighlight,
   praiseHighlight:praiseHighlight,
   unPraiseHighlight:unPraiseHighlight,
-  commentHighlight:commentHighlight
+  commentHighlight:commentHighlight,
+  sendCommentReply:sendCommentReply,
 }

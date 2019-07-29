@@ -58,7 +58,6 @@ export default class CommentAbstract extends React.Component {
         user_id: this.props.user_info.id
       }
     }).then(response => {
-      console.log(response.data)
       this.setState({
         comments: response.data
       })
@@ -69,6 +68,7 @@ export default class CommentAbstract extends React.Component {
 
   render () {
     const firstComm = this.state.comments.length === 0 ? null : this.state.comments[0]
+
     return (
       <View style={styles.container}>
         <CommentAbstractTitle/>
@@ -96,7 +96,7 @@ export default class CommentAbstract extends React.Component {
 }
 const styles = StyleSheet.create({
   first_comm: {
-    marginLeft: 20
+    marginHorizontal: 20
   },
   button_text: {
     color: '#ff812e',
@@ -104,9 +104,11 @@ const styles = StyleSheet.create({
   },
   button_touchable: {
     borderRadius: 20,
-    paddingHorizontal: 50,
+    paddingHorizontal: 55,
     paddingVertical: 5,
-    backgroundColor: '#200948'
+    borderWidth:0.5,
+    borderColor:'orange',
+    backgroundColor: 'white'
   },
   button_container: {
     marginTop: 10,
