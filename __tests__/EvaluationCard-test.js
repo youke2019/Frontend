@@ -36,6 +36,8 @@ describe('functions', () => {
             evaluation={evaluation}
             onDetail={onDetail}
         />)
+    
+    console.log(wrapper.instance())
 
     it('switchDetailState()', () => {
         wrapper.setState({
