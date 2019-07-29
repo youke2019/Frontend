@@ -117,7 +117,6 @@ class ProfileSetting extends React.Component {
 
   render() {
     const {user_info} = this.props;
-    if (user_info.nickname === null ) user_info.nickname = "new user1234";
     return (
       <View style={styles.container}>
         <ListItem

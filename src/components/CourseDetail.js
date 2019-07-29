@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     justifyContent:"space-between"
   },
   course_name: {
-    flex:5
+
   },
   container: {
     marginTop:10,
