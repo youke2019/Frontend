@@ -10,5 +10,5 @@ let storage = new Storage({
 })
 
 global.storage = storage
-//global.baseUrl = 'http://192.168.42.148:8080'
+//global.baseUrl = 'http://192.168.42.163:8080'
 global.baseUrl = 'http://47.103.30.166:8000'
