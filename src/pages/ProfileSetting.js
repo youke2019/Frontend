@@ -1,8 +1,8 @@
 import React from "react";
-import {Image, Text, View,FlatList} from "react-native";
+import {Image, Text, View, FlatList, StyleSheet} from "react-native";
 import axios from  'axios'
 import { connect } from 'react-redux'
-import { Input, ListItem, Overlay } from 'react-native-elements'
+import {Avatar, Icon, Input, ListItem, Overlay} from 'react-native-elements'
 import { EmitError } from '../utils/ErrorAlert'
 import {  updateUserInfo } from '../redux/actions'
 import StackNavBar from "../components/StackNavBar";
@@ -99,11 +99,48 @@ class ProfileSetting extends React.Component {
     const {user_info,visible} = this.state;
     if (user_info.nickname === null ) user_info.nickname = "new user1234";
     return (
-      <View >
+      <View style={styles.container}>
+        <ListItem
+            title = "头像"
+            bottomDivider={true}
+            rightAvatar={<Avatar
+                size="medium"
+                rounded
+                source={{uri: 'default_avatar_2'}}
+            />}
+            rightIcon={<Image
+                source={{uri:'right_arrow'}}
+                style={styles.arrow_image}
+            />}
+        />
         <ListItem
           title = "昵称"
           rightSubtitle={user_info.nickname}
           onPress = {this.pressNickname}
+          bottomDivider={true}
+          rightSubtitleStyle={styles.right_text}
+          rightIcon={<Image
+              source={{uri:'right_arrow'}}
+              style={styles.arrow_image}
+          />}
+        />
+        <ListItem
+            title = "姓名"
+            rightSubtitle={user_info.name}
+            bottomDivider={true}
+            rightSubtitleStyle={styles.right_text}
+        />
+        <ListItem
+            title = "学院"
+            rightSubtitle={user_info.department}
+            bottomDivider={true}
+            rightSubtitleStyle={styles.right_text}
+        />
+        <ListItem
+            title = "专业"
+            rightSubtitle={user_info.major}
+            bottomDivider={true}
+            rightSubtitleStyle={styles.right_text}
         />
         {
           visible.nickname &&
@@ -124,6 +161,19 @@ class ProfileSetting extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 4,
+  },
+  right_text:{
+    textAlign: 'right'
+  },
+  arrow_image:{
+    width:20,
+    height:20,
+  }
+})
 
 export default connect(
   mapStateToProps,
