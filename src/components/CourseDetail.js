@@ -36,10 +36,9 @@ const ClassesDetail = (props) =>{
         <FlatList
           data ={classes}
           renderItem ={
-            ({item,index})=>{
-            return <ClassItem class_info={item} key={index} />}
+            ({item,index})=>
+            <ClassItem class_info={item} key={index} />
           }
-          keyExtractor = { ({index})=>index }
         />
       </View>
     </Overlay>

@@ -29,7 +29,8 @@ import {
   NewEvaluation,
   Sorting,
   Edit,
-  Setting
+  Setting,
+  NewComment
 } from './src/pages'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -38,8 +39,6 @@ import initialState from './src/redux/state'
 import ProfileSetting from './src/pages/ProfileSetting'
 import About from './src/pages/About'
 import {StatusBar,View} from "react-native";
-import StackNavBar from "./src/components/StackNavBar";
-import NewComment from './src/components/NewComment'
 
 const store = createStore(combinedReducer,initialState)
 
