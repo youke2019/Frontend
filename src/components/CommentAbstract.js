@@ -26,7 +26,7 @@ const Tag = (props) => {
 
 export class CommentAbstractTitle extends React.Component {
   render () {
-    const { tags = ['水课', '给分很高', '老师很吵', 'fnu#&2G'] } = this.props
+    const { tags = ['水课', '给分很高', '老师很吵'] } = this.props
     return (
       <View style={styles.header_container}>
         <ShadowedTitle text={'评论'} uri={'comment'}/>

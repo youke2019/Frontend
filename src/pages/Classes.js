@@ -14,7 +14,7 @@ import Picker from 'react-native-picker'
 import { loadData } from '../utils/LocalStorage'
 import { getWeekClassTable } from '../utils/ClassLogics'
 
-const Number = ['一','二','三','四','五','六','七','八','九','十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','二一','二二']
+const Number = ['一','二','三','四','五','六','七','八','九','十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','二一','二二','二三','二四','二五']
 const Pin = ['pin0','pin1','pin2','pin3','pin4']
 
 class Classes extends React.Component {
@@ -27,6 +27,7 @@ class Classes extends React.Component {
 
     componentWillMount() {
         axios.get(baseUrl + "/time/week").then(response => {
+            console.log(response.data)
             this.setState({
                 currentWeek: response.data
             })
