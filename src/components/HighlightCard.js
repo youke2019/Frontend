@@ -159,7 +159,7 @@ class HighlightCard extends React.Component {
                 </View>
                 :
                data.video_type === 'v' && data.video_url !== '' ?
-                  <View style={{ width: '100%', height: 'auto', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                  <View style={{ width: '100%', height: 200, flexDirection: 'row', justifyContent: 'flex-start' }}>
                     <TouchableOpacity
                       onPress={this.openVideo}
                     >

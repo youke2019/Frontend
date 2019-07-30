@@ -10,8 +10,7 @@ export class UserAvatarImg extends React.Component {
   componentDidMount () {
     getUserById(this.props.user_id)
       .then(response => {
-        console.log(response)
-        if(response.data.avatarUrl != null){
+        if(response.data.avatar_url != null){
           this.setState({
             url: response.data.avatar_url
           })
