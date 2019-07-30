@@ -81,12 +81,11 @@ export default class QAAbstract extends React.Component {
               QandA={firstQuest}
               userId={this.props.user_id}
             />:
-              <ImageBackground
-              source={{uri:'more_button'}}
+              <View
               style ={{width:340,height:100,flexDirection:'column',alignItems:'center',justifyContent:'center'}}
             >
               <Text style={styles.empty_msg}> 有什么想问的，问问上过课的同学吧😋</Text>
-            </ImageBackground>
+              </View>
           }
         </View>
 

@@ -92,10 +92,8 @@ class HighlightCard extends React.Component {
   videoError = (err) => {
     console.log(err)
   }
-  onBuffer = () => {
-  }
   openVideo = () => {
-    this.player.presentFullscreenPlayer()
+
   }
 
   render () {
@@ -123,7 +121,6 @@ class HighlightCard extends React.Component {
           onClick={this.closeImgViewer}
           onCancel={this.closeImgViewer}
           saveToLocalByLongPress={false}
-          swipeDownThreshold={100}
           enableSwipeDown
         />
         </Modal>
@@ -162,19 +159,15 @@ class HighlightCard extends React.Component {
                 </View>
                 :
                data.video_type === 'v' && data.video_url !== '' ?
-                  <View style={{ width: '100%', height: 'auto', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                  <View style={{ width: '100%', height: 200, flexDirection: 'row', justifyContent: 'flex-start' }}>
                     <TouchableOpacity
                       onPress={this.openVideo}
                     >
                       <Video
                         source={{ uri: data.video_url }}
-                        ref={(ref) => {
-                          console.log(ref)
-                          this.player = ref
-                        }}
+                        ref={(ref) => {this.player = ref}}
                         paused={true}
                         muted={true}
-                        onBuffer={this.onBuffer}
                         onError={this.videoError}
                         style={styles.backgroundVideo}
                       />
@@ -240,7 +233,7 @@ class HighlightCard extends React.Component {
 const styles = StyleSheet.create({
   card_container: {
     flex: 1,
-    marginHorizontal: 20,
+    marginHorizontal: 10,
     marginVertical: 5,
     paddingTop: 10,
     flexDirection: 'row',
@@ -281,7 +274,7 @@ const styles = StyleSheet.create({
   main_text_style: {
     paddingVertical: 5,
     lineHeight: 20,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '100',
     letterSpacing: 1,
     color: 'black'
@@ -311,7 +304,6 @@ const styles = StyleSheet.create({
     height: 20
   },
   comment_area: {
-    backgroundColor: 'whitesmoke',
     borderRadius: 5
   },
   comment_item: {
@@ -319,7 +311,7 @@ const styles = StyleSheet.create({
   },
   comment_user_id: {
     fontSize: 14,
-    fontWeight: '200'
+    fontWeight: 'bold',
   },
   comment_text: {
     fontSize: 14,

@@ -36,7 +36,9 @@ import { createStore } from 'redux'
 import { combinedReducer } from './src/redux/reducers'
 import initialState from './src/redux/state'
 import ProfileSetting from './src/pages/ProfileSetting'
+import About from './src/pages/About'
 import {StatusBar,View} from "react-native";
+import NewComment from './src/components/NewComment'
 
 const store = createStore(combinedReducer,initialState)
 
@@ -64,6 +66,13 @@ const CourseNavigator = createStackNavigator({
   NewEvaluation:{
     screen:NewEvaluation,
     navigationOptions: {header:null}
+  },
+  Sorting:{
+    screen:Sorting,
+    navigationOptions:{header:null}
+  },
+  NewComment:{
+    screen:NewComment,
   }
 })
 
@@ -98,15 +107,18 @@ const HighlightNavigator = createStackNavigator({
 })
 
 const ProfileNavigator = createStackNavigator({
-  Profile: {
-    screen: Profile,
-    navigationOptions: {
-      header: null
-    }
-  },
-  ProfileSetting: {
-    screen: ProfileSetting,
-  },
+      Profile: {
+        screen: Profile,
+        navigationOptions: {
+          header: null
+        }
+      },
+      ProfileSetting: {
+        screen: ProfileSetting,
+      },
+      About:{
+        screen:About,
+      },
   Edit: { screen: Edit },
   Setting: { screen: Setting },
 })
@@ -168,7 +180,6 @@ const TabNavigator = createBottomTabNavigator(
           }
         },
       },
-      Sorting:{ screen: Sorting }
     },
     {
       tabBarOptions:{

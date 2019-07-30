@@ -21,6 +21,10 @@ class Profile extends React.Component {
         this.props.navigation.navigate("ProfileSetting");
     }
 
+    gotoAbout = () =>{
+        this.props.navigation.navigate("About");
+    }
+
     render() {
         const {user} = this.props;
 
@@ -70,12 +74,20 @@ class Profile extends React.Component {
                             text='推荐给好友'
                             image='recommend'
                         />
+
+                    </View>
+                </View>
+                <TouchableOpacity
+                    style={styles.info_container}
+                    onPress={this.gotoAbout}
+                >
+                    <View>
                         <ListItem
                             text='关于'
                             image='about'
                         />
                     </View>
-                </View>
+                </TouchableOpacity>
             </View>
         );
     }

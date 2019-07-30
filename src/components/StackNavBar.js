@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
-import {Divider, Text} from 'react-native-elements'
+import {Text} from 'react-native-elements'
 import PropTypes from 'prop-types'
 
 
