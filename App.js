@@ -66,6 +66,10 @@ const CourseNavigator = createStackNavigator({
   NewEvaluation:{
     screen:NewEvaluation,
     navigationOptions: {header:null}
+  },
+  Sorting:{
+    screen:Sorting,
+    navigationOptions:{header:null}
   }
 })
 
@@ -173,7 +177,6 @@ const TabNavigator = createBottomTabNavigator(
           }
         },
       },
-      Sorting:{ screen: Sorting }
     },
     {
       tabBarOptions:{

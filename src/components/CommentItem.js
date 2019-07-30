@@ -155,11 +155,11 @@ const styles = StyleSheet.create({
   },*/
 
   card_container:{
-    paddingHorizontal:20,
+    paddingHorizontal:10,
     paddingVertical: 10,
     alignItems: 'flex-start',
     borderRadius: 20,
-    elevation: 4,
+    elevation: 2,
     backgroundColor: '#FFFFFF',
   },
   container:{
@@ -222,9 +222,7 @@ const styles = StyleSheet.create({
     width:'auto',
     height:20,
   },
-
   reply_area: {
-    backgroundColor:'whitesmoke',
     borderRadius:5,
   },
   reply_item: {
@@ -232,7 +230,7 @@ const styles = StyleSheet.create({
   },
   reply_user_id: {
     fontSize: 14,
-    fontWeight: '200'
+    fontWeight: 'bold'
   },
   reply_text: {
     fontSize: 14,
