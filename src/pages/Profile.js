@@ -81,14 +81,6 @@ class Profile extends React.Component {
                         />
                     </View>
                 </View>
-                <TouchableOpacity
-                    style={styles.info_container}
-                    onPress={this.gotoAbout}
-                >
-                    <View>
-
-                    </View>
-                </TouchableOpacity>
             </View>
         );
     }
