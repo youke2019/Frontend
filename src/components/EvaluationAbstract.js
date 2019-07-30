@@ -2,27 +2,10 @@ import React from "react";
 import {
   View,
   Text,
-  FlatList,
-  Image,
-  ImageBackground,
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import axios from 'axios';
 import { ShadowedTitle } from './ShadowedTitle'
-import CommentItem from './CommentItem'
-
-const Tag = (props) =>{
-  return(
-    <ImageBackground
-      style = {styles.tag_style}
-      imageStyle={{resizeMode: 'stretch'}}
-      source={{uri:'tag'}}
-    >
-      <Text> {props.text}</Text>
-    </ImageBackground>
-  )
-}
 
 class QAAbstractTitle extends React.Component{
     render () {
@@ -30,10 +13,6 @@ class QAAbstractTitle extends React.Component{
       return(
         <View style = {styles.header_container}>
           <ShadowedTitle text={"评测"}  uri ={"wenda"}/>
-          {
-            tags.map((tag,index) =>
-              <Tag text = {tag} key={index} style = {styles.tag_text}/>)
-          }
         </View>
       )
     }

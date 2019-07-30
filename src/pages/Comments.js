@@ -1,18 +1,14 @@
 import React from 'react'
 import {
   View,
-  FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
   ScrollView
 } from 'react-native'
-import StackNavBar from '../components/StackNavBar'
 import CommentItem from '../components/CommentItem'
 import axios from 'axios'
-import { CommentAbstractTitle } from '../components/CommentAbstract'
-import { ParallaxImage } from 'react-native-snap-carousel'
-import { Divider, Image } from 'react-native-elements'
+import { Image } from 'react-native-elements'
 import ReplyBox from '../components/ReplyBox'
 
 export default class Comments extends React.Component {
@@ -37,8 +33,6 @@ export default class Comments extends React.Component {
       url: baseUrl + '/courses/comments/find',
       params: params
     }).then(response => {
-      console.log('repsonse')
-      console.log(response.data)
       this.setState({
         comments: response.data
       })
@@ -47,8 +41,6 @@ export default class Comments extends React.Component {
     })
   }
   onCommentDone = (msg) => {
-    console.log(msg)
-    console.log(this.state)
     const data = {
       course_id: this.state.course_info.course_id,
       user_id: this.state.user_info.id,
@@ -59,7 +51,6 @@ export default class Comments extends React.Component {
       url: baseUrl + '/courses/comments/add',
       data: data
     }).then((response) => {
-      console.log(response)
       this.closeComment()
       this.getCommentData()
     }).catch(err => console.log(err))
@@ -88,12 +79,6 @@ export default class Comments extends React.Component {
             onReplyDone={this.onCommentDone}
             onBackdropPress={this.closeComment}
           />
-          <StackNavBar
-            navigation={this.props.navigation}
-          />
-          <View style={styles.title}>
-            <CommentAbstractTitle/>
-          </View>
           <View style={styles.new_header}>
             <TouchableOpacity
               onPress={this.openComment}
@@ -106,10 +91,10 @@ export default class Comments extends React.Component {
           </View>
           <View style={styles.comment_list}>
             {
-              comments.map((item, index) =>(<View>
-                <CommentItem comment_info={item} refresh={this.getCommentData} key={index}/>
-                <View style={styles.divider}/>
-              </View>))
+              comments.map((item, index) =>(
+                  <View key={index} style={styles.comment}>
+                    <CommentItem comment_info={item} refresh={this.getCommentData} key={index}/>
+                  </View>))
             }
           </View>
         </ScrollView>
@@ -119,27 +104,25 @@ export default class Comments extends React.Component {
 }
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 15,
-    flexDirection: 'column'
-  },
-  divider: {
-    marginVertical: 4
+    flexDirection: 'column',
+    backgroundColor: '#FFFFF8'
   },
   comment_list: {
     paddingTop: 20,
     marginHorizontal: 20,
     paddingHorizontal: 10
   },
-  title: {
-    marginTop: 25
+  comment:{
+    paddingVertical: 20,
   },
   new_header: {
+    paddingTop: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
   },
   new_button: {
-    backgroundColor: '#200948',
+    backgroundColor: '#FDAF26',
     borderRadius: 8,
     flexDirection: 'row',
     width: 120,
@@ -154,7 +137,6 @@ const styles = StyleSheet.create({
   new_question_text: {
     paddingTop: 3,
     paddingHorizontal: 3,
-    color: '#FFFFFF',
     letterSpacing: 3,
     fontSize: 15,
     fontFamily: '字魂95号-手刻宋',

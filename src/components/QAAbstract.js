@@ -2,39 +2,18 @@ import React from 'react'
 import {
   View,
   Text,
-  FlatList,
-  Image,
-  ImageBackground,
   StyleSheet,
   TouchableOpacity
 } from 'react-native'
 import axios from 'axios'
 import { ShadowedTitle } from './ShadowedTitle'
-import CommentItem from './CommentItem'
 import QuestionCard from './QuestionCard'
-
-const Tag = (props) => {
-  return (
-    <ImageBackground
-      style={styles.tag_style}
-      imageStyle={{ resizeMode: 'stretch' }}
-      source={{ uri: 'tag' }}
-    >
-      <Text> {props.text}</Text>
-    </ImageBackground>
-  )
-}
 
 class QAAbstractTitle extends React.Component {
   render () {
-    const { tags = ['老师好看吗', '怎么考核啊'] } = this.props
     return (
       <View style={styles.header_container}>
         <ShadowedTitle text={'问答'} uri={'wenda'}/>
-        {
-          tags.map((tag, index) =>
-            <Tag text={tag} key={index} style={styles.tag_text}/>)
-        }
       </View>
     )
   }

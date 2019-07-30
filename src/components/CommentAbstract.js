@@ -12,28 +12,11 @@ import axios from 'axios'
 import { ShadowedTitle } from './ShadowedTitle'
 import CommentItem from './CommentItem'
 
-const Tag = (props) => {
-  return (
-    <ImageBackground
-      style={styles.tag_style}
-      imageStyle={{ resizeMode: 'stretch' }}
-      source={{ uri: 'tag' }}
-    >
-      <Text> {props.text}</Text>
-    </ImageBackground>
-  )
-}
-
 export class CommentAbstractTitle extends React.Component {
   render () {
-    const { tags = ['水课', '给分很高', '老师很吵'] } = this.props
     return (
       <View style={styles.header_container}>
         <ShadowedTitle text={'评论'} uri={'comment'}/>
-        {
-          tags.map((tag, index) =>
-            <Tag text={tag} key={index} style={styles.tag_text}/>)
-        }
       </View>
     )
   }

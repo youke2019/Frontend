@@ -1,8 +1,6 @@
 import React from "react";
 import { View, Text, FlatList, Alert, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
-import axios from "axios";
 import { EmitError, HandleError } from '../utils/ErrorAlert'
-import StackNavBar from '../components/StackNavBar'
 import CourseDetail from '../components/CourseDetail'
 import CommentAbstract from '../components/CommentAbstract'
 import QAAbstract from '../components/QAAbstract'
@@ -75,9 +73,6 @@ class Detail extends React.Component {
               style={styles.base_container}
               keyboardShouldPersistTaps={'handled'}
             >
-                <StackNavBar
-                  navigation={this.props.navigation}
-                />
                 <CourseDetail
                   course ={this.state.courseInfo}
                 />
@@ -131,8 +126,6 @@ export default connect(
 )(Detail)
 const styles = StyleSheet.create({
   base_container:{
-    paddingTop:15,
-    paddingBottom:50,
   },
   notes_title:{
     marginLeft:5,

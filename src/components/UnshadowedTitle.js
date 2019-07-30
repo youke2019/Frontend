@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   container:{
     marginTop:5,
     flexDirection:'row',
-    alignItems:'flex-start',
+    alignItems:'center',
     flexWrap:'wrap',
   },
   background:{
