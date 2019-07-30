@@ -88,6 +88,7 @@ class Questions extends React.Component {
                 >
                     <StackNavBar
                         navigation={this.props.navigation}
+                        title='问答'
                     />
                     <View style={styles.title_container}>
                         <Text style={styles.title}>解疑</Text>

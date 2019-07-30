@@ -58,7 +58,7 @@ class EvaluationCard extends React.Component {
                     >
                     </Image>
                     <View style={styles.outline}>
-                        <Text>{evaluation.evaluate_content.课程简述}</Text>
+                        <Text>授课教师: {evaluation.evaluate_content.授课教师}</Text>
                     </View>
                     <View style={styles.star}>
                         <View style={styles.star_icon_container}>
