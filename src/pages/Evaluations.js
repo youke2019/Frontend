@@ -81,27 +81,34 @@ class Evaluations extends React.Component {
             <ScrollView
                 style={styles.container}
             >
-                <StackNavBar
-                    navigation={this.props.navigation}
-                />
-                <View style={styles.header}>
-                    <Text style={styles.title}>课程评测</Text>
-                </View>
-                <TouchableOpacity
-                    style={styles.plus_container}
-                    onPress={this.postEvaluation}
+                <ImageBackground
+                    style={styles.header_container}
+                    imageStyle={{resizeMode:'stretch'}}
+                    source={{uri:'questions_bg'}}
                 >
-                    <ImageBackground
-                        style={styles.plus_button}
-                        imageStyle={{resizeMode: 'stretch'}}
-                        source={{uri:'button_orange'}}
-                    >
-                        <Text style={styles.plus_text}>发布我的评测</Text>
-                    </ImageBackground>
-                </TouchableOpacity>
+                    <StackNavBar
+                        navigation={this.props.navigation}
+                        title='评测'
+                    />
+                    <View style={styles.header}>
+                        <Text style={styles.title}>课程评测</Text>
+                    </View>
+                </ImageBackground>
                 <View
                     style={styles.slider_container}
                 >
+                    <TouchableOpacity
+                        style={styles.plus_container}
+                        onPress={this.postEvaluation}
+                    >
+                        <View
+                            style={styles.plus_button}
+                            imageStyle={{resizeMode: 'stretch'}}
+                            source={{uri:'button_orange'}}
+                        >
+                            <Text style={styles.plus_text}>发布我的评测</Text>
+                        </View>
+                    </TouchableOpacity>
                     {
                         evaluations.length?
                             <Carousel
@@ -128,10 +135,14 @@ class Evaluations extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'#FDD32A',
+        backgroundColor: '#F5F5F5',
+    },
+    header_container:{
+        height:150,
     },
     header:{
-        height: 90,
+        height: 50,
+        paddingBottom: 20,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -145,15 +156,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     slider:{
-        padding: 30,
+        padding: 10,
     },
     plus_container:{
+        paddingBottom: 20,
         justifyContent: 'center',
         alignItems: 'center',
     },
     plus_button:{
         width: 180,
         height: 40,
+        borderRadius: 20,
+        backgroundColor: '#FDAF26',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',

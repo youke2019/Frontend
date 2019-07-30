@@ -37,7 +37,6 @@ import { combinedReducer } from './src/redux/reducers'
 import initialState from './src/redux/state'
 import ProfileSetting from './src/pages/ProfileSetting'
 import {StatusBar,View} from "react-native";
-import StackNavBar from "./src/components/StackNavBar";
 
 const store = createStore(combinedReducer,initialState)
 
