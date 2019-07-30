@@ -39,6 +39,7 @@ import ProfileSetting from './src/pages/ProfileSetting'
 import About from './src/pages/About'
 import {StatusBar,View} from "react-native";
 import StackNavBar from "./src/components/StackNavBar";
+import NewComment from './src/components/NewComment'
 
 const store = createStore(combinedReducer,initialState)
 
@@ -70,6 +71,9 @@ const CourseNavigator = createStackNavigator({
   Sorting:{
     screen:Sorting,
     navigationOptions:{header:null}
+  },
+  NewComment:{
+    screen:NewComment,
   }
 })
 

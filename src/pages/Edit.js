@@ -22,12 +22,10 @@ class Edit extends React.Component {
             text: text
         })
     }
-
-    onComfirm = () => {
-        this.props.navigation.state.params.onComfirm(this.state.text)
+    onConfirm = () => {
+        this.props.navigation.state.params.onConfirm(this.state.text)
         this.props.navigation.goBack()
     }
-
     render() {
         const {
             navigation
@@ -42,7 +40,7 @@ class Edit extends React.Component {
                     navigation={navigation}
                     title={'修改'}
                     buttonText={'保存'}
-                    onPress={this.onComfirm}
+                    onPress={this.onConfirm}
                 />
                 <View style={styles.input_container}>
                     <TextInput

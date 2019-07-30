@@ -173,7 +173,7 @@ class Sorting extends React.Component {
   render () {
     const { sortlist } = this.props
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%', paddingTop: 25 }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%', paddingTop: 30 }}>
         <TouchableOpacity
           onPress={this.sort}
         >
@@ -181,6 +181,7 @@ class Sorting extends React.Component {
             <Text style={styles.sort_button_text}> 排 </Text>
           </View>
         </TouchableOpacity>
+        <Text style={{width:'100%',textAlign:'center',lineHeight:20,}}>长按标记课程必选，左右滑动删除不要的老师</Text>
         <FlatList
           data={sortlist}
           renderItem={({ item, index }) => {
@@ -207,6 +208,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 25,
+    elevation:1,
     backgroundColor: 'orange',
     alignItems: 'center',
     justifyContent: 'center'

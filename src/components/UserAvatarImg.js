@@ -10,16 +10,17 @@ export class UserAvatarImg extends React.Component {
   componentDidMount () {
     getUserById(this.props.user_id)
       .then(response => {
-        if(response.data.avatarUrl != null) {
+        console.log(response)
+        if(response.data.avatarUrl != null){
           this.setState({
-            url: response.data.avatarUrl
+            url: response.data.avatar_url
           })
         }
       })
   }
 
   render () {
-    const source = this.state.url != null? { uri: this.state.url } : {uri:"default_avatar_1"}
+    const source = this.state.url != null ? { uri: this.state.url } : {uri:"default_avatar_1"}
     return (
       <TouchableOpacity
         style={this.props.style}>

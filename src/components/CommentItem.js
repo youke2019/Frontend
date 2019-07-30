@@ -81,12 +81,11 @@ const mapStateToProps = (state) =>({
       {
         comment_info === null ?
           (<View style = {styles.empty_container}>
-            <ImageBackground
-              source={{uri:'more_button'}}
+            <View
               style ={{width:340,height:100,flexDirection:'column',alignItems:'center',justifyContent:'center'}}
             >
               <Text style={styles.empty_msg}> 还没有人评论，快来抢占沙发吧😋</Text>
-            </ImageBackground>
+            </View>
           </View>)
           :
           (<View

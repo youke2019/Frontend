@@ -60,7 +60,13 @@ class Detail extends React.Component {
     });
   }
     onGotoSortingPage=()=>{
-      this.props.navigation.navigate("Sorting");
+      this.props.navigation.navigate("Sorting",);
+    }
+    onGotoNewComment=()=>{
+      console.log("nav")
+      this.props.navigation.navigate("NewComment",{
+        course_info: this.state.courseInfo
+      })
     }
     render() {
         return (
@@ -94,8 +100,10 @@ class Detail extends React.Component {
             <ActionButton
               buttonColor="#FDAF26"
               position={"right"}
+              offsetX={10}
+              hideShadow={true}
             >
-              <ActionButton.Item buttonColor='#1abc9c' title="评论" onPress={() => {}}>
+              <ActionButton.Item buttonColor='#1abc9c' title="评论" onPress={this.onGotoNewComment}>
                 <Icon name="md-chatbubbles" style={styles.actionButtonIcon} />
               </ActionButton.Item>
               <ActionButton.Item buttonColor='#3498db' title="提问" onPress={() => {}}>
