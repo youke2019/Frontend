@@ -100,7 +100,7 @@ class Detail extends React.Component {
             <ActionButton
               buttonColor="#FDAF26"
               position={"right"}
-              offsetX={10}
+              offsetX={30}
               hideShadow={true}
             >
               <ActionButton.Item buttonColor='#1abc9c' title="评论" onPress={this.onGotoNewComment}>
