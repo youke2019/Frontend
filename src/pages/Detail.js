@@ -2,9 +2,6 @@ import React from "react";
 import { View, Text, FlatList, Alert, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import axios from "axios";
 import { EmitError, HandleError } from '../utils/ErrorAlert'
-import { ShadowedTitle } from '../components/ShadowedTitle'
-import { Image, Overlay } from 'react-native-elements'
-import { UnshadowedTitle } from '../components/UnshadowedTitle'
 import StackNavBar from '../components/StackNavBar'
 import CourseDetail from '../components/CourseDetail'
 import CommentAbstract from '../components/CommentAbstract'
@@ -12,7 +9,8 @@ import QAAbstract from '../components/QAAbstract'
 import { connect } from 'react-redux'
 import EvaluationAbstract from '../components/EvaluationAbstract'
 import { getCourseById } from '../utils/DataRequest'
-import { addToSortlist, clearSortlist, removeFromSortlist, updateSortlist } from '../redux/actions'
+import ActionButton from 'react-native-action-button'
+import  Icon  from 'react-native-vector-icons/Ionicons'
 
 class Detail extends React.Component {
     state = {
@@ -61,9 +59,18 @@ class Detail extends React.Component {
       course_info:this.state.courseInfo,
     });
   }
-
+    onGotoSortingPage=()=>{
+      this.props.navigation.navigate("Sorting",);
+    }
+    onGotoNewComment=()=>{
+      console.log("nav")
+      this.props.navigation.navigate("NewComment",{
+        course_info: this.state.courseInfo
+      })
+    }
     render() {
         return (
+          <View>
             <ScrollView
               style={styles.base_container}
               keyboardShouldPersistTaps={'handled'}
@@ -90,6 +97,27 @@ class Detail extends React.Component {
                   onGotoEvaluationPage={this.onGotoEvaluationPage}
                 />
             </ScrollView>
+            <ActionButton
+              buttonColor="#FDAF26"
+              position={"right"}
+              offsetX={10}
+              hideShadow={true}
+            >
+              <ActionButton.Item buttonColor='#1abc9c' title="评论" onPress={this.onGotoNewComment}>
+                <Icon name="md-chatbubbles" style={styles.actionButtonIcon} />
+              </ActionButton.Item>
+              <ActionButton.Item buttonColor='#3498db' title="提问" onPress={() => {}}>
+                <Icon name="md-help" style={styles.actionButtonIcon} />
+              </ActionButton.Item>
+              <ActionButton.Item buttonColor='#FDD32A' title="评测" onPress={() => console.log("notes tapped!")}>
+                <Icon name="md-create" style={styles.actionButtonIcon} />
+              </ActionButton.Item>
+              <ActionButton.Item buttonColor='#1abc9c' title="进入排课" onPress={this.onGotoSortingPage}>
+                <Icon name="md-calendar" style={styles.actionButtonIcon} />
+              </ActionButton.Item>
+            </ActionButton>
+
+          </View>
         )
     }
 }
@@ -154,5 +182,10 @@ const styles = StyleSheet.create({
   },
   course_name_img:{
     flex:1
-  }
+  },
+  actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
+  },
 });

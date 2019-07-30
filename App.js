@@ -29,7 +29,8 @@ import {
   NewEvaluation,
   Sorting,
   Edit,
-  Setting
+  Setting,
+  NewComment
 } from './src/pages'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -38,7 +39,6 @@ import initialState from './src/redux/state'
 import ProfileSetting from './src/pages/ProfileSetting'
 import About from './src/pages/About'
 import {StatusBar,View} from "react-native";
-import StackNavBar from "./src/components/StackNavBar";
 
 const store = createStore(combinedReducer,initialState)
 
@@ -66,6 +66,13 @@ const CourseNavigator = createStackNavigator({
   NewEvaluation:{
     screen:NewEvaluation,
     navigationOptions: {header:null}
+  },
+  Sorting:{
+    screen:Sorting,
+    navigationOptions:{header:null}
+  },
+  NewComment:{
+    screen:NewComment,
   }
 })
 
@@ -173,7 +180,6 @@ const TabNavigator = createBottomTabNavigator(
           }
         },
       },
-      Sorting:{ screen: Sorting }
     },
     {
       tabBarOptions:{

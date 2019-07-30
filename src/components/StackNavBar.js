@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
-import {Divider, Text} from 'react-native-elements'
+import {Text} from 'react-native-elements'
 import PropTypes from 'prop-types'
 
 
@@ -44,7 +44,7 @@ export default class StackNavBar extends Component{
               style={styles.button}
               onPress={this.onPress}
           >
-            <Text>保存</Text>
+            <Text>{buttonText}</Text>
           </TouchableOpacity>
         }
       </View>
@@ -78,11 +78,12 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   title:{
-    fontSize: 15,
+    paddingLeft: 8,
+    fontSize: 16,
     color: '#000000'
   },
   button:{
-    width: 56,
+    width: 80,
     height: 32,
     marginRight: 10,
     backgroundColor: '#FDAF26',
