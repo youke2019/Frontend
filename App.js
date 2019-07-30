@@ -33,6 +33,7 @@ import { createStore } from 'redux'
 import { combinedReducer } from './src/redux/reducers'
 import initialState from './src/redux/state'
 import ProfileSetting from './src/pages/ProfileSetting'
+import About from './src/pages/About'
 import {StatusBar,View} from "react-native";
 import StackNavBar from "./src/components/StackNavBar";
 
@@ -104,6 +105,9 @@ const ProfileNavigator = createStackNavigator({
       },
       ProfileSetting: {
         screen: ProfileSetting,
+      },
+      About:{
+        screen:About,
       }
     })
 
