@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StatusBar, StyleSheet, Text, TextInput, View } from 'react-native'
 import {  loadSortlist, } from '../redux/actions'
 import { connect } from 'react-redux'
-import StackNavBar from './StackNavBar'
+import StackNavBar from '../components/StackNavBar'
 class NewComment extends React.Component {
   state={
     content:"",
