@@ -94,6 +94,8 @@ class Detail extends React.Component {
                   user_id={this.props.user_info.id}
                 />
                 <EvaluationAbstract
+                  user_id={this.props.user_info.id}
+                  course_id={this.state.courseInfo.course_id}
                   onGotoEvaluationPage={this.onGotoEvaluationPage}
                 />
             </ScrollView>

@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
         flex:1,
         width: 300,
         borderRadius: 20,
+        elevation:1,
     },
     container: {
         padding: 20,

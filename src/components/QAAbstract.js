@@ -105,7 +105,7 @@ export default class QAAbstract extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-  first_comm: {
+  first_ev: {
     marginHorizontal: 20,
   },
   button_text: {
