@@ -3,7 +3,6 @@ import {
   View,
   Text,
   Image,
-  ImageBackground,
   StyleSheet,
   TouchableOpacity
 } from "react-native";
@@ -92,48 +91,49 @@ const mapStateToProps = (state) =>({
               style={styles.card_container}
             >
             <View style = {styles.container}>
-            <View style ={styles.avatar} >
-              <Image source = {{uri:"default_avatar_1"}} style={styles.avatar_img} />
+              <View style ={styles.comment}>
+                <View style={styles.comment_header}>
+                  <View style ={styles.avatar} >
+                    <Image source = {{uri:"default_avatar_1"}} style={styles.avatar_img} />
+                  </View>
+                  <UserIdText style = {styles.user_id} user_id={comment_info.user_id}/>
+                </View>
+                <View style={styles.comment_body_container}>
+                  <Text style = {styles.comment_body}> {comment_info.course_comment_content}</Text>
+                </View>
+                <View style={styles.comment_bottom}>
+                  <Text style={{fontSize: 12, padding: 5}}>{comment_info.course_comment_time}</Text>
+                  <TouchableOpacity
+                      onPress={this.onPressComment}
+                      style = {styles.button_comment}
+                      activeOpacity={0.3}
+                  >
+                    <Image source={{uri:'pinglun'}} style={{width:14,height:14,resizeMode: 'contain'}}/>
+                    <Text style={{fontSize: 12,padding: 5,}}>评论</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                      onPress={this.onPressLike}
+                      style = {styles.button_like}
+                      activeOpacity={0.3}
+                  >
+                    <Image source={{uri:'dianzan'}} style={ this.state.liked ?   {width:14,height:14,resizeMode: 'contain',tintColor:'orange'}: {width:14,height:14,resizeMode: 'contain'}}/>
+                    <Text style={{fontSize: 12,padding: 5}}>{comment_info.course_comment_praise_point }</Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.reply_area}>
+                  {
+                    comment_info.courseCommentReplyList.map((item, index) => {
+                      return item.isbanned ? null : (
+                          <View style={styles.reply_item} key={index}>
+                            <UserIdText user_id={item.user_id} style={styles.reply_user_id}/>
+                            <Text style={styles.reply_text}>{': ' + item.course_comment_reply_content}</Text>
+                          </View>)
+                    })
+                  }
+                </View>
+              </View>
             </View>
-            <View style ={styles.comment}>
-              <View style={styles.comment_header}>
-                <UserIdText style = {styles.user_id} user_id={comment_info.user_id}/>
-                <Text>{comment_info.course_comment_time}</Text>
-              </View>
-              <View>
-                <Text style = {styles.comment_body}> {comment_info.course_comment_content}</Text>
-              </View>
-              <View style={styles.comment_bottom}>
-                <TouchableOpacity
-                  onPress={this.onPressComment}
-                  style = {styles.button_comment}
-                  activeOpacity={0.3}
-                >
-                  <Image source={{uri:'pinglun'}} style={{width:14,height:14,resizeMode: 'contain'}}/>
-                  <Text style={{fontSize: 12,fontWeight:'100',marginLeft: 3,}}>评论</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={this.onPressLike}
-                  style = {styles.button_like}
-                  activeOpacity={0.3}
-                >
-                  <Image source={{uri:'dianzan'}} style={ this.state.liked ?   {width:14,height:14,resizeMode: 'contain',tintColor:'orange'}: {width:14,height:14,resizeMode: 'contain'}}/>
-                  <Text style={{fontSize: 12,fontWeight:'100'}}>{comment_info.course_comment_praise_point }</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.reply_area}>
-                {
-                  comment_info.courseCommentReplyList.map((item, index) => {
-                    return item.isbanned ? null : (
-                      <View style={styles.reply_item} key={index}>
-                        <UserIdText user_id={item.user_id} style={styles.reply_user_id}/>
-                        <Text style={styles.reply_text}>{': ' + item.course_comment_reply_content}</Text>
-                      </View>)
-                  })
-                }
-              </View>
-            </View>
-            </View></View>)
+          </View>)
       }
       <ReplyBox
         visible = {reply_visible}
@@ -145,20 +145,12 @@ const mapStateToProps = (state) =>({
   }
 }
 const styles = StyleSheet.create({
-  /*card_container:{
-    width:340,
-    paddingHorizontal:20,
-    paddingVertical:30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },*/
-
   card_container:{
     paddingHorizontal:10,
     paddingVertical: 10,
     alignItems: 'flex-start',
     borderRadius: 20,
-    elevation: 2,
+    elevation: 4,
     backgroundColor: '#FFFFFF',
   },
   container:{
@@ -172,6 +164,7 @@ const styles = StyleSheet.create({
     width:40,
     height:40,
     borderRadius:20,
+    marginRight: 8,
   },
   empty_container:{
     flexDirection:'column',
@@ -182,19 +175,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   comment:{
-    flexDirection:"column",
     flex:1,
     marginLeft:10,
     marginRight:10,
   },
+
   comment_header:{
     flexDirection:'row',
-    justifyContent: "space-between",
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     paddingTop:12,
   },
   user_id:{
-    fontWeight:'bold',
-    width:100,
+    fontSize: 15,
+    color: '#000000',
+  },
+  comment_body_container:{
+    paddingVertical: 12,
   },
   comment_body:{
     paddingVertical:20
@@ -202,30 +199,28 @@ const styles = StyleSheet.create({
   comment_bottom:{
     flex:1,
     flexDirection:'row',
-    justifyContent: "flex-end",
-    alignItems:'center',
-  },
-  button_like:{
-    paddingLeft:10,
-    width:'auto',
-    height:20,
-    flexDirection:'row',
     justifyContent: "space-around",
     alignItems:'center',
+    paddingBottom: 10,
+  },
+  button_like:{
+    height:20,
+    flexDirection:'row',
+    alignItems:'center'
   },
   button_comment:{
-    fontSize:10,
     flexDirection:'row',
-    justifyContent: "space-between",
     alignItems:'center',
-    width:'auto',
     height:20,
   },
   reply_area: {
     borderRadius:5,
+    paddingBottom: 20,
   },
   reply_item: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 3,
   },
   reply_user_id: {
     fontSize: 14,
@@ -234,7 +229,6 @@ const styles = StyleSheet.create({
   reply_text: {
     fontSize: 14,
     lineHeight: 18,
-    width:"79%",
   }
 });
 

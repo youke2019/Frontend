@@ -25,9 +25,8 @@ function conflict(data) {
 }
 function loopOptional(num) {
     if(num === 0){
-        console.log(mClass.length )
         if(mClass.length >= mandatory.length  && mClass.length <= sum){
-            console.log("push")
+
             let tmp = [];
             for(let i = 0;i<mClass.length;++i){
                 let tmpItem = mClass[i];
@@ -40,7 +39,6 @@ function loopOptional(num) {
     let data = optional.pop();
     let classes = data.classes;
     for(let i = 0;i<classes.length;++i){
-        console.log(i,classes.length)
         if(conflict(classes[i]) !== true){
             mClass.push(classes[i]);
             loopOptional(num-1);

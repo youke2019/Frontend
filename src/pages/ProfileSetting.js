@@ -24,17 +24,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 class ProfileSetting extends React.Component {
-  static navigationOptions =  ({ navigation }) => ({
-    header: () => {
-      return (
-      <StackNavBar
-          navigation={navigation}
-          title={'个人信息'}
-      />
-      )
-    }
-  })
-
   constructor (props){
     super(props);
     this.state = {

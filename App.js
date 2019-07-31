@@ -39,6 +39,7 @@ import initialState from './src/redux/state'
 import ProfileSetting from './src/pages/ProfileSetting'
 import About from './src/pages/About'
 import {StatusBar,View} from "react-native";
+import StackNavBar from "./src/components/StackNavBar";
 
 const store = createStore(combinedReducer,initialState)
 
@@ -49,11 +50,23 @@ const CourseNavigator = createStackNavigator({
   },
   Detail: {
     screen: Detail,
-    navigationOptions: { header: null }
+    navigationOptions: ({ navigation }) => ({
+      header: () => {
+        return (<StackNavBar
+            navigation={navigation}
+            title={'课程'}
+        />)},
+    }),
   },
   Comments: {
     screen: Comments,
-    navigationOptions: { header: null }
+    navigationOptions: ({ navigation }) => ({
+      header: () => {
+        return (<StackNavBar
+            navigation={navigation}
+            title={'评论'}
+        />)},
+    }),
   },
   Questions: {
     screen: Questions,
@@ -61,18 +74,18 @@ const CourseNavigator = createStackNavigator({
   },
   Evaluations:{
     screen:Evaluations,
-    navigationOptions: {header:null}
+    navigationOptions: { header: null }
   },
   NewEvaluation:{
     screen:NewEvaluation,
-    navigationOptions: {header:null}
+    navigationOptions: { header: null }
   },
   Sorting:{
     screen:Sorting,
     navigationOptions:{header:null}
   },
   NewComment:{
-    screen:NewComment,
+    screen: NewComment,
   }
 })
 
@@ -115,6 +128,13 @@ const ProfileNavigator = createStackNavigator({
       },
       ProfileSetting: {
         screen: ProfileSetting,
+        navigationOptions: ({ navigation }) => ({
+          header: () => {
+            return (<StackNavBar
+                    navigation={navigation}
+                    title={'个人信息'}
+            />)},
+        }),
       },
       About:{
         screen:About,

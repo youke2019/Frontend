@@ -2,27 +2,11 @@ import React from "react";
 import {
   View,
   Text,
-  FlatList,
-  Image,
-  ImageBackground,
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import axios from 'axios';
 import { ShadowedTitle } from './ShadowedTitle'
-import CommentItem from './CommentItem'
-
-const Tag = (props) =>{
-  return(
-    <ImageBackground
-      style = {styles.tag_style}
-      imageStyle={{resizeMode: 'stretch'}}
-      source={{uri:'tag'}}
-    >
-      <Text> {props.text}</Text>
-    </ImageBackground>
-  )
-}
+import EvaluationCard from './EvaluationCard'
 
 class QAAbstractTitle extends React.Component{
     render () {
@@ -30,29 +14,50 @@ class QAAbstractTitle extends React.Component{
       return(
         <View style = {styles.header_container}>
           <ShadowedTitle text={"评测"}  uri ={"wenda"}/>
-          {
-            tags.map((tag,index) =>
-              <Tag text = {tag} key={index} style = {styles.tag_text}/>)
-          }
         </View>
       )
     }
 }
 export default class EvaluationAbstract extends React.Component{
   state ={
-    comments: [],
+    evaluations:[],
   }
   componentDidMount () {
+    this.getEvaluations();
+  }
+  componentWillReceiveProps (nextProps, nextContext) {
+    this.getEvaluations()
+  }
+  getEvaluations = () => {
+    axios.get(baseUrl+'/courses/evaluates/find',{
+      params:{
+        course_id: this.props.course_id
+      }
+    }).then(res=>{
+      this.setState({
+        evaluations: res.data
+      })
+    }).catch(err => {
+      console.log(err)
+    })
   }
   render() {
-
+    const {
+      evaluations
+    } = this.state;
+    const first_ev = evaluations.length > 0 ? evaluations[0]:null
     return(
       <View style = {styles.container}>
         <QAAbstractTitle/>
-        <View style = {styles.first_comm}>
-          <Text > EV</Text>
-        </View>
-
+        {
+          first_ev ?
+            <View style={styles.first_ev}>
+              <EvaluationCard
+                evaluation={first_ev}
+                onDetail={()=>{}}
+              />
+            </View>: null
+        }
         <View style = {styles.button_container}>
           <TouchableOpacity
             onPress={this.props.onGotoEvaluationPage}
@@ -69,14 +74,13 @@ export default class EvaluationAbstract extends React.Component{
   }
 }
 const styles = StyleSheet.create({
-  first_comm:{
-    marginLeft: 20,
+  first_ev:{
+    alignItems:'center'
   },
   button_text:{
     color:"#ff812e",
     textAlign: 'center',
   },
-
   button_touchable: {
     borderRadius: 20,
     paddingHorizontal: 55,

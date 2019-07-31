@@ -32,9 +32,10 @@ const CourseItem = (props) => {
                 if (class_info.delete === true) return <View key={index}/>
                 const extra_teacher = class_info.teachers.split(';').length > 1
                 let class_time = ''
-                class_info.classSegments.forEach(segment => {
+                class_info.classSegments.forEach((segment,index) => {
                   class_time = class_time.concat(segment.begin_week + '-' + segment.end_week + '周,'
-                    + '周' + week[segment.week] + segment.begin_sec + '-' + segment.end_sec + '节\n')
+                    + '周' + week[segment.week] + segment.begin_sec + '-' + segment.end_sec + '节')
+                  if(index !== class_info.classSegments.length) class_time += "\n"
                 })
                 let swipeoutBtns = [{
                   text: '删除',
@@ -166,8 +167,19 @@ class Sorting extends React.Component {
     this.props.updateSortlist(new_course_info)
   }
   sort =() =>{
-    console.log(JSON.stringify(this.props.sortlist));
-    let result = arrange(this.props.sortlist);
+    const {sortlist} = this.props;
+    console.log(sortlist);
+    const reducedList = sortlist.map(item=>{
+      let reducedItem = Object.assign({},item)
+      reducedItem.classes =[];
+      item.classes.map(segment =>{
+        if(!segment.delete)
+          reducedItem.classes.push(Object.assign({}, segment))
+      })
+      return reducedItem;
+    })
+    console.log(reducedList);
+    let result = arrange(reducedList);
     console.log(result)
   }
   render () {
