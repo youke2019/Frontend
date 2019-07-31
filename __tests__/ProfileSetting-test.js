@@ -1,14 +1,11 @@
 import React from 'react';
-import Profile from '../src/pages/Profile';
 import renderer from 'react-test-renderer';
 import {createStore} from "redux";
 import {combinedReducer} from "../src/redux/reducers";
-import initialState from "../src/redux/state";
 import {Provider} from "react-redux";
 import ProfileSetting from "../src/pages/ProfileSetting";
 import Adapter from 'enzyme-adapter-react-16'
 import {shallow,mount,configure} from 'enzyme'
-import Courses from "../src/pages/Courses";
 
 configure({adapter: new Adapter()});
 
@@ -25,15 +22,18 @@ const store = createStore(combinedReducer,initialState)
 const  navigationMock = {
     state: {
         params:{
-            course_id: "SE101",
         }
     },
     addListener: jest.fn(()=>{}),
     navigate: jest.fn(()=>{})
 }
 
+const flush = jest.fn(() => {})
+jest.mock('axios')
+global.baseUrl = 'baseUrl'
+
 test('renders profile page correctly', () => {
-  const tree = renderer.create(
+  let tree = renderer.create(
         <Provider store={store}>
             <ProfileSetting />
         </Provider>

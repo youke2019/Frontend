@@ -25,10 +25,18 @@ test('renders profile page correctly', () => {
         ).toJSON()
     expect(tree).toMatchSnapshot()
 });
+const navigationMock = {
+    state: {
+        params:{
 
+        }
+    },
+    addListener: jest.fn(()=>{}),
+    navigate: jest.fn(()=>{})
+}
 describe("<Profile/> component",()=>{
     const wrapper = shallow(
-        <Profile store = {store}  />
+        <Profile store = {store} navigation = {navigationMock} />
     );
     const instance = wrapper.dive().dive().instance();
     it("can navigate to multiple pages",()=>{

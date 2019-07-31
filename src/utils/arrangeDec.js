@@ -40,7 +40,8 @@ function loopOptional(num) {
     let classes = data.classes;
     for(let i = 0;i<classes.length;++i){
         if(conflict(classes[i]) !== true){
-            mClass.push(classes[i]);
+            let tmp = classes[i];
+            mClass.push(tmp);
             loopOptional(num-1);
             mClass.pop();
         }
@@ -66,7 +67,8 @@ function loopMandatory(num) {
     let classes = data.classes;
     for(let i = 0; i< classes.length ; ++i){
        if(!conflict(classes[i]) ){
-            mClass.push(classes[i]);
+           let tmp = classes[i];
+           mClass.push(tmp);
             loopMandatory(num-1);
             mClass.pop();
         }
