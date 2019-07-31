@@ -11,7 +11,7 @@ function conflict(data) {
             for(let h = 0 ; h<segments.length;++h){
              //   console.log("new "+h +"  week " + segments[h].week+" sec "+segments[h].begin_sec+"-"+segments[h].end_sec+" week "+segments[h].begin_week+"-"+segments[h].end_week+ " o " + segments[h].odd_or_even);
              //   console.log("old "+i + " " + j +"  week " + tmp[j].week+" sec "+tmp[j].begin_sec+"-"+tmp[j].end_sec+" week "+tmp[j].begin_week+"-"+tmp[j].end_week+ " o " + tmp[j].odd_or_even);
-                if(segments[h].week !== tmp[j].week || segments[h].begin_sec < tmp[j].end_sec || segments[h].end_sec > tmp[j].begin_sec||segments[h].begin_week < tmp[h].end_week || segments[h].end_week >tmp[j].begin_week){
+                if(segments[h].week !== tmp[j].week || segments[h].begin_sec > tmp[j].end_sec || segments[h].end_sec < tmp[j].begin_sec||segments[h].begin_week > tmp[h].end_week || segments[h].end_week <tmp[j].begin_week){
                     continue;
                 }
                 else{
