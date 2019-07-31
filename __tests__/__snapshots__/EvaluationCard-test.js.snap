@@ -48,7 +48,7 @@ exports[`renders EvaluationCard page correctly 1`] = `
       }
     >
       <Text>
-        又水分又高
+        授课教师: 
       </Text>
     </View>
     <View
