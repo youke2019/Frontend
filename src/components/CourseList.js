@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     container:{
         justifyContent: 'center',
         alignItems: 'center',
-        paddingBottom: 100,
+        paddingBottom: 186,
     },
     card_container:{
         width:330,

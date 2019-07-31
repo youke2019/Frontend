@@ -7,10 +7,10 @@ import {
 } from "react-native";
 import { ShadowedTitle } from './ShadowedTitle'
 import EvaluationCard from './EvaluationCard'
+import axios from 'axios'
 
 class QAAbstractTitle extends React.Component{
     render () {
-      const {tags = ["高分课程","值得一选"]} = this.props;
       return(
         <View style = {styles.header_container}>
           <ShadowedTitle text={"评测"}  uri ={"wenda"}/>
@@ -18,6 +18,7 @@ class QAAbstractTitle extends React.Component{
       )
     }
 }
+
 export default class EvaluationAbstract extends React.Component{
   state ={
     evaluations:[],

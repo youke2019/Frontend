@@ -4,7 +4,6 @@ import {
     View,
     TextInput,
     Image,
-    ImageBackground,
     Text,
     TouchableOpacity,
 } from "react-native";
@@ -22,36 +21,29 @@ class SearchBox extends React.Component {
         const {
             onPress = () => {},
             iconImage = '',
-            inputImage = 'search_text',
             buttonTitle = '',
             containerStyle={},
             buttonStyle = {},
+            color = 'white',
+            border = true
         } = this.props
 
         return (
             <View
                 style={[styles.container,containerStyle]}
             >
-                <View
-                    style={styles.search_container}
-                >
-                    <ImageBackground
-                        style={styles.search_container_background}
-                        imageStyle={{resizeMode: 'stretch'}}
-                        source={{uri:inputImage}}
-                    >
-                        <View style={styles.search_image_container}>
-                            <Image
-                                style={styles.search_image}
-                                source={{uri: iconImage}}
-                            />
-                        </View>
-                        <TextInput
-                            style={styles.search_text}
-                            onChangeText={this.updateKeyword}
-                            value={this.state.keyword}
+                <View style={[styles.search_container_background,{backgroundColor:color,borderWidth:border?1:null}]}>
+                    <View style={styles.search_image_container}>
+                        <Image
+                            style={styles.search_image}
+                            source={{uri: iconImage}}
                         />
-                    </ImageBackground>
+                    </View>
+                    <TextInput
+                        style={styles.search_text}
+                        onChangeText={this.updateKeyword}
+                        value={this.state.keyword}
+                    />
                 </View>
                 <View style={styles.button_container}>
                     <TouchableOpacity
@@ -73,24 +65,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    search_container:{
-        height:50,
+    search_container_background:{
         flex:7,
+        marginLeft: 12,
+        height: 40,
+        flexDirection: 'row',
+        borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    search_container_background:{
-        height: 32,
-        flexDirection: 'row',
-    },
     search_image_container:{
         flex:1,
+        paddingLeft: 6,
         justifyContent: 'center',
         alignItems: 'center',
     },
     search_image:{
-        height: 14,
-        width: 14,
+        height: 16,
+        width: 16,
     },
     search_text:{
         flex:6,
@@ -99,7 +91,7 @@ const styles = StyleSheet.create({
     },
     button_container:{
         flex: 2,
-        padding: 10,
+        padding: 6,
     },
     button:{
         justifyContent: 'center',
@@ -107,9 +99,8 @@ const styles = StyleSheet.create({
     },
     button_text:{
         color: 'black',
-        fontSize: 15,
+        fontSize: 18,
         fontFamily: '字魂95号-手刻宋',
-        lineHeight: 20,
     }
 })
 
