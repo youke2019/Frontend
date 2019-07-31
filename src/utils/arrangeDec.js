@@ -110,12 +110,7 @@ function arrangeOptional() {
     return Result;
 }
 export function arrange(data) {
-    mandatory=[]
-    optional=[]
-    mResult=[]
-    mClass = []
-    Result = []
-    sum =0;
+    mandatory=[],optional=[],mResult=[],mClass = [],Result = [],sum =0
     sum = data.length;
     for(let i = 0; i< data.length;++i){
         if(data[i].isCompulsory){
