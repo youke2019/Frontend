@@ -74,20 +74,13 @@ class Profile extends React.Component {
                             text='推荐给好友'
                             image='recommend'
                         />
-
-                    </View>
-                </View>
-                <TouchableOpacity
-                    style={styles.info_container}
-                    onPress={this.gotoAbout}
-                >
-                    <View>
                         <ListItem
                             text='关于'
                             image='about'
+                            onPress={()=>{this.props.navigation.navigate('About')}}
                         />
                     </View>
-                </TouchableOpacity>
+                </View>
             </View>
         );
     }

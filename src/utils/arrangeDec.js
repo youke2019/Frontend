@@ -1,44 +1,46 @@
 
-let mandatory=[],optional=[],mResult=[],mClass = [],Result = [];
+let mandatory=[],optional=[],mResult=[],mClass = [],Result = [],sum =0 ;
 function conflict(data) {
     //这里拿到的是class，需要判定是否冲突，需要打开
     if(mClass.length === 0)
         return false;
-    var segments = data.classSegments;
-    for(var i=0;i<mClass.length;++i){
-        var tmp = mClass[i].classSegments;
-        for(var j =0; j<tmp.length ; ++j){
-            for(var h = 0 ; h<segments.length;++h){
-                if(segments[h].week !== tmp[j].week ){
+    let segments = data.classSegments;
+    for(let i=0;i<mClass.length;++i){
+        let tmp = mClass[i].classSegments;
+        for(let j =0; j<tmp.length ; ++j){
+            for(let h = 0 ; h<segments.length;++h){
+             //   console.log("new "+h +"  week " + segments[h].week+" sec "+segments[h].begin_sec+"-"+segments[h].end_sec+" week "+segments[h].begin_week+"-"+segments[h].end_week+ " o " + segments[h].odd_or_even);
+             //   console.log("old "+i + " " + j +"  week " + tmp[j].week+" sec "+tmp[j].begin_sec+"-"+tmp[j].end_sec+" week "+tmp[j].begin_week+"-"+tmp[j].end_week+ " o " + tmp[j].odd_or_even);
+                if(segments[h].week !== tmp[j].week || segments[h].begin_sec < tmp[j].end_sec || segments[h].end_sec > tmp[j].begin_sec||segments[h].begin_week < tmp[h].end_week || segments[h].end_week >tmp[j].begin_week){
                     continue;
                 }
                 else{
-                    if(segments[h].begin_sec < tmp[j].end_sec || segments[h].end_sec > tmp[j].begin_sec)
-                        continue;
-                    else{
-                        if(segments[h].begin_week < tmp[h].end_week || segments[h].end_week >tmp[j].begin_week)
-                            continue;
-                        else{
-                            if(segments[h].odd_or_even === 'b' || tmp[j].odd_or_even === 'b' || segments[h].odd_or_even === tmp[j].odd_or_even)
-                                return false;
-                            else continue;
-                        }
-                    }
+                    if(segments[h].odd_or_even === 'b' || tmp[j].odd_or_even === 'b' || segments[h].odd_or_even === tmp[j].odd_or_even)
+                        return true;
                 }
             }
         }
     }
-    return true;
+    return false;
 }
 function loopOptional(num) {
     if(num === 0){
-        Result.push(mClass);
-        console.log(mClass)
+        console.log(mClass.length )
+        if(mClass.length >= mandatory.length  && mClass.length <= sum){
+            console.log("push")
+            let tmp = [];
+            for(let i = 0;i<mClass.length;++i){
+                let tmpItem = mClass[i];
+                tmp.push(tmpItem);
+            }
+            Result.push(tmp);
+        }
         return;
     }
-    var data = optional.pop();
-    var classes = data.classes;
-    for(var i = 0;i<classes.length;++i){
+    let data = optional.pop();
+    let classes = data.classes;
+    for(let i = 0;i<classes.length;++i){
+        console.log(i,classes.length)
         if(conflict(classes[i]) !== true){
             mClass.push(classes[i]);
             loopOptional(num-1);
@@ -52,18 +54,20 @@ function loopOptional(num) {
 }
 function loopMandatory(num) {
     if(num === 0 ){
-        var tmp = [];
-        for(var i = 0;i<mClass.length;++i)
-            tmp.push(mClass[i]);
-        mResult.push(tmp);
-        mClass=[];
-        console.log("loopMandatory",tmp)
+        if(mClass.length !== mandatory.length){
+            let tmp = [];
+            for(let i = 0;i<mClass.length;++i){
+                let tmpItem = mClass[i];
+                tmp.push(tmpItem);
+            }
+            mResult.push(tmp);
+        }
         return;
     }
-    var data = mandatory.pop();
-    var classes = data.classes;
-    for(var i = 0; i< classes.length ; ++i){
-        if(!conflict(classes[i]) ){
+    let data = mandatory.pop();
+    let classes = data.classes;
+    for(let i = 0; i< classes.length ; ++i){
+       if(!conflict(classes[i]) ){
             mClass.push(classes[i]);
             loopMandatory(num-1);
             mClass.pop();
@@ -72,7 +76,7 @@ function loopMandatory(num) {
     mandatory.push(data);
 }
 function arrangeMandatory(){
-    var num = mandatory.length;
+    let num = mandatory.length;
     loopMandatory(num);
 }
 function arrangeOptional() {
@@ -84,7 +88,7 @@ function arrangeOptional() {
         Result = mResult;
     }
     else{
-        var num = optional.length;
+        let num = optional.length;
         if(num === 0){
             return mResult;
         }
@@ -97,7 +101,8 @@ function arrangeOptional() {
     return Result;
 }
 export function arrange(data) {
-    for(var i = 0; i< data.length;++i){
+    sum = data.length;
+    for(let i = 0; i< data.length;++i){
         if(data[i].isCompulsory){
             mandatory.push(data[i]);
         }
