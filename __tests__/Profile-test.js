@@ -39,8 +39,13 @@ describe("<Profile/> component",()=>{
         <Profile store = {store} navigation = {navigationMock} />
     );
     const instance = wrapper.dive().dive().instance();
-    it("can navigate to multiple pages",()=>{
+    it("can navigate to multiple page1",()=>{
         instance.gotoProfileSetting();
+    })
+    it("can navigate to multiple page2",()=>{
         instance.gotoAbout();
+    })
+    it("can navigate to multiple page3",()=>{
+        instance.gotoSetting();
     })
 })

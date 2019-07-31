@@ -26,6 +26,9 @@ class Profile extends React.Component {
         this.props.navigation.navigate("About");
     }
 
+    gotoSetting = () =>{
+        this.props.navigation.navigate("Setting");
+    }
     render() {
         const {user} = this.props;
 
@@ -65,7 +68,7 @@ class Profile extends React.Component {
                         <ListItem
                             text='设置'
                             image='setting'
-                            onPress={() => {this.props.navigation.navigate('Setting')}}
+                            onPress={this.gotoSetting}
                         />
                         <ListItem
                             text='反馈投诉'

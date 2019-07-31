@@ -9,14 +9,25 @@ function conflict(data) {
         let tmp = mClass[i].classSegments;
         for(let j =0; j<tmp.length ; ++j){
             for(let h = 0 ; h<segments.length;++h){
-             //   console.log("new "+h +"  week " + segments[h].week+" sec "+segments[h].begin_sec+"-"+segments[h].end_sec+" week "+segments[h].begin_week+"-"+segments[h].end_week+ " o " + segments[h].odd_or_even);
-             //   console.log("old "+i + " " + j +"  week " + tmp[j].week+" sec "+tmp[j].begin_sec+"-"+tmp[j].end_sec+" week "+tmp[j].begin_week+"-"+tmp[j].end_week+ " o " + tmp[j].odd_or_even);
-                if(segments[h].week !== tmp[j].week || segments[h].begin_sec > tmp[j].end_sec || segments[h].end_sec < tmp[j].begin_sec||segments[h].begin_week > tmp[h].end_week || segments[h].end_week <tmp[j].begin_week){
+                console.log("new "+h +"  week " + segments[h].week+" sec "+segments[h].begin_sec+"-"+segments[h].end_sec+" week "+segments[h].begin_week+"-"+segments[h].end_week+ " o " + segments[h].odd_or_even);
+                console.log("old "+i + " " + j +"  week " + tmp[j].week+" sec "+tmp[j].begin_sec+"-"+tmp[j].end_sec+" week "+tmp[j].begin_week+"-"+tmp[j].end_week+ " o " + tmp[j].odd_or_even);
+                if(segments[h].week !== tmp[j].week  ){
+                    continue;
+                }
+                else
+                if( segments[h].end_sec <tmp[j].begin_sec|| segments[h].begin_sec > tmp[j].end_sec ){
+                    console.log("sec")
+                    continue;
+                }
+                else if(segments[h].end_week <tmp[j].begin_week||segments[h].begin_week > tmp[h].end_week){
+                    console.log("enter")
                     continue;
                 }
                 else{
-                    if(segments[h].odd_or_even === 'b' || tmp[j].odd_or_even === 'b' || segments[h].odd_or_even === tmp[j].odd_or_even)
+                    if(segments[h].odd_or_even === 'b' || tmp[j].odd_or_even === 'b' || segments[h].odd_or_even === tmp[j].odd_or_even){
+                        console.log("conflict");
                         return true;
+                    }
                 }
             }
         }
@@ -40,8 +51,7 @@ function loopOptional(num) {
     let classes = data.classes;
     for(let i = 0;i<classes.length;++i){
         if(conflict(classes[i]) !== true){
-            let tmp = classes[i];
-            mClass.push(tmp);
+            mClass.push(classes[i]);
             loopOptional(num-1);
             mClass.pop();
         }
@@ -66,9 +76,8 @@ function loopMandatory(num) {
     let data = mandatory.pop();
     let classes = data.classes;
     for(let i = 0; i< classes.length ; ++i){
-       if(!conflict(classes[i]) ){
-           let tmp = classes[i];
-           mClass.push(tmp);
+        if(!conflict(classes[i]) ){
+            mClass.push(classes[i]);
             loopMandatory(num-1);
             mClass.pop();
         }

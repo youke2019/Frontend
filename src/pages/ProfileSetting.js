@@ -6,7 +6,7 @@ import {Avatar, Icon, Input, ListItem, Overlay} from 'react-native-elements'
 import { EmitError } from '../utils/ErrorAlert'
 import {  updateUserInfo } from '../redux/actions'
 import StackNavBar from "../components/StackNavBar";
-import ImagePicker from "react-native-image-crop-picker"
+import ImagePicker from 'react-native-image-crop-picker'
 import {sendAvatarImg, sendHighlightImg} from "../utils/DataRequest";
 
 
@@ -33,13 +33,7 @@ class ProfileSetting extends React.Component {
 
   requestForProfile = ()=>{
     const {user_info} = this.state;
-    return axios({
-      method: 'get',
-      url: baseUrl + '/users/specific',
-      params:{
-        id : user_info.id,
-      }
-    })
+    return axios.get(baseUrl+'/users/specific?id='+user_info.id)
   }
   componentDidMount () {
     this.requestForProfile().then(response => {
@@ -60,9 +54,7 @@ class ProfileSetting extends React.Component {
   updateNickname = (text) => {
     let new_user_info = this.state.user_info;
     new_user_info.nickname = text;
-    axios({
-      method: 'post',
-      url: baseUrl + "/users/update",
+    axios.post(baseUrl+ "/users/update",{
       data: new_user_info
     }).then((response)=> {
       if (response.data.success) {
