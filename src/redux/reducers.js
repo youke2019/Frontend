@@ -62,6 +62,21 @@ function sortlistReducer (state = initialState.sortlist, action) {
   let newlist = [];
   switch (action.type) {
     case ADD_TO_SORTLIST:
+      action.data.classes.map((classItem)=>{
+        let tmpArray = [];
+        let segArray=[];
+        let tmp = {};
+        classItem.classSegments.forEach(segment=>{
+          tmp = Object.assign({},segment);
+          tmp.class_sec_id = 0
+          tmp = JSON.stringify(tmp);
+          if(!tmpArray.some(t => t === tmp)){
+            tmpArray.push(tmp)
+            segArray.push(segment)
+          }
+          classItem.classSegments = segArray;
+        })
+      })
       saveData({
         key:'sortlist',
         data:state.concat([action.data])

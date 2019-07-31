@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { ShadowedTitle } from './ShadowedTitle'
 import EvaluationCard from './EvaluationCard'
+import axios from 'axios'
 
 class QAAbstractTitle extends React.Component{
     render () {
