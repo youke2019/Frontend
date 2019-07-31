@@ -5,21 +5,18 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity
-} from "react-native";
-import { connect } from 'react-redux'
+} from "react-native"
 import axios from 'axios'
 import ReplyBox from './ReplyBox'
 import { UserIdText } from './UserIdText'
-import { sendCommentReply } from '../utils/DataRequest'
+import { praiseComment, sendCommentReply, unPraiseComment } from '../utils/DataRequest'
 
-const mapStateToProps = (state) =>({
-  user_info:state.user_info,
-})
+
 
  class CommentItem extends React.Component {
    constructor (props){
      super(props)
-     const liked = props.comment_info !== null ? props.comment_info.current_user_praise : false;
+     const liked = props.comment_info != null ? props.comment_info.current_user_praise : false;
     this.state = {
       reply_visible: false,
       liked: liked,
@@ -42,9 +39,7 @@ const mapStateToProps = (state) =>({
       .then(response=>{
         this.props.refresh();
       }).catch(err=>console.log(err))
-    this.setState({
-      reply_visible:false,
-    })
+    this.closeComment()
   }
   closeComment =()=>{
     this.setState({
@@ -52,26 +47,27 @@ const mapStateToProps = (state) =>({
     })
   }
   onPressLike = () =>{
-    let action ="";
-    if(!this.state.liked)   action = "praise"
-    else  action = "unpraise"
     const {user_info,comment_info} = this.props
-    axios({
-      method:'get',
-      url: baseUrl + "/courses/comments/" + action,
-      params:{
-        user_id:user_info.id,
-        course_comment_id:comment_info.course_comment_id,
-      }
-    }).then((response)=>{
-      this.props.refresh();
-    }).catch((err)=>{
-      console.log(err);
-    })
+    if(!this.state.liked) {
+      praiseComment({
+        user_id: user_info.id,
+        course_comment_id: comment_info.course_comment_id,
+      }).then((response) => {
+        this.props.refresh();
+      }).catch((err) => {console.log(err);})
+    }else {
+      unPraiseComment({
+        user_id: user_info.id,
+        course_comment_id: comment_info.course_comment_id,
+      }).then(() => {
+        this.props.refresh();
+      }).catch((err) => {console.log(err);})
+    }
+
   }
   render(){
     const {
-      comment_info =null,
+      comment_info = null,
     } = this.props;
 
     const {reply_visible} = this.state;
@@ -123,7 +119,7 @@ const mapStateToProps = (state) =>({
                 <View style={styles.reply_area}>
                   {
                     comment_info.courseCommentReplyList.map((item, index) => {
-                      return item.isbanned ? null : (
+                      return  (
                           <View style={styles.reply_item} key={index}>
                             <UserIdText user_id={item.user_id} style={styles.reply_user_id}/>
                             <Text style={styles.reply_text}>{': ' + item.course_comment_reply_content}</Text>
@@ -232,6 +228,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default  connect(
-  mapStateToProps,
-)(CommentItem)
+export default CommentItem

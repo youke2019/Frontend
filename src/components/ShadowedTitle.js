@@ -18,15 +18,13 @@ export const ShadowedTitle = (props) =>{
 
 const styles = StyleSheet.create({
   title_container:{
-    marginVertical: 10,
+    marginVertical: 5,
     marginHorizontal: 20,
     justifyContent:'flex-start',
     alignItems: 'center',
     flexDirection: 'row',
-    display:'flex',
   },
   container:{
-    height: 25,
   },
   background:{
     width: 40,
@@ -36,10 +34,11 @@ const styles = StyleSheet.create({
     top: 12,
   },
   titleText:{
+    lineHeight:25,
     fontSize:18,
     fontWeight: 'bold',
     textAlign: 'left',
     marginLeft:10,
-    maxWidth:300,
+    maxWidth:250,
   }
 })

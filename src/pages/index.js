@@ -16,6 +16,7 @@ import SortingPage from './Sorting'
 import EditPage from './Edit'
 import SettingPage from './Setting'
 import NewCommentPage from './NewComment'
+import SortClassesDisplayPage from './SortClassesDisplay'
 
 export const NewHighlight = NewHighlightPage
 export const Highlight = HighlightPage
@@ -35,3 +36,4 @@ export const Sorting = SortingPage
 export const Edit = EditPage
 export const Setting = SettingPage
 export const NewComment = NewCommentPage
+export const SortClassesDisplay = SortClassesDisplayPage

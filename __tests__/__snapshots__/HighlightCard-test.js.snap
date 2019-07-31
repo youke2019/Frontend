@@ -8,7 +8,7 @@ exports[`renders highlightCard  correctly 1`] = `
       "flex": 1,
       "flexDirection": "row",
       "justifyContent": "center",
-      "marginHorizontal": 20,
+      "marginHorizontal": 10,
       "marginVertical": 5,
       "paddingTop": 10,
     }
@@ -190,6 +190,209 @@ exports[`renders highlightCard  correctly 1`] = `
       </RCTScrollView>
     </View>
   </Modal>
+  <Modal
+    animation_type="fade"
+    hardwareAccelerated={false}
+    presentationStyle="overFullscreen"
+    visible={false}
+  >
+    <View
+      onLayout={[Function]}
+      style={
+        Object {
+          "flex": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "zIndex": 9,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "opacity": 0,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "bottom": 0,
+                  "justifyContent": "center",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "zIndex": 13,
+                }
+              }
+            >
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "bottom": 0,
+                  "justifyContent": "center",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "zIndex": 13,
+                }
+              }
+            >
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "transform": Array [
+                    Object {
+                      "translateX": 0,
+                    },
+                  ],
+                  "width": 0,
+                }
+              }
+            >
+              <View
+                onMoveShouldSetResponder={[Function]}
+                onMoveShouldSetResponderCapture={[Function]}
+                onResponderEnd={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderReject={[Function]}
+                onResponderRelease={[Function]}
+                onResponderStart={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                onStartShouldSetResponderCapture={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "flex": 1,
+                    "height": 0,
+                    "justifyContent": "center",
+                    "overflow": "hidden",
+                    "width": 0,
+                  }
+                }
+              >
+                <View
+                  renderToHardwareTextureAndroid={true}
+                  style={
+                    Object {
+                      "transform": Array [
+                        Object {
+                          "scale": 1,
+                        },
+                        Object {
+                          "translateX": 0,
+                        },
+                        Object {
+                          "translateY": 0,
+                        },
+                      ],
+                    }
+                  }
+                >
+                  <View
+                    onLayout={[Function]}
+                    style={
+                      Object {
+                        "height": 0,
+                        "width": 0,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "flex": 1,
+                          "justifyContent": "center",
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "justifyContent": "center",
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 38,
+                  "zIndex": 13,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "color": "white",
+                    "fontSize": 16,
+                    "textShadowColor": "rgba(0, 0, 0, 0.3)",
+                    "textShadowOffset": Object {
+                      "height": 0.5,
+                      "width": 0,
+                    },
+                    "textShadowRadius": 0,
+                  }
+                }
+              >
+                1/1
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "bottom": 0,
+                    "position": "absolute",
+                    "zIndex": 9,
+                  },
+                  Object {},
+                ]
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
   <View
     accessible={true}
     isTVSelectable={true}
@@ -311,10 +514,11 @@ exports[`renders highlightCard  correctly 1`] = `
             style={
               Object {
                 "color": "black",
-                "fontSize": 18,
+                "fontSize": 16,
                 "fontWeight": "100",
                 "letterSpacing": 1,
                 "lineHeight": 20,
+                "paddingVertical": 5,
               }
             }
           >
@@ -322,7 +526,6 @@ exports[`renders highlightCard  correctly 1`] = `
           </Text>
         </Text>
       </View>
-      <View />
     </View>
     <View
       style={
@@ -417,7 +620,6 @@ exports[`renders highlightCard  correctly 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "whitesmoke",
           "borderRadius": 5,
         }
       }
@@ -433,7 +635,7 @@ exports[`renders highlightCard  correctly 1`] = `
           style={
             Object {
               "fontSize": 14,
-              "fontWeight": "200",
+              "fontWeight": "bold",
             }
           }
           theme={
@@ -500,7 +702,7 @@ exports[`renders highlightCard  correctly 1`] = `
           style={
             Object {
               "fontSize": 14,
-              "fontWeight": "200",
+              "fontWeight": "bold",
             }
           }
           theme={
@@ -567,7 +769,7 @@ exports[`renders highlightCard  correctly 1`] = `
           style={
             Object {
               "fontSize": 14,
-              "fontWeight": "200",
+              "fontWeight": "bold",
             }
           }
           theme={
@@ -634,7 +836,7 @@ exports[`renders highlightCard  correctly 1`] = `
           style={
             Object {
               "fontSize": 14,
-              "fontWeight": "200",
+              "fontWeight": "bold",
             }
           }
           theme={
@@ -701,7 +903,7 @@ exports[`renders highlightCard  correctly 1`] = `
           style={
             Object {
               "fontSize": 14,
-              "fontWeight": "200",
+              "fontWeight": "bold",
             }
           }
           theme={
@@ -768,7 +970,7 @@ exports[`renders highlightCard  correctly 1`] = `
           style={
             Object {
               "fontSize": 14,
-              "fontWeight": "200",
+              "fontWeight": "bold",
             }
           }
           theme={

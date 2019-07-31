@@ -7,6 +7,7 @@ import Swipeout from 'react-native-swipeout'
 import { arrange } from '../utils/arrangeDec'
 import { Overlay } from 'react-native-elements'
 import { ImageViewer } from 'react-native-image-zoom-viewer'
+import StackNavBar from '../components/StackNavBar'
 
 const week = ['', '一', '二', '三', '四', '五', '六', '日']
 
@@ -283,6 +284,16 @@ const course_styles = StyleSheet.create({
 })
 
 class Sorting extends React.Component {
+  static navigationOptions =  ({ navigation }) => ({
+    header: () => {
+      return (
+        <StackNavBar
+          navigation={navigation}
+          title={"排课"}
+        />
+      )
+    }
+  })
   setCompulsory = (course_info) => {
     const isCompulsory = course_info.isCompulsory === true
     let new_course_info = course_info
@@ -324,19 +335,20 @@ class Sorting extends React.Component {
       reducedItem.classes = []
       courseItem.classes.map(classItem => {
         if (classItem.chosen)
-          reducedItem.classes.push(Object.assign({}, classItem))
+          reducedItem.classes.push(Object.assign({ course_name:courseItem.course_name }, classItem))
       })
       return reducedItem
     })
-    console.log(reducedList)
     let result = arrange(reducedList)
-    console.log(result)
+    this.props.navigation.navigate("SortClassesDisplay",{
+      result: result
+    })
   }
 
   render () {
     const { sortlist } = this.props
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%', paddingTop: 30 }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <TouchableOpacity
           onPress={this.sort}
         >

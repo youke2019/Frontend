@@ -39,7 +39,7 @@ describe('functions', () => {
 
     wrapper = wrapper.dive().dive()
 
-    it('normal flush()', (done) => {
+    it('normal refresh()', (done) => {
         const promise = new Promise(
             function (resolve, reject)
             {resolve('success')})
@@ -102,12 +102,12 @@ describe('functions', () => {
             .catch(err=>{console.log(err)})
     })
 
-    it('flush() error', (done) => {
+    it('refresh() error', (done) => {
         global.baseUrl = 'error'
         wrapper.setState({
             questions: []
         })
-        wrapper.instance().flush()
+        wrapper.instance().refresh()
         expect(wrapper.state('questions')).toHaveLength(0)
 
         const promise = new Promise(

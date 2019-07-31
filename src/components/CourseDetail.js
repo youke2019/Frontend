@@ -171,7 +171,6 @@ const styles = StyleSheet.create({
     justifyContent:"space-between"
   },
   course_name: {
-
   },
   container: {
     marginVertical: 16,

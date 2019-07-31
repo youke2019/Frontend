@@ -98,7 +98,6 @@ class Classes extends React.Component {
             week,
             currentWeek,
         } = this.state
-
         let currentDate=new Date()
 
         return (

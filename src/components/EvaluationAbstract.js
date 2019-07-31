@@ -1,5 +1,4 @@
 import React from "react";
-import axios from 'axios';
 import {
   View,
   Text,
@@ -9,6 +8,7 @@ import {
 import { ShadowedTitle } from './ShadowedTitle'
 import EvaluationCard from './EvaluationCard'
 import axios from 'axios'
+import { getEvaluationById } from '../utils/DataRequest'
 
 class QAAbstractTitle extends React.Component{
     render () {
@@ -31,10 +31,8 @@ export default class EvaluationAbstract extends React.Component{
     this.getEvaluations()
   }
   getEvaluations = () => {
-    axios.get(baseUrl+'/courses/evaluates/find',{
-      params:{
-        course_id: this.props.course_id
-      }
+    getEvaluationById({
+      course_id: this.props.course_id
     }).then(res=>{
       this.setState({
         evaluations: res.data

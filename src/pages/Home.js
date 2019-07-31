@@ -24,7 +24,7 @@ class Home extends React.Component {
 
     }
     componentDidMount () {
-      /* TODO: load sortlist data from local storage, maybe remove to loading page latter */
+      /* TODO: load sortlist data from local storage, maybe remove to loading page later */
       loadData({ key:'sortlist', })
         .then(sortlist=>{this.props.loadSortlist(sortlist)})
         .catch(err=>console.log(err))
