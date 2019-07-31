@@ -6,7 +6,7 @@ import {Avatar, Icon, Input, ListItem, Overlay} from 'react-native-elements'
 import { EmitError } from '../utils/ErrorAlert'
 import {  updateUserInfo } from '../redux/actions'
 import StackNavBar from "../components/StackNavBar";
-import ImagePicker from 'react-native-image-crop-picker'
+import ImagePicker from "react-native-image-crop-picker"
 import {sendAvatarImg, sendHighlightImg} from "../utils/DataRequest";
 
 

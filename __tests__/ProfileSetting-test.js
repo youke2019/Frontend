@@ -75,8 +75,6 @@ describe('functionality', () => {
         instance.pressNickname();
     })
     it("modify avator function",()=>{
-        instance.modifyAvatar({
-            path:"path://faefaeffaesfaefefe"
-        })
+        instance.modifyAvatar()
     })
 })
