@@ -167,8 +167,19 @@ class Sorting extends React.Component {
     this.props.updateSortlist(new_course_info)
   }
   sort =() =>{
-    console.log(JSON.stringify(this.props.sortlist));
-    let result = arrange(this.props.sortlist);
+    const {sortlist} = this.props;
+    console.log(sortlist);
+    const reducedList = sortlist.map(item=>{
+      let reducedItem = Object.assign({},item)
+      reducedItem.classes =[];
+      item.classes.map(segment =>{
+        if(!segment.delete)
+          reducedItem.classes.push(Object.assign({}, segment))
+      })
+      return reducedItem;
+    })
+    console.log(reducedList);
+    let result = arrange(reducedList);
     console.log(result)
   }
   render () {
