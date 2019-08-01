@@ -7,7 +7,9 @@ import Carousel from 'react-native-snap-carousel'
 import { Divider } from 'react-native-elements'
 import { ShadowedTitle } from '../components/ShadowedTitle'
 import {BoxShadow} from 'react-native-shadow'
+import { getCommentById, getRecommend } from '../utils/DataRequest'
 
+const MaxPatchNum = 30;
 const shadowOpt= {
   width: 130,
   height: 160,
@@ -21,15 +23,35 @@ const shadowOpt= {
 }
 class Home extends React.Component {
     state={
-
+      patchNum:0,
     }
     componentDidMount () {
       /* TODO: load sortlist data from local storage, maybe remove to loading page later */
       loadData({ key:'sortlist', })
         .then(sortlist=>{this.props.loadSortlist(sortlist)})
         .catch(err=>console.log(err))
+      /*  load Recommend when loading */
+      console.log(this.props.user_info)
+      getRecommend(this.props.user_info.id,MaxPatchNum)
+        .then(response=>{
+          this.setState({
+            all_recommends:response.data.map((item,index)=>{item.uri="recommend_"+(index%3 + 1); return item})
+          })
+        })
+        .catch(err=>console.log(err))
     }
-
+    gotoDetail = (course_id)=>{
+      this.props.navigation.navigate("Detail",{
+        course_id: course_id
+      })
+    }
+    changePatch=()=>{
+      const {patchNum} = this.state
+      console.log("patch",patchNum)
+      this.setState({
+        patchNum: patchNum < (MaxPatchNum/3 - 1) ? patchNum + 1 : 0,
+      })
+    }
     render() {
       const {
         main_pictures = ["cover_1","cover_2","cover_3","cover_0"],
@@ -38,21 +60,11 @@ class Home extends React.Component {
           course_name:"国际商务英语",
           course_id:"123",
         }],
-        recommends=[{
-          uri:"recommend_1",
-          course_name:"软件工程导论",
-          course_id:"123"
-        },{
-          uri:"recommend_2",
-          course_name: "计算机系统基础(1)",
-          course_id:"890"
-        }, {
-            uri:"recommend_3",
-          course_name:"桥牌与博弈论",
-          course_id:'567'
-        }]
+        all_recommends=[],
+        patchNum
       } = this.state;
-
+      const recommends = all_recommends.slice(patchNum*3,patchNum*3+3)
+      console.log(recommends)
         return (
           <ScrollView>
             <View style={styles.center_container}>
@@ -80,6 +92,7 @@ class Home extends React.Component {
               <View style={styles.hot_header}>
                 <ShadowedTitle text={"热门课程"} uri = {"home_hot"} />
                 <TouchableOpacity
+
                 >
                   <Image source={{uri:"home_goto"}} style={{width:25,height:25,marginRight:25}}/>
                 </TouchableOpacity>
@@ -107,16 +120,22 @@ class Home extends React.Component {
               <View style={styles.hot_header}>
                 <ShadowedTitle text={"推荐课程"} uri = {"home_recommend"}/>
                 <TouchableOpacity
+                  onPress={this.changePatch}
                 >
-                  <Image source={{uri:"home_goto"}} style={{width:25,height:25,marginRight:25}}/>
+                  <Image source={{uri:"home_change_1"}} style={{width:25,height:25,marginRight:25}}/>
                 </TouchableOpacity>
               </View>
               {
                 recommends.map((item,index)=>{
-                  return <View key = {index} style={styles.recommend_body}>
+                  return <TouchableOpacity
+                    key = {index}
+                    style={styles.recommend_body}
+                    onPress={()=>this.gotoDetail(item.course_id)}
+                    activeOpacity={0.85}
+                  >
                     <Image source={{uri:item.uri}} style={styles.recommend_img}/>
                     <Text style={styles.recommend_text}>{item.course_name}</Text>
-                  </View>
+                  </TouchableOpacity>
                 })
               }
             </View>
@@ -220,6 +239,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     sortlist:state.sortlist,
+    user_info:state.user_info
   }
 }
 

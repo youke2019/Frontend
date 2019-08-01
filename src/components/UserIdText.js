@@ -11,9 +11,7 @@ export class UserIdText extends React.Component{
       this.setState({
         nickname:response.data.nickname
       })
-    }).catch(err=>{
-      console.log(err)
-    })
+    }).catch(err=>{console.log(err)})
   }
   componentWillUnmount () {
     this.setState = (state, callback) => {};

@@ -52,14 +52,10 @@ const getUserById = jest
     resolve({
       data: {
         nickname: '啦啦啦啦',
-        avatarUrl:"jhfeuishfuhsehfouef",
+        avatar_url:"test_url",
       }})))
-  .mockImplementationOnce((params) => {
-    return new Promise((resolve, reject) => {
-      const error_info = 'error'
-      reject(error_info)
-    })
-  })
+  .mockRejectedValueOnce("error")
+
 const commentHighlight = jest
   .fn(()=>new Promise((resolve, reject) => resolve(1)))
   .mockImplementationOnce((params) => {

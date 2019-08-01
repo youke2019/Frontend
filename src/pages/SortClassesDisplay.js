@@ -32,7 +32,7 @@ class SortClassesDisplay extends React.Component {
   })
   state = {
     num:0,
-    max: this.props.navigation.state.params.result.size > 15 ? 15 : this.props.navigation.state.params.result.size,
+    max: this.props.navigation.state.params.result.length - 1 > 15 ? 15 : this.props.navigation.state.params.result.length - 1,
   }
 
   componentWillMount (){
@@ -42,6 +42,7 @@ class SortClassesDisplay extends React.Component {
     let range = [];
     for(let i =1;i <= this.state.max; i ++)
       range.push(i)
+    console.log(range)
     Picker.init({
       pickerTitleText:'选择方案(最多显示前15条)',
       pickerCancelBtnText:'取消',
@@ -62,6 +63,7 @@ class SortClassesDisplay extends React.Component {
     result.forEach(classItem =>{
         classItem.classSegments.forEach(segment=>{
           segment.course_name = classItem.course_name
+          segment.teacher_name = classItem.teacher_name
           weektable[segment.week - 1].push(segment)
       })
     })
@@ -75,7 +77,7 @@ class SortClassesDisplay extends React.Component {
           /* 下节课在上节课结束之前开始，说明是单双周的问题 */
           if(seg.begin_sec < tmp){
               let last = day[day.length - 1];
-              /* TODO : 不能正确宣誓重叠课程的时间*/
+              /* TODO : 不能正确显示重叠课程的时间*/
               last.name = last.name + "\n" + seg.course_name + OddEven[seg.odd_or_even]
           }
           /* 下节课开始节次 比上节课结束节次要晚很多， 插入空挡 */
@@ -88,7 +90,7 @@ class SortClassesDisplay extends React.Component {
           const name = seg.course_name
           day.push({
             span: seg.end_sec - seg.begin_sec + 1,
-            name:name + OddEven[seg.odd_or_even],
+            name:name +"-"+ seg.teacher_name + OddEven[seg.odd_or_even],
             hash: (name.charCodeAt(1) - prevhash)*10000943 % 5
           })
           prevhash = day[day.length-1].hash

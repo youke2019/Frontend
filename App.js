@@ -42,19 +42,14 @@ import {StatusBar,View} from "react-native";
 import StackNavBar from "./src/components/StackNavBar";
 
 const store = createStore(combinedReducer,initialState)
-
-const CourseNavigator = createStackNavigator({
-  Search: {
-    screen: Course,
-    navigationOptions: { header: null }
-  },
+const DetailNavigator=createStackNavigator({
   Detail: {
     screen: Detail,
     navigationOptions: ({ navigation }) => ({
       header: () => {
         return (<StackNavBar
-            navigation={navigation}
-            title={'课程'}
+          navigation={navigation}
+          title={'课程'}
         />)},
     }),
   },
@@ -63,8 +58,8 @@ const CourseNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       header: () => {
         return (<StackNavBar
-            navigation={navigation}
-            title={'评论'}
+          navigation={navigation}
+          title={'评论'}
         />)},
     }),
   },
@@ -91,19 +86,36 @@ const CourseNavigator = createStackNavigator({
   }
 })
 
+const CourseNavigator = createStackNavigator({
+  Search: {
+    screen: Course,
+    navigationOptions: { header: null }
+  },
+  Detail:{
+    screen:DetailNavigator,
+    navigationOptions: { header: null }
+  }
+})
+
 const ClassesNavigator = createStackNavigator({
   Classes: {
     screen: Classes,
-    navigationOptions: {
-      header: null
-    }
+    navigationOptions: { header: null }
   },
   Map: {
     screen: Map,
-    navigationOptions: {
-      header: null
-    }
+    navigationOptions: { header: null }
   },
+})
+const HomeNavigator = createStackNavigator({
+  Home:{
+    screen:Home,
+    navigationOptions: { header: null }
+  },
+  Detail:{
+    screen:DetailNavigator,
+    navigationOptions: { header: null }
+  }
 })
 
 const HighlightNavigator = createStackNavigator({
@@ -148,7 +160,7 @@ const ProfileNavigator = createStackNavigator({
 const TabNavigator = createBottomTabNavigator(
     {
       Home: {
-        screen: Home,
+        screen: HomeNavigator,
         navigationOptions: {
           tabBarLabel: '首页',
           tabBarIcon: ({focused}) => {

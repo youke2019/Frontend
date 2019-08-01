@@ -9,7 +9,7 @@ export default class StackNavBar extends Component{
     navigation: PropTypes.object.isRequired,
   }
   goBack = ()=>{
-    this.props.navigation.goBack();
+    this.props.navigation.goBack(null);
   }
 
   onPress = () => {
