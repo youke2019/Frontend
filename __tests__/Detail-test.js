@@ -31,13 +31,13 @@ jest.mock("../src/utils/DataRequest.js")
 test('renders detail page correctly', (done) => {
 
     const tree = renderer.create(
-      <Provider store ={store}>
-        <Detail navigation = {navigationMock} />
+      <Provider store={store}>
+          <Detail navigation = {navigationMock}/>
       </Provider>
       ).toJSON();
     const tree_err = renderer.create(
-      <Provider store ={store}>
-          <Detail navigation = {navigationMock} />
+      <Provider store={store}>
+          <Detail navigation = {navigationMock}/>
       </Provider>
     ).toJSON();
     setTimeout(()=>{
@@ -56,5 +56,13 @@ describe("<Detail/> component",()=>{
         instance.onGotoQuestionPage();
         instance.onGotoEvaluationPage();
         instance.onGotoCommentPage();
+        instance.onGotoNewComment();
+        instance.onGotoSortingPage();
+    })
+
+    it("can navigate to multiple pages",(done)=>{
+        instance.refresh();
+        instance.refresh();
+        setTimeout(()=>{done()},1000)
     })
 })

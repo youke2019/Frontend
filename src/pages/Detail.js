@@ -17,7 +17,7 @@ class Detail extends React.Component {
     componentWillMount() {
       this.props.navigation.addListener(
         'willFocus',
-        () => {this.refresh()}
+        this.refresh
       )
         const params = this.props.navigation.state.params;
         getCourseById(params)
@@ -61,7 +61,6 @@ class Detail extends React.Component {
       this.props.navigation.navigate("Sorting",);
     }
     onGotoNewComment=()=>{
-      console.log("nav")
       this.props.navigation.navigate("NewComment",{
         course_info: this.state.courseInfo
       })
@@ -106,7 +105,7 @@ class Detail extends React.Component {
               <ActionButton.Item buttonColor='#3498db' title="提问" onPress={() => {}}>
                 <Icon name="md-help" style={styles.actionButtonIcon} />
               </ActionButton.Item>
-              <ActionButton.Item buttonColor='#FDD32A' title="评测" onPress={() => console.log("notes tapped!")}>
+              <ActionButton.Item buttonColor='#FDD32A' title="评测" onPress={() => {}}>
                 <Icon name="md-create" style={styles.actionButtonIcon} />
               </ActionButton.Item>
               <ActionButton.Item buttonColor='#1abc9c' title="进入排课" onPress={this.onGotoSortingPage}>

@@ -7,8 +7,6 @@ import {
   TextInput,
   Modal,
   ScrollView,
-  FlatList,
-  ListView
 } from 'react-native'
 import { Input, Text } from 'react-native-elements'
 
@@ -17,8 +15,6 @@ class ReplyBox extends React.Component {
     keyword: ''
   }
 
-  componentDidMount () {
-  }
 
   updateKeyword = keyword => {
     this.setState({ keyword })

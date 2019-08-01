@@ -5,7 +5,7 @@ import { Divider } from 'react-native-elements'
 import ImagePicker from 'react-native-image-crop-picker'
 import { sendHighlightImg, sendNewHighlight } from '../utils/DataRequest'
 
-class StackNavBar extends Component {
+export class StackNavBar extends Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired
   }
@@ -176,6 +176,7 @@ export default class NewHighlight extends Component {
               this.state.avatarSources.map((source, index) => {
                 return (
                   <TouchableOpacity
+                    className={"delete_"+index}
                     onLongPress={() => {
                       this.deleteImg(index)
                     }}

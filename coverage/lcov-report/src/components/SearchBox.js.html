@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">71.43% </span>
+        <span class="strong">62.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/7</span>
+        <span class='fraction'>5/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">55.56% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/6</span>
+        <span class='fraction'>5/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">20% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>1/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">71.43% </span>
+        <span class="strong">62.5% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/7</span>
+        <span class='fraction'>5/8</span>
       </div>
     </div>
     <p class="quiet">
@@ -159,10 +159,7 @@
 <a name='L111'></a><a href='#L111'>111</a>
 <a name='L112'></a><a href='#L112'>112</a>
 <a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L114'></a><a href='#L114'>114</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,6 +171,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,17 +192,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -282,14 +278,19 @@ import {
     View,
     TextInput,
     Image,
-    ImageBackground,
     Text,
     TouchableOpacity,
 } from "react-native";
 &nbsp;
 class SearchBox extends React.Component {
     state = {
-        keyword: ''
+        keyword: this.props.keyword
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    co</span>mponentWillReceiveProps(nextProps, nextContext) {
+<span class="cstat-no" title="statement not covered" >        this.setState({</span>
+            keyword: nextProps.keyword
+        })
     }
 &nbsp;
     updateKeyword = <span class="fstat-no" title="function not covered" >ke</span>yword =&gt; {
@@ -300,36 +301,29 @@ class SearchBox extends React.Component {
         const {
             onPress = <span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >()</span> =&gt; {},</span>
             iconImage = <span class="branch-0 cbranch-no" title="branch not covered" >'',</span>
-            inputImage = 'search_text',
             buttonTitle = <span class="branch-0 cbranch-no" title="branch not covered" >'',</span>
             containerStyle={},
             buttonStyle = {},
+            color = 'white',
+            border = true
         } = this.props
 &nbsp;
         return (
             &lt;View
                 style={[styles.container,containerStyle]}
             &gt;
-                &lt;View
-                    style={styles.search_container}
-                &gt;
-                    &lt;ImageBackground
-                        style={styles.search_container_background}
-                        imageStyle={{resizeMode: 'stretch'}}
-                        source={{uri:inputImage}}
-                    &gt;
-                        &lt;View style={styles.search_image_container}&gt;
-                            &lt;Image
-                                style={styles.search_image}
-                                source={{uri: iconImage}}
-                            /&gt;
-                        &lt;/View&gt;
-                        &lt;TextInput
-                            style={styles.search_text}
-                            onChangeText={this.updateKeyword}
-                            value={this.state.keyword}
+                &lt;View style={[styles.search_container_background,{backgroundColor:color,borderWidth:border?1:<span class="branch-1 cbranch-no" title="branch not covered" >null}</span>]}&gt;
+                    &lt;View style={styles.search_image_container}&gt;
+                        &lt;Image
+                            style={styles.search_image}
+                            source={{uri: iconImage}}
                         /&gt;
-                    &lt;/ImageBackground&gt;
+                    &lt;/View&gt;
+                    &lt;TextInput
+                        style={styles.search_text}
+                        onChangeText={this.updateKeyword}
+                        value={this.state.keyword}
+                    /&gt;
                 &lt;/View&gt;
                 &lt;View style={styles.button_container}&gt;
                     &lt;TouchableOpacity
@@ -351,24 +345,25 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    search_container:{
-        height:50,
+    search_container_background:{
         flex:7,
+        marginLeft: 12,
+        height: 40,
+        flexDirection: 'row',
+        borderRadius: 20,
+        borderColor: 'grey',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    search_container_background:{
-        height: 32,
-        flexDirection: 'row',
-    },
     search_image_container:{
         flex:1,
+        paddingLeft: 6,
         justifyContent: 'center',
         alignItems: 'center',
     },
     search_image:{
-        height: 14,
-        width: 14,
+        height: 16,
+        width: 16,
     },
     search_text:{
         flex:6,
@@ -377,7 +372,7 @@ const styles = StyleSheet.create({
     },
     button_container:{
         flex: 2,
-        padding: 10,
+        padding: 6,
     },
     button:{
         justifyContent: 'center',
@@ -385,9 +380,8 @@ const styles = StyleSheet.create({
     },
     button_text:{
         color: 'black',
-        fontSize: 15,
+        fontSize: 18,
         fontFamily: '字魂95号-手刻宋',
-        lineHeight: 20,
     }
 })
 &nbsp;
@@ -397,7 +391,7 @@ export default SearchBox</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Aug 01 2019 10:22:02 GMT+0800 (GMT+08:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Aug 01 2019 21:39:41 GMT+0800 (GMT+08:00)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

@@ -31,7 +31,6 @@ class Home extends React.Component {
         .then(sortlist=>{this.props.loadSortlist(sortlist)})
         .catch(err=>console.log(err))
       /*  load Recommend when loading */
-      console.log(this.props.user_info)
       getRecommend(this.props.user_info.id,MaxPatchNum)
         .then(response=>{
           this.setState({
@@ -63,6 +62,7 @@ class Home extends React.Component {
         patchNum
       } = this.state;
       const recommends = all_recommends.slice(patchNum*3,patchNum*3+3)
+
         return (
           <ScrollView>
             <View style={styles.center_container}>
@@ -130,6 +130,7 @@ class Home extends React.Component {
                 recommends.map((item,index)=>{
                   return <TouchableOpacity
                     key = {index}
+                    className={'recommend_'+index}
                     style={styles.recommend_body}
                     onPress={()=>this.gotoDetail(item.course_id)}
                     activeOpacity={0.85}

@@ -12,7 +12,7 @@ import { UnshadowedTitle } from './UnshadowedTitle'
 import { addToSortlist, removeFromSortlist } from '../redux/actions'
 import { connect } from 'react-redux'
 
-const ClassItem = (props) =>{
+export const ClassItem = (props) =>{
   const {class_info } = props;
   const extra_teacher = class_info.teachers.split(';').length > 1;
   return(
@@ -52,14 +52,14 @@ class CourseDetail extends React.Component{
 
   onCollect = ()=>{
     const {course,sortlist} = this.props
-    if(course === null) return ;
     if(sortlist.some((item)=> item.course_id === course.course_id)){
       this.props.removeFromSortlist(course)
     } else {
       this.props.addToSortlist(course)
     }
   }
-
+  _renderItem = ({ item }) => <ClassItem class_info={item}/>
+  _keyExtractor = (item, index) => index.toString()
   render(){
     const {course,sortlist} = this.props
     const {classesDetailVisible} = this.state
@@ -115,13 +115,8 @@ class CourseDetail extends React.Component{
           classesDetailVisible &&
               <FlatList
                   data ={course.classes}
-                  keyExtractor={(item, index) => index.toString()}
-                  renderItem ={
-                    ({item})=>
-                        <ClassItem
-                            class_info={item}
-                        />
-                  }
+                  keyExtractor={this._keyExtractor}
+                  renderItem ={this._renderItem}
               />
         }
       </View>

@@ -24,7 +24,6 @@ class Highlight extends React.Component {
     this.getData()
   }
   getData = () => {
-    console.log('refresh')
     this.setState({
       is_refreshing: true
     })
@@ -43,7 +42,12 @@ class Highlight extends React.Component {
         console.log(err)
       })
   }
-
+  _renderItem=({ item }) =>
+    <View style={{ flexDirection: 'column' }}>
+      <HighlightCard data={item} user_id={this.props.user_info.id} refresh={this.refresh}/>
+      <Divider style={{ height: 5, backgroundColor: 'whitesmoke' }}/>
+    </View>
+  _keyExtractor=(item) => item.video_id.toString()
   render () {
     const { highlights, is_refreshing } = this.state
     console.log(highlights)
@@ -70,13 +74,8 @@ class Highlight extends React.Component {
           refreshing={is_refreshing}
           onRefresh={this.refresh}
           data={highlights}
-          renderItem={({ item }) =>
-            <View style={{ flexDirection: 'column' }}>
-              <HighlightCard data={item} user_id={this.props.user_info.id} refresh={this.refresh}/>
-              <Divider style={{ height: 5, backgroundColor: 'whitesmoke' }}/>
-            </View>
-          }
-          keyExtractor={(item) => item.video_id.toString()}
+          renderItem={this._renderItem}
+          keyExtractor={this._keyExtractor}
         />
       </View>
     )

@@ -8,6 +8,471 @@ exports[`renders course page correctly 1`] = `
     }
   }
 >
+  <Modal
+    animationType="none"
+    hardwareAccelerated={false}
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    onRequestClose={[Function]}
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "black",
+          "bottom": 0,
+          "height": 1334,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      hideModalContentWhileAnimating={false}
+      onModalHide={[Function]}
+      onModalWillHide={[Function]}
+      onModalWillShow={[Function]}
+      pointerEvents="box-none"
+      scrollHorizontal={false}
+      scrollOffset={0}
+      scrollOffsetMax={0}
+      scrollTo={null}
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+          "margin": 37.5,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+      supportedOrientations={
+        Array [
+          "portrait",
+          "landscape",
+        ]
+      }
+      swipeThreshold={100}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "height": 400,
+            "padding": 16,
+          }
+        }
+      >
+        <RCTScrollView
+          style={Object {}}
+        >
+          <View>
+            <View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "padding": 8,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "flex": 8,
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  学分
+                </Text>
+                <View
+                  accessible={true}
+                  isTVSelectable={true}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "flex": 1,
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "arrow_down",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 21,
+                        "width": 21,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+            <View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "padding": 8,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "flex": 8,
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  通识类型
+                </Text>
+                <View
+                  accessible={true}
+                  isTVSelectable={true}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "flex": 1,
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "arrow_down",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 21,
+                        "width": 21,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+            <View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "padding": 8,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "flex": 8,
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  上课时间
+                </Text>
+                <View
+                  accessible={true}
+                  isTVSelectable={true}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "flex": 1,
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "arrow_down",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 21,
+                        "width": 21,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+            <View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "padding": 8,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "flex": 8,
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  上课地点
+                </Text>
+                <View
+                  accessible={true}
+                  isTVSelectable={true}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "flex": 1,
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "arrow_down",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 21,
+                        "width": 21,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+            <View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "padding": 8,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "flex": 8,
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  开设学院
+                </Text>
+                <View
+                  accessible={true}
+                  isTVSelectable={true}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "flex": 1,
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "arrow_down",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 21,
+                        "width": 21,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+        </RCTScrollView>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FDD32A",
+                "borderRadius": 20,
+                "height": 30,
+                "justifyContent": "center",
+                "marginBottom": 5,
+                "marginHorizontal": 6,
+                "marginTop": 18,
+                "opacity": 1,
+                "width": 50,
+              }
+            }
+          >
+            <Text>
+              确定
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FDD32A",
+                "borderRadius": 20,
+                "height": 30,
+                "justifyContent": "center",
+                "marginBottom": 5,
+                "marginHorizontal": 6,
+                "marginTop": 18,
+                "opacity": 1,
+                "width": 50,
+              }
+            }
+          >
+            <Text>
+              取消
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+  <Modal
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "black",
+            "height": 100,
+            "justifyContent": "center",
+            "opacity": 0.6,
+            "width": 100,
+          }
+        }
+      >
+        <ActivityIndicator
+          animating={true}
+          color="white"
+          hidesWhenStopped={true}
+          size="large"
+        />
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "padding": 6,
+              "textAlign": "center",
+            }
+          }
+        >
+          加载中
+        </Text>
+      </View>
+    </View>
+  </Modal>
   <View
     style={
       Object {
@@ -49,6 +514,7 @@ exports[`renders course page correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "borderColor": "grey",
               "borderRadius": 20,
               "flex": 7,
               "flexDirection": "row",
@@ -139,6 +605,127 @@ exports[`renders course page correctly 1`] = `
             搜索
           </Text>
         </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "borderRadius": 3,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderColor": "#2089dc",
+                "borderRadius": 3,
+                "borderWidth": 0,
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "padding": 8,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "filter",
+                }
+              }
+              style={
+                Object {
+                  "height": 15,
+                  "width": 15,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "color": "black",
+                  "fontSize": 14,
+                  "paddingBottom": 1,
+                  "paddingTop": 2,
+                  "textAlign": "center",
+                }
+              }
+            >
+              筛选
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+            }
+          }
+        />
       </View>
     </View>
   </View>

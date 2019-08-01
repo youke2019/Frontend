@@ -6,7 +6,7 @@ import { loadData } from '../utils/LocalStorage'
 import StackNavBar from '../components/StackNavBar'
 
 export default class About extends React.Component {
-    static navigationOptions =  ({ navigation }) => ({
+    static navigationOptions = ({ navigation }) => ({
         header: () => {
             return (
               <StackNavBar

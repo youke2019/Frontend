@@ -24,6 +24,13 @@ exports[`renders Drawer correctly 1`] = `
   visible={false}
 >
   <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "backgroundColor": "black",
@@ -72,6 +79,7 @@ exports[`renders Drawer correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#FFFFFF",
+          "height": 400,
           "padding": 16,
         }
       }
