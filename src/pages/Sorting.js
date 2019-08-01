@@ -6,7 +6,6 @@ import { UnshadowedTitle } from '../components/UnshadowedTitle'
 import Swipeout from 'react-native-swipeout'
 import { arrange } from '../utils/arrangeDec'
 import { Overlay } from 'react-native-elements'
-import { ImageViewer } from 'react-native-image-zoom-viewer'
 import StackNavBar from '../components/StackNavBar'
 
 const week = ['', '一', '二', '三', '四', '五', '六', '日']

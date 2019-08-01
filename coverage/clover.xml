@@ -1,9 +1,771 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1564671757090" clover="3.2.0">
-  <project timestamp="1564671757090" name="All files">
-    <metrics statements="159" coveredstatements="95" conditionals="41" coveredconditionals="17" methods="58" coveredmethods="22" elements="258" coveredelements="134" complexity="0" loc="159" ncloc="159" packages="3" files="6" classes="6"/>
-    <package name="pages">
-      <metrics statements="49" coveredstatements="47" conditionals="17" coveredconditionals="11" methods="22" coveredmethods="19"/>
+<coverage generated="1564672441810" clover="3.2.0">
+  <project timestamp="1564672441810" name="All files">
+    <metrics statements="1138" coveredstatements="774" conditionals="442" coveredconditionals="237" methods="408" coveredmethods="266" elements="1988" coveredelements="1277" complexity="0" loc="1138" ncloc="1138" packages="6" files="46" classes="46"/>
+    <package name="public.images">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="bg.png" path="D:\Repositories\Yoke\Code\frontend\public\images\bg.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="logo-transparent.png" path="D:\Repositories\Yoke\Code\frontend\public\images\logo-transparent.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Global.js" path="D:\Repositories\Yoke\Code\frontend\src\Global.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="350" coveredstatements="280" conditionals="151" coveredconditionals="104" methods="142" coveredmethods="118"/>
+      <file name="CommentAbstract.js" path="D:\Repositories\Yoke\Code\frontend\src\components\CommentAbstract.js">
+        <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="50" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="6" type="stmt"/>
+        <line num="77" count="5" type="stmt"/>
+      </file>
+      <file name="CommentItem.js" path="D:\Repositories\Yoke\Code\frontend\src\components\CommentItem.js">
+        <metrics statements="28" coveredstatements="28" conditionals="11" coveredconditionals="11" methods="14" coveredmethods="14"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="19" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="26" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="32" count="6" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="37" count="6" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="44" count="6" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="49" count="6" type="stmt"/>
+        <line num="50" count="4" type="stmt"/>
+        <line num="51" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="71" count="13" type="stmt"/>
+        <line num="73" count="13" type="stmt"/>
+        <line num="74" count="13" type="stmt"/>
+        <line num="122" count="27" type="stmt"/>
+        <line num="143" count="6" type="stmt"/>
+      </file>
+      <file name="CourseDetail.js" path="D:\Repositories\Yoke\Code\frontend\src\components\CourseDetail.js">
+        <metrics statements="29" coveredstatements="29" conditionals="20" coveredconditionals="20" methods="13" coveredmethods="13"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="30" count="9" type="stmt"/>
+        <line num="34" count="7" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="43" count="7" type="stmt"/>
+        <line num="47" count="7" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="53" count="7" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="61" count="7" type="stmt"/>
+        <line num="62" count="7" type="stmt"/>
+        <line num="64" count="13" type="stmt"/>
+        <line num="65" count="13" type="stmt"/>
+        <line num="66" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="67" count="13" type="stmt"/>
+        <line num="68" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="69" count="9" type="stmt"/>
+        <line num="70" count="29" type="cond" truecount="2" falsecount="0"/>
+        <line num="71" count="24" type="stmt"/>
+        <line num="74" count="9" type="stmt"/>
+        <line num="76" count="13" type="stmt"/>
+        <line num="126" count="5" type="stmt"/>
+      </file>
+      <file name="CourseList.js" path="D:\Repositories\Yoke\Code\frontend\src\components\CourseList.js">
+        <metrics statements="7" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="102" count="2" type="stmt"/>
+      </file>
+      <file name="Drawer.js" path="D:\Repositories\Yoke\Code\frontend\src\components\Drawer.js">
+        <metrics statements="47" coveredstatements="17" conditionals="15" coveredconditionals="1" methods="6" coveredmethods="4"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="91" count="4" type="stmt"/>
+        <line num="97" count="4" type="stmt"/>
+        <line num="98" count="4" type="stmt"/>
+        <line num="99" count="20" type="stmt"/>
+        <line num="100" count="260" type="stmt"/>
+        <line num="104" count="4" type="stmt"/>
+        <line num="109" count="4" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="118" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="127" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="128" count="0" type="stmt"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="136" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="142" count="0" type="stmt"/>
+        <line num="143" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
+        <line num="148" count="0" type="stmt"/>
+        <line num="149" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="150" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="153" count="0" type="stmt"/>
+        <line num="158" count="4" type="stmt"/>
+        <line num="159" count="0" type="stmt"/>
+        <line num="162" count="4" type="stmt"/>
+        <line num="163" count="1" type="stmt"/>
+        <line num="166" count="4" type="stmt"/>
+        <line num="167" count="3" type="stmt"/>
+        <line num="175" count="7" type="stmt"/>
+        <line num="179" count="7" type="stmt"/>
+        <line num="181" count="7" type="stmt"/>
+        <line num="244" count="2" type="stmt"/>
+      </file>
+      <file name="EvaluationAbstract.js" path="D:\Repositories\Yoke\Code\frontend\src\components\EvaluationAbstract.js">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="7"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="27" count="5" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="46" count="7" type="stmt"/>
+        <line num="47" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="7" type="stmt"/>
+        <line num="75" count="5" type="stmt"/>
+      </file>
+      <file name="EvaluationCard.js" path="D:\Repositories\Yoke\Code\frontend\src\components\EvaluationCard.js">
+        <metrics statements="14" coveredstatements="14" conditionals="12" coveredconditionals="11" methods="4" coveredmethods="4"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="24" type="cond" truecount="7" falsecount="0"/>
+        <line num="23" count="9" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="42" count="6" type="stmt"/>
+        <line num="47" count="6" type="stmt"/>
+        <line num="49" count="6" type="stmt"/>
+        <line num="77" count="3" type="stmt"/>
+        <line num="121" count="7" type="stmt"/>
+      </file>
+      <file name="FilterItem.js" path="D:\Repositories\Yoke\Code\frontend\src\components\FilterItem.js">
+        <metrics statements="31" coveredstatements="9" conditionals="22" coveredconditionals="8" methods="6" coveredmethods="3"/>
+        <line num="13" count="13" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="24" count="13" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="30" count="13" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="66" count="14" type="stmt"/>
+        <line num="67" count="14" type="stmt"/>
+        <line num="69" count="14" type="stmt"/>
+        <line num="86" count="4" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="112" count="3" type="stmt"/>
+      </file>
+      <file name="HighlightCard.js" path="D:\Repositories\Yoke\Code\frontend\src\components\HighlightCard.js">
+        <metrics statements="48" coveredstatements="44" conditionals="14" coveredconditionals="10" methods="24" coveredmethods="19"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="66" count="2" type="stmt"/>
+        <line num="67" count="4" type="stmt"/>
+        <line num="68" count="4" type="stmt"/>
+        <line num="69" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="78" count="4" type="stmt"/>
+        <line num="82" count="2" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="87" count="2" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="92" count="2" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="95" count="2" type="stmt"/>
+        <line num="100" count="10" type="stmt"/>
+        <line num="101" count="10" type="stmt"/>
+        <line num="102" count="10" type="stmt"/>
+        <line num="106" count="10" type="stmt"/>
+        <line num="107" count="10" type="stmt"/>
+        <line num="169" count="0" type="stmt"/>
+        <line num="202" count="90" type="cond" truecount="2" falsecount="0"/>
+        <line num="215" count="2" type="stmt"/>
+        <line num="216" count="1" type="stmt"/>
+        <line num="222" count="2" type="stmt"/>
+        <line num="223" count="1" type="stmt"/>
+        <line num="229" count="2" type="stmt"/>
+        <line num="234" count="2" type="stmt"/>
+      </file>
+      <file name="ListItem.js" path="D:\Repositories\Yoke\Code\frontend\src\components\ListItem.js">
+        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="1"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="19" count="7" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+      </file>
+      <file name="Loading.js" path="D:\Repositories\Yoke\Code\frontend\src\components\Loading.js">
+        <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="12" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+      </file>
+      <file name="QAAbstract.js" path="D:\Repositories\Yoke\Code\frontend\src\components\QAAbstract.js">
+        <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="7"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="6" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="49" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="51" count="8" type="stmt"/>
+        <line num="84" count="5" type="stmt"/>
+      </file>
+      <file name="QuestionCard.js" path="D:\Repositories\Yoke\Code\frontend\src\components\QuestionCard.js">
+        <metrics statements="44" coveredstatements="44" conditionals="10" coveredconditionals="8" methods="15" coveredmethods="15"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="60" count="3" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
+        <line num="62" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="77" count="2" type="stmt"/>
+        <line num="78" count="2" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
+        <line num="82" count="2" type="stmt"/>
+        <line num="88" count="2" type="stmt"/>
+        <line num="93" count="4" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="99" count="4" type="stmt"/>
+        <line num="100" count="2" type="stmt"/>
+        <line num="105" count="4" type="stmt"/>
+        <line num="106" count="2" type="stmt"/>
+        <line num="111" count="1" type="stmt"/>
+        <line num="112" count="1" type="stmt"/>
+        <line num="114" count="1" type="stmt"/>
+        <line num="124" count="15" type="stmt"/>
+        <line num="125" count="15" type="stmt"/>
+        <line num="127" count="15" type="stmt"/>
+        <line num="163" count="39" type="stmt"/>
+        <line num="179" count="1" type="stmt"/>
+        <line num="216" count="7" type="stmt"/>
+      </file>
+      <file name="Rating.js" path="D:\Repositories\Yoke\Code\frontend\src\components\Rating.js">
+        <metrics statements="18" coveredstatements="11" conditionals="8" coveredconditionals="4" methods="5" coveredmethods="3"/>
+        <line num="9" count="8" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="40" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="30" type="stmt"/>
+        <line num="27" count="10" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="51" count="8" type="stmt"/>
+        <line num="53" count="8" type="stmt"/>
+        <line num="57" count="40" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="76" count="8" type="stmt"/>
+      </file>
+      <file name="ReplyBox.js" path="D:\Repositories\Yoke\Code\frontend\src\components\ReplyBox.js">
+        <metrics statements="10" coveredstatements="10" conditionals="3" coveredconditionals="3" methods="6" coveredmethods="4"/>
+        <line num="14" count="10" type="stmt"/>
+        <line num="19" count="10" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="28" count="13" type="stmt"/>
+        <line num="30" count="13" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="82" count="11" type="stmt"/>
+      </file>
+      <file name="SearchBox.js" path="D:\Repositories\Yoke\Code\frontend\src\components\SearchBox.js">
+        <metrics statements="8" coveredstatements="5" conditionals="9" coveredconditionals="5" methods="5" coveredmethods="1"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+      </file>
+      <file name="ShadowedTitle.js" path="D:\Repositories\Yoke\Code\frontend\src\components\ShadowedTitle.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="10" type="stmt"/>
+        <line num="6" count="30" type="stmt"/>
+        <line num="19" count="10" type="stmt"/>
+      </file>
+      <file name="StackNavBar.js" path="D:\Repositories\Yoke\Code\frontend\src\components\StackNavBar.js">
+        <metrics statements="8" coveredstatements="8" conditionals="5" coveredconditionals="5" methods="3" coveredmethods="3"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="24" count="11" type="stmt"/>
+        <line num="26" count="11" type="stmt"/>
+        <line num="54" count="7" type="stmt"/>
+      </file>
+      <file name="UnshadowedTitle.js" path="D:\Repositories\Yoke\Code\frontend\src\components\UnshadowedTitle.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="41" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+      </file>
+      <file name="UserAvatarImg.js" path="D:\Repositories\Yoke\Code\frontend\src\components\UserAvatarImg.js">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="20" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="4" type="stmt"/>
+      </file>
+      <file name="UserIdText.js" path="D:\Repositories\Yoke\Code\frontend\src\components\UserIdText.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <line num="5" count="14" type="stmt"/>
+        <line num="9" count="16" type="stmt"/>
+        <line num="11" count="12" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="20" count="24" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages">
+      <metrics statements="510" coveredstatements="296" conditionals="181" coveredconditionals="68" methods="216" coveredmethods="125"/>
+      <file name="About.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\About.js">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+      <file name="Classes.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\Classes.js">
+        <metrics statements="39" coveredstatements="28" conditionals="52" coveredconditionals="36" methods="13" coveredmethods="7"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="6" type="stmt"/>
+        <line num="48" count="6" type="stmt"/>
+        <line num="49" count="6" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="98" count="3" type="stmt"/>
+        <line num="99" count="3" type="stmt"/>
+        <line num="101" count="3" type="stmt"/>
+        <line num="219" count="21" type="stmt"/>
+        <line num="222" count="0" type="stmt"/>
+        <line num="251" count="1" type="stmt"/>
+      </file>
+      <file name="Courses.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\Courses.js">
+        <metrics statements="80" coveredstatements="10" conditionals="42" coveredconditionals="2" methods="16" coveredmethods="2"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="81" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="86" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="104" count="2" type="stmt"/>
+        <line num="105" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="131" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="132" count="0" type="stmt"/>
+        <line num="136" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
+        <line num="153" count="2" type="stmt"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="159" count="2" type="stmt"/>
+        <line num="160" count="0" type="stmt"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="163" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="164" count="0" type="stmt"/>
+        <line num="166" count="0" type="stmt"/>
+        <line num="167" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="168" count="0" type="stmt"/>
+        <line num="171" count="0" type="stmt"/>
+        <line num="172" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="173" count="0" type="stmt"/>
+        <line num="175" count="0" type="stmt"/>
+        <line num="190" count="2" type="stmt"/>
+        <line num="192" count="2" type="stmt"/>
+        <line num="209" count="0" type="stmt"/>
+        <line num="229" count="10" type="stmt"/>
+        <line num="239" count="0" type="stmt"/>
+        <line num="244" count="0" type="stmt"/>
+        <line num="287" count="0" type="stmt"/>
+        <line num="298" count="0" type="stmt"/>
+        <line num="308" count="0" type="stmt"/>
+        <line num="313" count="0" type="stmt"/>
+        <line num="343" count="1" type="stmt"/>
+      </file>
+      <file name="Detail.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\Detail.js">
+        <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="13"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="60" count="3" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="69" count="4" type="stmt"/>
+        <line num="121" count="4" type="stmt"/>
+        <line num="128" count="4" type="stmt"/>
+      </file>
+      <file name="Evaluations.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\Evaluations.js">
+        <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="11"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="78" count="7" type="stmt"/>
+        <line num="80" count="7" type="stmt"/>
+        <line num="115" count="2" type="stmt"/>
+        <line num="135" count="1" type="stmt"/>
+      </file>
+      <file name="Highlight.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\Highlight.js">
+        <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="52" count="10" type="stmt"/>
+        <line num="53" count="10" type="stmt"/>
+        <line num="54" count="10" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
+        <line num="128" count="3" type="stmt"/>
+      </file>
+      <file name="Home.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\Home.js">
+        <metrics statements="28" coveredstatements="28" conditionals="7" coveredconditionals="7" methods="16" coveredmethods="16"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="37" count="90" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="63" count="13" type="stmt"/>
+        <line num="64" count="13" type="stmt"/>
+        <line num="66" count="13" type="stmt"/>
+        <line num="80" count="11" type="stmt"/>
+        <line num="83" count="28" type="stmt"/>
+        <line num="131" count="15" type="stmt"/>
+        <line num="135" count="1" type="stmt"/>
+        <line num="150" count="1" type="stmt"/>
+        <line num="241" count="1" type="stmt"/>
+        <line num="242" count="7" type="stmt"/>
+        <line num="248" count="1" type="stmt"/>
+        <line num="249" count="3" type="stmt"/>
+        <line num="251" count="4" type="stmt"/>
+      </file>
+      <file name="Login.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\Login.js">
+        <metrics statements="36" coveredstatements="11" conditionals="4" coveredconditionals="0" methods="20" coveredmethods="5"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+      </file>
+      <file name="NewEvaluation.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\NewEvaluation.js">
+        <metrics statements="47" coveredstatements="14" conditionals="15" coveredconditionals="3" methods="17" coveredmethods="3"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="58" count="3" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="81" count="2" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="94" count="2" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="105" count="6" type="stmt"/>
+        <line num="107" count="6" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="132" count="0" type="stmt"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="165" count="0" type="stmt"/>
+        <line num="171" count="0" type="stmt"/>
+        <line num="178" count="0" type="stmt"/>
+        <line num="191" count="0" type="stmt"/>
+        <line num="198" count="0" type="stmt"/>
+        <line num="223" count="1" type="stmt"/>
+      </file>
       <file name="NewHighlight.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\NewHighlight.js">
         <metrics statements="49" coveredstatements="47" conditionals="17" coveredconditionals="11" methods="22" coveredmethods="19"/>
         <line num="9" count="1" type="stmt"/>
@@ -56,35 +818,209 @@
         <line num="181" count="1" type="stmt"/>
         <line num="206" count="1" type="stmt"/>
       </file>
-    </package>
-    <package name="redux">
-      <metrics statements="66" coveredstatements="30" conditionals="22" coveredconditionals="6" methods="18" coveredmethods="3"/>
-      <file name="actions.js" path="D:\Repositories\Yoke\Code\frontend\src\redux\actions.js">
-        <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
+      <file name="Profile.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\Profile.js">
+        <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="2" methods="5" coveredmethods="5"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+      </file>
+      <file name="ProfileSetting.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\ProfileSetting.js">
+        <metrics statements="43" coveredstatements="24" conditionals="6" coveredconditionals="0" methods="19" coveredmethods="11"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="60" count="2" type="cond" truecount="0" falsecount="2"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="99" count="2" type="stmt"/>
+        <line num="100" count="2" type="stmt"/>
+        <line num="150" count="1" type="stmt"/>
+      </file>
+      <file name="Questions.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\Questions.js">
+        <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="12"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="74" count="12" type="stmt"/>
+        <line num="126" count="9" type="stmt"/>
+        <line num="140" count="1" type="stmt"/>
+      </file>
+      <file name="Sorting.js" path="D:\Repositories\Yoke\Code\frontend\src\pages\Sorting.js">
+        <metrics statements="88" coveredstatements="35" conditionals="32" coveredconditionals="5" methods="37" coveredmethods="10"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="23" count="0" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="97" count="1" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
+        <line num="152" count="1" type="stmt"/>
+        <line num="153" count="1" type="stmt"/>
+        <line num="154" count="1" type="stmt"/>
+        <line num="155" count="1" type="stmt"/>
+        <line num="160" count="0" type="stmt"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="162" count="0" type="stmt"/>
+        <line num="165" count="0" type="stmt"/>
+        <line num="166" count="0" type="stmt"/>
+        <line num="178" count="0" type="stmt"/>
+        <line num="190" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="191" count="0" type="stmt"/>
+        <line num="192" count="0" type="stmt"/>
+        <line num="193" count="0" type="stmt"/>
+        <line num="194" count="0" type="stmt"/>
+        <line num="196" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="198" count="0" type="stmt"/>
+        <line num="200" count="0" type="stmt"/>
+        <line num="202" count="0" type="stmt"/>
+        <line num="203" count="0" type="stmt"/>
+        <line num="228" count="1" type="stmt"/>
+        <line num="286" count="1" type="stmt"/>
+        <line num="288" count="0" type="stmt"/>
+        <line num="296" count="2" type="stmt"/>
+        <line num="297" count="0" type="stmt"/>
+        <line num="298" count="0" type="stmt"/>
+        <line num="299" count="0" type="stmt"/>
+        <line num="300" count="0" type="stmt"/>
+        <line num="322" count="2" type="stmt"/>
+        <line num="323" count="0" type="stmt"/>
+        <line num="324" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="325" count="0" type="stmt"/>
+        <line num="326" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="327" count="0" type="stmt"/>
+        <line num="328" count="0" type="stmt"/>
+        <line num="330" count="2" type="stmt"/>
+        <line num="331" count="0" type="stmt"/>
+        <line num="332" count="0" type="stmt"/>
+        <line num="333" count="0" type="stmt"/>
+        <line num="334" count="0" type="stmt"/>
+        <line num="335" count="0" type="stmt"/>
+        <line num="336" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="337" count="0" type="stmt"/>
+        <line num="339" count="0" type="stmt"/>
+        <line num="341" count="0" type="stmt"/>
+        <line num="342" count="0" type="stmt"/>
+        <line num="348" count="2" type="stmt"/>
+        <line num="349" count="2" type="stmt"/>
+        <line num="362" count="1" type="stmt"/>
+        <line num="367" count="0" type="stmt"/>
+        <line num="377" count="1" type="stmt"/>
+        <line num="399" count="1" type="stmt"/>
+        <line num="400" count="2" type="stmt"/>
+        <line num="405" count="1" type="stmt"/>
+        <line num="406" count="2" type="stmt"/>
+        <line num="408" count="0" type="stmt"/>
+        <line num="411" count="0" type="stmt"/>
+        <line num="414" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.redux">
+      <metrics statements="66" coveredstatements="49" conditionals="22" coveredconditionals="12" methods="18" coveredmethods="10"/>
+      <file name="actions.js" path="D:\Repositories\Yoke\Code\frontend\src\redux\actions.js">
+        <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="3"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
+        <line num="5" count="15" type="stmt"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="19" count="15" type="stmt"/>
+        <line num="20" count="15" type="stmt"/>
+        <line num="22" count="15" type="stmt"/>
+        <line num="25" count="15" type="stmt"/>
+        <line num="29" count="15" type="stmt"/>
+        <line num="30" count="15" type="stmt"/>
+        <line num="31" count="15" type="stmt"/>
+        <line num="32" count="15" type="stmt"/>
+        <line num="33" count="15" type="stmt"/>
+        <line num="34" count="15" type="stmt"/>
+        <line num="38" count="15" type="stmt"/>
+        <line num="42" count="15" type="stmt"/>
+        <line num="46" count="15" type="stmt"/>
+        <line num="50" count="15" type="stmt"/>
       </file>
       <file name="reducers.js" path="D:\Repositories\Yoke\Code\frontend\src\redux\reducers.js">
-        <metrics statements="44" coveredstatements="8" conditionals="22" coveredconditionals="6" methods="8" coveredmethods="3"/>
-        <line num="20" count="3" type="cond" truecount="1" falsecount="3"/>
+        <metrics statements="44" coveredstatements="27" conditionals="22" coveredconditionals="12" methods="8" coveredmethods="7"/>
+        <line num="20" count="50" type="cond" truecount="1" falsecount="3"/>
         <line num="22" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
@@ -92,100 +1028,272 @@
         <line num="30" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
-        <line num="40" count="3" type="cond" truecount="1" falsecount="2"/>
+        <line num="35" count="50" type="stmt"/>
+        <line num="40" count="50" type="cond" truecount="1" falsecount="2"/>
         <line num="42" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
-        <line num="52" count="3" type="stmt"/>
-        <line num="53" count="3" type="cond" truecount="1" falsecount="5"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
-        <line num="77" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="46" count="50" type="stmt"/>
+        <line num="52" count="50" type="stmt"/>
+        <line num="53" count="50" type="cond" truecount="4" falsecount="2"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="60" count="8" type="stmt"/>
+        <line num="61" count="8" type="stmt"/>
+        <line num="62" count="8" type="stmt"/>
+        <line num="63" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="3" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="67" count="8" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="78" count="0" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
-        <line num="88" count="0" type="stmt"/>
+        <line num="88" count="4" type="stmt"/>
         <line num="90" count="0" type="stmt"/>
         <line num="91" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="92" count="0" type="stmt"/>
         <line num="94" count="0" type="stmt"/>
         <line num="96" count="0" type="stmt"/>
         <line num="100" count="0" type="stmt"/>
-        <line num="102" count="3" type="stmt"/>
-        <line num="107" count="1" type="stmt"/>
+        <line num="102" count="44" type="stmt"/>
+        <line num="107" count="14" type="stmt"/>
       </file>
       <file name="state.js" path="D:\Repositories\Yoke\Code\frontend\src\redux\state.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="1" count="14" type="stmt"/>
+        <line num="7" count="14" type="stmt"/>
       </file>
     </package>
-    <package name="utils">
-      <metrics statements="44" coveredstatements="18" conditionals="2" coveredconditionals="0" methods="18" coveredmethods="0"/>
-      <file name="DataRequest.js" path="D:\Repositories\Yoke\Code\frontend\src\utils\DataRequest.js">
-        <metrics statements="39" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
+    <package name="src.utils">
+      <metrics statements="207" coveredstatements="144" conditionals="88" coveredconditionals="53" methods="32" coveredmethods="13"/>
+      <file name="ClassLogics.js" path="D:\Repositories\Yoke\Code\frontend\src\utils\ClassLogics.js">
+        <metrics statements="77" coveredstatements="36" conditionals="43" coveredconditionals="13" methods="5" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="378" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="42" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="7" type="stmt"/>
+        <line num="24" count="7" type="stmt"/>
+        <line num="28" count="7" type="stmt"/>
+        <line num="30" count="7" type="stmt"/>
+        <line num="31" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="37" count="10" type="stmt"/>
+        <line num="39" count="10" type="stmt"/>
+        <line num="40" count="10" type="stmt"/>
+        <line num="41" count="37" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="45" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="8" type="stmt"/>
+        <line num="47" count="8" type="stmt"/>
+        <line num="49" count="10" type="stmt"/>
+        <line num="56" count="10" type="stmt"/>
+        <line num="58" count="12" type="stmt"/>
+        <line num="61" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="62" count="7" type="stmt"/>
+        <line num="66" count="7" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="89" count="2" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="97" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="104" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="113" count="2" type="stmt"/>
+        <line num="114" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="118" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="120" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="122" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="124" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="126" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="128" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="130" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
+      </file>
+      <file name="DataRequest.js" path="D:\Repositories\Yoke\Code\frontend\src\utils\DataRequest.js">
+        <metrics statements="39" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="1"/>
+        <line num="3" count="16" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="10" count="16" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
+        <line num="29" count="16" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
+        <line num="39" count="16" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
+        <line num="50" count="16" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
+        <line num="61" count="16" type="stmt"/>
         <line num="62" count="0" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
         <line num="65" count="0" type="stmt"/>
-        <line num="73" count="1" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="82" count="1" type="stmt"/>
+        <line num="73" count="16" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="82" count="16" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
-        <line num="90" count="1" type="stmt"/>
+        <line num="90" count="16" type="stmt"/>
         <line num="91" count="0" type="stmt"/>
-        <line num="101" count="1" type="stmt"/>
+        <line num="101" count="16" type="stmt"/>
         <line num="102" count="0" type="stmt"/>
-        <line num="111" count="1" type="stmt"/>
+        <line num="111" count="16" type="stmt"/>
         <line num="112" count="0" type="stmt"/>
-        <line num="118" count="1" type="stmt"/>
+        <line num="118" count="16" type="stmt"/>
         <line num="119" count="0" type="stmt"/>
-        <line num="126" count="1" type="stmt"/>
+        <line num="126" count="16" type="stmt"/>
         <line num="127" count="0" type="stmt"/>
-        <line num="136" count="1" type="stmt"/>
+        <line num="136" count="16" type="stmt"/>
         <line num="137" count="0" type="stmt"/>
-        <line num="146" count="1" type="stmt"/>
+        <line num="146" count="16" type="stmt"/>
         <line num="147" count="0" type="stmt"/>
-        <line num="156" count="1" type="stmt"/>
+        <line num="156" count="16" type="stmt"/>
+      </file>
+      <file name="ErrorAlert.js" path="D:\Repositories\Yoke\Code\frontend\src\utils\ErrorAlert.js">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
       </file>
       <file name="LocalStorage.js" path="D:\Repositories\Yoke\Code\frontend\src\utils\LocalStorage.js">
-        <metrics statements="5" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="7" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="22" count="18" type="stmt"/>
+      </file>
+      <file name="arrangeDec.js" path="D:\Repositories\Yoke\Code\frontend\src\utils\arrangeDec.js">
+        <metrics statements="84" coveredstatements="84" conditionals="43" coveredconditionals="38" methods="7" coveredmethods="7"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="5" count="903" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="124" type="stmt"/>
+        <line num="7" count="779" type="stmt"/>
+        <line num="8" count="779" type="stmt"/>
+        <line num="9" count="2153" type="stmt"/>
+        <line num="10" count="2153" type="stmt"/>
+        <line num="11" count="3207" type="stmt"/>
+        <line num="14" count="3436" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="2493" type="stmt"/>
+        <line num="18" count="943" type="cond" truecount="4" falsecount="0"/>
+        <line num="20" count="874" type="stmt"/>
+        <line num="22" count="69" type="cond" truecount="4" falsecount="0"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="68" type="cond" truecount="2" falsecount="3"/>
+        <line num="29" count="68" type="stmt"/>
+        <line num="35" count="711" type="stmt"/>
+        <line num="38" count="1724" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="1674" type="cond" truecount="3" falsecount="1"/>
+        <line num="41" count="1674" type="stmt"/>
+        <line num="42" count="1674" type="stmt"/>
+        <line num="43" count="4920" type="stmt"/>
+        <line num="44" count="4920" type="stmt"/>
+        <line num="46" count="1674" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="1563" type="stmt"/>
+        <line num="50" count="1674" type="stmt"/>
+        <line num="52" count="50" type="stmt"/>
+        <line num="53" count="50" type="stmt"/>
+        <line num="54" count="50" type="stmt"/>
+        <line num="55" count="893" type="cond" truecount="2" falsecount="0"/>
+        <line num="56" count="827" type="stmt"/>
+        <line num="57" count="827" type="stmt"/>
+        <line num="58" count="827" type="stmt"/>
+        <line num="60" count="893" type="stmt"/>
+        <line num="62" count="50" type="stmt"/>
+        <line num="65" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="66" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="70" count="6" type="stmt"/>
+        <line num="71" count="6" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="77" count="10" type="stmt"/>
+        <line num="78" count="10" type="stmt"/>
+        <line num="79" count="10" type="stmt"/>
+        <line num="80" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="81" count="8" type="stmt"/>
+        <line num="82" count="8" type="stmt"/>
+        <line num="83" count="8" type="stmt"/>
+        <line num="84" count="8" type="stmt"/>
+        <line num="87" count="10" type="stmt"/>
+        <line num="90" count="4" type="stmt"/>
+        <line num="91" count="4" type="stmt"/>
+        <line num="94" count="6" type="stmt"/>
+        <line num="95" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="96" count="2" type="stmt"/>
+        <line num="99" count="4" type="stmt"/>
+        <line num="100" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="101" count="3" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
+        <line num="108" count="4" type="stmt"/>
+        <line num="109" count="4" type="stmt"/>
+        <line num="110" count="1563" type="stmt"/>
+        <line num="111" count="1563" type="stmt"/>
+        <line num="113" count="1563" type="stmt"/>
+        <line num="114" count="4" type="stmt"/>
+        <line num="115" count="464" type="stmt"/>
+        <line num="116" count="464" type="stmt"/>
+        <line num="118" count="4" type="stmt"/>
+        <line num="121" count="8" type="stmt"/>
+        <line num="122" count="8" type="stmt"/>
+        <line num="123" count="8" type="stmt"/>
+        <line num="124" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="125" count="10" type="stmt"/>
+        <line num="128" count="10" type="stmt"/>
+        <line num="130" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="131" count="4" type="stmt"/>
+        <line num="134" count="4" type="stmt"/>
+        <line num="135" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="136" count="2" type="stmt"/>
+        <line num="138" count="2" type="stmt"/>
       </file>
     </package>
   </project>
