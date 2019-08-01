@@ -11,6 +11,7 @@ import {
 import axios from 'axios'
 import { ShadowedTitle } from './ShadowedTitle'
 import CommentItem from './CommentItem'
+import { getCommentById } from '../utils/DataRequest'
 
 export class CommentAbstractTitle extends React.Component {
   render () {
@@ -33,13 +34,9 @@ export default class CommentAbstract extends React.Component {
 
   getCommentData = (props) => {
     const course_id = props == null ? this.props.course_id : props.course_id
-    axios({
-      method: 'get',
-      url: baseUrl + '/courses/comments/find',
-      params: {
-        course_id: course_id,
-        user_id: this.props.user_info.id
-      }
+    getCommentById({
+      course_id: course_id,
+      user_id: this.props.user_info.id
     }).then(response => {
       this.setState({
         comments: response.data
@@ -58,6 +55,7 @@ export default class CommentAbstract extends React.Component {
         <View style={styles.first_comm}>
           <CommentItem
             comment_info={firstComm}
+            user_info={this.props.user_info}
             refresh={this.getCommentData}
           />
         </View>
@@ -72,7 +70,6 @@ export default class CommentAbstract extends React.Component {
             >全部评论</Text>
           </TouchableOpacity>
         </View>
-        {/* <ReplyBox />*/}
       </View>
     )
   }
@@ -116,5 +113,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 20,
   }
-
 })

@@ -90,6 +90,53 @@ const sendNewHighlight = jest
       reject(error_info)
     })
   })
+const getCommentById = jest
+  .fn(()=> new Promise((resolve,reject)=>{
+  const data = JSON.parse("[{\"course_comment_id\":14,\"course_id\":\"BM176\",\"course_comment_time\":\"2019-07-18 23:07:37\",\"course_comment_content\":\"我觉得这门课很垃圾\",\"user_id\":\"30673CFC-4D4C-4FC1-9FE4-000B3D9DAA9A\",\"isbanned\":false,\"course_comment_praise_point\":1,\"current_user_praise\":true,\"courseCommentReportList\":[],\"courseCommentReplyList\":[{\"course_comment_reply_id\":1,\"course_comment_reply_content\":\"服服服\",\"user_id\":\"30673CFC-4D4C-4FC1-9FE4-000B3D9DAA9A\",\"course_comment_id\":14},{\"course_comment_reply_id\":2,\"course_comment_reply_content\":\"八九十年代不\",\"user_id\":\"30673CFC-4D4C-4FC1-9FE4-000B3D9DAA9A\",\"course_comment_id\":14},{\"course_comment_reply_id\":3,\"course_comment_reply_content\":\"同意呀\",\"user_id\":\"30673CFC-4D4C-4FC1-9FE4-000B3D9DAA9A\",\"course_comment_id\":14}]}]")
+  resolve({ data: data })
+})).mockImplementationOnce((params) => {
+  return new Promise((resolve, reject) => {
+    const error_info = 'error'
+    reject(error_info)
+  })
+})
+const getEvaluationById = jest
+  .fn(()=> new Promise((resolve,reject)=>{
+    const data = "[{\"evaluate_id\":1442,\"evaluate_time\":\"2019-07-31 18:24:46\",\"user_id\":\"01231\",\"course_id\":\"SE101\",\"evaluate_content\":{\"course_id\":\"SE101\",\"evaluate_id\":1442,\"给分情况\":\"给分高\",\"user_id\":\"01231\",\"evaluate_point\":10},\"evaluate_point\":10,\"evaluate_praise_point\":0,\"current_user_praise\":false,\"courseEvaluationPraiseList\":[]}]"
+    resolve({ data: data })
+  })).mockImplementationOnce((params) => {
+    return new Promise((resolve, reject) => {
+      const error_info = 'error'
+      reject(error_info)
+    })
+  })
+const getQAbyId = jest
+  .fn(()=> new Promise((resolve,reject)=>{
+    const data = "[{\"question_id\":39,\"user_id\":\"01231\",\"course_id\":\"SE101\",\"question_content\":\"上课有趣吗\",\"question_time\":\"2019-07-23 09:37:38\",\"question_isbanned\":false,\"question_praise_point\":0,\"courseAnswerList\":[],\"courseQuestionPraiseList\":[],\"current_user_praise\":false}]"
+    resolve({ data: data })
+  })).mockImplementationOnce((params) => {
+    return new Promise((resolve, reject) => {
+      const error_info = 'error'
+      reject(error_info)
+    })
+  })
+const praiseComment = jest
+  .fn((user_id,course_comment_id)=>new Promise((resolve, reject) => resolve('1')))
+  .mockImplementationOnce((user_id,course_comment_id) => {
+    return new Promise((resolve, reject) => {
+      const error_info = 'error'
+      reject(error_info)
+    })
+  })
+const unPraiseComment = jest
+  .fn((user_id,course_comment_id)=>new Promise((resolve, reject) => resolve('1')))
+  .mockImplementationOnce((user_id,course_comment_id) => {
+    return new Promise((resolve, reject) => {
+      const error_info = 'error'
+      reject(error_info)
+    })
+  })
+
 dr.commentHighlight = commentHighlight
 dr.getCourseById = getCourseById
 dr.getAllHighlight = getAllHighlight
@@ -98,4 +145,10 @@ dr.praiseHighlight = praiseHighlight
 dr.getUserById = getUserById
 dr.sendHighlightImg = sendHighlightImg
 dr.sendNewHighlight = sendNewHighlight
+dr.getCommentById = getCommentById
+dr.getEvaluationById = getEvaluationById
+dr.getQAbyId = getQAbyId
+dr.praiseComment = praiseComment
+dr.unPraiseComment = unPraiseComment
+dr.sendCommentReply = praiseHighlight
 module.exports = dr

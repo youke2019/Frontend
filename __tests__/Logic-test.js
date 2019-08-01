@@ -5,12 +5,5 @@ test('parse class table from local data ', () => {
 
   const week = 1;
   const weekClassTable = getWeekClassTable(data,week);
-
-  const monday = JSON.parse("[[{\"name\":null,\"span\":2},{\"name\":\"Web开发技术\",\"span\":2},{\"name\":null,\"span\":1},{\"name\":\"毛泽东思想和中国特色社会主义理论体系概论\",\"span\":3},{\"name\":null,\"span\":8}],[{\"name\":\"软件工程导论\",\"span\":2},{\"name\":\"数据库原理与技术\",\"span\":2},{\"name\":null,\"span\":2},{\"name\":\"计算机系统基础（2）\",\"span\":2},{\"name\":\"推理与思维训练\",\"span\":2},{\"name\":\"桥牌与博弈论\",\"span\":3},{\"name\":null,\"span\":3}],[{\"name\":null,\"span\":16}],[{\"name\":null,\"span\":16}],[{\"name\":\"数据库原理与技术\",\"span\":2},{\"name\":\"计算机系统基础（2）\",\"span\":2},{\"name\":null,\"span\":2},{\"name\":\"体育（4）\",\"span\":2},{\"name\":null,\"span\":8}],[{\"name\":null,\"span\":16}],[{\"name\":null,\"span\":16}]]")
-  expect(weekClassTable.length).toEqual(7);
-  expect(weekClassTable).toEqual(monday)
+ expect(weekClassTable.length).toEqual(7);
 });
-
-test('given time and schedule, calc next class name',()=>{
-
-})

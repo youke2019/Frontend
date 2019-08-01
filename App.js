@@ -30,7 +30,7 @@ import {
   Sorting,
   Edit,
   Setting,
-  NewComment
+  NewComment, SortClassesDisplay
 } from './src/pages'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -82,10 +82,12 @@ const CourseNavigator = createStackNavigator({
   },
   Sorting:{
     screen:Sorting,
-    navigationOptions:{header:null}
   },
   NewComment:{
     screen: NewComment,
+  },
+  SortClassesDisplay:{
+    screen:SortClassesDisplay
   }
 })
 

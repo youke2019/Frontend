@@ -10,6 +10,7 @@ import {Avatar} from 'react-native-elements'
 import {connect} from "react-redux";
 import ListItem from "../components/ListItem";
 
+
 const mapStateToProps = state => {
     return {
         user: state.user_info
@@ -25,6 +26,9 @@ class Profile extends React.Component {
         this.props.navigation.navigate("About");
     }
 
+    gotoSetting = () =>{
+        this.props.navigation.navigate("Setting");
+    }
     render() {
         const {user} = this.props;
 
@@ -64,7 +68,7 @@ class Profile extends React.Component {
                         <ListItem
                             text='设置'
                             image='setting'
-                            onPress={() => {this.props.navigation.navigate('Setting')}}
+                            onPress={this.gotoSetting}
                         />
                         <ListItem
                             text='反馈投诉'
@@ -77,7 +81,7 @@ class Profile extends React.Component {
                         <ListItem
                             text='关于'
                             image='about'
-                            onPress={()=>{this.props.navigation.navigate('About')}}
+                            onPress={this.gotoAbout}
                         />
                     </View>
                 </View>

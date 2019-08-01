@@ -8,6 +8,7 @@ import {
 import axios from 'axios'
 import { ShadowedTitle } from './ShadowedTitle'
 import QuestionCard from './QuestionCard'
+import { getQAbyId } from '../utils/DataRequest'
 
 class QAAbstractTitle extends React.Component {
   render () {
@@ -25,18 +26,16 @@ export default class QAAbstract extends React.Component {
   }
 
   componentDidMount () {
-    this.flush()
+    this.refresh()
   }
   componentWillReceiveProps (nextProps, nextContext) {
-    this.flush()
+    this.refresh()
   }
 
-  flush = () => {
-    axios.get(baseUrl + '/courses/questions/find', {
-      params: {
-        course_id: this.props.course_id,
-        user_id: this.props.user_id,
-      }
+  refresh = () => {
+    getQAbyId({
+      course_id:this.props.course_id,
+      user_id:this.props.user_id
     }).then(res => {
       this.setState({
         questions: res.data
@@ -56,7 +55,7 @@ export default class QAAbstract extends React.Component {
           {
             firstQuest != null ?
             <QuestionCard
-              onAnswer={this.flush}
+              onAnswer={this.refresh}
               QandA={firstQuest}
               userId={this.props.user_id}
             />:
@@ -67,7 +66,6 @@ export default class QAAbstract extends React.Component {
               </View>
           }
         </View>
-
         <View style={styles.button_container}>
           <TouchableOpacity
             onPress={this.props.onGotoQuestionPage}

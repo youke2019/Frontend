@@ -123,7 +123,16 @@
 <a name='L75'></a><a href='#L75'>75</a>
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,9 +147,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -200,6 +216,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
 import {
     Text,
@@ -208,6 +226,7 @@ import {
     Image,
     TouchableOpacity
 } from "react-native";
+import {Divider} from "react-native-elements";
 &nbsp;
 class ListItem extends React.Component {
     render(){
@@ -218,23 +237,29 @@ class ListItem extends React.Component {
         } = this.props
 &nbsp;
         return (
-            &lt;View style={styles.container}&gt;
-                &lt;View style={styles.text_container}&gt;
-                    &lt;Image
-                        style={styles.text_image}
-                        source={{uri:image}}
-                    /&gt;
-                    &lt;Text style={styles.text}&gt;{text}&lt;/Text&gt;
-                &lt;/View&gt;
+            &lt;View&gt;
                 &lt;TouchableOpacity
-                    style={styles.arrow_container}
+                    style={styles.container}
                     onPress={onPress}
                 &gt;
-                    &lt;Image
-                        source={{uri:'right_arrow'}}
-                        style={styles.arrow_image}
-                    /&gt;
+                    &lt;View style={styles.text_container}&gt;
+                        &lt;Image
+                            style={styles.text_image}
+                            source={{uri:image}}
+                            resizeMode='contain'
+                        /&gt;
+                        &lt;Text style={styles.text}&gt;{text}&lt;/Text&gt;
+                    &lt;/View&gt;
+                    &lt;View
+                        style={styles.arrow_container}
+                    &gt;
+                        &lt;Image
+                            source={{uri:'right_arrow'}}
+                            style={styles.arrow_image}
+                        /&gt;
+                    &lt;/View&gt;
                 &lt;/TouchableOpacity&gt;
+                &lt;Divider style={styles.divider} /&gt;
             &lt;/View&gt;
         )
     }
@@ -257,12 +282,13 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
     },
     text_image:{
-        width:22,
-        height:22,
+        width:21,
+        height:21,
     },
     text:{
-        paddingHorizontal:8,
-        fontSize: 16,
+        paddingHorizontal:20,
+        fontSize: 17,
+        color: '#000000'
     },
     arrow_container:{
         alignItems: 'center',
@@ -273,7 +299,8 @@ const styles = StyleSheet.create({
         height:20,
     },
     divider:{
-        height:1
+        height:1,
+        backgroundColor: '#F5F5F5',
     },
 })
 &nbsp;
@@ -283,7 +310,7 @@ export default ListItem</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 23 2019 09:34:21 GMT+0800 (GMT+08:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Aug 01 2019 01:16:28 GMT+0800 (GMT+08:00)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

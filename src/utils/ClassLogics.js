@@ -46,7 +46,6 @@ export function getWeekClassTable (data,week) {
           hashTable.push(lesson.name)
           hash=hashTable.length-1
         }
-
         segment={
           name:lesson.name,
           span:1,

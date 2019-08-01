@@ -86,7 +86,7 @@ describe("<NewHighlight /> component",()=>{
     instance.delete(0);
   })
   it("will saveUploadImg to State when upload Img",()=>{
-    instance.saveUploadImg({
+    instance.saveUploadFile({
       path:"path://faefaeffaesfaefefe"
     })
   })
