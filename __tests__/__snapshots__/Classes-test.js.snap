@@ -4,7 +4,8 @@ exports[`renders classes page correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#FFFFFF",
+      "backgroundColor": "#FFFFF6",
+      "flex": 1,
       "paddingTop": 20,
     }
   }
@@ -169,7 +170,6 @@ exports[`renders classes page correctly 1`] = `
               }
             }
           >
-            七
             月
           </Text>
         </View>
@@ -260,9 +260,7 @@ exports[`renders classes page correctly 1`] = `
                   "fontFamily": "citydmed",
                   "fontSize": 16,
                 },
-                Object {
-                  "color": "orange",
-                },
+                null,
               ]
             }
           >
@@ -296,7 +294,9 @@ exports[`renders classes page correctly 1`] = `
                   "fontFamily": "citydmed",
                   "fontSize": 16,
                 },
-                null,
+                Object {
+                  "color": "orange",
+                },
               ]
             }
           >

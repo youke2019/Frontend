@@ -6,7 +6,7 @@ import {
     ImageBackground,
     Text, TouchableWithoutFeedback,
 } from "react-native";
-import {Button} from "react-native-elements"
+import {Button, Input} from "react-native-elements"
 import Drawer from '../components/Drawer'
 import SearchBox from '../components/SearchBox'
 import CourseList from '../components/CourseList'
@@ -35,7 +35,8 @@ class Courses extends React.Component {
             上课地点:null,
         },
         firstEnter: true,
-        tagList: [{type:'学分',tag:[]},{type:'通识类型',tag:[]},{type:'上课时间',tag:[]},{type:'上课地点',tag:[]},{type:'开设学院',tag:[]}]
+        tagList: [{type:'学分',tag:[]},{type:'通识类型',tag:[]},{type:'上课时间',tag:[]},{type:'上课地点',tag:[]},{type:'开设学院',tag:[]}],
+        keyword: ''
     }
 
     filterNotEmpty = () => {
@@ -186,7 +187,8 @@ class Courses extends React.Component {
             firstEnter,
             filterVisible,
             filterList,
-            tagList
+            tagList,
+            keyword,
         } = this.state
 
         return (
@@ -203,6 +205,7 @@ class Courses extends React.Component {
                                 onPress={(keyword) => this.search(keyword)}
                                 iconImage = 'search'
                                 buttonTitle = '搜索'
+                                keyword={keyword}
                             />
                         </View>
                         :
@@ -231,6 +234,7 @@ class Courses extends React.Component {
                                             onPress={(keyword) => this.search(keyword)}
                                             iconImage = 'search'
                                             buttonTitle = '搜索'
+                                            keyword={null}
                                         />
                                     </View>
                                 </View>

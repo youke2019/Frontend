@@ -6,7 +6,7 @@ exports[`render an empty CourseList 1`] = `
     Object {
       "alignItems": "center",
       "justifyContent": "center",
-      "paddingBottom": 100,
+      "paddingBottom": 186,
     }
   }
 >
@@ -1919,7 +1919,7 @@ exports[`render normal CourseList 1`] = `
     Object {
       "alignItems": "center",
       "justifyContent": "center",
-      "paddingBottom": 100,
+      "paddingBottom": 186,
     }
   }
 >

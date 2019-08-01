@@ -1,53 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render ListItem with data 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "flexDirection": "row",
-      "justifyContent": "space-between",
-      "paddingBottom": 8,
-      "paddingHorizontal": 10,
-      "paddingTop": 20,
-      "paddingVertical": 10,
-    }
-  }
->
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "paddingHorizontal": 5,
-      }
-    }
-  >
-    <Image
-      source={
-        Object {
-          "uri": "nop",
-        }
-      }
-      style={
-        Object {
-          "height": 22,
-          "width": 22,
-        }
-      }
-    />
-    <Text
-      style={
-        Object {
-          "fontSize": 16,
-          "paddingHorizontal": 8,
-        }
-      }
-    >
-      课程
-    </Text>
-  </View>
+<View>
   <View
     accessible={true}
     isTVSelectable={true}
@@ -60,76 +14,88 @@ exports[`render ListItem with data 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "justifyContent": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
         "opacity": 1,
+        "paddingBottom": 8,
+        "paddingHorizontal": 10,
+        "paddingTop": 20,
+        "paddingVertical": 10,
       }
     }
   >
-    <Image
-      source={
-        Object {
-          "uri": "right_arrow",
-        }
-      }
+    <View
       style={
         Object {
-          "height": 20,
-          "width": 20,
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingHorizontal": 5,
         }
       }
-    />
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "nop",
+          }
+        }
+        style={
+          Object {
+            "height": 21,
+            "width": 21,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "#000000",
+            "fontSize": 17,
+            "paddingHorizontal": 20,
+          }
+        }
+      >
+        课程
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "right_arrow",
+          }
+        }
+        style={
+          Object {
+            "height": 20,
+            "width": 20,
+          }
+        }
+      />
+    </View>
   </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F5",
+        "height": 1,
+      }
+    }
+  />
 </View>
 `;
 
 exports[`render an empty ListItem 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "flexDirection": "row",
-      "justifyContent": "space-between",
-      "paddingBottom": 8,
-      "paddingHorizontal": 10,
-      "paddingTop": 20,
-      "paddingVertical": 10,
-    }
-  }
->
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "paddingHorizontal": 5,
-      }
-    }
-  >
-    <Image
-      source={
-        Object {
-          "uri": "",
-        }
-      }
-      style={
-        Object {
-          "height": 22,
-          "width": 22,
-        }
-      }
-    />
-    <Text
-      style={
-        Object {
-          "fontSize": 16,
-          "paddingHorizontal": 8,
-        }
-      }
-    >
-      
-    </Text>
-  </View>
+<View>
   <View
     accessible={true}
     isTVSelectable={true}
@@ -142,24 +108,82 @@ exports[`render an empty ListItem 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "justifyContent": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
         "opacity": 1,
+        "paddingBottom": 8,
+        "paddingHorizontal": 10,
+        "paddingTop": 20,
+        "paddingVertical": 10,
       }
     }
   >
-    <Image
-      source={
-        Object {
-          "uri": "right_arrow",
-        }
-      }
+    <View
       style={
         Object {
-          "height": 20,
-          "width": 20,
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingHorizontal": 5,
         }
       }
-    />
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "",
+          }
+        }
+        style={
+          Object {
+            "height": 21,
+            "width": 21,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "#000000",
+            "fontSize": 17,
+            "paddingHorizontal": 20,
+          }
+        }
+      >
+        
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "right_arrow",
+          }
+        }
+        style={
+          Object {
+            "height": 20,
+            "width": 20,
+          }
+        }
+      />
+    </View>
   </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F5",
+        "height": 1,
+      }
+    }
+  />
 </View>
 `;

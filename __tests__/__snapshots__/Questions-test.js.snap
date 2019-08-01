@@ -228,7 +228,7 @@ exports[`renders QuestionCard page correctly 1`] = `
             "height": 40,
             "justifyContent": "center",
             "marginLeft": 10,
-            "paddingTop": 30,
+            "marginTop": 24,
           }
         }
       >
@@ -243,22 +243,26 @@ exports[`renders QuestionCard page correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 0.7,
-              "height": 20,
+              "alignItems": "center",
+              "flex": 1,
+              "height": "100%",
+              "justifyContent": "center",
               "opacity": 1,
+              "paddingHorizontal": 6,
             }
           }
         >
           <Image
+            resizeMode="contain"
             source={
               Object {
-                "uri": "navigate-return",
+                "uri": "navigate_return",
               }
             }
             style={
               Object {
-                "height": 25,
-                "width": 25,
+                "height": 20,
+                "width": 20,
               }
             }
           />
@@ -266,16 +270,19 @@ exports[`renders QuestionCard page correctly 1`] = `
         <View
           style={
             Object {
-              "flex": 5,
+              "alignItems": "center",
+              "flex": 10,
               "flexDirection": "row",
-              "justifyContent": "center",
+              "justifyContent": "flex-start",
             }
           }
         >
           <Text
             style={
               Object {
-                "flex": 1,
+                "color": "#000000",
+                "fontSize": 16,
+                "paddingLeft": 8,
               }
             }
             theme={
@@ -316,7 +323,7 @@ exports[`renders QuestionCard page correctly 1`] = `
               }
             }
           >
-             课程
+            问答
           </Text>
         </View>
       </View>

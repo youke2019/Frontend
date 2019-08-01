@@ -1,142 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders QuestionCard page correctly 1`] = `
-<RCTScrollView
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "height": 40,
-          "justifyContent": "center",
-          "marginLeft": 10,
-          "paddingTop": 30,
-        }
-      }
-    >
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "flex": 0.7,
-            "height": 20,
-            "opacity": 1,
-          }
-        }
-      >
-        <Image
-          source={
-            Object {
-              "uri": "navigate-return",
-            }
-          }
-          style={
-            Object {
-              "height": 25,
-              "width": 25,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "flex": 5,
-            "flexDirection": "row",
-            "justifyContent": "center",
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "flex": 1,
-            }
-          }
-          theme={
-            Object {
-              "colors": Object {
-                "disabled": "hsl(208, 8%, 90%)",
-                "divider": "#bcbbc1",
-                "error": "#ff190c",
-                "grey0": "#393e42",
-                "grey1": "#43484d",
-                "grey2": "#5e6977",
-                "grey3": "#86939e",
-                "grey4": "#bdc6cf",
-                "grey5": "#e1e8ee",
-                "greyOutline": "#bbb",
-                "platform": Object {
-                  "android": Object {
-                    "error": "#f44336",
-                    "primary": "#2196f3",
-                    "secondary": "#9C27B0",
-                    "success": "#4caf50",
-                    "warning": "#ffeb3b",
-                  },
-                  "ios": Object {
-                    "error": "#ff3b30",
-                    "primary": "#007aff",
-                    "secondary": "#5856d6",
-                    "success": "#4cd964",
-                    "warning": "#ffcc00",
-                  },
-                },
-                "primary": "#2089dc",
-                "searchBg": "#303337",
-                "secondary": "#8F0CE8",
-                "success": "#52c41a",
-                "warning": "#faad14",
-              },
-            }
-          }
-        >
-           课程
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "padding": 36,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "padding": 10,
-          }
-        }
-      >
-        请对课程进行评分
-      </Text>
+<View>
+  <RCTScrollView>
+    <View>
       <View
         style={
           Object {
             "alignItems": "center",
-            "flex": 1,
             "flexDirection": "row",
+            "height": 40,
             "justifyContent": "center",
+            "marginLeft": 10,
+            "marginTop": 24,
           }
         }
       >
         <View
           accessible={true}
+          isTVSelectable={true}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -145,48 +27,92 @@ exports[`renders QuestionCard page correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "paddingHorizontal": 5,
+              "alignItems": "center",
+              "flex": 1,
+              "height": "100%",
+              "justifyContent": "center",
+              "opacity": 1,
+              "paddingHorizontal": 6,
             }
           }
         >
-          <View
-            accessibilityIgnoresInvertColors={true}
+          <Image
+            resizeMode="contain"
+            source={
+              Object {
+                "uri": "navigate_return",
+              }
+            }
             style={
               Object {
-                "height": 25,
-                "width": 25,
+                "height": 20,
+                "width": 20,
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 10,
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontSize": 16,
+                "paddingLeft": 8,
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
               }
             }
           >
-            <Image
-              source={
-                Object {
-                  "uri": "star1",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "bottom": 0,
-                    "left": 0,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  },
-                  Object {
-                    "height": 25,
-                    "width": 25,
-                  },
-                  Object {
-                    "resizeMode": "cover",
-                  },
-                ]
-              }
-            />
-          </View>
+            发布评测
+          </Text>
         </View>
         <View
           accessible={true}
+          isTVSelectable={true}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -195,338 +121,551 @@ exports[`renders QuestionCard page correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "paddingHorizontal": 5,
+              "alignItems": "center",
+              "backgroundColor": "#FDAF26",
+              "borderRadius": 20,
+              "height": 32,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "opacity": 1,
+              "width": 80,
             }
           }
         >
-          <View
-            accessibilityIgnoresInvertColors={true}
-            style={
+          <Text
+            style={Object {}}
+            theme={
               Object {
-                "height": 25,
-                "width": 25,
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
               }
             }
           >
-            <Image
-              source={
-                Object {
-                  "uri": "star2",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "bottom": 0,
-                    "left": 0,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  },
-                  Object {
-                    "height": 25,
-                    "width": 25,
-                  },
-                  Object {
-                    "resizeMode": "cover",
-                  },
-                ]
-              }
-            />
-          </View>
-        </View>
-        <View
-          accessible={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "paddingHorizontal": 5,
-            }
-          }
-        >
-          <View
-            accessibilityIgnoresInvertColors={true}
-            style={
-              Object {
-                "height": 25,
-                "width": 25,
-              }
-            }
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "star3",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "bottom": 0,
-                    "left": 0,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  },
-                  Object {
-                    "height": 25,
-                    "width": 25,
-                  },
-                  Object {
-                    "resizeMode": "cover",
-                  },
-                ]
-              }
-            />
-          </View>
-        </View>
-        <View
-          accessible={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "paddingHorizontal": 5,
-            }
-          }
-        >
-          <View
-            accessibilityIgnoresInvertColors={true}
-            style={
-              Object {
-                "height": 25,
-                "width": 25,
-              }
-            }
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "star4",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "bottom": 0,
-                    "left": 0,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  },
-                  Object {
-                    "height": 25,
-                    "width": 25,
-                  },
-                  Object {
-                    "resizeMode": "cover",
-                  },
-                ]
-              }
-            />
-          </View>
-        </View>
-        <View
-          accessible={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "paddingHorizontal": 5,
-            }
-          }
-        >
-          <View
-            accessibilityIgnoresInvertColors={true}
-            style={
-              Object {
-                "height": 25,
-                "width": 25,
-              }
-            }
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "star5",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "bottom": 0,
-                    "left": 0,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  },
-                  Object {
-                    "height": 25,
-                    "width": 25,
-                  },
-                  Object {
-                    "resizeMode": "cover",
-                  },
-                ]
-              }
-            />
-          </View>
+            发布
+          </Text>
         </View>
       </View>
-    </View>
-    <View
-      style={
-        Object {
-          "paddingHorizontal": 20,
-          "paddingVertical": 30,
-        }
-      }
-    >
-      <Text
+      <View
         style={
           Object {
-            "color": "black",
+            "backgroundColor": "#FFFFFA",
+            "paddingBottom": 120,
           }
         }
       >
-        课程简述
-      </Text>
-      <View
-        style={Object {}}
-      >
-        <TextInput
-          allowFontScaling={true}
-          multiline={true}
-          onChangeText={[Function]}
-          placeholder="输入课程简述"
-          rejectResponderTermination={true}
+        <View
           style={
             Object {
-              "padding": 10,
+              "padding": 36,
             }
           }
-          underlineColorAndroid="transparent"
-        />
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "padding": 10,
+                },
+                Object {
+                  "color": "black",
+                  "fontSize": 17,
+                },
+              ]
+            }
+          >
+            请对课程进行评分
+          </Text>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "paddingHorizontal": 5,
+                }
+              }
+            >
+              <View
+                accessibilityIgnoresInvertColors={true}
+                style={
+                  Object {
+                    "height": 25,
+                    "width": 25,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "star1",
+                    }
+                  }
+                  style={
+                    Array [
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      },
+                      Object {
+                        "height": 25,
+                        "width": 25,
+                      },
+                      Object {
+                        "resizeMode": "cover",
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+            <View
+              accessible={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "paddingHorizontal": 5,
+                }
+              }
+            >
+              <View
+                accessibilityIgnoresInvertColors={true}
+                style={
+                  Object {
+                    "height": 25,
+                    "width": 25,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "star2",
+                    }
+                  }
+                  style={
+                    Array [
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      },
+                      Object {
+                        "height": 25,
+                        "width": 25,
+                      },
+                      Object {
+                        "resizeMode": "cover",
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+            <View
+              accessible={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "paddingHorizontal": 5,
+                }
+              }
+            >
+              <View
+                accessibilityIgnoresInvertColors={true}
+                style={
+                  Object {
+                    "height": 25,
+                    "width": 25,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "star3",
+                    }
+                  }
+                  style={
+                    Array [
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      },
+                      Object {
+                        "height": 25,
+                        "width": 25,
+                      },
+                      Object {
+                        "resizeMode": "cover",
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+            <View
+              accessible={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "paddingHorizontal": 5,
+                }
+              }
+            >
+              <View
+                accessibilityIgnoresInvertColors={true}
+                style={
+                  Object {
+                    "height": 25,
+                    "width": 25,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "star4",
+                    }
+                  }
+                  style={
+                    Array [
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      },
+                      Object {
+                        "height": 25,
+                        "width": 25,
+                      },
+                      Object {
+                        "resizeMode": "cover",
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+            <View
+              accessible={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "paddingHorizontal": 5,
+                }
+              }
+            >
+              <View
+                accessibilityIgnoresInvertColors={true}
+                style={
+                  Object {
+                    "height": 25,
+                    "width": 25,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "star5",
+                    }
+                  }
+                  style={
+                    Array [
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      },
+                      Object {
+                        "height": 25,
+                        "width": 25,
+                      },
+                      Object {
+                        "resizeMode": "cover",
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flex": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 20,
+              },
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderRadius": 10,
+                "elevation": 3,
+                "margin": 25,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "black",
+                "fontSize": 17,
+              }
+            }
+          >
+            授课教师
+          </Text>
+          <View
+            style={Object {}}
+          >
+            <TextInput
+              allowFontScaling={true}
+              multiline={true}
+              onChangeText={[Function]}
+              placeholder="输入授课教师(必填)"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "fontSize": 14,
+                  "padding": 16,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flex": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 20,
+              },
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderRadius": 10,
+                "elevation": 3,
+                "margin": 25,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "black",
+                "fontSize": 17,
+              }
+            }
+          >
+            老师评价
+          </Text>
+          <View
+            style={Object {}}
+          >
+            <TextInput
+              allowFontScaling={true}
+              multiline={true}
+              onChangeText={[Function]}
+              placeholder="输入老师评价(必填)"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "fontSize": 14,
+                  "padding": 16,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flex": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 20,
+              },
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderRadius": 10,
+                "elevation": 3,
+                "margin": 25,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "black",
+                "fontSize": 17,
+              }
+            }
+          >
+            考核形式及难度
+          </Text>
+          <View
+            style={Object {}}
+          >
+            <TextInput
+              allowFontScaling={true}
+              multiline={true}
+              onChangeText={[Function]}
+              placeholder="输入考核形式及难度(必填)"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "fontSize": 14,
+                  "padding": 16,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flex": 1,
+                "paddingHorizontal": 20,
+                "paddingVertical": 20,
+              },
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderRadius": 10,
+                "elevation": 3,
+                "margin": 25,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "black",
+                "fontSize": 17,
+              }
+            }
+          >
+            课程个人体验
+          </Text>
+          <View
+            style={Object {}}
+          >
+            <TextInput
+              allowFontScaling={true}
+              multiline={true}
+              onChangeText={[Function]}
+              placeholder="输入课程个人体验(必填)"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "fontSize": 14,
+                  "padding": 16,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+          </View>
+        </View>
       </View>
     </View>
-    <View
-      style={
-        Object {
-          "paddingHorizontal": 20,
-          "paddingVertical": 30,
-        }
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "top": -60,
       }
-    >
-      <Text
-        style={
-          Object {
-            "color": "black",
-          }
-        }
-      >
-        考核形式
-      </Text>
-      <View
-        style={Object {}}
-      >
-        <TextInput
-          allowFontScaling={true}
-          multiline={true}
-          onChangeText={[Function]}
-          placeholder="输入考核形式"
-          rejectResponderTermination={true}
-          style={
-            Object {
-              "padding": 10,
-            }
-          }
-          underlineColorAndroid="transparent"
-        />
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "paddingHorizontal": 20,
-          "paddingVertical": 30,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "black",
-          }
-        }
-      >
-        上课自由程度
-      </Text>
-      <View
-        style={Object {}}
-      >
-        <TextInput
-          allowFontScaling={true}
-          multiline={true}
-          onChangeText={[Function]}
-          placeholder="输入上课自由程度"
-          rejectResponderTermination={true}
-          style={
-            Object {
-              "padding": 10,
-            }
-          }
-          underlineColorAndroid="transparent"
-        />
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "paddingHorizontal": 20,
-          "paddingVertical": 30,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "black",
-          }
-        }
-      >
-        课程个人体验
-      </Text>
-      <View
-        style={Object {}}
-      >
-        <TextInput
-          allowFontScaling={true}
-          multiline={true}
-          onChangeText={[Function]}
-          placeholder="输入课程个人体验"
-          rejectResponderTermination={true}
-          style={
-            Object {
-              "padding": 10,
-            }
-          }
-          underlineColorAndroid="transparent"
-        />
-      </View>
-    </View>
+    }
+  >
     <View
       accessible={true}
       isTVSelectable={true}
@@ -539,29 +678,27 @@ exports[`renders QuestionCard page correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
+          "backgroundColor": "#FDAF26",
+          "borderRadius": 50,
+          "height": 42,
           "justifyContent": "center",
           "opacity": 1,
+          "paddingHorizontal": 30,
           "paddingVertical": 10,
+          "width": 180,
         }
       }
     >
-      <View
+      <Text
         style={
           Object {
-            "backgroundColor": "#FDAF26",
-            "borderRadius": 8,
-            "paddingHorizontal": 30,
-            "paddingVertical": 10,
+            "fontSize": 16,
           }
         }
       >
-        <Text
-          style={Object {}}
-        >
-          发布我的评测
-        </Text>
-      </View>
+        添加新的描述
+      </Text>
     </View>
   </View>
-</RCTScrollView>
+</View>
 `;

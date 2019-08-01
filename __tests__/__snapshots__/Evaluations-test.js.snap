@@ -4,21 +4,180 @@ exports[`renders Evaluations page correctly 1`] = `
 <RCTScrollView
   style={
     Object {
-      "backgroundColor": "#FDD32A",
+      "backgroundColor": "#F5F5F5",
       "flex": 1,
     }
   }
 >
   <View>
     <View
+      accessibilityIgnoresInvertColors={true}
+      style={
+        Object {
+          "height": 150,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "questions_bg",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            Object {
+              "height": 150,
+              "width": undefined,
+            },
+            Object {
+              "resizeMode": "stretch",
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "height": 40,
+            "justifyContent": "center",
+            "marginLeft": 10,
+            "marginTop": 24,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "height": "100%",
+              "justifyContent": "center",
+              "opacity": 1,
+              "paddingHorizontal": 6,
+            }
+          }
+        >
+          <Image
+            resizeMode="contain"
+            source={
+              Object {
+                "uri": "navigate_return",
+              }
+            }
+            style={
+              Object {
+                "height": 20,
+                "width": 20,
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 10,
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontSize": 16,
+                "paddingLeft": 8,
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
+              }
+            }
+          >
+            评测
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 50,
+            "justifyContent": "center",
+            "paddingBottom": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#000000",
+              "fontFamily": "字魂95号-手刻宋",
+              "fontSize": 40,
+            }
+          }
+        >
+          课程评测
+        </Text>
+      </View>
+    </View>
+    <View
       style={
         Object {
           "alignItems": "center",
-          "flexDirection": "row",
-          "height": 40,
           "justifyContent": "center",
-          "marginLeft": 10,
-          "paddingTop": 30,
         }
       }
     >
@@ -33,180 +192,51 @@ exports[`renders Evaluations page correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "flex": 0.7,
-            "height": 20,
-            "opacity": 1,
-          }
-        }
-      >
-        <Image
-          source={
-            Object {
-              "uri": "navigate-return",
-            }
-          }
-          style={
-            Object {
-              "height": 25,
-              "width": 25,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "flex": 5,
-            "flexDirection": "row",
-            "justifyContent": "center",
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "flex": 1,
-            }
-          }
-          theme={
-            Object {
-              "colors": Object {
-                "disabled": "hsl(208, 8%, 90%)",
-                "divider": "#bcbbc1",
-                "error": "#ff190c",
-                "grey0": "#393e42",
-                "grey1": "#43484d",
-                "grey2": "#5e6977",
-                "grey3": "#86939e",
-                "grey4": "#bdc6cf",
-                "grey5": "#e1e8ee",
-                "greyOutline": "#bbb",
-                "platform": Object {
-                  "android": Object {
-                    "error": "#f44336",
-                    "primary": "#2196f3",
-                    "secondary": "#9C27B0",
-                    "success": "#4caf50",
-                    "warning": "#ffeb3b",
-                  },
-                  "ios": Object {
-                    "error": "#ff3b30",
-                    "primary": "#007aff",
-                    "secondary": "#5856d6",
-                    "success": "#4cd964",
-                    "warning": "#ffcc00",
-                  },
-                },
-                "primary": "#2089dc",
-                "searchBg": "#303337",
-                "secondary": "#8F0CE8",
-                "success": "#52c41a",
-                "warning": "#faad14",
-              },
-            }
-          }
-        >
-           课程
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "height": 90,
-          "justifyContent": "center",
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#000000",
-            "fontFamily": "字魂95号-手刻宋",
-            "fontSize": 40,
-          }
-        }
-      >
-        课程评测
-      </Text>
-    </View>
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignItems": "center",
-          "justifyContent": "center",
-          "opacity": 1,
-        }
-      }
-    >
-      <View
-        accessibilityIgnoresInvertColors={true}
-        style={
-          Object {
             "alignItems": "center",
-            "flexDirection": "row",
-            "height": 40,
             "justifyContent": "center",
-            "width": 180,
+            "opacity": 1,
+            "paddingBottom": 20,
           }
         }
       >
-        <Image
+        <View
+          imageStyle={
+            Object {
+              "resizeMode": "stretch",
+            }
+          }
           source={
             Object {
               "uri": "button_orange",
             }
           }
           style={
-            Array [
-              Object {
-                "bottom": 0,
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-              },
-              Object {
-                "height": 40,
-                "width": 180,
-              },
-              Object {
-                "resizeMode": "stretch",
-              },
-            ]
-          }
-        />
-        <Text
-          style={
             Object {
-              "fontFamily": "字魂95号-手刻宋",
-              "fontSize": 16,
-              "letterSpacing": 1,
-              "paddingHorizontal": 5,
+              "alignItems": "center",
+              "backgroundColor": "#FDAF26",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 40,
+              "justifyContent": "center",
+              "width": 180,
             }
           }
         >
-          发布我的评测
-        </Text>
+          <Text
+            style={
+              Object {
+                "fontFamily": "字魂95号-手刻宋",
+                "fontSize": 16,
+                "letterSpacing": 1,
+                "paddingHorizontal": 5,
+              }
+            }
+          >
+            发布我的评测
+          </Text>
+        </View>
       </View>
     </View>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "justifyContent": "center",
-        }
-      }
-    />
   </View>
 </RCTScrollView>
 `;

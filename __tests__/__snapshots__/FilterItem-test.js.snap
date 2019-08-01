@@ -5,7 +5,9 @@ exports[`renders FilterItem correctly 1`] = `
   <View
     style={
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
+        "padding": 8,
       }
     }
   >
@@ -13,6 +15,7 @@ exports[`renders FilterItem correctly 1`] = `
       style={
         Object {
           "flex": 8,
+          "fontSize": 16,
         }
       }
     >
@@ -37,266 +40,16 @@ exports[`renders FilterItem correctly 1`] = `
       <Image
         source={
           Object {
-            "uri": "arrow_up",
+            "uri": "arrow_down",
           }
         }
         style={
           Object {
-            "height": 30,
-            "width": 30,
+            "height": 21,
+            "width": 21,
           }
         }
       />
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "display": "flex",
-        "flexDirection": "row",
-        "flexWrap": "wrap",
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "padding": 6,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderRadius": 3,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#F8F8FF",
-                "borderColor": "#2089dc",
-                "borderRadius": 3,
-                "borderWidth": 0,
-                "flexDirection": "row",
-                "justifyContent": "center",
-                "padding": 8,
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "color": "black",
-                  "fontSize": 15,
-                  "paddingBottom": 1,
-                  "paddingTop": 2,
-                  "textAlign": "center",
-                }
-              }
-            >
-              1
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "padding": 6,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderRadius": 3,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#F8F8FF",
-                "borderColor": "#2089dc",
-                "borderRadius": 3,
-                "borderWidth": 0,
-                "flexDirection": "row",
-                "justifyContent": "center",
-                "padding": 8,
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "color": "black",
-                  "fontSize": 15,
-                  "paddingBottom": 1,
-                  "paddingTop": 2,
-                  "textAlign": "center",
-                }
-              }
-            >
-              2
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "padding": 6,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderRadius": 3,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#F8F8FF",
-                "borderColor": "#2089dc",
-                "borderRadius": 3,
-                "borderWidth": 0,
-                "flexDirection": "row",
-                "justifyContent": "center",
-                "padding": 8,
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "color": "black",
-                  "fontSize": 15,
-                  "paddingBottom": 1,
-                  "paddingTop": 2,
-                  "textAlign": "center",
-                }
-              }
-            >
-              3
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "padding": 6,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderRadius": 3,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#F8F8FF",
-                "borderColor": "#2089dc",
-                "borderRadius": 3,
-                "borderWidth": 0,
-                "flexDirection": "row",
-                "justifyContent": "center",
-                "padding": 8,
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "color": "black",
-                  "fontSize": 15,
-                  "paddingBottom": 1,
-                  "paddingTop": 2,
-                  "textAlign": "center",
-                }
-              }
-            >
-              4
-            </Text>
-          </View>
-        </View>
-      </View>
     </View>
   </View>
 </View>

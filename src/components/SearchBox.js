@@ -13,6 +13,12 @@ class SearchBox extends React.Component {
         keyword: ''
     }
 
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.setState({
+            keyword: nextProps.keyword
+        })
+    }
+
     updateKeyword = keyword => {
         this.setState({ keyword });
     };
