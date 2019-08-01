@@ -1,0 +1,328 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CommentAbstract component correctly 1`] = `
+<View
+  style={
+    Object {
+      "borderTopColor": "whitesmoke",
+      "borderTopWidth": 15,
+      "marginBottom": 10,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "marginHorizontal": 20,
+          "marginVertical": 5,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "position": "relative",
+          }
+        }
+      >
+        <Image
+          onLoadEnd={[Function]}
+          source={
+            Object {
+              "uri": "wenda",
+            }
+          }
+          style={
+            Object {
+              "height": 20,
+              "resizeMode": "contain",
+              "width": 20,
+            }
+          }
+          theme={
+            Object {
+              "colors": Object {
+                "disabled": "hsl(208, 8%, 90%)",
+                "divider": "#bcbbc1",
+                "error": "#ff190c",
+                "grey0": "#393e42",
+                "grey1": "#43484d",
+                "grey2": "#5e6977",
+                "grey3": "#86939e",
+                "grey4": "#bdc6cf",
+                "grey5": "#e1e8ee",
+                "greyOutline": "#bbb",
+                "platform": Object {
+                  "android": Object {
+                    "error": "#f44336",
+                    "primary": "#2196f3",
+                    "secondary": "#9C27B0",
+                    "success": "#4caf50",
+                    "warning": "#ffeb3b",
+                  },
+                  "ios": Object {
+                    "error": "#ff3b30",
+                    "primary": "#007aff",
+                    "secondary": "#5856d6",
+                    "success": "#4cd964",
+                    "warning": "#ffcc00",
+                  },
+                },
+                "primary": "#2089dc",
+                "searchBg": "#303337",
+                "secondary": "#8F0CE8",
+                "success": "#52c41a",
+                "warning": "#faad14",
+              },
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "opacity": 1,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#bdbdbd",
+                "height": 20,
+                "justifyContent": "center",
+                "resizeMode": "contain",
+                "width": 20,
+              }
+            }
+            testID="RNE__Image__placeholder"
+          />
+        </View>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "position": "relative",
+            }
+          }
+        >
+          <Image
+            onLoadEnd={[Function]}
+            source={
+              Object {
+                "uri": "yellow_line",
+              }
+            }
+            style={
+              Object {
+                "height": 10,
+                "left": 8,
+                "position": "absolute",
+                "top": 12,
+                "width": 40,
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "disabled": "hsl(208, 8%, 90%)",
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "platform": Object {
+                    "android": Object {
+                      "error": "#f44336",
+                      "primary": "#2196f3",
+                      "secondary": "#9C27B0",
+                      "success": "#4caf50",
+                      "warning": "#ffeb3b",
+                    },
+                    "ios": Object {
+                      "error": "#ff3b30",
+                      "primary": "#007aff",
+                      "secondary": "#5856d6",
+                      "success": "#4cd964",
+                      "warning": "#ffcc00",
+                    },
+                  },
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "opacity": 1,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#bdbdbd",
+                  "height": 10,
+                  "justifyContent": "center",
+                  "left": 8,
+                  "position": "absolute",
+                  "top": 12,
+                  "width": 40,
+                }
+              }
+              testID="RNE__Image__placeholder"
+            />
+          </View>
+        </View>
+        <Text
+          style={
+            Object {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "lineHeight": 25,
+              "marginLeft": 10,
+              "maxWidth": 250,
+              "textAlign": "left",
+            }
+          }
+          theme={
+            Object {
+              "colors": Object {
+                "disabled": "hsl(208, 8%, 90%)",
+                "divider": "#bcbbc1",
+                "error": "#ff190c",
+                "grey0": "#393e42",
+                "grey1": "#43484d",
+                "grey2": "#5e6977",
+                "grey3": "#86939e",
+                "grey4": "#bdc6cf",
+                "grey5": "#e1e8ee",
+                "greyOutline": "#bbb",
+                "platform": Object {
+                  "android": Object {
+                    "error": "#f44336",
+                    "primary": "#2196f3",
+                    "secondary": "#9C27B0",
+                    "success": "#4caf50",
+                    "warning": "#ffeb3b",
+                  },
+                  "ios": Object {
+                    "error": "#ff3b30",
+                    "primary": "#007aff",
+                    "secondary": "#5856d6",
+                    "success": "#4cd964",
+                    "warning": "#ffcc00",
+                  },
+                },
+                "primary": "#2089dc",
+                "searchBg": "#303337",
+                "secondary": "#8F0CE8",
+                "success": "#52c41a",
+                "warning": "#faad14",
+              },
+            }
+          }
+        >
+          问答
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "column",
+          "height": 100,
+          "justifyContent": "center",
+          "width": 340,
+        }
+      }
+    >
+      <Text>
+         有什么想问的，问问上过课的同学吧😋
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginTop": 10,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "orange",
+          "borderRadius": 20,
+          "borderWidth": 0.5,
+          "opacity": 1,
+          "paddingHorizontal": 55,
+          "paddingVertical": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ff812e",
+            "textAlign": "center",
+          }
+        }
+      >
+        全部问答
+      </Text>
+    </View>
+  </View>
+</View>
+`;

@@ -47,7 +47,6 @@ class Home extends React.Component {
     }
     changePatch=()=>{
       const {patchNum} = this.state
-      console.log("patch",patchNum)
       this.setState({
         patchNum: patchNum < (MaxPatchNum/3 - 1) ? patchNum + 1 : 0,
       })
@@ -64,7 +63,6 @@ class Home extends React.Component {
         patchNum
       } = this.state;
       const recommends = all_recommends.slice(patchNum*3,patchNum*3+3)
-      console.log(recommends)
         return (
           <ScrollView>
             <View style={styles.center_container}>
@@ -121,10 +119,13 @@ class Home extends React.Component {
                 <ShadowedTitle text={"推荐课程"} uri = {"home_recommend"}/>
                 <TouchableOpacity
                   onPress={this.changePatch}
+                  style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-end'}}
                 >
-                  <Image source={{uri:"home_change_1"}} style={{width:25,height:25,marginRight:25}}/>
+                  <Text>换一批</Text>
+                  <Image source={{uri:"home_change_0"}} style={{width:25,height:25,marginRight:25}}/>
                 </TouchableOpacity>
               </View>
+              <Text style={{width:'100%',paddingLeft:50,fontSize:12,}}>评测、打分越多，推荐越准哦</Text>
               {
                 recommends.map((item,index)=>{
                   return <TouchableOpacity

@@ -75,8 +75,6 @@ export default class NewHighlight extends Component {
           urls.push(response.data)
           if (urls.length === this.state.avatarSources.length) {
             const isImage = source.isImage;
-            console.log(isImage,"isImage");
-            console.log(urls[0]);
             sendNewHighlight({
               user_id: this.props.navigation.state.params.user_id,
               post_text: this.state.content,
@@ -84,10 +82,8 @@ export default class NewHighlight extends Component {
               video_url: isImage ? "" : urls[0],
               video_type: isImage ? 'i':'v',
             }).then(response => {
-              console.log(response)
               this.props.navigation.state.params.callBack()
               this.props.navigation.goBack()
-              console.log('send image')
             }).catch(err => console.log(err))
           }
         }).catch(err => console.log(err))
@@ -99,10 +95,8 @@ export default class NewHighlight extends Component {
         image_url: urls[0],
         video_type: 'n',
       }).then(response => {
-        console.log(response)
         this.props.navigation.state.params.callBack()
         this.props.navigation.goBack()
-        console.log('send')
       }).catch(err => console.log(err))
     }
   }
@@ -113,7 +107,6 @@ export default class NewHighlight extends Component {
       .catch(err => console.log(err))
   }
   saveUploadFile = (file)=>{
-    console.log(file);
     const imageTypes = ["image/gif", "image/x-png", "image/pjpeg", "image/jpeg", "image/bmp"]
     const isImage = imageTypes.some(item => item === file.mime)
       const file_info = {

@@ -27,7 +27,6 @@ class Classes extends React.Component {
 
     componentWillMount() {
         axios.get(baseUrl + "/time/week").then(response => {
-            console.log(response.data)
             this.setState({
                 currentWeek: response.data
             })
@@ -86,7 +85,6 @@ class Classes extends React.Component {
             console.log(err)
         })
     }
-
     switchScreen = () => {
         this.props.navigation.navigate('Map')
     }
