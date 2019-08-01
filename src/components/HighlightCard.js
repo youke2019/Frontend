@@ -153,7 +153,8 @@ class HighlightCard extends React.Component {
                       height: 250,
                       resizeMode: 'cover',
                       borderRadius: 10,
-                      overflow: 'hidden'
+                      overflow: 'hidden',
+                      backgroundColor:'lightgrey'
                     }}/>
                   </TouchableOpacity>
                 </View>

@@ -9,15 +9,17 @@ configure({adapter: new Adapter()})
 
 
 jest.mock("../src/utils/DataRequest.js")
-describe("<UserIdText/> component",()=>{
+describe("<UserAvatarImg/> component",()=>{
   const wrapper = shallow(
-    <UserIdText style= {{}} user_id={{id:"test_id"}} />
+    <UserAvatarImg style= {{}} img_style= {{}} user_id={{id:"test_id"}} />
   );
   const instance = wrapper.instance();
-  it("update when receive props",(done)=>{
+  it("getUserByID correctly",(done)=>{
     instance.componentDidMount()
     instance.componentDidMount()
-    instance.componentWillUnmount()
-    setTimeout(()=>{done();},1000) /*wait for async to end*/
+    setTimeout(()=>{
+      expect(instance.state.url).toEqual("test_url")
+      done()
+    },2000) /*wait for async to end*/
   })
 })

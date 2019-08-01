@@ -67,12 +67,12 @@ describe("<CourseDetail /> component not collected",()=>{
 })
 describe("<CourseDetail /> mount",()=>{/*not working*/
   const wrapper = shallow(<CourseDetail store = {store}  course = {course_info1}/>).dive().dive()
-  it("render details when set state",(done)=> {
-      wrapper.setState({ classesDetailVisible: true }, () => {
-        expect(wrapper).toMatchSnapshot()
-        done();
-      })
-    }
-  )
-
+  const instance = wrapper.instance()
+  console.log(instance)
+  it("render details when set state",()=> {
+    expect(instance.state.classesDetailVisible).toBe(false)
+    wrapper.setState({ classesDetailVisible: true })
+    expect(instance.state.classesDetailVisible).toBe(true)
+    setTimeout(()=>{done();},100) /*wait for async to end*/
+  })
 })

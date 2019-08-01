@@ -112,7 +112,7 @@ class CourseDetail extends React.Component{
           </View>
         }
         {
-          classesDetailVisible?
+          classesDetailVisible &&
               <FlatList
                   data ={course.classes}
                   keyExtractor={(item, index) => index.toString()}
@@ -122,7 +122,7 @@ class CourseDetail extends React.Component{
                             class_info={item}
                         />
                   }
-              /> : null
+              />
         }
       </View>
     )

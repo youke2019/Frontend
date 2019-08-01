@@ -7,7 +7,6 @@ exports[`renders CommentAbstract component correctly 1`] = `
       "borderTopColor": "whitesmoke",
       "borderTopWidth": 15,
       "marginBottom": 10,
-      "paddingHorizontal": 20,
     }
   }
 >

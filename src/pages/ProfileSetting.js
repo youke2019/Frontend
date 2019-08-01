@@ -45,7 +45,7 @@ class ProfileSetting extends React.Component {
 
   pressNickname =()=>{
     this.props.navigation.navigate('Edit',{
-      onComfirm:this.updateNickname,
+      onConfirm:this.updateNickname,
       hint: '昵称是用户在互动场景下的称谓',
       user: this.props.user_info
     })
@@ -54,9 +54,9 @@ class ProfileSetting extends React.Component {
   updateNickname = (text) => {
     let new_user_info = this.state.user_info;
     new_user_info.nickname = text;
-    axios.post(baseUrl+ "/users/update",{
-      data: new_user_info
-    }).then((response)=> {
+    console.log(text)
+    axios.post(baseUrl+ "/users/update",new_user_info)
+      .then((response)=> {
       if (response.data.success) {
         this.props.updateUserInfo(new_user_info);
       }else{

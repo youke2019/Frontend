@@ -143,6 +143,16 @@ export const unPraiseComment = (user_id, course_comment_id) => {
     }
   })
 }
+export const getRecommend = (user_id,size) =>{
+  return axios({
+    method:'get',
+    url: baseUrl + "/courses/recommend/find",
+    params:{
+      user_id:user_id,
+      size:size
+    }
+  })
+}
 module.exports = {
   sendHighlightImg: sendHighlightImg,
   getAllHighlight: getAllHighlight,
@@ -158,5 +168,6 @@ module.exports = {
   getEvaluationById: getEvaluationById,
   getQAbyId: getQAbyId,
   praiseComment: praiseComment,
-  unPraiseComment: unPraiseComment
+  unPraiseComment: unPraiseComment,
+  getRecommend: getRecommend,
 }
