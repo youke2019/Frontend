@@ -9,14 +9,7 @@ import {
     TouchableOpacity,
 } from "react-native";
 import {Divider} from 'react-native-elements';
-import {connect} from "react-redux";
 import Detail from "../pages/Detail";
-
-const mapStateToProps = state => {
-    return {
-        course_list: state.course_list
-    }
-}
 
 class CourseList extends React.Component {
     onClick = (item) => {
@@ -28,68 +21,79 @@ class CourseList extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <FlatList
-                    data={this.props.course_list}
-                    renderItem={({item}) =>
-                        <ImageBackground
-                            style={styles.card_container}
-                            imageStyle={{resizeMode: 'stretch'}}
-                            source={{uri:'course_card'}}
-                        >
-                            <View style={styles.card}>
-                                <View style={styles.header}>
-                                    <Text style={styles.title}>{item.course_name}</Text>
-                                    <TouchableOpacity
-                                        style={styles.detail}
-                                        onPress = {() => this.onClick(item)}
-                                    >
-                                        <View style={styles.detail_text_container}>
-                                            <Text style={styles.detail_text}>详情查看</Text>
+                {
+                    this.props.course_list.length > 0?
+                        <FlatList
+                            data={this.props.course_list}
+                            renderItem={({item}) =>
+                                <ImageBackground
+                                    style={styles.card_container}
+                                    imageStyle={{resizeMode: 'stretch'}}
+                                    source={{uri:'course_card'}}
+                                >
+                                    <View style={styles.card}>
+                                        <View style={styles.header}>
+                                            <Text style={styles.title}>{item.course_name}</Text>
+                                            <TouchableOpacity
+                                                style={styles.detail}
+                                                onPress = {() => this.onClick(item)}
+                                            >
+                                                <View style={styles.detail_text_container}>
+                                                    <Text style={styles.detail_text}>详情查看</Text>
+                                                </View>
+                                                <Image
+                                                    style={styles.detail_enter_arrow}
+                                                    source={{uri:'right_arrow'}}
+                                                />
+                                            </TouchableOpacity>
                                         </View>
-                                        <Image
-                                            style={styles.detail_enter_arrow}
-                                            source={{uri:'right_arrow'}}
-                                        />
-                                    </TouchableOpacity>
-                                </View>
-                                <Divider style={styles.divider} />
-                                <View style={styles.content}>
-                                    <View>
-                                        <Image
-                                            style={styles.course_image}
-                                            source={{uri:'course'}}
-                                        />
+                                        <Divider style={styles.divider} />
+                                        <View style={styles.content}>
+                                            <View>
+                                                <Image
+                                                    style={styles.course_image}
+                                                    source={{uri:'course'}}
+                                                />
+                                            </View>
+                                            <View style={{ justifyContent: 'space-evenly'}}>
+                                                <View style={styles.course_info}>
+                                                    <Image
+                                                        style={styles.icon}
+                                                        source={{uri:'course_id_search'}}
+                                                    />
+                                                    <Text>课程编号：{item.course_id}</Text>
+                                                </View>
+                                                <View style={styles.course_info}>
+                                                    <Image
+                                                        style={styles.icon}
+                                                        source={{uri:'course_credit'}}
+                                                        source={{uri:'course_credit'}}
+                                                    />
+                                                    <Text>学分：{item.course_credits}</Text>
+                                                </View>
+                                                <View style={styles.course_info}>
+                                                    <Image
+                                                        style={styles.icon}
+                                                        source={{uri:'general'}}
+                                                    />
+                                                    <Text>是否通识：{item.general?'是':'否'}</Text>
+                                                </View>
+                                            </View>
+                                        </View>
                                     </View>
-                                    <View style={{ justifyContent: 'space-evenly'}}>
-                                        <View style={styles.course_info}>
-                                            <Image
-                                                style={styles.icon}
-                                                source={{uri:'course_id_search'}}
-                                            />
-                                            <Text>课程编号：{item.course_id}</Text>
-                                        </View>
-                                        <View style={styles.course_info}>
-                                            <Image
-                                                style={styles.icon}
-                                                source={{uri:'course_credit'}}
-                                                source={{uri:'course_credit'}}
-                                            />
-                                            <Text>学分：{item.course_credits}</Text>
-                                        </View>
-                                        <View style={styles.course_info}>
-                                            <Image
-                                                style={styles.icon}
-                                                source={{uri:'general'}}
-                                            />
-                                            <Text>是否通识：{item.general?'是':'否'}</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                            </View>
-                        </ImageBackground>
-                    }
-                    keyExtractor={(item) => item.course_id.toString()}
-                />
+                                </ImageBackground>
+                            }
+                            keyExtractor={(item) => item.course_id.toString()}
+                        />
+                        :
+                        <View style={styles.empty_container}>
+                            <Image
+                                source={{uri:'empty'}}
+                                style={styles.icon}
+                            />
+                            <Text>没有找到您要的课，请重新搜索</Text>
+                        </View>
+                }
             </View>
         )
     }
@@ -97,9 +101,9 @@ class CourseList extends React.Component {
 
 const styles = StyleSheet.create({
     container:{
+        flex:1,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingBottom: 186,
     },
     card_container:{
         width:330,
@@ -168,9 +172,12 @@ const styles = StyleSheet.create({
     icon:{
         width:24,
         height:24,
+        margin: 6,
     },
+    empty_container:{
+        flexDirection: 'row',
+        alignItems: 'center',
+    }
 })
 
-export default connect(
-    mapStateToProps
-)(CourseList)
+export default CourseList

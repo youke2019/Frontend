@@ -16,14 +16,9 @@ export const clearUserInfo = () => ({
   type: CLEAR_USER_INFO
 })
 
-export const SEARCH_COURSES = 'SEARCHCOURSES'
 export const SET_LOGIN = 'SETLOGIN'
 export const UNSET_LOGIN = 'UNSETLOGIN'
 
-export const searchCourses = (data) => ({
-  type: SEARCH_COURSES,
-  data
-})
 export const setLogin = () => ({
   type: SET_LOGIN
 })

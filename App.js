@@ -176,7 +176,7 @@ const TabNavigator = createBottomTabNavigator(
           tabBarIcon: ({focused}) => {
             if (focused)
               return (<Image style={styles.carryIcon} source={{uri:'tab_classes'}} resizeMode='stretch'/>)
-            return (<Image style={styles.carryIcon} source={{uri:'tab_classes'}} resizeMode='cover'/>)
+            return (<Image style={styles.carryIcon} source={{uri:'tab_classes'}} resizeMode='stretch'/>)
           }
         },
       },

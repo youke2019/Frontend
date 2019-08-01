@@ -36,16 +36,6 @@ function userInfoReducer (state = initialState.user_info, action) {
   }
 }
 
-function courseReducer (state = initialState.course_list, action) {
-  switch (action.type) {
-    case SEARCH_COURSES:
-      state = action.data
-      return state
-    default:
-      return state
-  }
-}
-
 function loginStateReducer (state = initialState.login_ready, action) {
   switch (action.type) {
     case SET_LOGIN:
@@ -116,7 +106,6 @@ function sortlistReducer (state = initialState.sortlist, action) {
 
 export const combinedReducer = combineReducers({
   user_info: userInfoReducer,
-  course_list: courseReducer,
   login_ready: loginStateReducer,
   sortlist: sortlistReducer
 })

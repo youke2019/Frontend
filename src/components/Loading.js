@@ -19,7 +19,7 @@ class Loading extends React.Component {
                     <View style={styles.box}>
                         <ActivityIndicator
                             size="large"
-                            color="yellow"
+                            color="white"
                         />
                         <Text style={styles.text}>加载中</Text>
                     </View>
@@ -34,15 +34,19 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'transparent'
     },
     box: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'black',
+        opacity: 0.6,
         height: 100,
         width: 100
     },
     text: {
+        padding: 6,
+        color: 'white',
         textAlign: 'center',
     }
 });

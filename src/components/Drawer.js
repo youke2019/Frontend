@@ -180,6 +180,8 @@ class Drawer extends React.Component {
 
         return (
             <Modal
+                animationIn={'slideInLeft'}
+                animationOut={'slideOutLeft'}
                 isVisible={visible}
                 onBackdropPress={this.onCancel}
                 coverScreen={false}
@@ -241,6 +243,7 @@ class Drawer extends React.Component {
 
 const styles = StyleSheet.create({
     container:{
+        height: 400,
         backgroundColor: '#FFFFFF',
         padding: 16,
     },

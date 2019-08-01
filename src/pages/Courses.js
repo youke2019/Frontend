@@ -11,18 +11,7 @@ import Drawer from '../components/Drawer'
 import SearchBox from '../components/SearchBox'
 import CourseList from '../components/CourseList'
 import axios from "axios";
-import {searchCourses} from "../redux/actions";
-import {connect} from "react-redux";
-
-const mapStateToProps = state => {return{}}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        searchCourses: (data) => {
-            dispatch(searchCourses(data))
-        }
-    }
-}
+import Loading from "../components/Loading";
 
 class Courses extends React.Component {
     state = {
@@ -36,7 +25,9 @@ class Courses extends React.Component {
         },
         firstEnter: true,
         tagList: [{type:'学分',tag:[]},{type:'通识类型',tag:[]},{type:'上课时间',tag:[]},{type:'上课地点',tag:[]},{type:'开设学院',tag:[]}],
-        keyword: ''
+        keyword: '',
+        loadingVisible: false,
+        course_list: [],
     }
 
     filterNotEmpty = () => {
@@ -68,7 +59,7 @@ class Courses extends React.Component {
             }
 
             this.setState({
-                firstEnter: false,
+                loadingVisible: true,
             })
 
             for (let item of this.state.filterList['学分'])
@@ -98,7 +89,12 @@ class Courses extends React.Component {
                 data.building = filterList['上课地点'].name
 
             axios.post(baseUrl+'/courses/search',data).then((response) => {
-                this.props.searchCourses(response.data)
+                this.setState({
+                    loadingVisible: false,
+                    firstEnter: false,
+                    keyword: keyword,
+                    course_list: response.data
+                })
             }).catch(err => {
                 console.log(err)
             })
@@ -189,10 +185,18 @@ class Courses extends React.Component {
             filterList,
             tagList,
             keyword,
+            loadingVisible,
+            course_list
         } = this.state
 
         return (
             <View style={{flex:1}}>
+                <Drawer
+                    visible={filterVisible}
+                    onFilterReturn = {this.onFilterReturn}
+                    list={filterList}
+                />
+                <Loading visible={loadingVisible} />
                 {
                     firstEnter?
                         <View style={styles.initial_container}>
@@ -207,14 +211,63 @@ class Courses extends React.Component {
                                 buttonTitle = '搜索'
                                 keyword={keyword}
                             />
+                            <View>
+                                <Button
+                                    icon={<Image
+                                        style={styles.filter}
+                                        source={{uri:'filter'}}
+                                    />}
+                                    containerStyle={styles.button}
+                                    titleStyle={styles.text}
+                                    onPress={this.showFilter}
+                                    type="clear"
+                                    title="筛选"
+                                />
+                                <View style={styles.tag_container}>
+                                    {
+                                        tagList.map((item,index) => {
+                                            return (
+                                                <View style={styles.tag_list} key={index}>
+                                                    {
+                                                        item.tag.length > 0 ?
+                                                            <Text style={styles.tag_type_text}>{item.type}:</Text>
+                                                            :
+                                                            null
+                                                    }
+                                                    {
+                                                        item.tag.map((tag) => {
+                                                            return (
+                                                                <Button
+                                                                    key={tag.name}
+                                                                    title={tag.name}
+                                                                    type="clear"
+                                                                    onPress={()=>this.deleteTag(item.type,index,tag)}
+                                                                    icon={<Image source={{uri:'cancel'}} style={{width:16,height:16}}/>}
+                                                                    iconRight={true}
+                                                                    containerStyle={styles.tag_button_container}
+                                                                    buttonStyle={styles.tag_button}
+                                                                    titleStyle={styles.tag_title}
+                                                                    TouchableComponent={TouchableWithoutFeedback}
+                                                                />
+                                                            )
+                                                        })
+                                                    }
+                                                </View>
+                                            )
+                                        })
+                                    }
+                                </View>
+                            </View>
                         </View>
                         :
                         <ImageBackground
                             style={{flex:1}}
-                            imageStyle={{resizeMode: 'cover'}}
                             source={{uri:'course_background'}}
+                            resizeMode='stretch'
                         >
-                            <View style={styles.container}>
+                            <View
+                                style={styles.container}
+                            >
                                 <View style={styles.search_container}>
                                     <View style={{flex:1}}>
                                         <Button
@@ -234,7 +287,8 @@ class Courses extends React.Component {
                                             onPress={(keyword) => this.search(keyword)}
                                             iconImage = 'search'
                                             buttonTitle = '搜索'
-                                            keyword={null}
+                                            keyword={keyword}
+                                            border={false}
                                         />
                                     </View>
                                 </View>
@@ -273,12 +327,12 @@ class Courses extends React.Component {
                                     }
                                 </View>
                             </View>
-                            <CourseList navigation = {this.props.navigation}/>
-                            <Drawer
-                                visible={filterVisible}
-                                onFilterReturn = {this.onFilterReturn}
-                                list={filterList}
-                            />
+                            <View style={styles.course_list_container}>
+                                <CourseList
+                                    course_list={course_list}
+                                    navigation = {this.props.navigation}
+                                />
+                            </View>
                         </ImageBackground>
                 }
             </View>
@@ -297,7 +351,7 @@ const styles = StyleSheet.create({
         height: 80,
     },
     container:{
-        paddingTop:15,
+        paddingVertical:10,
     },
     search_container:{
         flexDirection: 'row',
@@ -327,6 +381,7 @@ const styles = StyleSheet.create({
     tag_list:{
         flexDirection: 'row',
         alignItems: 'center',
+        flexWrap: 'wrap',
     },
     tag_type_text:{
         paddingHorizontal: 5,
@@ -343,10 +398,13 @@ const styles = StyleSheet.create({
     tag_title:{
         color: '#ff961e',
         fontSize: 15,
+    },
+    course_list_container:{
+        flex:1,
+        backgroundColor: 'white',
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
     }
 })
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Courses)
+export default Courses

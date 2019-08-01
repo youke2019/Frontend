@@ -23,7 +23,7 @@ import { praiseComment, sendCommentReply, unPraiseComment } from '../utils/DataR
     }
    }
   componentWillReceiveProps (nextProps, nextContext) {
-    const liked = nextProps.comment_info !== null ? nextProps.comment_info.current_user_praise : false;
+    const liked = nextProps.comment_info != null ? nextProps.comment_info.current_user_praise : false;
     this.setState({
       liked:liked,
     })

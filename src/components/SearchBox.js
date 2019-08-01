@@ -10,7 +10,7 @@ import {
 
 class SearchBox extends React.Component {
     state = {
-        keyword: ''
+        keyword: this.props.keyword
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
         height: 40,
         flexDirection: 'row',
         borderRadius: 20,
+        borderColor: 'grey',
         justifyContent: 'center',
         alignItems: 'center',
     },

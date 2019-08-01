@@ -107,7 +107,7 @@ describe('functions', () => {
         wrapper.setState({
             questions: []
         })
-        wrapper.instance().refresh()
+        wrapper.instance().flush()
         expect(wrapper.state('questions')).toHaveLength(0)
 
         const promise = new Promise(
