@@ -132,8 +132,8 @@ export function arrange(data) {
     }
     else{
         arrangeMandatory();
-        if(mResult === null)
-            return null;
+        if(mResult.length === 0)
+            return mResult;
         else{
             return arrangeOptional();
         }
