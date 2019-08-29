@@ -4,7 +4,9 @@ import {
     View,
     Image,
     ImageBackground,
-    Text, TouchableWithoutFeedback,
+    Text,
+    TouchableWithoutFeedback,
+    TouchableOpacity,
 } from "react-native";
 import {Button, Input} from "react-native-elements"
 import Drawer from '../components/Drawer'
@@ -45,7 +47,14 @@ class Courses extends React.Component {
         return false
     }
 
-    search = (keyword) => {
+    updateKeyword = (keyword) => {
+        this.setState({
+            keyword: keyword
+        })
+    }
+
+    search = () => {
+        let keyword = this.state.keyword
         const {filterList} = this.state
 
         if (keyword != '' || this.filterNotEmpty()) {
@@ -206,22 +215,29 @@ class Courses extends React.Component {
                                 source={{uri:'logo'}}
                             />
                             <SearchBox
-                                onPress={(keyword) => this.search(keyword)}
                                 iconImage = 'search'
-                                buttonTitle = '搜索'
                                 keyword={keyword}
+                                textChange={this.updateKeyword}
                             />
-                            <View>
+                            <View style={{width: 300}}>
+                                <View style={styles.button_container}>
+                                    <Button
+                                        containerStyle={styles.button}
+                                        titleStyle={{fontSize: 20, color: 'black', fontFamily: '字魂95号-手刻宋'}}
+                                        onPress={this.search}
+                                        type="clear"
+                                        title="搜索"
+                                    />
+                                </View>
                                 <Button
                                     icon={<Image
                                         style={styles.filter}
                                         source={{uri:'filter'}}
                                     />}
-                                    containerStyle={styles.button}
-                                    titleStyle={styles.text}
+                                    titleStyle={{fontSize: 12,color: 'black'}}
                                     onPress={this.showFilter}
                                     type="clear"
-                                    title="筛选"
+                                    title="添加筛选条件"
                                 />
                                 <View style={styles.tag_container}>
                                     {
@@ -275,7 +291,6 @@ class Courses extends React.Component {
                                                 style={styles.filter}
                                                 source={{uri:'filter'}}
                                             />}
-                                            containerStyle={styles.button}
                                             titleStyle={styles.text}
                                             onPress={this.showFilter}
                                             type="clear"
@@ -358,8 +373,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     button_container:{
-        justifyContent: 'center',
+        flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'center',
+    },
+    button:{
+        backgroundColor: '#FDD32A',
+        paddingHorizontal: 50,
+        paddingVertical: 2,
+        marginBottom: 16,
+        borderRadius: 100,
     },
     filter_container:{
         flex: 1,
@@ -367,8 +390,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     filter:{
-        height: 15,
-        width: 15,
+        height: 10,
+        width: 10,
+        marginRight: 5
     },
     text:{
         color: 'black',

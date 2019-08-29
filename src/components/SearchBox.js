@@ -26,6 +26,7 @@ class SearchBox extends React.Component {
     render() {
         const {
             onPress = () => {},
+            textChange = () => {},
             iconImage = '',
             buttonTitle = '',
             containerStyle={},
@@ -47,24 +48,35 @@ class SearchBox extends React.Component {
                     </View>
                     <TextInput
                         style={styles.search_text}
-                        onChangeText={this.updateKeyword}
+                        onChangeText={(keyword) => {
+                            textChange(keyword)
+                            this.updateKeyword(keyword)}}
                         value={this.state.keyword}
                     />
                 </View>
-                <View style={styles.button_container}>
-                    <TouchableOpacity
-                        onPress={() => onPress(this.state.keyword)}
-                        style={[styles.button,buttonStyle]}
-                    >
-                        <Text style={styles.button_text}>{buttonTitle}</Text>
-                    </TouchableOpacity>
-                </View>
+                {
+                    buttonTitle ?
+                        <View style={styles.button_container}>
+                            <TouchableOpacity
+                                onPress={() => onPress(this.state.keyword)}
+                                style={[styles.button,buttonStyle]}
+                            >
+                                <Text style={styles.button_text}>{buttonTitle}</Text>
+                            </TouchableOpacity>
+                        </View>
+                        :
+                        null
+                }
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    round:{
+        backgroundColor: '#FDD32A',
+        borderRadius: 20,
+    },
     container:{
         height:80,
         flexDirection: 'row',
@@ -73,7 +85,7 @@ const styles = StyleSheet.create({
     },
     search_container_background:{
         flex:7,
-        marginLeft: 12,
+        marginHorizontal: 12,
         height: 40,
         flexDirection: 'row',
         borderRadius: 20,
