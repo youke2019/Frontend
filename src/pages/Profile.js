@@ -8,8 +8,7 @@ import {
 } from "react-native";
 import {Avatar} from 'react-native-elements'
 import {connect} from "react-redux";
-import ListItem from "../components/ListItem";
-
+import ListItem from "../components/ListItem"
 
 const mapStateToProps = state => {
     return {
@@ -18,19 +17,36 @@ const mapStateToProps = state => {
 }
 
 class Profile extends React.Component {
+    constructor (props){
+        super(props);
+        console.log(props)
+        this.state = {
+            user: props.user,
+        };
+    }
+
     gotoProfileSetting = () =>{
-        this.props.navigation.navigate("ProfileSetting");
+        this.props.navigation.navigate("ProfileSetting")
+        const willFocusSubscription = this.props.navigation.addListener(
+            'willFocus',
+            data => {
+                this.setState({
+                    user: this.props.user
+                })
+                willFocusSubscription.remove()
+            }
+        );
     }
 
     gotoAbout = () =>{
-        this.props.navigation.navigate("About");
+        this.props.navigation.navigate("About")
     }
 
     gotoSetting = () =>{
-        this.props.navigation.navigate("Setting");
+        this.props.navigation.navigate("Setting")
     }
     render() {
-        const {user} = this.props;
+        const {user} = this.state
 
         return (
             <View style={styles.container}>
@@ -45,18 +61,18 @@ class Profile extends React.Component {
                                 rounded
                                 source={{uri: user.avatar_url}}
                             />
-                            <View>
+                            <View style={styles.user_name_container}>
+                                <Text>{user == null ? null : user.nickname}</Text>
                                 <View style={styles.info}>
-                                    <Text>{user == null ? null : user.nickname}</Text>
                                     <Image
                                         source={{uri: user.sex == 'M' ? 'male' : 'female'}}
                                         style={styles.gender}
                                     />
+                                    <Image
+                                        source={{uri:'insignia'}}
+                                        style={styles.insignia}
+                                    />
                                 </View>
-                                <Image
-                                    source={{uri:'insignia'}}
-                                    style={styles.insignia}
-                                />
                             </View>
                         </View>
                         <Image
@@ -102,7 +118,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingTop: 36,
-        paddingBottom: 20,
         paddingRight: 10,
         paddingLeft:  20,
     },
@@ -110,19 +125,22 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
+    user_name_container:{
+        width: 200,
+        marginHorizontal: 20,
+    },
     info:{
-        paddingLeft: 20,
-        paddingBottom: 5,
+        paddingHorizontal: 10,
+        paddingVertical: 12,
         flexDirection: 'row',
         alignItems: 'center',
     },
     gender:{
-        margin: 5,
         width: 13,
         height: 13,
     },
     insignia:{
-        marginLeft: 20,
+        marginLeft: 10,
         width: 13,
         height: 13,
     },

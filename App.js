@@ -1,6 +1,5 @@
 /**
  * Yoke
- *
  * @format
  * @flow
  */

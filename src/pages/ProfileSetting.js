@@ -54,11 +54,13 @@ class ProfileSetting extends React.Component {
   updateNickname = (text) => {
     let new_user_info = this.state.user_info;
     new_user_info.nickname = text;
-    console.log(text)
     axios.post(baseUrl+ "/users/update",new_user_info)
       .then((response)=> {
       if (response.data.success) {
         this.props.updateUserInfo(new_user_info);
+        this.setState({
+          user_info: this.props.user_info
+        })
       }else{
         if(response.data.error_msg === "Duplicate Nickname"){
           EmitError({error_msg: "名字重复了哦!"})
@@ -79,16 +81,19 @@ class ProfileSetting extends React.Component {
       sendHighlightImg(file).then(response =>{
         let new_user_info = this.state.user_info
         new_user_info.avatar_url = response.data
-        console.log(new_user_info)
 
         axios({
           method: 'post',
           url: baseUrl + "/users/update",
           data: new_user_info
         }).then((response)=> {
-          console.log(response)
-          if (response.data.success)
+          if (response.data.success){
             this.props.updateUserInfo(new_user_info)
+            this.setState({
+              user_info: this.props.user_info
+            })
+          }
+
         }).catch(err=>console.log(err))
         console.log(response.data)
       }).catch(err=>console.log(err))
@@ -96,7 +101,7 @@ class ProfileSetting extends React.Component {
   }
 
   render() {
-    const {user_info} = this.props;
+    const {user_info} = this.state;
     return (
       <View style={styles.container}>
         <ListItem
@@ -115,10 +120,11 @@ class ProfileSetting extends React.Component {
         />
         <ListItem
           title = "昵称"
-          rightSubtitle={user_info.nickname}
+          rightTitle={user_info.nickname}
           onPress = {this.pressNickname}
           bottomDivider={true}
-          rightSubtitleStyle={styles.right_text}
+          rightContentContainerStyle={styles.rightContentContainerStyle}
+          rightTitleStyle={styles.right_text}
           rightIcon={<Image
               source={{uri:'right_arrow'}}
               style={styles.arrow_image}
@@ -126,21 +132,24 @@ class ProfileSetting extends React.Component {
         />
         <ListItem
             title = "姓名"
-            rightSubtitle={user_info.name}
+            rightTitle={user_info.name}
             bottomDivider={true}
-            rightSubtitleStyle={styles.right_text}
+            rightContentContainerStyle={styles.rightContentContainerStyle}
+            rightTitleStyle={styles.right_text}
         />
         <ListItem
             title = "学院"
-            rightSubtitle={user_info.department}
+            rightTitle={user_info.department}
             bottomDivider={true}
-            rightSubtitleStyle={styles.right_text}
+            rightContentContainerStyle={styles.rightContentContainerStyle}
+            rightTitleStyle={styles.right_text}
         />
         <ListItem
             title = "专业"
-            rightSubtitle={user_info.major}
+            rightTitle={user_info.major}
             bottomDivider={true}
-            rightSubtitleStyle={styles.right_text}
+            rightContentContainerStyle={styles.rightContentContainerStyle}
+            rightTitleStyle={styles.right_text}
         />
       </View>
     );
@@ -152,7 +161,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   right_text:{
-    textAlign: 'right'
+    textAlign: 'right',
+    lineHeight: 20,
+    fontSize: 15,
+  },
+  rightContentContainerStyle:{
+    flex: 3,
   },
   arrow_image:{
     width:20,
