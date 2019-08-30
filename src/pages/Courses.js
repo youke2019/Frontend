@@ -6,7 +6,7 @@ import {
     ImageBackground,
     Text,
     TouchableWithoutFeedback,
-    TouchableOpacity,
+    ScrollView
 } from "react-native";
 import {Button, Input} from "react-native-elements"
 import Drawer from '../components/Drawer'
@@ -304,48 +304,17 @@ class Courses extends React.Component {
                                             buttonTitle = '搜索'
                                             keyword={keyword}
                                             border={false}
+                                            textChange={this.updateKeyword}
                                         />
                                     </View>
-                                </View>
-                                <View style={styles.tag_container}>
-                                    {
-                                        tagList.map((item,index) => {
-                                            return (
-                                                <View style={styles.tag_list} key={index}>
-                                                    {
-                                                        item.tag.length > 0 ?
-                                                            <Text style={styles.tag_type_text}>{item.type}:</Text>
-                                                            :
-                                                            null
-                                                    }
-                                                    {
-                                                        item.tag.map((tag) => {
-                                                            return (
-                                                                <Button
-                                                                    key={tag.name}
-                                                                    title={tag.name}
-                                                                    type="clear"
-                                                                    onPress={()=>this.deleteTag(item.type,index,tag)}
-                                                                    icon={<Image source={{uri:'cancel'}} style={{width:16,height:16}}/>}
-                                                                    iconRight={true}
-                                                                    containerStyle={styles.tag_button_container}
-                                                                    buttonStyle={styles.tag_button}
-                                                                    titleStyle={styles.tag_title}
-                                                                    TouchableComponent={TouchableWithoutFeedback}
-                                                                />
-                                                            )
-                                                        })
-                                                    }
-                                                </View>
-                                            )
-                                        })
-                                    }
                                 </View>
                             </View>
                             <View style={styles.course_list_container}>
                                 <CourseList
                                     course_list={course_list}
                                     navigation = {this.props.navigation}
+                                    tagList = {tagList}
+                                    deleteTag = {this.deleteTag}
                                 />
                             </View>
                         </ImageBackground>
@@ -401,6 +370,8 @@ const styles = StyleSheet.create({
     tag_container:{
         flexDirection: 'row',
         flexWrap: 'wrap',
+        paddingTop: 10,
+        paddingLeft: 18,
     },
     tag_list:{
         flexDirection: 'row',
@@ -420,7 +391,7 @@ const styles = StyleSheet.create({
         padding: 5,
     },
     tag_title:{
-        color: '#ff961e',
+        color: '#FF9611',
         fontSize: 15,
     },
     course_list_container:{

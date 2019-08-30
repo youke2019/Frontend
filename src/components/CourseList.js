@@ -2,16 +2,26 @@ import React from "react";
 import {
     View,
     Text,
-    FlatList,
+    SectionList,
     Image,
     ImageBackground,
     StyleSheet,
-    TouchableOpacity,
+    TouchableOpacity, TouchableWithoutFeedback,
 } from "react-native";
-import {Divider} from 'react-native-elements';
+import {Button, Divider} from 'react-native-elements';
 import Detail from "../pages/Detail";
 
 class CourseList extends React.Component {
+    state = {
+        tagList: this.props.tagList
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.setState({
+            tagList: nextProps.tagList
+        })
+    }
+
     onClick = (item) => {
       this.props.navigation.navigate('Detail', {
         course_id: item.course_id
@@ -19,12 +29,50 @@ class CourseList extends React.Component {
     }
 
     render() {
+        const {tagList=[]} = this.state
+        const {deleteTag = () => {}} = this.props
         return (
             <View style={styles.container}>
                 {
                     this.props.course_list.length > 0?
-                        <FlatList
-                            data={this.props.course_list}
+                        <SectionList
+                            sections={[{title: 'courseList', data:this.props.course_list}]}
+                            renderSectionHeader={() =>
+                                <View style={styles.tag_container}>
+                                    {
+                                        tagList.map((item,index) => {
+                                            return (
+                                                <View style={styles.tag_list} key={index}>
+                                                    {
+                                                        item.tag.length > 0 ?
+                                                            <Text style={styles.tag_type_text}>{item.type}:</Text>
+                                                            :
+                                                            null
+                                                    }
+                                                    {
+                                                        item.tag.map((tag) => {
+                                                            return (
+                                                                <Button
+                                                                    key={tag.name}
+                                                                    title={tag.name}
+                                                                    type="clear"
+                                                                    onPress={()=>deleteTag(item.type,index,tag)}
+                                                                    icon={<Image source={{uri:'cancel'}} style={{width:16,height:16}}/>}
+                                                                    iconRight={true}
+                                                                    containerStyle={styles.tag_button_container}
+                                                                    buttonStyle={styles.tag_button}
+                                                                    titleStyle={styles.tag_title}
+                                                                    TouchableComponent={TouchableWithoutFeedback}
+                                                                />
+                                                            )
+                                                        })
+                                                    }
+                                                </View>
+                                            )
+                                        })
+                                    }
+                                </View>
+                            }
                             renderItem={({item}) =>
                                 <ImageBackground
                                     style={styles.card_container}
@@ -86,12 +134,48 @@ class CourseList extends React.Component {
                             keyExtractor={(item) => item.course_id.toString()}
                         />
                         :
-                        <View style={styles.empty_container}>
-                            <Image
-                                source={{uri:'empty'}}
-                                style={styles.icon}
-                            />
-                            <Text>没有找到您要的课，请重新搜索</Text>
+                        <View>
+                            <View style={styles.tag_container}>
+                                {
+                                    tagList.map((item,index) => {
+                                        return (
+                                            <View style={styles.tag_list} key={index}>
+                                                {
+                                                    item.tag.length > 0 ?
+                                                        <Text style={styles.tag_type_text}>{item.type}:</Text>
+                                                        :
+                                                        null
+                                                }
+                                                {
+                                                    item.tag.map((tag) => {
+                                                        return (
+                                                            <Button
+                                                                key={tag.name}
+                                                                title={tag.name}
+                                                                type="clear"
+                                                                onPress={()=>deleteTag(item.type,index,tag)}
+                                                                icon={<Image source={{uri:'cancel'}} style={{width:16,height:16}}/>}
+                                                                iconRight={true}
+                                                                containerStyle={styles.tag_button_container}
+                                                                buttonStyle={styles.tag_button}
+                                                                titleStyle={styles.tag_title}
+                                                                TouchableComponent={TouchableWithoutFeedback}
+                                                            />
+                                                        )
+                                                    })
+                                                }
+                                            </View>
+                                        )
+                                    })
+                                }
+                            </View>
+                            <View style={styles.empty_container}>
+                                <Image
+                                    source={{uri:'empty'}}
+                                    style={styles.icon}
+                                />
+                                <Text>没有找到您要的课，请重新搜索</Text>
+                            </View>
                         </View>
                 }
             </View>
@@ -101,20 +185,19 @@ class CourseList extends React.Component {
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
         justifyContent: 'center',
         alignItems: 'center',
     },
     card_container:{
-        width:330,
         height:200,
-        padding: 60,
+        marginHorizontal: 15,
         justifyContent: 'center',
         alignItems: 'center',
     },
     card:{
         width: 300,
         height: 160,
+        paddingHorizontal: 15,
     },
     header:{
         flex: 1,
@@ -177,7 +260,36 @@ const styles = StyleSheet.create({
     empty_container:{
         flexDirection: 'row',
         alignItems: 'center',
-    }
+        justifyContent: 'center',
+        height: 240,
+    },
+    tag_container:{
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        paddingTop: 10,
+        paddingHorizontal: 20,
+    },
+    tag_list:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+    },
+    tag_type_text:{
+        paddingHorizontal: 5,
+    },
+    tag_button_container:{
+        padding:5,
+    },
+    tag_button:{
+        borderColor: '#FDAF26',
+        borderWidth: 1,
+        borderRadius: 30,
+        padding: 5,
+    },
+    tag_title:{
+        color: '#FF9611',
+        fontSize: 15,
+    },
 })
 
 export default CourseList
