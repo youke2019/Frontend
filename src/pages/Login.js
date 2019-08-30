@@ -101,12 +101,12 @@ class Login extends React.Component {
 
     render() {
         return (
-            <ImageBackground
+            <View
                 style={{flex:1}}
-                source={require('../../public/images/bg.png')}
             >
                 <View style={styles.container}>
                     <Text style={styles.title}>有课</Text>
+                    <Text style={styles.content}>         一款旨在助力于课程信息流通，打通闭塞的课程信息，帮助同学们更好地选课的app。</Text>
                 </View>
                 <View style={styles.container}>
                     <Button
@@ -117,7 +117,7 @@ class Login extends React.Component {
                     />
                 </View>
                 <Loading visible={this.state.visible} />
-            </ImageBackground>
+            </View>
         )
     }
 }
@@ -126,21 +126,27 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     title:{
-        fontFamily: '字魂17号-萌趣果冻体',
-        fontSize: 90,
-        color: '#FFFEEE'
+        fontFamily: '字魂95号-手刻宋',
+        fontSize: 70,
+        color: '#080808'
+    },
+    content:{
+        paddingHorizontal: 30,
+        paddingTop: 50,
+        fontSize: 16,
+        lineHeight: 20,
     },
     button: {
-        backgroundColor: 'orange',
+        backgroundColor: '#FDD32A',
         width: 210,
     },
     text:{
-        fontFamily: '字魂70号-灵悦黑体',
-        fontSize: 25,
-        lineHeight: 25
+        fontSize: 18,
+        lineHeight: 25,
+        color: '#080808'
     }
 })
 
