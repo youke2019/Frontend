@@ -118,6 +118,5 @@ const styles = StyleSheet.create({
     borderTopWidth: 15,
     borderTopColor: 'whitesmoke',
     marginBottom: 10,
-    paddingHorizontal: 27,
   }
 })
