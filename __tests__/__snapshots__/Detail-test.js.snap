@@ -1520,7 +1520,6 @@ exports[`renders detail page correctly 1`] = `
             "borderTopColor": "whitesmoke",
             "borderTopWidth": 15,
             "marginBottom": 10,
-            "paddingHorizontal": 20,
           }
         }
       >
@@ -1779,7 +1778,13 @@ exports[`renders detail page correctly 1`] = `
             </View>
           </View>
         </View>
-        <View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 20,
+            }
+          }
+        >
           <View>
             <View
               style={
@@ -2039,7 +2044,7 @@ exports[`renders detail page correctly 1`] = `
             "borderTopColor": "whitesmoke",
             "borderTopWidth": 15,
             "marginBottom": 10,
-            "paddingHorizontal": 27,
+            "paddingHorizontal": 0,
           }
         }
       >
@@ -2298,7 +2303,13 @@ exports[`renders detail page correctly 1`] = `
             </View>
           </View>
         </View>
-        <View>
+        <View
+          style={
+            Object {
+              "marginHorizontal": 20,
+            }
+          }
+        >
           <View
             style={
               Object {
@@ -4332,7 +4343,6 @@ exports[`renders detail page correctly 2`] = `
             "borderTopColor": "whitesmoke",
             "borderTopWidth": 15,
             "marginBottom": 10,
-            "paddingHorizontal": 20,
           }
         }
       >
@@ -4591,7 +4601,13 @@ exports[`renders detail page correctly 2`] = `
             </View>
           </View>
         </View>
-        <View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 20,
+            }
+          }
+        >
           <View>
             <View
               style={
@@ -4851,7 +4867,7 @@ exports[`renders detail page correctly 2`] = `
             "borderTopColor": "whitesmoke",
             "borderTopWidth": 15,
             "marginBottom": 10,
-            "paddingHorizontal": 27,
+            "paddingHorizontal": 0,
           }
         }
       >
@@ -5110,7 +5126,13 @@ exports[`renders detail page correctly 2`] = `
             </View>
           </View>
         </View>
-        <View>
+        <View
+          style={
+            Object {
+              "marginHorizontal": 20,
+            }
+          }
+        >
           <View
             style={
               Object {

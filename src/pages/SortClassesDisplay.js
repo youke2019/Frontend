@@ -40,9 +40,8 @@ class SortClassesDisplay extends React.Component {
 
   timePick = () => {
     let range = [];
-    for(let i =1;i <= this.state.max; i ++)
+    for(let i =1;i <= this.state.max + 1; i ++)
       range.push(i)
-    console.log(range)
     Picker.init({
       pickerTitleText:'选择方案(最多显示前15条)',
       pickerCancelBtnText:'取消',
@@ -50,9 +49,8 @@ class SortClassesDisplay extends React.Component {
       pickerData: range,
       selectedValue: [this.state.num],
       onPickerConfirm: data => {
-        console.log(data)
         this.setState({
-          num: parseInt(data[0])
+          num: parseInt(data[0]) -1
         })
       },
     });

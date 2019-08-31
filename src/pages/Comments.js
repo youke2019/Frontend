@@ -93,7 +93,7 @@ export default class Comments extends React.Component {
             {
               comments.map((item, index) =>(
                   <View key={index} style={styles.comment}>
-                    <CommentItem comment_info={item} refresh={this.getCommentData} key={index}/>
+                    <CommentItem comment_info={item} refresh={this.getCommentData} key={index} user_info={this.state.user_info}/>
                   </View>))
             }
           </View>

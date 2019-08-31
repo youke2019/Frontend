@@ -19,15 +19,7 @@ class Detail extends React.Component {
         'willFocus',
         this.refresh
       )
-        const params = this.props.navigation.state.params;
-        getCourseById(params)
-          .then((response) => {
-          this.setState({
-            courseInfo:response.data
-          })
-        }).catch(error => {
-            EmitError({ error_msg:"获取课程信息时发生了错误" })
-        })
+      this.refresh();
     }
     refresh =()=>{
       const params = this.props.navigation.state.params;
@@ -155,14 +147,6 @@ const styles = StyleSheet.create({
   },
   course_name: {
     flex:5
-  },
-  title_container:{
-    height:25,
-    marginTop:20,
-    marginLeft:20,
-    justifyContent:'flex-start',
-    flexDirection: 'row',
-    display:'flex',
   },
   box:{
     borderStyle: 'dashed',

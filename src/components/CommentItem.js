@@ -6,7 +6,6 @@ import {
   StyleSheet,
   TouchableOpacity
 } from "react-native"
-import axios from 'axios'
 import ReplyBox from './ReplyBox'
 import { UserIdText } from './UserIdText'
 import { praiseComment, sendCommentReply, unPraiseComment } from '../utils/DataRequest'
@@ -53,6 +52,7 @@ import { praiseComment, sendCommentReply, unPraiseComment } from '../utils/DataR
         user_id: user_info.id,
         course_comment_id: comment_info.course_comment_id,
       }).then((response) => {
+        console.log("resfresh")
         this.props.refresh();
       }).catch((err) => {console.log(err);})
     }else {
@@ -72,7 +72,7 @@ import { praiseComment, sendCommentReply, unPraiseComment } from '../utils/DataR
 
     const {reply_visible} = this.state;
     return (
-      <View>
+      <View >
       {
         comment_info === null ?
           (<View style = {styles.empty_container}>
