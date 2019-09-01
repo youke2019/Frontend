@@ -33,6 +33,7 @@ export default class EvaluationAbstract extends React.Component{
     getEvaluationById({
       course_id: this.props.course_id
     }).then(res=>{
+
       this.setState({
         evaluations: res.data
       })

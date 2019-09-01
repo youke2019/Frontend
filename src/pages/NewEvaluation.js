@@ -16,7 +16,7 @@ import {Image} from "react-native-elements";
 class NewEvaluation extends React.Component {
     state = {
         post: {
-            credit_point: null,
+            evaluate_point: null,
         },
         descriptions: [],
         count: 0
@@ -49,7 +49,7 @@ class NewEvaluation extends React.Component {
 
     postEvaluation = () => {
         if (
-            this.state.post.credit_point == null
+            this.state.post.evaluate_point == null
             || this.state.post.授课教师 == null
             || this.state.post.老师评价 == null
             || this.state.post.考核形式及难度 == null
@@ -68,7 +68,8 @@ class NewEvaluation extends React.Component {
 
             data = Object.assign({}, data, this.state.post)
 
-            axios.post(baseUrl+'/courses/evaluates/add', data).then(()=>{
+            axios.post(baseUrl+'/courses/evaluates/add', data).then((response)=>{
+              console.log(response)
                 this.props.navigation.navigate("Evaluations")
             }).catch(err=>{
                 console.log(err)
@@ -119,7 +120,7 @@ class NewEvaluation extends React.Component {
                             <Text style={[styles.star_text,styles.title]}>请对课程进行评分</Text>
                             <Rating
                                 selected={true}
-                                onUpdate={(rating) => this.setData('credit_point',rating)}
+                                onUpdate={(rating) => this.setData('evaluate_point',rating)}
                             />
                         </View>
                         <View style={[styles.card_container,styles.border]}>

@@ -51,7 +51,7 @@ export default class QAAbstract extends React.Component {
     return (
       <View style={styles.container}>
         <QAAbstractTitle/>
-        <View style={styles.first_comm}>
+        <View style={styles.first_qa}>
           {
             firstQuest != null ?
             <QuestionCard
@@ -82,7 +82,7 @@ export default class QAAbstract extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-  first_ev: {
+  first_qa: {
     marginHorizontal: 20,
   },
   button_text: {

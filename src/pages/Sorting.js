@@ -7,6 +7,7 @@ import Swipeout from 'react-native-swipeout'
 import { arrange } from '../utils/arrangeDec'
 import { Overlay } from 'react-native-elements'
 import StackNavBar from '../components/StackNavBar'
+import { EmitError } from '../utils/ErrorAlert'
 
 const week = ['', '一', '二', '三', '四', '五', '六', '日']
 
@@ -339,6 +340,10 @@ class Sorting extends React.Component {
       return reducedItem
     })
     let result = arrange(reducedList)
+    if(result.length === 0){
+      EmitError({error_msg:'没有选择'})
+      return;
+    }
     this.props.navigation.navigate("SortClassesDisplay",{
       result: result
     })

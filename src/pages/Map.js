@@ -86,7 +86,8 @@ class Map extends React.Component {
             method: 'get',
             url: baseUrl + "/time/week"
         }).then((response => {
-            this.setState({ week: response.data })
+            this.setState({ week: 1 })
+            // this.setState({ week: response.data })
             loadData({
                 key: 'lessons'
             }).then(data => {

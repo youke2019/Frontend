@@ -48,7 +48,6 @@ export default class CommentAbstract extends React.Component {
 
   render () {
     const firstComm = this.state.comments.length === 0 ? null : this.state.comments[0]
-
     return (
       <View style={styles.container}>
         <CommentAbstractTitle/>
@@ -75,8 +74,8 @@ export default class CommentAbstract extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-  first_ev: {
-    marginHorizontal: 20
+  first_comm: {
+    paddingHorizontal: 20,
   },
   button_text: {
     color: '#ff812e',

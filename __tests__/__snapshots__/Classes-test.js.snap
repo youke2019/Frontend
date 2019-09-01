@@ -294,9 +294,7 @@ exports[`renders classes page correctly 1`] = `
                   "fontFamily": "citydmed",
                   "fontSize": 16,
                 },
-                Object {
-                  "color": "orange",
-                },
+                null,
               ]
             }
           >
@@ -330,7 +328,9 @@ exports[`renders classes page correctly 1`] = `
                   "fontFamily": "citydmed",
                   "fontSize": 16,
                 },
-                null,
+                Object {
+                  "color": "orange",
+                },
               ]
             }
           >

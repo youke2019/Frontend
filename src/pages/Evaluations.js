@@ -38,6 +38,7 @@ class Evaluations extends React.Component {
         axios.get(baseUrl+'/courses/evaluates/find',{
             params:{
                 course_id: this.props.navigation.state.params.course_info.course_id,
+                user_id: this.props.user_id
             }
         }).then(res=>{
             this.setState({
@@ -55,6 +56,7 @@ class Evaluations extends React.Component {
     }
 
     postEvaluation = () => {
+        console.log(this.props.user_id)
         this.props.navigation.navigate("NewEvaluation", {
             course_info: this.props.navigation.state.params.course_info,
             user_id: this.props.user.id

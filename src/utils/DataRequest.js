@@ -98,7 +98,7 @@ export const sendCommentReply = (course_comment_id, user_id, course_comment_repl
     }
   })
 }
-export const getCommentById = (course_id, user_id) => {
+export const getCommentById = ({course_id, user_id}) => {
   return axios({
     method: 'get',
     url: baseUrl + '/courses/comments/find',
@@ -108,14 +108,14 @@ export const getCommentById = (course_id, user_id) => {
     }
   })
 }
-export const getEvaluationById = (course_id, user_id) => {
+export const getEvaluationById = ({course_id, user_id}) => {
   return axios.get(baseUrl + '/courses/evaluates/find', {
     params: {
       course_id: course_id
     }
   })
 }
-export const getQAbyId = (course_id, user_id) => {
+export const getQAbyId = ({course_id, user_id}) => {
   return axios.get(baseUrl + '/courses/questions/find', {
     params: {
       course_id: course_id,
@@ -123,7 +123,7 @@ export const getQAbyId = (course_id, user_id) => {
     }
   })
 }
-export const praiseComment = (user_id, course_comment_id) => {
+export const praiseComment = ({user_id, course_comment_id}) => {
   return axios({
     method: 'get',
     url: baseUrl + '/courses/comments/praise',
@@ -133,7 +133,7 @@ export const praiseComment = (user_id, course_comment_id) => {
     }
   })
 }
-export const unPraiseComment = (user_id, course_comment_id) => {
+export const unPraiseComment = ({user_id, course_comment_id}) => {
   return axios({
     method: 'get',
     url: baseUrl + '/courses/comments/unpraise',
@@ -164,7 +164,7 @@ module.exports = {
   commentHighlight: commentHighlight,
   sendCommentReply: sendCommentReply,
   sendAvatarImg: sendAvatarImg,
-  getCommentById: getCourseById,
+  getCommentById: getCommentById,
   getEvaluationById: getEvaluationById,
   getQAbyId: getQAbyId,
   praiseComment: praiseComment,
