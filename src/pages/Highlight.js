@@ -3,11 +3,12 @@ import { Image, FlatList, Text, View, ScrollView, TouchableOpacity, StyleSheet }
 import { connect } from 'react-redux'
 import { Divider } from 'react-native-elements'
 import HighlightCard from '../components/HighlightCard'
-import { getAllHighlight } from '../utils/DataRequest'
+import { getAllHighlight, getNumberHighlight } from '../utils/DataRequest'
 
 class Highlight extends React.Component {
   state = {
     highlights: [],
+    receivedAll: false,
     is_refreshing:false,
   }
   newHighlight = () => {
@@ -17,28 +18,53 @@ class Highlight extends React.Component {
     })
   }
   componentDidMount () {
-    this.getData()
+    this.getMoreData(20)
   }
 
   refresh = () => {
-    this.getData()
+    this.refreshData()
   }
-  getData = () => {
+  getMoreData = (size)=>{
+    const {highlights,receivedAll} = this.state
+    if(receivedAll) return;
+    const currNum = highlights.length
+    this.setState(({
+      is_refreshing: true
+    }))
+    getNumberHighlight(currNum, size, this.props.user_info.id)
+      .then(response =>{
+        this.setState({
+          highlights: highlights.concat(response.data),
+          is_refreshing:false,
+        })
+        if(response.data.length < size)
+          this.setState({receivedAll:true})
+      })
+      .catch(err =>{
+        console.log(err)
+        this.setState({ is_refreshing: false })
+      })
+  }
+  getTenMoreData=()=>{
+    this.getMoreData(10);
+  }
+
+  refreshData = () => {
+    const {highlights} = this.state
+    const currNum = highlights.length
     this.setState({
       is_refreshing: true
     })
-    getAllHighlight(this.props.user_info.id)
+    getNumberHighlight(0,currNum,this.props.user_info.id)
       .then((response) => {
         console.log(response)
         this.setState({
           highlights: response.data,
-          is_refreshing: false
-        })
-      })
+          is_refreshing: false,
+          receivedAll:false,
+        })}) //刷新后，允许新的数据加入
       .catch(err => {
-        this.setState({
-          is_refreshing: false
-        })
+        this.setState({ is_refreshing: false })
         console.log(err)
       })
   }
@@ -72,6 +98,8 @@ class Highlight extends React.Component {
           style={{ height: '100%', width: '100%' }}
           keyboardShouldPersistTaps={'handled'}
           refreshing={is_refreshing}
+          onEndReached={this.getTenMoreData}
+          onEndReachedThreshold={0.8}
           onRefresh={this.refresh}
           data={highlights}
           renderItem={this._renderItem}

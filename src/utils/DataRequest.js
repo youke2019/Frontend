@@ -16,6 +16,17 @@ export const getAllHighlight = (user_id) => {
     }
   })
 }
+export const getNumberHighlight = (base,size,user_id) =>{
+  return axios({
+    method:'get',
+    url: baseUrl + "/courses/moments/find",
+    params: {
+      base: base,
+      size: size,
+      user_id: user_id,
+    }
+  })
+}
 export const praiseHighlight = (user_id, video_id) => {
   return axios({
     method: 'get',
@@ -156,6 +167,7 @@ export const getRecommend = (user_id,size) =>{
 module.exports = {
   sendHighlightImg: sendHighlightImg,
   getAllHighlight: getAllHighlight,
+  getNumberHighlight: getNumberHighlight,
   getCourseById: getCourseById,
   getUserById: getUserById,
   sendNewHighlight: sendNewHighlight,
