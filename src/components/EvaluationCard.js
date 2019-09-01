@@ -6,9 +6,9 @@ import {
     Image,
     TouchableOpacity,
 } from "react-native";
-import {Avatar} from "react-native-elements"
 import Rating from './Rating'
 import {UserIdText} from '../components/UserIdText'
+import {UserAvatarImg} from "./UserAvatarImg";
 
 class EvaluationCard extends React.Component {
     state = {
@@ -46,6 +46,7 @@ class EvaluationCard extends React.Component {
             showDetail,
         } = this.state
 
+        console.log(evaluation)
         return (
             <View
                 style={styles.background}
@@ -64,10 +65,10 @@ class EvaluationCard extends React.Component {
                         <View style={styles.star_icon_container}>
                             <Text style={styles.star_text}>评分:</Text>
                             <Rating
-                                rate={evaluation.evaluate_content.credit_point}
+                                rate={evaluation.evaluate_content.evaluate_point}
                             />
                         </View>
-                        <Text style={styles.star_number}>{evaluation.evaluate_content.credit_point}</Text>
+                        <Text style={styles.star_number}>{evaluation.evaluate_content.evaluate_point}</Text>
                     </View>
                     {
                         showDetail &&
@@ -91,10 +92,10 @@ class EvaluationCard extends React.Component {
                     }
                     <View style={styles.bottom}>
                         <View style={styles.user}>
-                            <Avatar
-                                size="small"
-                                rounded
-                                source={{uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'}}
+                            <UserAvatarImg
+                                style={styles.avatar}
+                                img_style={styles.avatar_img}
+                                user_id={data.user_id}
                             />
                             <UserIdText
                                 style={styles.user_name}
