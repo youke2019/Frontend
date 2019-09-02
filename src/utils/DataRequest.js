@@ -174,6 +174,15 @@ export const getHottest = (user_id, number)=>{
     }
   })
 }
+export const getNotices = (number)=>{
+  return axios({
+    method:'get',
+    url: baseUrl+ "/manager/systemMessage/find",
+    params:{
+      number:number,
+    }
+  })
+}
 module.exports = {
   sendHighlightImg: sendHighlightImg,
   getAllHighlight: getAllHighlight,
@@ -193,4 +202,5 @@ module.exports = {
   unPraiseComment: unPraiseComment,
   getRecommend: getRecommend,
   getHottest: getHottest,
+  getNotices: getNotices,
 }
