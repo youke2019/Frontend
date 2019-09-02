@@ -164,6 +164,16 @@ export const getRecommend = (user_id,size) =>{
     }
   })
 }
+export const getHottest = (user_id, number)=>{
+  return axios({
+    method:'get',
+    url: baseUrl + "/courses/hot",
+    params:{
+      user_id: user_id,
+      number : number,
+    }
+  })
+}
 module.exports = {
   sendHighlightImg: sendHighlightImg,
   getAllHighlight: getAllHighlight,
@@ -182,4 +192,5 @@ module.exports = {
   praiseComment: praiseComment,
   unPraiseComment: unPraiseComment,
   getRecommend: getRecommend,
+  getHottest: getHottest,
 }

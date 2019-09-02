@@ -7,17 +7,18 @@ import Carousel from 'react-native-snap-carousel'
 import { Divider } from 'react-native-elements'
 import { ShadowedTitle } from '../components/ShadowedTitle'
 import {BoxShadow} from 'react-native-shadow'
-import { getCommentById, getRecommend } from '../utils/DataRequest'
+import { getCommentById, getHottest, getRecommend } from '../utils/DataRequest'
 
 const MaxPatchNum = 30;
+const HottestNum = 3;
 const shadowOpt= {
   width: 130,
   height: 160,
   color: "#FDD32A",
-  border: 8,
+  border: 5,
   radius: 3,
   opacity: 0.1,
-  x: 0,
+  x: -1,
   y: 3,
   style: { width:'31%', marginVertical: 5 ,marginHorizontal:2,}
 }
@@ -33,9 +34,19 @@ class Home extends React.Component {
       /*  load Recommend when loading */
       getRecommend(this.props.user_info.id,MaxPatchNum)
         .then(response=>{
+          console.log(response)
           this.setState({
             all_recommends:response.data.map((item,index)=>{item.uri="recommend_"+(index%3 + 1); return item})
           })
+        })
+        .catch(err=>console.log(err))
+      /* load Hottest when loading*/
+      getHottest(this.props.user_info.id,HottestNum)
+        .then(response =>{
+          this.setState(({
+            hots : response.data
+          }))
+          console.log(response)
         })
         .catch(err=>console.log(err))
     }
@@ -55,14 +66,21 @@ class Home extends React.Component {
         main_pictures = ["cover_1","cover_2","cover_3","cover_0"],
         hots=[{
           uri:"course",
-          course_name:"国际商务英语",
-          course_id:"123",
+          course_name:"",
+          course_id:"",
+        },{
+          uri:"course",
+          course_name:"",
+          course_id:"",
+        },{
+          uri:"course",
+          course_name:"",
+          course_id:"",
         }],
         all_recommends=[],
         patchNum
       } = this.state;
       const recommends = all_recommends.slice(patchNum*3,patchNum*3+3)
-
         return (
           <ScrollView>
             <View style={styles.center_container}>
@@ -90,29 +108,41 @@ class Home extends React.Component {
               <View style={styles.hot_header}>
                 <ShadowedTitle text={"热门课程"} uri = {"home_hot"} />
                 <TouchableOpacity
-
                 >
-                  <Image source={{uri:"home_goto"}} style={{width:25,height:25,marginRight:25}}/>
-                </TouchableOpacity>
+                  <Image source={{uri:"home_goto"}} style={{width:0,height:0,marginRight:25}}/>
+                </TouchableOpacity
+>
               </View>
               <View style={styles.hot_body}>
                 <BoxShadow setting={shadowOpt}>
-                  <View style={styles.hot_item}>
-                    <Image style={styles.hot_img} source={{uri:hots[0].uri}}/>
+                  <TouchableOpacity
+                    style={styles.hot_item}
+                    activeOpacity={1}
+                    onPress={()=>{this.gotoDetail(hots[0].course_id)}}
+                  >
+                    <Image style={styles.hot_img} source={{uri:"course"}}/>
                     <Text style={styles.hot_text}> {hots[0].course_name}</Text>
-                  </View>
+                  </TouchableOpacity>
                 </BoxShadow>
                 <BoxShadow setting={shadowOpt}>
-                  <View style={styles.hot_item}>
-                    <Image style={styles.hot_img} source={{uri:hots[0].uri}}/>
-                    <Text style={styles.hot_text}> {hots[0].course_name}</Text>
-                  </View>
+                  <TouchableOpacity
+                    style={styles.hot_item}
+                    activeOpacity={1}
+                    onPress={()=>{if(hots[1]) this.gotoDetail(hots[1].course_id)}}
+                  >
+                    <Image style={styles.hot_img} source={{uri:"course"}}/>
+                    <Text style={styles.hot_text}> {hots[1] ? hots[1].course_name : ""}</Text>
+                  </TouchableOpacity>
                 </BoxShadow>
                 <BoxShadow setting={shadowOpt}>
-                <View style={styles.hot_item}>
-                  <Image style={styles.hot_img} source={{uri:hots[0].uri}}/>
-                  <Text style={styles.hot_text}> {hots[0].course_name}</Text>
-                </View>
+                  <TouchableOpacity
+                    style={styles.hot_item}
+                    activeOpacity={1}
+                    onPress={()=>{if(hots[2]) this.gotoDetail(hots[2].course_id)}}
+                  >
+                    <Image style={styles.hot_img} source={{uri:"course"}}/>
+                    <Text style={styles.hot_text}> {hots[2] ? hots[2].course_name : ""}</Text>
+                  </TouchableOpacity>
               </BoxShadow>
               </View>
               <View style={styles.hot_header}>

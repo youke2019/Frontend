@@ -104,7 +104,6 @@ class Detail extends React.Component {
                 <Icon name="md-calendar" style={styles.actionButtonIcon} />
               </ActionButton.Item>
             </ActionButton>
-
           </View>
         )
     }
