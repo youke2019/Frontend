@@ -47,7 +47,8 @@ class ProfileSetting extends React.Component {
     this.props.navigation.navigate('Edit',{
       onConfirm:this.updateNickname,
       hint: '昵称是用户在互动场景下的称谓',
-      user: this.props.user_info
+      user: this.props.user_info,
+      placeholder: this.props.user_info.nickname
     })
   }
 

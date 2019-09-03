@@ -45,6 +45,21 @@ class Profile extends React.Component {
     gotoSetting = () =>{
         this.props.navigation.navigate("Setting")
     }
+
+    editFeedback = () => {
+        this.props.navigation.navigate('Edit',{
+            onConfirm:this.postFeedback,
+            hint: '给我们反馈能够更好地完善您的体验噢',
+            user: this.props.user,
+            title: '反馈投诉',
+            returnText: '提交反馈'
+        })
+    }
+
+    postFeedback = () => {
+
+    }
+
     render() {
         const {user} = this.state
 
@@ -89,6 +104,7 @@ class Profile extends React.Component {
                         <ListItem
                             text='反馈投诉'
                             image='feedback'
+                            onPress={this.editFeedback}
                         />
                         <ListItem
                             text='推荐给好友'

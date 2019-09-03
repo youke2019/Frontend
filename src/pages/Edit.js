@@ -14,7 +14,9 @@ class Edit extends React.Component {
     })
 
     state = {
-        text: this.props.navigation.state.params.user.nickname
+        text: this.props.navigation.state.params.placeholder,
+        returnText: this.props.navigation.state.params.returnText,
+        title: this.props.navigation.state.params.title
     }
 
     onChangeText = (text) => {
@@ -28,18 +30,20 @@ class Edit extends React.Component {
     }
     render() {
         const {
-            navigation
+            navigation,
         } = this.props
 
         const {
-            text
+            text,
+            returnText = '保存',
+            title = '修改'
         } = this.state
         return (
             <View style={styles.container}>
                 <StackNavBar
                     navigation={navigation}
-                    title={'修改'}
-                    buttonText={'保存'}
+                    title={title}
+                    buttonText={returnText}
                     onPress={this.onConfirm}
                 />
                 <View style={styles.input_container}>
