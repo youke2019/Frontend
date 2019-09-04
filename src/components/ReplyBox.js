@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   inside_container:{
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'whitesmoke'
+    backgroundColor: 'white'
   }
 
 })

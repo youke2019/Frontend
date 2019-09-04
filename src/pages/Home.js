@@ -13,20 +13,21 @@ import Modal from 'react-native-modal'
 const MaxPatchNum = 30
 const HottestNum = 3
 const shadowOpt = {
-  width: 130,
+  width: 111,
   height: 160,
   color: '#FDD32A',
   border: 5,
   radius: 3,
   opacity: 0.1,
-  x: -1,
-  y: 3,
+  x: 0.5,
+  y: 1.5,
   style: { width: '31%', marginVertical: 5, marginHorizontal: 2 }
 }
 
 class Home extends React.Component {
   state = {
     patchNum: 0,
+    receivedNum:0,
     notice_visible: false,
     guide_visible:false,
     open_notice: {
@@ -50,7 +51,8 @@ class Home extends React.Component {
           all_recommends: response.data.map((item, index) => {
             item.uri = 'recommend_' + (index % 8)
             return item
-          })
+          }),
+          receivedNum: response.data.length,
         })
       })
       .catch(err => console.log(err))
@@ -80,9 +82,9 @@ class Home extends React.Component {
     })
   }
   changePatch = () => {
-    const { patchNum } = this.state
+    const { patchNum,receivedNum } = this.state
     this.setState({
-      patchNum: patchNum < (MaxPatchNum / 3 - 1) ? patchNum + 1 : 0
+      patchNum: patchNum < (receivedNum / 3 - 1) ? patchNum + 1 : 0
     })
   }
   render () {

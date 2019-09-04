@@ -95,7 +95,7 @@ class EvaluationCard extends React.Component {
                             <UserAvatarImg
                                 style={styles.avatar}
                                 img_style={styles.avatar_img}
-                                user_id={data.user_id}
+                                user_id={evaluation.user_id}
                             />
                             <UserIdText
                                 style={styles.user_name}
