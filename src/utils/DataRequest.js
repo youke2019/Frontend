@@ -16,6 +16,17 @@ export const getAllHighlight = (user_id) => {
     }
   })
 }
+export const getNumberHighlight = (base,size,user_id) =>{
+  return axios({
+    method:'get',
+    url: baseUrl + "/courses/moments/find",
+    params: {
+      base: base,
+      size: size,
+      user_id: user_id,
+    }
+  })
+}
 export const praiseHighlight = (user_id, video_id) => {
   return axios({
     method: 'get',
@@ -153,9 +164,29 @@ export const getRecommend = (user_id,size) =>{
     }
   })
 }
+export const getHottest = (user_id, number)=>{
+  return axios({
+    method:'get',
+    url: baseUrl + "/courses/hot",
+    params:{
+      user_id: user_id,
+      number : number,
+    }
+  })
+}
+export const getNotices = (number)=>{
+  return axios({
+    method:'get',
+    url: baseUrl+ "/manager/systemMessage/find",
+    params:{
+      number:number,
+    }
+  })
+}
 module.exports = {
   sendHighlightImg: sendHighlightImg,
   getAllHighlight: getAllHighlight,
+  getNumberHighlight: getNumberHighlight,
   getCourseById: getCourseById,
   getUserById: getUserById,
   sendNewHighlight: sendNewHighlight,
@@ -170,4 +201,6 @@ module.exports = {
   praiseComment: praiseComment,
   unPraiseComment: unPraiseComment,
   getRecommend: getRecommend,
+  getHottest: getHottest,
+  getNotices: getNotices,
 }

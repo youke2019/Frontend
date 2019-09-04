@@ -103,7 +103,8 @@ class HighlightCard extends React.Component {
       url: data.image_url,
       props: {}
     }]
-    const likeNum = data.courseMomentPraiseList.length
+    const likeNum = data.video_praise_point;
+    //const likeNum = data.courseMomentPraiseList.length
     return (
       <View style={styles.card_container}>
         <ReplyBox

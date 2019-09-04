@@ -6,7 +6,6 @@ import {
     ImageBackground,
     Text,
     TouchableWithoutFeedback,
-    ScrollView
 } from "react-native";
 import {Button, Input} from "react-native-elements"
 import Drawer from '../components/Drawer'

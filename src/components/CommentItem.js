@@ -9,6 +9,7 @@ import {
 import ReplyBox from './ReplyBox'
 import { UserIdText } from './UserIdText'
 import { praiseComment, sendCommentReply, unPraiseComment } from '../utils/DataRequest'
+import { UserAvatarImg } from './UserAvatarImg'
 
 
 
@@ -89,9 +90,11 @@ import { praiseComment, sendCommentReply, unPraiseComment } from '../utils/DataR
             <View style = {styles.container}>
               <View style ={styles.comment}>
                 <View style={styles.comment_header}>
-                  <View style ={styles.avatar} >
-                    <Image source = {{uri:"default_avatar_1"}} style={styles.avatar_img} />
-                  </View>
+                  <UserAvatarImg
+                    style={styles.avatar}
+                    img_style={styles.avatar_img}
+                    user_id={comment_info.user_id}
+                  />
                   <UserIdText style = {styles.user_id} user_id={comment_info.user_id}/>
                 </View>
                 <View style={styles.comment_body_container}>

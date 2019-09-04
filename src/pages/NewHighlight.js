@@ -107,7 +107,7 @@ export default class NewHighlight extends Component {
       .catch(err => console.log(err))
   }
   saveUploadFile = (file)=>{
-    const imageTypes = ["image/gif", "image/x-png", "image/pjpeg", "image/jpeg", "image/bmp"]
+    const imageTypes = ["image/gif", "image/x-png", "image/png", "image/jpeg", "image/bmp"]
     const isImage = imageTypes.some(item => item === file.mime)
       const file_info = {
         mime:file.mime,
