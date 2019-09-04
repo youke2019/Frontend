@@ -27,7 +27,13 @@ const shadowOpt = {
 class Home extends React.Component {
   state = {
     patchNum: 0,
-    notice_visible: false
+    notice_visible: false,
+    open_notice: {
+      image_url: null,
+      time: null,
+      content: null,
+      admin_id: null
+    }
   }
 
   componentDidMount () {
@@ -41,7 +47,7 @@ class Home extends React.Component {
         console.log(response)
         this.setState({
           all_recommends: response.data.map((item, index) => {
-            item.uri = 'recommend_' + (index % 3 + 1)
+            item.uri = 'recommend_' + (index % 8)
             return item
           })
         })
@@ -56,7 +62,15 @@ class Home extends React.Component {
         console.log(response)
       })
       .catch(err => console.log(err))
-
+    /* load 10 recent notices when loading*/
+    getNotices(10)
+      .then(response => {
+        console.log(response.data)
+        this.setState({
+          notices: response.data
+        })
+      })
+      .catch(err => console.log(err))
   }
 
   gotoDetail = (course_id) => {
@@ -70,10 +84,8 @@ class Home extends React.Component {
       patchNum: patchNum < (MaxPatchNum / 3 - 1) ? patchNum + 1 : 0
     })
   }
-
   render () {
     const {
-      main_pictures = ['attention', 'cover_3', 'cover_0'],
       hots = [{
         uri: 'course',
         course_name: '',
@@ -89,7 +101,9 @@ class Home extends React.Component {
       }],
       all_recommends = [],
       patchNum,
-      notice_visible
+      notice_visible,
+      notices = [],
+      open_notice
     } = this.state
     const recommends = all_recommends.slice(patchNum * 3, patchNum * 3 + 3)
     return (
@@ -97,17 +111,6 @@ class Home extends React.Component {
         <View style={styles.center_container}>
           <Modal
             isVisible={notice_visible}
-            onModalWillShow={() => {
-              /* get Notices when loading*/
-              getNotices(10)
-                .then(response => {
-                  console.log(response.data)
-                  this.setState({
-                    notices: response.data
-                  })
-                })
-                .catch(err => console.log(err))
-            }}
             onBackdropPress={() => { this.setState({ notice_visible: false })}}
             onBackButtonPress={() => { this.setState({ notice_visible: false })}}
             onSwipeComplete={() => { this.setState({ notice_visible: false })}}
@@ -116,30 +119,20 @@ class Home extends React.Component {
             swipeDirection={['up', 'down']}
           >
             <View style={{
-              paddingHorizontal: 20,
               flex: 0.8,
               backgroundColor: 'white',
               elevation: 2,
-              alignItems: 'center'
+              alignItems: 'center',
+              borderRadius: 10
             }}>
-              <ScrollView style={{ paddingVertical: 5,width:'100%' }}>
-                <View style={{ alignItems: 'center',width:'100%' }}>
-                  <Text style={{fontSize:20,fontWeight:'bold', fontFamily: '字魂107号-萌趣欢乐体',}}>公告</Text>
-                  {this.state.notices !== undefined ?
-                    this.state.notices.map((notice, index) => {
-                      return (
-                        <View key={index} style={{ alignItems: 'center' ,width:'100%'}}>
-                          <View style={{flexDirection:'row'}}>
-                            <Text style={{paddingRight:20}}>{index + 1}</Text>
-                            <Text>{notice.time}</Text>
-                          </View>
-                          <Image source={{uri:notice.image_url, width:"90%",height:150}}/>
-                          <Text style={{width:'90%'}}> {notice.content}</Text>
-                          {index !== this.state.notices.length - 1 && <Divider height={0.1}/>}
-                        </View>
-                      )
-                    }): null
-                  }
+              <ScrollView style={{ width: '100%' }}>
+                <View style={{ alignItems: 'center', width: '100%' }}>
+                  <Image source={{ uri: open_notice.image_url, width: '100%', height: 200 }}/>
+                  <Text
+                    style={{ paddingTop: 20, fontSize: 20, fontWeight: 'bold', fontFamily: '字魂107号-萌趣欢乐体' }}>公告</Text>
+                  <Text style={{ width: '80%' }}> {open_notice.content}</Text>
+                  <Text style={{ width: '80%', textAlign: 'right' }}>管理员{open_notice.admin_id}</Text>
+                  <Text style={{ width: '80%', textAlign: 'right' }}>{open_notice.time}</Text>
                 </View>
               </ScrollView>
             </View>
@@ -153,24 +146,28 @@ class Home extends React.Component {
             style={styles.slider_container}
           >
             {
-              main_pictures.length &&
-              <Carousel
-                ref={(c) => { this._carousel = c }}
-                data={main_pictures}
-                renderItem={({ item, index }) => {
-                  return (
-                    <TouchableOpacity
-                      activeOpacity={0.95}
-                      onPress={() => {
-                        if (item === 'attention') this.setState({ notice_visible: true })
-                      }}
-                    >
-                      <Image key={index} source={{ uri: item }} style={styles.slider_pic}/>
-                    </TouchableOpacity>)
-                }}
-                sliderWidth={350}
-                itemWidth={300}
-              />
+              notices.length > 0 ?
+                <Carousel
+                  ref={(c) => { this._carousel = c }}
+                  data={notices}
+                  renderItem={({ item, index }) => {
+                    return (
+                      <TouchableOpacity
+                        key={index}
+                        activeOpacity={0.95}
+                        onPress={() => {
+                          this.setState({
+                            notice_visible: true,
+                            open_notice: item
+                          })
+                        }}
+                      >
+                        <Image source={{ uri: item.image_url }} style={styles.slider_pic}/>
+                      </TouchableOpacity>)
+                  }}
+                  sliderWidth={350}
+                  itemWidth={300}
+                /> : null
             }
           </View>
           <View style={styles.hot_header}>
