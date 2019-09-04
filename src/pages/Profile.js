@@ -9,6 +9,7 @@ import {
 import {Avatar} from 'react-native-elements'
 import {connect} from "react-redux";
 import ListItem from "../components/ListItem"
+import axios from "axios";
 
 const mapStateToProps = state => {
     return {
@@ -56,8 +57,16 @@ class Profile extends React.Component {
         })
     }
 
-    postFeedback = () => {
-
+    postFeedback = (content) => {
+        axios.post(baseUrl+ "/users/feedback/add",{
+            user_id: this.props.user.id,
+            content: content
+        }).then((response)=> {
+            if (response.data.success != true)
+                console.log(err)
+        }).catch(err=>{
+            console.log(err)
+        })
     }
 
     render() {

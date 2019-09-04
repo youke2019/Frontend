@@ -28,6 +28,7 @@ class Edit extends React.Component {
         this.props.navigation.state.params.onConfirm(this.state.text)
         this.props.navigation.goBack()
     }
+
     render() {
         const {
             navigation,
@@ -38,6 +39,7 @@ class Edit extends React.Component {
             returnText = '保存',
             title = '修改'
         } = this.state
+
         return (
             <View style={styles.container}>
                 <StackNavBar
