@@ -317,6 +317,7 @@ const styles = StyleSheet.create({
   comment_item: {
     flexDirection: 'row',
     marginBottom: 3,
+    alignItems: 'center',
   },
   comment_user_id: {
     fontSize: 14,
