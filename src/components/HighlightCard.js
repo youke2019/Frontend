@@ -124,89 +124,95 @@ class HighlightCard extends React.Component {
           enableSwipeDown
         />
         </Modal>
-        <UserAvatarImg
-          style={styles.avatar}
-          img_style={styles.avatar_img}
-          user_id={data.user_id}
-        />
-        <View style={styles.main_part}>
-          <View style={styles.main_header}>
-            <UserIdText style={styles.user_id} user_id={data.user_id}/>
-            <Text> {data.post_time} </Text>
-          </View>
-          <View style={styles.main_body}>
-            <ReadMore
-              numberOfLines={5}
-              renderTruncatedFooter={this._renderTruncatedFooter}
-              renderRevealedFooter={this._renderRevealedFooter}
-              onReady={this._handleTextReady}>
-              <Text style={styles.main_text_style}>{data.post_text}</Text>
-            </ReadMore>
-            { /* reason for warning here, not available url will cause warning, because height can not be measured*/
-              data.video_type === 'i' && data.image_url !== '' ?
-                <View style={{ width: '100%', height: 'auto', flexDirection: 'row', justifyContent: 'flex-start' }}>
-                  <TouchableOpacity
-                    onPress={this.openImgViewer}
-                  >
-                    <Image source={{ uri: data.image_url }} style={{
-                      width: 150,
-                      height: 250,
-                      resizeMode: 'cover',
-                      borderRadius: 10,
-                      overflow: 'hidden',
-                      backgroundColor:'lightgrey'
-                    }}/>
-                  </TouchableOpacity>
-                </View>
-                :
-               data.video_type === 'v' && data.video_url !== '' ?
-                  <View style={{ width: '100%', height: 200, flexDirection: 'row', justifyContent: 'flex-start' }}>
-                    <TouchableOpacity
-                      onPress={this.openVideo}
-                    >
-                      <Video
-                        source={{ uri: data.video_url }}
-                        ref={(ref) => {this.player = ref}}
-                        paused={true}
-                        muted={true}
-                        onError={this.videoError}
-                        style={styles.backgroundVideo}
-                      />
-                    </TouchableOpacity>
-                  </View> : null
+        <View style={styles.main}>
+          <UserAvatarImg
+              style={styles.avatar}
+              img_style={styles.avatar_img}
+              user_id={data.user_id}
+          />
+          <View style={styles.main_part}>
+            <View style={styles.main_header}>
+              <UserIdText style={styles.user_id} user_id={data.user_id}/>
+            </View>
+            <View style={styles.main_body}>
+              <View style={{marginBottom:18, marginTop:5,}}>
+                <ReadMore
+                    numberOfLines={5}
+                    renderTruncatedFooter={this._renderTruncatedFooter}
+                    renderRevealedFooter={this._renderRevealedFooter}
+                    onReady={this._handleTextReady}>
+                  <Text style={styles.main_text_style}>{data.post_text}</Text>
+                </ReadMore>
+              </View>
+              { /* reason for warning here, not available url will cause warning, because height can not be measured*/
+                data.video_type === 'i' && data.image_url !== '' ?
+                    <View style={{ width: '100%', height: 'auto', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                      <TouchableOpacity
+                          onPress={this.openImgViewer}
+                      >
+                        <Image source={{ uri: data.image_url }} style={{
+                          width: 150,
+                          height: 250,
+                          resizeMode: 'cover',
+                          borderRadius: 10,
+                          overflow: 'hidden',
+                          backgroundColor:'lightgrey'
+                        }}/>
+                      </TouchableOpacity>
+                    </View>
+                    :
+                    data.video_type === 'v' && data.video_url !== '' ?
+                        <View style={{ width: '100%', height: 200, flexDirection: 'row', justifyContent: 'flex-start' }}>
+                          <TouchableOpacity
+                              onPress={this.openVideo}
+                          >
+                            <Video
+                                source={{ uri: data.video_url }}
+                                ref={(ref) => {this.player = ref}}
+                                paused={true}
+                                muted={true}
+                                onError={this.videoError}
+                                style={styles.backgroundVideo}
+                            />
+                          </TouchableOpacity>
+                        </View> : null
 
-            }
+              }
+            </View>
+            <View style={{padding: 5}}>
+              <Text style={{fontSize: 12}}> {data.post_time} </Text>
+            </View>
           </View>
-          <View style={styles.main_bottom}>
-            <TouchableOpacity
+        </View>
+        <View style={styles.main_bottom}>
+          <TouchableOpacity
               style={{ flexDirection: 'row', alignItems: 'center' }}
               onPress={this.onPressComment}
-            >
-              <Image source={{ uri: 'comment_yellow' }} style={{ width: 30, height: 30, marginRight: 5 }}/>
-              <Text>评论</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
+          >
+            <Image source={{ uri: 'comment_yellow' }} style={{ width: 30, height: 30, marginRight: 5 }}/>
+            <Text>评论</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
               style={{ flexDirection: 'row', alignItems: 'center' }}
               onPress={this.onPressLike}
-            >
-              <Image source={{ uri: 'like_yellow' }} style={{ width: 30, height: 30, marginRight: 5 }}/>
-              <Text style={liked ? {
-                color: 'orange',
-                fontSize: 15
-              } : { fontSize: 15 }}>{likeNum + liked - likeOrigin}</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.comment_area}>
-            {
-              data.courseMomentCommentList.map((item, index) => {
-                return item.isbanned ? null : (
+          >
+            <Image source={{ uri: 'like_yellow' }} style={{ width: 30, height: 30, marginRight: 5 }}/>
+            <Text style={liked ? {
+              color: 'orange',
+              fontSize: 15
+            } : { fontSize: 15 }}>{likeNum + liked - likeOrigin}</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.comment_area}>
+          {
+            data.courseMomentCommentList.map((item, index) => {
+              return item.isbanned ? null : (
                   <View style={styles.comment_item} key={index}>
                     <UserIdText user_id={item.user_id} style={styles.comment_user_id}/>
                     <Text style={styles.comment_text}>{': ' + item.video_comment_content}</Text>
                   </View>)
-              })
-            }
-          </View>
+            })
+          }
         </View>
       </View>
     )
@@ -237,9 +243,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 5,
     paddingTop: 10,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'flex-start'
   },
   container: {
     flexDirection: 'row'
@@ -253,12 +256,17 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20
   },
+  main: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
   main_part: {
     flexDirection: 'column',
     flex: 1,
     height: '100%',
     marginHorizontal: 10,
-    paddingTop: 15
+    paddingTop: 10,
   },
   main_header: {
     flexDirection: 'row',
@@ -267,13 +275,11 @@ const styles = StyleSheet.create({
   user_id: {
     fontSize: 15,
     fontWeight: 'bold',
-    width: 120
   },
   main_body: {
     paddingVertical: 5
   },
   main_text_style: {
-    paddingVertical: 5,
     lineHeight: 20,
     fontSize: 16,
     fontWeight: '100',
@@ -282,8 +288,7 @@ const styles = StyleSheet.create({
   },
   main_bottom: {
     paddingVertical: 10,
-    paddingHorizontal: 10,
-    width: '100%',
+    paddingHorizontal: 30,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center'
@@ -305,10 +310,12 @@ const styles = StyleSheet.create({
     height: 20
   },
   comment_area: {
-    borderRadius: 5
+    borderRadius: 5,
+    marginHorizontal: 6,
   },
   comment_item: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom: 3,
   },
   comment_user_id: {
     fontSize: 14,
@@ -317,7 +324,6 @@ const styles = StyleSheet.create({
   comment_text: {
     fontSize: 14,
     lineHeight: 18,
-    width: '79%'
   },
   backgroundVideo: {
     width: 200,
