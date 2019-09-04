@@ -28,6 +28,7 @@ class Home extends React.Component {
   state = {
     patchNum: 0,
     notice_visible: false,
+    guide_visible:false,
     open_notice: {
       image_url: null,
       time: null,
@@ -102,6 +103,7 @@ class Home extends React.Component {
       all_recommends = [],
       patchNum,
       notice_visible,
+      guide_visible,
       notices = [],
       open_notice
     } = this.state
@@ -109,6 +111,15 @@ class Home extends React.Component {
     return (
       <ScrollView>
         <View style={styles.center_container}>
+          <Modal
+            isVisible={guide_visible}
+            backdropOpacity={1}
+            backdropColor={"white  n"}
+          >
+            <View style={{ flex: 1, backgroundColor:'white'}}>
+              <Text>Hello!</Text>
+            </View>
+          </Modal>
           <Modal
             isVisible={notice_visible}
             onBackdropPress={() => { this.setState({ notice_visible: false })}}
@@ -140,6 +151,16 @@ class Home extends React.Component {
           <View style={styles.main_header_container}>
             <Text style={styles.main_header}> Yoke 有课 </Text>
             <Text style={styles.main_subheader}> 上海交通大学课程分享平台</Text>
+            <TouchableOpacity
+              style={{ position:'absolute', right:30,top:10,}}
+              onPress={()=>{
+                this.setState({
+                  guide_visible:true,
+                })
+              }}
+            >
+              <Image source={{uri:'question_mark'}} style={{width:30,height:30}}/>
+            </TouchableOpacity>
           </View>
           <Divider style={styles.main_header_divider}/>
           <View
@@ -249,6 +270,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   main_header_container: {
+    width:'100%',
     justifyContent: 'center',
     alignItems: 'center'
   },
