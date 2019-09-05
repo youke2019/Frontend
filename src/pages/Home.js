@@ -29,7 +29,6 @@ class Home extends React.Component {
     patchNum: 0,
     receivedNum:0,
     notice_visible: false,
-    guide_visible:false,
     open_notice: {
       image_url: null,
       time: null,
@@ -105,7 +104,6 @@ class Home extends React.Component {
       all_recommends = [],
       patchNum,
       notice_visible,
-      guide_visible,
       notices = [],
       open_notice
     } = this.state
@@ -113,15 +111,6 @@ class Home extends React.Component {
     return (
       <ScrollView>
         <View style={styles.center_container}>
-          <Modal
-            isVisible={guide_visible}
-            backdropOpacity={1}
-            backdropColor={"white  n"}
-          >
-            <View style={{ flex: 1, backgroundColor:'white'}}>
-              <Text>Hello!</Text>
-            </View>
-          </Modal>
           <Modal
             isVisible={notice_visible}
             onBackdropPress={() => { this.setState({ notice_visible: false })}}
@@ -156,9 +145,7 @@ class Home extends React.Component {
             <TouchableOpacity
               style={{ position:'absolute', right:30,top:10,}}
               onPress={()=>{
-                this.setState({
-                  guide_visible:true,
-                })
+                this.props.navigation.navigate("Guide")
               }}
             >
               <Image source={{uri:'question_mark'}} style={{width:30,height:30}}/>

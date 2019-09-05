@@ -39,6 +39,7 @@ import ProfileSetting from './src/pages/ProfileSetting'
 import About from './src/pages/About'
 import {StatusBar,View} from "react-native";
 import StackNavBar from "./src/components/StackNavBar";
+import Guide from './src/pages/Guide'
 
 const store = createStore(combinedReducer,initialState)
 const DetailNavigator=createStackNavigator({
@@ -231,6 +232,7 @@ const TabNavigator = createBottomTabNavigator(
 
 const SwitchNavigator = createSwitchNavigator({
   Login: { screen: Login },
+  Guide: {screen : Guide},
   App: TabNavigator
 })
 
