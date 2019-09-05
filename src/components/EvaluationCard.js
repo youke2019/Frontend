@@ -19,7 +19,7 @@ class EvaluationCard extends React.Component {
     componentWillMount() {
         let detail = []
         for (let item in this.props.evaluation.evaluate_content)
-            if (item != 'course_id' && item != 'user_id' && item != 'credit_point' && item != '课程简述' && item != 'evaluate_id')
+            if (item != 'course_id' && item != 'user_id' && item != 'evaluate_point' && item != '课程简述' && item != 'evaluate_id')
                 detail.push({
                     title: item,
                     content: this.props.evaluation.evaluate_content[item]
@@ -95,7 +95,7 @@ class EvaluationCard extends React.Component {
                             <UserAvatarImg
                                 style={styles.avatar}
                                 img_style={styles.avatar_img}
-                                user_id={data.user_id}
+                                user_id={evaluation.user_id}
                             />
                             <UserIdText
                                 style={styles.user_name}
@@ -201,7 +201,16 @@ const styles = StyleSheet.create({
     arrow:{
         width: 15,
         height: 15,
-    }
+    },
+    avatar: {
+        flexDirection: 'column',
+        justifyContent: 'flex-start'
+    },
+    avatar_img: {
+        width: 40,
+        height: 40,
+        borderRadius: 20
+    },
 })
 
 export default EvaluationCard
