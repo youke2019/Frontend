@@ -29,7 +29,8 @@ class HighlightCard extends React.Component {
       reply_visible: false,
       image_visible: false,
       liked: props.data.current_user_praise,
-      likeOrigin: props.data.current_user_praise
+      likeOrigin: props.data.current_user_praise,
+      video_pause: true,
     })
   }
   componentWillReceiveProps (nextProps, nextContext) {
@@ -92,10 +93,12 @@ class HighlightCard extends React.Component {
   videoError = (err) => {
     console.log(err)
   }
-  openVideo = () => {
-
+  clickVideo = () => {
+    const {video_pause} = this.state
+    this.setState({
+      video_pause: !video_pause
+    })
   }
-
   render () {
     const { data } = this.props
     const { liked, likeOrigin, reply_visible, image_visible } = this.state
@@ -123,8 +126,7 @@ class HighlightCard extends React.Component {
           onCancel={this.closeImgViewer}
           saveToLocalByLongPress={false}
           enableSwipeDown
-        />
-        </Modal>
+        /></Modal>
         <View style={styles.main}>
           <UserAvatarImg
               style={styles.avatar}
@@ -150,10 +152,11 @@ class HighlightCard extends React.Component {
                     <View style={{ width: '100%', height: 'auto', flexDirection: 'row', justifyContent: 'flex-start' }}>
                       <TouchableOpacity
                           onPress={this.openImgViewer}
+                          style={{width:'100%',height:"auto"}}
                       >
                         <Image source={{ uri: data.image_url }} style={{
-                          width: 150,
-                          height: 250,
+                          width: "75%",
+                          height: 200,
                           resizeMode: 'cover',
                           borderRadius: 10,
                           overflow: 'hidden',
@@ -162,16 +165,19 @@ class HighlightCard extends React.Component {
                       </TouchableOpacity>
                     </View>
                     :
-                    data.video_type === 'v' && data.video_url !== '' ?
-                        <View style={{ width: '100%', height: 200, flexDirection: 'row', justifyContent: 'flex-start' }}>
+                    data.video_type === "v" && data.video_url !== '' ?
+                        <View style={{ width: '100%', height: 200, flexDirection: 'row', justifyContent: 'flex-start', }}>
                           <TouchableOpacity
-                              onPress={this.openVideo}
+                              onPress={this.clickVideo}
+                              style={{width:'100%'}}
                           >
                             <Video
                                 source={{ uri: data.video_url }}
                                 ref={(ref) => {this.player = ref}}
-                                paused={true}
-                                muted={true}
+                                paused={this.state.video_pause}
+                                resizeMode={"cover"}
+                                poster={"loading"}
+                                posterResizeMode={"center"}
                                 onError={this.videoError}
                                 style={styles.backgroundVideo}
                             />
@@ -268,6 +274,7 @@ const styles = StyleSheet.create({
     height: '100%',
     marginHorizontal: 10,
     paddingTop: 10,
+    width:'100%',
   },
   main_header: {
     flexDirection: 'row',
@@ -278,7 +285,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   main_body: {
-    paddingVertical: 5
+    paddingVertical: 5,
+    width:'100%'
   },
   main_text_style: {
     lineHeight: 20,
@@ -328,10 +336,10 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   backgroundVideo: {
-    width: 200,
-    height: 200,
-    left:0,
+    width: "90%",
+    height: "100%",
     borderRadius:10,
+    backgroundColor:'lightgrey'
   }
 })
 
