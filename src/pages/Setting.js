@@ -1,7 +1,7 @@
 import React from "react";
 import {Button} from "react-native-elements";
-import {Image, StyleSheet, Text, View} from "react-native";
-import {clearUserInfo} from "../redux/actions";
+import {Image, Linking, StyleSheet, Text, View} from "react-native";
+import {clearUserInfo, setLogin} from "../redux/actions";
 import {connect} from "react-redux";
 import StackNavBar from "../components/StackNavBar";
 
@@ -16,7 +16,10 @@ const mapDispatchToProps = dispatch => {
     return {
         clearUserInfo: () => {
             dispatch(clearUserInfo())
-        }
+        },
+        readyToLogin:()=>{
+            dispatch(setLogin())
+        },
     }
 }
 
@@ -36,8 +39,14 @@ class Setting extends React.Component {
         storage.remove({
             key:'user'
         }).then(() => {
-            this.props.navigation.navigate('Login')
             this.props.clearUserInfo()
+            this.props.readyToLogin();
+            Linking.openURL('https://jaccount.sjtu.edu.cn/oauth2/logout'+
+                '?client_id=k8vX4aeVqZc0VCP1rSaG'+
+                '&post_logout_redirect_uri=https://jaccount.sjtu.edu.cn/oauth2/authorize'+
+                    '%3Fclient_id%3Dk8vX4aeVqZc0VCP1rSaG'+
+                    '%26response_type%3Dcode'+ '%26redirect_uri%3D'
+                    +baseUrl+'/jaccount/login').catch((err) => console.error("linking error",err))
         }).catch((err) => {
             console.log(err)
         })
