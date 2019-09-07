@@ -37,16 +37,18 @@ class Guide extends React.Component {
         {
           guides.map((item,index)=>{
            return  (<View key={index.toString()} >
-              <Text style={styles.title}>{item.title}</Text>
-              <TouchableOpacity
-                style={styles.back}
-                onPress={()=>{
-                  console.log(this.props.navigation)
-                  this.props.navigation.navigate("Home")}}
-              >
-                <Text style={styles.back_font}> 跳过</Text>
-              </TouchableOpacity>
-              <ScrollView style={{width:'100%',height:'auto'}}>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={styles.title}>{item.title}</Text>
+                <TouchableOpacity
+                    style={styles.back}
+                    onPress={()=>{
+                      console.log(this.props.navigation)
+                      this.props.navigation.navigate("Home")}}
+                >
+                  <Text style={styles.back_font}> 跳过</Text>
+                </TouchableOpacity>
+              </View>
+              <ScrollView style={{width:'100%',height:'auto',marginTop: 5,}}>
                 <View style={{width:'100%'}}>
                   {
                     item.uri.map((uri,index) => <Image style={styles.image} source={{uri:uri}} key = {index.toString()}/>)
@@ -65,18 +67,16 @@ class Guide extends React.Component {
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    marginTop:25,
+    marginTop:30,
   },
   viewPager:{
     flex:1,
   },
   title:{
-    position:'absolute',
-    zIndex:1000,
-    top:5,
-    width:'100%',
+    flex:3,
     textAlign: "center",
-    fontSize:25,
+    fontSize:24,
+    paddingLeft: 90,
     fontFamily: '字魂107号-萌趣欢乐体',
   },
   image:{
@@ -85,17 +85,17 @@ const styles = StyleSheet.create({
     flex:1
   },
   back:{
-    position:'absolute',
-    zIndex:1000,
-    right:20,
-    top:5,
-    borderRadius:5,
-    borderWidth:0.5,
-    borderColor:"whitesmoke"
+    flex:1,
+    borderRadius:20,
+    borderWidth: 2,
+    borderColor:"whitesmoke",
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 16,
   },
   back_font:{
     textAlign: "center",
-    fontSize:20,
+    fontSize:16,
   }
 
 })
