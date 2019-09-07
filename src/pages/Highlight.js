@@ -134,19 +134,19 @@ const styles = StyleSheet.create({
   header_center: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'flex-end'
   },
   header_center_img: {
-    height: 35,
-    width: 35,
-    marginRight: 10
+    height: 30,
+    width: 30,
+    marginRight: 4
   },
   camera: {
-    height: 35,
-    width: 35
+    height: 30,
+    width: 30
   },
   top_right_touchable: {
-    marginLeft: 80,
+    marginLeft: 64,
     marginRight: 20
   },
   divider: {

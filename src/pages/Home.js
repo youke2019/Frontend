@@ -13,15 +13,15 @@ import Modal from 'react-native-modal'
 const MaxPatchNum = 30
 const HottestNum = 3
 const shadowOpt = {
-  width: 111,
-  height: 160,
+  width: 120,
+  height: 120,
   color: '#FDD32A',
-  border: 5,
-  radius: 3,
-  opacity: 0.1,
+  border: 15,
+  radius: 2,
+  opacity: 0.08,
   x: 0.5,
-  y: 1.5,
-  style: { width: '31%', marginVertical: 5, marginHorizontal: 2 }
+  y: 1.0,
+  style: { width: '30%', marginVertical: 5}
 }
 
 class Home extends React.Component {
@@ -129,7 +129,10 @@ class Home extends React.Component {
             }}>
               <ScrollView style={{ width: '100%' }}>
                 <View style={{ alignItems: 'center', width: '100%' }}>
-                  <Image source={{ uri: open_notice.image_url, width: '100%', height: 200 }}/>
+                  <Image
+                      source={{ uri: open_notice.image_url}}
+                      style={{width: '98%', height: 200, borderRadius: 15, marginTop: 4}}
+                  />
                   <Text
                     style={{ paddingTop: 20, fontSize: 20, fontWeight: 'bold', fontFamily: '字魂107号-萌趣欢乐体' }}>公告</Text>
                   <Text style={{ width: '80%' }}> {open_notice.content}</Text>
@@ -143,10 +146,10 @@ class Home extends React.Component {
             <Text style={styles.main_header}> Yoke 有课 </Text>
             <Text style={styles.main_subheader}> 上海交通大学课程分享平台</Text>
             <TouchableOpacity
-              style={{ position:'absolute', right:30,top:10,}}
-              onPress={()=>{
-                this.props.navigation.navigate("Guide")
-              }}
+                style={{ position:'absolute', right:30,top:18,}}
+                onPress={()=>{
+                  this.props.navigation.navigate("Guide")
+                }}
             >
               <Image source={{uri:'question_mark'}} style={{width:30,height:30}}/>
             </TouchableOpacity>
@@ -228,7 +231,7 @@ class Home extends React.Component {
               <Image source={{ uri: 'home_change_0' }} style={{ width: 25, height: 25, marginRight: 25 }}/>
             </TouchableOpacity>
           </View>
-          <Text style={{ width: '100%', paddingLeft: 50, fontSize: 12 }}>评测、打分越多，推荐越准哦</Text>
+          <Text style={{ width: '100%', paddingLeft: 50, fontSize: 12,paddingBottom: 10, }}>评测、打分越多，推荐越准哦</Text>
           {
             recommends.map((item, index) => {
               return <TouchableOpacity
@@ -252,7 +255,7 @@ class Home extends React.Component {
 const styles = StyleSheet.create({
 
   center_container: {
-    paddingTop: 30,
+    paddingTop: 18,
     paddingBottom: 50,
     height: 'auto',
     alignItems: 'center',
@@ -260,28 +263,28 @@ const styles = StyleSheet.create({
   },
   main_header_container: {
     width:'100%',
-    justifyContent: 'center',
     alignItems: 'center'
   },
   main_header: {
     textAlign: 'center',
-    fontFamily: '字魂107号-萌趣欢乐体',
-    fontSize: 30,
-    marginBottom: -7
+    fontFamily: '字魂70号-灵悦黑体',
+    fontSize: 24,
   },
   main_subheader: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 10,
+    margin: 5,
   },
   main_header_divider: {
     marginBottom: 10,
-    height: 1,
-    width: '80%',
+    height: 1.2,
+    width: '100%',
     backgroundColor: 'whitesmoke'
   },
   slider_container: {
     height: 160,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   slider_pic: {
     width: 300,
@@ -292,20 +295,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
+    paddingTop: 15,
+    paddingBottom: 8,
   },
   hot_body: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '90%'
+    width: '90%',
   },
   hot_item: {
-    height: '100%',
-    width: '100%',
-    borderRadius: 10,
+    height: '96%',
+    width: '98%',
+    borderRadius: 15,
     backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     paddingTop: 10
   },
   hot_img: {
@@ -321,23 +326,23 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   recommend_body: {
-    width: '100%',
+    width: '95%',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   },
   recommend_img: {
     width: '100%',
     borderRadius: 10,
-    height: 150
+    height: 140
   },
   recommend_text: {
-    width: '90%',
+    width: '80%',
     textAlign: 'left',
     fontSize: 15,
     fontWeight: 'bold',
-    marginTop: 4,
-    marginBottom: 20
+    marginTop: 10,
+    marginBottom: 27
   }
 })
 
