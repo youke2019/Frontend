@@ -80,12 +80,12 @@ class Login extends React.Component {
         let [,access_token] = url.match(/\?access_token=(.*)/)
 
         axios.get('https://api.sjtu.edu.cn/v1/me/lessons?access_token='+access_token).then((response) => {
+            console.log(response.data)
             saveData({
                 key: 'lessons',
                 data: response.data.entities
             }).then(() => {
                 axios.get(baseUrl+'/jaccount/profile?access_token='+access_token).then((response) => {
-                    console.log(response.data)
                     this.props.updateUserInfo(response.data)
                     this.props.navigation.navigate('Home')
                 })}).catch(error => {

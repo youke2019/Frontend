@@ -6,6 +6,7 @@ import {
     ImageBackground,
     Text,
     TouchableWithoutFeedback,
+    TouchableOpacity
 } from "react-native";
 import {Button, Input} from "react-native-elements"
 import Drawer from '../components/Drawer'
@@ -219,15 +220,17 @@ class Courses extends React.Component {
                                 textChange={this.updateKeyword}
                             />
                             <View style={{width: 300}}>
-                                <View style={styles.button_container}>
+                                <TouchableOpacity
+                                    style={styles.button_container}
+                                    onPress={this.search}
+                                >
                                     <Button
                                         containerStyle={styles.button}
                                         titleStyle={{fontSize: 20, color: 'black', fontFamily: '字魂95号-手刻宋'}}
-                                        onPress={this.search}
                                         type="clear"
                                         title="搜索"
                                     />
-                                </View>
+                                </TouchableOpacity>
                                 <Button
                                     icon={<Image
                                         style={styles.filter}

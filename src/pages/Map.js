@@ -97,7 +97,6 @@ class Map extends React.Component {
     }
 
     scheduleProcess = (data,week) => {
-        let date = new Date()
         let schedule = getWeekClassTable(data,week)[0]
         let scheduleProcessed = []
         let timePeriod = 0
