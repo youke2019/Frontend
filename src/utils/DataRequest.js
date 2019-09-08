@@ -63,7 +63,7 @@ export const sendHighlightImg = (file) => {
   formData.append('file', file)
   console.log(JSON.stringify(formData))
   return axios({
-    url: baseUrl + '/courses/moments/upload',
+    url: "http://47.103.30.166:8080" + '/courses/moments/upload',
     method: 'POST',
     withCredential: true,
     data: formData
