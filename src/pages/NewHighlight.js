@@ -180,6 +180,7 @@ export default class NewHighlight extends Component {
                     onLongPress={() => {
                       this.deleteImg(index)
                     }}
+                    delayLongPress={500}
                     key={index}
                     style={styles.img_button}>
                     <Image source={{ uri: source.uri }} style={styles.user_img}/>
