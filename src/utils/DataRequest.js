@@ -61,7 +61,6 @@ export const commentHighlight = (user_id, video_id, content) => {
 export const sendHighlightImg = (file) => {
   let formData = new FormData()
   formData.append('file', file)
-  console.log(JSON.stringify(formData))
   return axios({
     url: "http://47.103.30.166:8080" + '/courses/moments/upload',
     method: 'POST',
@@ -74,7 +73,7 @@ export const sendAvatarImg = (file) => {
   formData.append('file', file)
   console.log(JSON.stringify(formData))
   return axios({
-    url: baseUrl + '/users/avatar/upload',
+    url: 'http://47.103.30.166:8080' + '/users/avatar/upload',
     method: 'POST',
     withCredential: true,
     data: formData
