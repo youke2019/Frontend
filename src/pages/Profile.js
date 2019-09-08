@@ -115,10 +115,10 @@ class Profile extends React.Component {
                             image='feedback'
                             onPress={this.editFeedback}
                         />
-                        <ListItem
-                            text='推荐给好友'
-                            image='recommend'
-                        />
+                        {/*<ListItem*/}
+                        {/*    text='推荐给好友'*/}
+                        {/*    image='recommend'*/}
+                        {/*/>*/}
                         <ListItem
                             text='关于'
                             image='about'
