@@ -14,7 +14,7 @@ const MaxPatchNum = 30
 const HottestNum = 3
 const shadowOpt = {
   width: 120,
-  height: 120,
+  height: 140,
   color: '#FDD32A',
   border: 15,
   radius: 2,
@@ -305,23 +305,22 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   hot_item: {
-    height: '96%',
+    height: '100%',
     width: '98%',
     borderRadius: 15,
     backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'center',
     paddingTop: 10
   },
   hot_img: {
     width: '85%',
-    height: '72%',
+    height: '60%',
     borderRadius: 10
   },
   hot_text: {
     textAlign: 'center',
     textAlignVertical: 'center',
-    marginVertical: 3,
+    marginTop: 9,
     fontSize: 14,
     fontWeight: 'bold'
   },
