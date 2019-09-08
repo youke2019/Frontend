@@ -24,7 +24,8 @@ class ReplyBox extends React.Component {
     const {
       onBackdropPress = () => {},
       onReplyDone = () => {},
-      visible = false
+      visible = false,
+      placeholder="点击输入回复"
     } = this.props
 
     return (
@@ -47,7 +48,7 @@ class ReplyBox extends React.Component {
               <View style={styles.search_container}>
                 <TextInput
                   autoFocus={true}
-                  placeholder={'点击输入回复'}
+                  placeholder={placeholder}
                   style={styles.search_text}
                   onChangeText={this.updateKeyword}
                   value={this.state.keyword}

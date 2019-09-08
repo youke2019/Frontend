@@ -3,21 +3,21 @@ import {
   View,
   Text,
   Image,
-  ImageBackground,
+  Picker,
   StyleSheet,
   TouchableOpacity,
   Modal
 } from 'react-native'
+
 import { connect } from 'react-redux'
-import axios from 'axios'
 import Video from 'react-native-video'
 import ReplyBox from './ReplyBox'
 import ReadMore from 'react-native-read-more'
 import ImageViewer from 'react-native-image-zoom-viewer'
 import { UserIdText } from './UserIdText'
 import { UserAvatarImg } from './UserAvatarImg'
-import { commentHighlight, praiseHighlight, unPraiseHighlight } from '../utils/DataRequest'
-
+import { commentHighlight, praiseHighlight, sendVideoReport, unPraiseHighlight } from '../utils/DataRequest'
+import Menu, { MenuDivider, MenuItem } from 'react-native-material-menu'
 const mapStateToProps = (state) => ({
   user_info: state.user_info
 })
@@ -28,6 +28,7 @@ class HighlightCard extends React.Component {
     this.state = ({
       reply_visible: false,
       image_visible: false,
+      report_visible:false,
       liked: props.data.current_user_praise,
       likeOrigin: props.data.current_user_praise,
       video_pause: true,
@@ -65,8 +66,6 @@ class HighlightCard extends React.Component {
     })
   }
   onPressLike = () => {
-    console.log(this.props.user_id)
-    console.log(this.props.data.video_id)
     if (this.state.liked) {
       unPraiseHighlight(this.props.user_id, this.props.data.video_id)
         .then(response => {console.log(response)})
@@ -99,9 +98,35 @@ class HighlightCard extends React.Component {
       video_pause: !video_pause
     })
   }
+  _menu = null
+  setMenuRef = ref => {
+    this._menu = ref
+  }
+  hideMenu = () =>{
+    this._menu.hide()
+  }
+  showMenu = () =>{
+    this._menu.show()
+  }
+  closeReport= ()=>{
+    this.setState({
+      report_visible:false,
+    })
+  }
+  onReportDone=(msg)=>{
+    const {data} = this.props;
+    sendVideoReport(data.video_id,data.user_id,msg)
+      .then(response =>{
+        this.setState({
+          report_visible:false
+        })
+
+      })
+      .catch(err=> console.log(err))
+  }
   render () {
     const { data } = this.props
-    const { liked, likeOrigin, reply_visible, image_visible } = this.state
+    const { liked, likeOrigin, reply_visible, image_visible,report_visible } = this.state
     const images = [{
       url: data.image_url,
       props: {}
@@ -114,6 +139,12 @@ class HighlightCard extends React.Component {
           onBackdropPress={this.closeComment}
           onReplyDone={this.onReplyDone}
           visible={reply_visible}
+        />
+        <ReplyBox
+          onBackdropPress={this.closeReport}
+          onReplyDone={this.onReportDone}
+          visible={report_visible}
+          placeholder={"请输入举报原因"}
         />
         <Modal
           visible={image_visible}
@@ -190,6 +221,25 @@ class HighlightCard extends React.Component {
               <Text style={{fontSize: 12}}> {data.post_time} </Text>
             </View>
           </View>
+          <Menu
+            ref = {this.setMenuRef}
+            button={
+              <TouchableOpacity
+                style={{width:30,height:30,}}
+                onPress={this.showMenu}
+              >
+                <Image source ={{uri:"menu"}} style={{width:20,height:20,}}/>
+              </TouchableOpacity>
+            }
+          >
+            <MenuItem onPress={()=>{
+                this.setState({
+                  report_visible:true
+                })
+            }}>举报</MenuItem>
+            <MenuDivider/>
+            <MenuItem onPress={this.hideMenu}>收起</MenuItem>
+          </Menu>
         </View>
         <View style={styles.main_bottom}>
           <TouchableOpacity

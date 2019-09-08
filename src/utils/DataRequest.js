@@ -71,7 +71,6 @@ export const sendHighlightImg = (file) => {
 export const sendAvatarImg = (file) => {
   let formData = new FormData()
   formData.append('file', file)
-  console.log(JSON.stringify(formData))
   return axios({
     url: 'http://47.103.30.166:8080' + '/users/avatar/upload',
     method: 'POST',
@@ -182,6 +181,17 @@ export const getNotices = (number)=>{
     }
   })
 }
+export const sendVideoReport = (video_id,user_id,video_report_reason) =>{
+  return axios({
+    method: 'post',
+    url: baseUrl + "/report/report/moment",
+    data:{
+      video_id:video_id,
+      user_id: user_id,
+      video_report_reason: video_report_reason,
+    }
+  })
+}
 module.exports = {
   sendHighlightImg: sendHighlightImg,
   getAllHighlight: getAllHighlight,
@@ -202,4 +212,5 @@ module.exports = {
   getRecommend: getRecommend,
   getHottest: getHottest,
   getNotices: getNotices,
+  sendVideoReport: sendVideoReport,
 }
