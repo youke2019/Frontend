@@ -224,12 +224,9 @@ class Courses extends React.Component {
                                     style={styles.button_container}
                                     onPress={this.search}
                                 >
-                                    <Button
-                                        containerStyle={styles.button}
-                                        titleStyle={{fontSize: 20, color: 'black', fontFamily: '字魂95号-手刻宋'}}
-                                        type="clear"
-                                        title="搜索"
-                                    />
+                                    <View style={styles.button}>
+                                        <Text style={{fontSize: 20, color: 'black', fontFamily: '字魂95号-手刻宋'}}>搜索</Text>
+                                    </View>
                                 </TouchableOpacity>
                                 <Button
                                     icon={<Image
@@ -350,8 +347,8 @@ const styles = StyleSheet.create({
     },
     button:{
         backgroundColor: '#FDD32A',
-        paddingHorizontal: 50,
-        paddingVertical: 2,
+        paddingHorizontal: 55,
+        paddingVertical: 10,
         marginBottom: 16,
         borderRadius: 100,
     },
